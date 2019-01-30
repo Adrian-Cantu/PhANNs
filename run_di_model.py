@@ -73,9 +73,9 @@ class ann_result:
 
 		arr_pred=model.predict(arr)
 
-		col_names=["major capsid","minor capsid","baseplate",
-        	   	"major tail","minor tail","portal",
-         	   	"tail fiber","tail shaft","colar",
+		col_names=["Major capsid","Minor capsid","Baseplate",
+        	   	"Major tail","Minor tail","Portal",
+         	   	"Tail fiber","Tail shaft","Collar",
                    	"HTJ"]
 		table1=pd.DataFrame(data=arr_pred,
                 	index=names,

@@ -5,7 +5,9 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory , Markup
 #import requests as rqq
 import subprocess
-UPLOAD_FOLDER = '/home/ubuntu/ANN_site/uploads'
+
+ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
+UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'faa', 'fasta', 'gif', 'fa'])
 import urllib
 #from markupsafe import Markup
@@ -38,6 +40,8 @@ def return_html_table(filename):
                             stderr=subprocess.PIPE,
                             stdin=subprocess.PIPE)
         out,err = p.communicate()
+        print(err)
+
         return out
 
 
@@ -92,11 +96,12 @@ def uploaded_file(filename):
 #                            stdin=subprocess.PIPE)
 #	out,err = p.communicate()
 #	return out
-	return render_template('index.html', table_code= Markup(return_html_table(filename).decode('utf8')))
+#   print(return_html_table(filename).decode('utf8'))
+    return render_template('index.html', table_code= Markup(return_html_table(filename).decode('utf8')))
 
 @app.route('/result',methods=['POST'])
 def print_result():
-	net=ann_result('/home/ubuntu/ANN_site/uploads' + '/' + request.data['miname'])
+	net=ann_result(UPLOAD_FOLDER + '/' + request.data['miname'])
 	table=net.print_table()
 	#print(table)
 	return(table,500,'head')
