@@ -12,14 +12,27 @@ ALLOWED_EXTENSIONS = set(['txt', 'faa', 'fasta', 'gif', 'fa'])
 import urllib
 #from markupsafe import Markup
 
+#from werkzeug.contrib.fixers import ProxyFix
 
-
-
-
+from werkzeug.routing import Rule
 #from run_di_model import ann_result
 
 app = Flask(__name__)
+#app.wsgi_app = ProxyFix(app.wsgi_app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['APPLICATION_ROOT']='/adrian_net'
+#app.url_map._rules = SubPath(app.config['APPLICATION_ROOT'], app.url_map._rules)
+PREFIX=app.config['APPLICATION_ROOT'] 
+#app.url_rule_class = lambda path, **options: Rule(PREFIX + path, **options)
+
+#@app.context_processor()
+def fix_url_for(path, **kwargs):
+    return PREFIX + url_for(path, **kwargs)
+
+@app.context_processor
+def contex():
+    return dict(fix_url_for = fix_url_for)
+
 
 def unescape(s):
 	s = s.replace("&lt;", "<")
@@ -50,6 +63,11 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+@app.route('/test')
+def test_template():
+    return "mira un salmon"
+
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -66,19 +84,20 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
+            return redirect(fix_url_for('uploaded_file',
                                     filename=filename))
+    print( fix_url_for('upload_file'))
     return '''
     <!doctype html>
     <title>Upload new File</title>
     <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
+    <form method=post action="''' + fix_url_for('upload_file') + '''"  enctype=multipart/form-data>
       <input type=file name=file>
       <input type=submit value=Upload>
     </form>
     '''
 
-@app.route("/")
+#@app.route("/")
 def main():
 	return redirect(url_for('upload_file'))
 	#return render_template('index.html', table_code= Markup(return_html_table('A45_phage__orfs_wo_parens2.fasta').decode('utf8')))
@@ -89,6 +108,7 @@ def main():
 
 
 @app.route('/uploads/<filename>')
+#@app.route('/<empty>/uploads/<filename>')
 def uploaded_file(filename):
 #	cmd = ["python" , "run_di_model.py" , app.config['UPLOAD_FOLDER'] + '/' + filename]
 #	p = subprocess.Popen(cmd, stdout = subprocess.PIPE,
