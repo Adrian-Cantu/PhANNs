@@ -1,0 +1,13 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+	<script src="{{ fix_url_for('static', filename='sorttable.js') }}" type="text/javascript"></script>
+{% endblock JavaScript %}	
+
+{% block content %}
+    <h1>Upload new File</h1>
+    <form method=post action="{{fix_url_for('upload_file')}}"  enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+
+{% endblock content %}
