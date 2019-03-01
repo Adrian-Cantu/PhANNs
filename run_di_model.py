@@ -46,6 +46,7 @@ class ann_result:
 			else:
 				seq_name= record.id
 				names_dic[record.id]=1
+			#print(str(record.seq))
 			X = ProteinAnalysis(record.seq.__str__().replace('X','A').replace('J','L').replace('*',''))
 			tt= [X.isoelectric_point(), X.instability_index(),ll,X.aromaticity(),
      			X.molar_extinction_coefficient()[0],X.molar_extinction_coefficient()[1],
