@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=adrian
+Group=www-data
+WorkingDirectory=/home/adrian/ANN_site
+Environment="PATH=/home/adrian/anaconda3/envs/jup/bin"
+ExecStart=/home/adrian/anaconda3/envs/jup/bin/gunicorn --workers 20 --bind 0.0.0.0:8080 -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
+
