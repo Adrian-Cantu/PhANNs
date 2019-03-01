@@ -1,0 +1,18 @@
+server {
+    listen 80 default_server;
+    server_name edwards.sdsu.edu;
+	
+
+    location / {
+        include proxy_params;
+    	proxy_pass http://0.0.0.0:8080;
+	}
+
+	location /adrian_net/ {
+		proxy_set_header Host $host;
+		include proxy_params;
+		proxy_pass http://0.0.0.0:8080/;
+	}
+
+
+}
