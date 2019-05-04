@@ -9,3 +9,13 @@ gunicorn --workers 3 --bind 0.0.0.0:80 -m 007 wsgi:app
 #set and run gunicorn
 sudo cp ANN_site.service /etc/systemd/system/
 sudo systemctl start ANN_site
+
+#set nginx 
+sudo cp nginx_ANN_site /etc/nginx/sites-enabled/ANN_site
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
+
+
+#st firewall rules
+
+sudo ufw allow 'Nginx Full'

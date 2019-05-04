@@ -11,8 +11,7 @@ from Bio.Alphabet import IUPAC
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from scipy import stats
-from Bio.Alphabet import IUPAC
-
+from Bio.Alphabet import generic_dna, generic_protein
 import pickle
 from keras.models import Sequential
 from keras.layers import Dense
@@ -29,6 +28,8 @@ class ann_result:
 	def __init__(self, filename):
 		self.infile=filename
 
+	def prot_check(self, sequence):
+		return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
 
 	def print_table(self):
 	#from itertools import permutations
@@ -40,6 +41,9 @@ class ann_result:
 		for record in SeqIO.parse(self.infile, "fasta"):
 			ll=len(record.seq)
 			seq_name=''
+			if not self.prot_check(str(record.seq)):
+				print("Warning: " + record.id + " is not a valid protein sequence")
+				continue
 			if record.id in names_dic:
 				seq_name= record.id + '_' + str(names_dic[record.id])
 				names_dic[record.id]=names_dic[record.id]+1
@@ -47,7 +51,7 @@ class ann_result:
 				seq_name= record.id
 				names_dic[record.id]=1
 			#print(str(record.seq))
-			X = ProteinAnalysis(record.seq.__str__().replace('X','A').replace('J','L').replace('*',''))
+			X = ProteinAnalysis(record.seq.__str__().upper().replace('X','A').replace('J','L').replace('*',''))
 			tt= [X.isoelectric_point(), X.instability_index(),ll,X.aromaticity(),
      			X.molar_extinction_coefficient()[0],X.molar_extinction_coefficient()[1],
      			X.gravy()]
