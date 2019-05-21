@@ -4,6 +4,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from flask import send_from_directory , Markup
 import subprocess
+import pickle
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
@@ -12,7 +13,7 @@ import urllib
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['APPLICATION_ROOT']='/adrian_net'
+app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 
 def fix_url_for(path, **kwargs):
@@ -31,7 +32,7 @@ def sorttable_filter(s):
 
 
 def return_html_table(filename):
-    cmd = ["python" , "run_di_model.py" , app.config['UPLOAD_FOLDER'] + '/' + filename]
+    cmd = ["python" , "run_tri_model.py" , app.config['UPLOAD_FOLDER'] + '/' + filename]
     p = subprocess.Popen(cmd, stdout = subprocess.PIPE,
                          stderr=subprocess.PIPE,
                          stdin=subprocess.PIPE)
@@ -77,7 +78,15 @@ def about():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return render_template('index.html', table_code= Markup(return_html_table(filename).decode('utf8')))
+    table_code_raw= Markup(return_html_table(filename).decode('utf8'))
+    table=render_template('index.html', table_code= table_code_raw)
+    pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
+    return table
+
+@app.route('/saves/<filename>')
+def show_file(filename):
+    table_code_raw=pickle.load(open('saves/' + filename,"rb"))
+    return render_template('index.html', table_code= table_code_raw)
 
 @app.route('/favicon.ico')
 def favicon():

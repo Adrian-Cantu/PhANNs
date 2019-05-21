@@ -52,6 +52,8 @@ class ann_result:
 				names_dic[record.id]=1
 			#print(str(record.seq))
 			X = ProteinAnalysis(record.seq.__str__().upper().replace('X','A').replace('J','L').replace('*',''))
+			#print(record.id)
+			#print(record.seq.__str__())
 			tt= [X.isoelectric_point(), X.instability_index(),ll,X.aromaticity(),
      			X.molar_extinction_coefficient()[0],X.molar_extinction_coefficient()[1],
      			X.gravy(),X.molecular_weight()]
@@ -76,7 +78,7 @@ class ann_result:
 				arr[i,j]=(arr[i,j]-mean_arr[j])/std_arr[j]
 				#mean_arr[j-1]=1
 
-		model = load_model('tri_p_model/tri_p_temp.h5')
+		model = load_model('tri_p_model/tri_p.h5')
 
 
 		arr_pred=model.predict(arr)
