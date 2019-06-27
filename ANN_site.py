@@ -50,13 +50,13 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/bar')
-def bar():
-    return render_template('loading.html')
+@app.route('/bar/<filename>')
+def bar(filename):
+    return render_template('loading.html',filename=filename)
 
 
-@app.route('/progress')
-def progress():
+@app.route('/progress/<filename>')
+def progress(filename):
     #yield "data:0" + "\n\n"
     #yield "event:url" + "\n" + "data:'http://0.0.0.0:8080/upload'" + "\n\n"
     
@@ -66,9 +66,13 @@ def progress():
     job = queue.enqueue('run_tri_model_app.entrypoint',23)
     seq_total=49
     def generate():
-        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + 'A45_phage_orfs.txt' + "\"}\n\n"
+        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
         while not job.is_finished:
             job.refresh()
+            try:
+                seq_total=job.meta['total']
+            except:
+                seq_total=1
             try:
                 seq_current=job.meta['current']
             except:

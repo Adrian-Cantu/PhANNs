@@ -5,7 +5,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script>
 	var red_dest="http://0.0.0.0:8080/upload";
-	var source = new EventSource("/progress");
+	var source = new EventSource("/progress/{{ filename }}");
 	source.addEventListener('update', function(e) {
 			$('.progress-bar').css('width', e.data+'%').attr('aria-valuenow', e.data);
 			$('.progress-bar-label').text(e.data+'%');

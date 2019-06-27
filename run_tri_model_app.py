@@ -40,8 +40,13 @@ class ann_result:
     #from itertools import permutations
         AA=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
         tri_pep = [''.join(i) for i in itertools.product(AA, repeat = 3)]
-        arr = numpy.empty((0,8008), dtype=numpy.float)
-        names = numpy.empty((0,1),  dtype=object)
+        total_fasta=0
+        sec_code=0
+        for record in SeqIO.parse(self.infile, "fasta"):
+            total_fasta+=1
+        job.meta['total']=total_fasta
+        arr = numpy.empty((total_fasta,8008), dtype=numpy.float)
+        names = numpy.empty((total_fasta,1),  dtype=object)
         names_dic=dict()
         record_current=0
         print(job.get_id())
@@ -75,8 +80,12 @@ class ann_result:
             cat_n= numpy.append(tri_pep_count_n,tt_n)
             cat_n = cat_n.reshape((1,cat_n.shape[0]))
 
-            arr = numpy.append(arr,cat_n , axis=0)
-            names = numpy.append(names,seq_name)
+            #arr = numpy.append(arr,cat_n , axis=0)
+            #names = numpy.append(names,seq_name)
+            arr[sec_code,:]=cat_n
+            names[sec_code]=seq_name
+            sec_code += 1
+
 
         mean_arr_tmp=pickle.load(open( "tri_p_model/mean_final.p", "rb" ) )
         std_arr_tmp=pickle.load(open( "tri_p_model/std_final.p", "rb" ) )
@@ -104,7 +113,7 @@ class ann_result:
 
         html_style=table1.style.set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
         self.html_table=html_style.render()
-        #self.job.meta['table']=self.html_table
+        self.job.meta['table']=self.html_table
         return(self.html_table)
 
 def entrypoint(self):
