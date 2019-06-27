@@ -9,18 +9,13 @@
 	source.addEventListener('update', function(e) {
 			$('.progress-bar').css('width', e.data+'%').attr('aria-valuenow', e.data);
 			$('.progress-bar-label').text(e.data+'%');
-
-			if(e.data == 100){
-				source.close()
-			// Simulate an HTTP redirect:
-				window.location.replace(red_dest);
-				//window.location.href(red_dest);
-			}
 	},false);
 
 	source.addEventListener('url', function(e) {
 	var data = JSON.parse(e.data);
 	red_dest=data.url;
+	source.close()
+	window.location.replace(red_dest);
 	}, false);
 	</script>
 {% endblock JavaScript %}	

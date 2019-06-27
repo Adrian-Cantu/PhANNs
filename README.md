@@ -19,3 +19,7 @@ sudo systemctl restart nginx
 #st firewall rules
 
 sudo ufw allow 'Nginx Full'
+
+#start rq
+
+rq worker microblog-tasks

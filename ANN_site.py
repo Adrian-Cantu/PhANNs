@@ -50,7 +50,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/bar/<filename>')
+#@app.route('/bar/<filename>')
+@app.route('/uploads/<filename>')
 def bar(filename):
     return render_template('loading.html',filename=filename)
 
@@ -63,11 +64,12 @@ def progress(filename):
     
     #yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/upload\"}\n\n"
     queue = rq.Queue('microblog-tasks', connection=Redis.from_url('redis://'))
-    job = queue.enqueue('run_tri_model_app.entrypoint',23)
-    seq_total=49
+    job = queue.enqueue('run_tri_model_app.entrypoint','uploads/'+filename)
+    
     def generate():
-        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
-        while not job.is_finished:
+        data=1
+        seq_total=1
+        while data < 100:
             job.refresh()
             try:
                 seq_total=job.meta['total']
@@ -79,8 +81,23 @@ def progress(filename):
                 seq_current=0
             data=(seq_current/seq_total) * 100
             yield "event: update\ndata:" + str(data) + "\n\n"
-            time.sleep(0.02)
+            time.sleep(0.2)
             print(data)
+        table_string=None
+        while table_string is None:
+            try:
+                table_string=job.meta['table']
+               # print(table_string)
+            except:
+                print('cant get table')
+                job.refresh()
+                time.sleep(1)
+        table_code_raw= Markup(table_string)
+        print(table_code_raw)
+        #table=render_template('index.html', table_code=table_code_raw)
+        pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
+        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
+        
   #          print("data:" + url_fix_for('saves') + 'A45_phage_orfs.txt' + "\n\n")
     
     return Response(generate(), mimetype= 'text/event-stream')
@@ -106,8 +123,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print( fix_url_for('upload_file',filename=filename))
-            return redirect(fix_url_for('uploaded_file',
+           # print( fix_url_for('upload_file',filename=filename))
+            return redirect(fix_url_for('bar',
                                     filename=filename))
     print( fix_url_for('upload_file'))
     return render_template('main.html')
@@ -116,7 +133,7 @@ def upload_file():
 def about():
     return render_template('about.html', title='about')
 
-@app.route('/uploads/<filename>')
+#@app.route('/uploads/<filename>')
 def uploaded_file(filename):
     table_code_raw= Markup(return_html_table(filename).decode('utf8'))
     table=render_template('index.html', table_code= table_code_raw)

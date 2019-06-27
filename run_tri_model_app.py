@@ -113,12 +113,15 @@ class ann_result:
 
         html_style=table1.style.set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
         self.html_table=html_style.render()
-        self.job.meta['table']=self.html_table
+        job.meta['table']=self.html_table
+        job.save_meta()
+        
         return(self.html_table)
 
-def entrypoint(self):
-    open_file = 'A45_phage_orfs.txt'
-    kk=ann_result(open_file)
+def entrypoint(filename):
+    #open_file = 'A45_phage_orfs.txt'
+    #kk=ann_result(open_file)
+    kk=ann_result(filename)
     table=kk.print_table()
 #    print(table)
 
