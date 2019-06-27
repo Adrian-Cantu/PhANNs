@@ -80,10 +80,9 @@ class ann_result:
             cat_n= numpy.append(tri_pep_count_n,tt_n)
             cat_n = cat_n.reshape((1,cat_n.shape[0]))
 
-            #arr = numpy.append(arr,cat_n , axis=0)
-            #names = numpy.append(names,seq_name)
+
             arr[sec_code,:]=cat_n
-            names[sec_code]=seq_name
+            names[sec_code,0]=seq_name
             sec_code += 1
 
 
@@ -107,7 +106,7 @@ class ann_result:
                     "Tail fiber","Tail shaft","Collar",
                        "HTJ","Other"]
         table1=pd.DataFrame(data=arr_pred,
-                    index=names,
+                    index=names[:,0],
                     columns=col_names
                     )
 
@@ -116,7 +115,7 @@ class ann_result:
         job.meta['table']=self.html_table
         job.save_meta()
         
-        return(self.html_table)
+        return()
 
 def entrypoint(filename):
     #open_file = 'A45_phage_orfs.txt'

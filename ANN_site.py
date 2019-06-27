@@ -93,7 +93,7 @@ def progress(filename):
                 job.refresh()
                 time.sleep(1)
         table_code_raw= Markup(table_string)
-        print(table_code_raw)
+        #print(table_code_raw)
         #table=render_template('index.html', table_code=table_code_raw)
         pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
         yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
