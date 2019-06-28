@@ -85,11 +85,14 @@ class ann_result:
             names[sec_code,0]=seq_name
             sec_code += 1
 
-
+        job.meta['running']=1
+        job.save_meta()
+        
         mean_arr_tmp=pickle.load(open( "tri_p_model/mean_final.p", "rb" ) )
         std_arr_tmp=pickle.load(open( "tri_p_model/std_final.p", "rb" ) )
         mean_arr=numpy.concatenate((mean_arr_tmp[400:8400],mean_arr_tmp[8792:]),axis=0)
         std_arr=numpy.concatenate((std_arr_tmp[400:8400],std_arr_tmp[8792:]),axis=0)
+
 
         for i in range(arr.shape[0]):
             for j in range(arr.shape[1]):

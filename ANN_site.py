@@ -84,6 +84,15 @@ def progress(filename):
             time.sleep(0.2)
             print(data)
         table_string=None
+        model_is_running=None
+        while model_is_running is None:
+            try:
+                job.refresh()
+                model_is_running=job.meta['running']
+            except:
+                time.sleep(0.5)
+            else:
+                yield "event: running\ndata:" + str(model_is_running) + "\n\n"
         while table_string is None:
             try:
                 table_string=job.meta['table']
