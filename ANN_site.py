@@ -53,7 +53,10 @@ def allowed_file(filename):
 #@app.route('/bar/<filename>')
 @app.route('/uploads/<filename>')
 def bar(filename):
-    return render_template('loading.html',filename=filename)
+    if os.path.exists('saves/'+filename):
+        return redirect(fix_url_for('show_file',filename=filename))
+    else:
+        return render_template('loading.html',filename=filename)
 
 
 @app.route('/progress/<filename>')
@@ -64,7 +67,7 @@ def progress(filename):
     
     #yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/upload\"}\n\n"
     queue = rq.Queue('microblog-tasks', connection=Redis.from_url('redis://'))
-    job = queue.enqueue('run_tri_model_app.entrypoint','uploads/'+filename)
+    job = queue.enqueue('run_tri_model_app.entrypoint','uploads/'+filename,job_timeout=3000000)
     
     def generate():
         data=1
@@ -93,18 +96,20 @@ def progress(filename):
                 time.sleep(0.5)
             else:
                 yield "event: running\ndata:" + str(model_is_running) + "\n\n"
-        while table_string is None:
-            try:
-                table_string=job.meta['table']
-               # print(table_string)
-            except:
-                print('cant get table')
-                job.refresh()
-                time.sleep(1)
-        table_code_raw= Markup(table_string)
+        while not job.is_finished:
+            time.sleep(1)
+#        while table_string is None:
+#            try:
+#                table_string=job.meta['table']
+#               # print(table_string)
+#            except:
+#                print('cant get table')
+#                job.refresh()
+#                time.sleep(1)
+        #table_code_raw= Markup(table_string)
         #print(table_code_raw)
         #table=render_template('index.html', table_code=table_code_raw)
-        pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
+        #pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
         yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
         
   #          print("data:" + url_fix_for('saves') + 'A45_phage_orfs.txt' + "\n\n")

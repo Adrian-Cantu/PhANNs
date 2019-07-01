@@ -19,6 +19,8 @@ from keras.layers import LSTM
 from keras.layers import Activation
 from keras.layers import Dropout
 from keras.models import load_model
+from flask import Markup
+import ntpath
 
 import pandas as pd
 from rq import get_current_job
@@ -115,8 +117,13 @@ class ann_result:
 
         html_style=table1.style.set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
         self.html_table=html_style.render()
-        job.meta['table']=self.html_table
-        job.save_meta()
+#        job.meta['table']=self.html_table
+#        job.save_meta()
+        table_code_raw= Markup(self.html_table)
+        #print(table_code_raw)
+        #table=render_template('index.html', table_code=table_code_raw)
+        pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
+
         
         return()
 
