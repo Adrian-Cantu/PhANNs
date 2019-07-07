@@ -3,12 +3,12 @@ import time
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template, Response
 from werkzeug.utils import secure_filename
-from flask import send_from_directory , Markup
+from flask import send_from_directory , Markup, send_file
 import subprocess
 import pickle
 from redis import Redis
 import rq
-
+import ntpath
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'faa', 'fasta', 'gif', 'fa'])
@@ -157,13 +157,19 @@ def uploaded_file(filename):
 @app.route('/saves/<filename>')
 def show_file(filename):
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
-    return render_template('index.html', table_code= table_code_raw)
+    return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv')
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+@app.route('/csv_saves/<filename>')
+def return_csv(filename):
+	try:
+		return send_file('csv_saves/' + filename)
+	except Exception as e:
+		return str(e)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)

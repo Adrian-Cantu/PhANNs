@@ -21,7 +21,7 @@ from keras.layers import Dropout
 from keras.models import load_model
 from flask import Markup
 import ntpath
-
+import os
 import pandas as pd
 from rq import get_current_job
 job = get_current_job()
@@ -45,7 +45,8 @@ class ann_result:
         total_fasta=0
         sec_code=0
         for record in SeqIO.parse(self.infile, "fasta"):
-            total_fasta+=1
+            if self.prot_check(str(record.seq)):
+                total_fasta+=1
         job.meta['total']=total_fasta
         arr = numpy.empty((total_fasta,8008), dtype=numpy.float)
         names = numpy.empty((total_fasta,1),  dtype=object)
@@ -66,7 +67,9 @@ class ann_result:
                 names_dic[record.id]=names_dic[record.id]+1
             else:
                 seq_name= record.id
+                #seq_name=record_current
                 names_dic[record.id]=1
+            #seq_name=record_current
             #print(str(record.seq))
             X = ProteinAnalysis(record.seq.__str__().upper().replace('X','A').replace('J','L').replace('*',''))
             #print(record.id)
@@ -110,11 +113,15 @@ class ann_result:
                    "Major tail","Minor tail","Portal",
                     "Tail fiber","Tail shaft","Collar",
                        "HTJ","Other"]
+
         table1=pd.DataFrame(data=arr_pred,
                     index=names[:,0],
-                    columns=col_names
+                    columns=col_names,
+                    dtype=numpy.float64
                     )
-
+        print(table1.dtypes)
+        pd.options.display.float_format = '{:.2f}'.format
+        table1.astype(float).to_csv("csv_saves/"+ os.path.splitext(ntpath.basename(self.infile))[0] + '.csv',float_format = "%.2f")
         html_style=table1.style.set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
         self.html_table=html_style.render()
 #        job.meta['table']=self.html_table
@@ -123,7 +130,8 @@ class ann_result:
         #print(table_code_raw)
         #table=render_template('index.html', table_code=table_code_raw)
         pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
-
+        
+        
         
         return()
 

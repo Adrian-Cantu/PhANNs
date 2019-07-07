@@ -4,5 +4,6 @@
 {% endblock JavaScript %}	
 
 {% block content %}
+     <a href="{{ fix_url_for('return_csv',filename=csv_table) }}">Download as csv</a> 
 	{{ table_code | sorttable }}
 {% endblock content %}
