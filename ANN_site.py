@@ -98,18 +98,6 @@ def progress(filename):
                 yield "event: running\ndata:" + str(model_is_running) + "\n\n"
         while not job.is_finished:
             time.sleep(1)
-#        while table_string is None:
-#            try:
-#                table_string=job.meta['table']
-#               # print(table_string)
-#            except:
-#                print('cant get table')
-#                job.refresh()
-#                time.sleep(1)
-        #table_code_raw= Markup(table_string)
-        #print(table_code_raw)
-        #table=render_template('index.html', table_code=table_code_raw)
-        #pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
         yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
         
   #          print("data:" + url_fix_for('saves') + 'A45_phage_orfs.txt' + "\n\n")
@@ -157,7 +145,7 @@ def uploaded_file(filename):
 @app.route('/saves/<filename>')
 def show_file(filename):
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
-    return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv')
+    return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv', filename_base=ntpath.basename(filename))
 
 @app.route('/favicon.ico')
 def favicon():

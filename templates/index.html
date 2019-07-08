@@ -55,7 +55,7 @@ function init() {
                 
 	         }
 function resizeFixed() {
-    $t_fixed.offset({top:$(window).scrollTop(),left:$t_clone.offset().left});
+    $t_fixed.offset({top:head_off - $t_fixed.height()+ $(window).scrollTop(),left:$t_clone.offset().left});
     $t_fixed.width($t_clone.width())
 	$t_fixed.find("th").each(function(index) {
         	$(this).width($t_clone.find("th").eq(index).width());
@@ -96,4 +96,15 @@ function scrollFixed() {
 {% block content %}
      <a href="{{ fix_url_for('return_csv',filename=csv_table) }}">Download as csv</a> 
 	{{ table_code  }}
+	<a href="{{ fix_url_for('return_csv',filename='major_capsid_' + filename_base) }}">Major Capsid</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='minor_capsid_' + filename_base) }}">Minor Capsid</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='baseplate_' + filename_base) }}">Baseplate</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='major_tail_' + filename_base) }}">Major Tail</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='minor_tail_' + filename_base) }}">Minor Tail</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='portal_' + filename_base) }}">Portal</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='tail_fiber_' + filename_base) }}">Tail Fiber</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='tail_shaft_' + filename_base) }}">Tail Shaft</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='collar_' + filename_base) }}">Collar</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='htj_' + filename_base) }}">HTJ</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='other_' + filename_base) }}">Other</a><br>
 {% endblock content %}
