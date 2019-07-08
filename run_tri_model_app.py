@@ -122,18 +122,65 @@ class ann_result:
         print(table1.dtypes)
         pd.options.display.float_format = '{:.2f}'.format
         table1.astype(float).to_csv("csv_saves/"+ os.path.splitext(ntpath.basename(self.infile))[0] + '.csv',float_format = "%.2f")
-        html_style=table1.style.set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
+        html_style=table1.style.set_uuid("table_1").set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
         self.html_table=html_style.render()
-#        job.meta['table']=self.html_table
-#        job.save_meta()
         table_code_raw= Markup(self.html_table)
-        #print(table_code_raw)
-        #table=render_template('index.html', table_code=table_code_raw)
         pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
         
         
-        
-        return()
+        arr_class=arr_pred.argmax(axis=1)
+        sec_code=0
+        major_capsid_sequences = []
+        minor_capsid_sequences = []
+        baseplate_sequences = []
+        major_tail_sequences = []
+        minor_tail_sequences = []
+        portal_sequences = []
+        tail_fiber_sequences = []
+        tail_shaft_sequences = []
+        collar_sequences = []
+        htj_sequences = []
+        other_sequences = []
+        for record in SeqIO.parse(self.infile, "fasta"):
+            seq_name=''
+            if not self.prot_check(str(record.seq)):
+                continue
+            if arr_class[sec_code]==0:
+                major_capsid_sequences.append(record)
+            elif arr_class[sec_code]==1:
+                minor_capsid_sequences.append(record)
+            elif arr_class[sec_code]==2:
+                baseplate_sequences.append(record)
+            elif arr_class[sec_code]==3:
+                major_tail_sequences.append(record)
+            elif arr_class[sec_code]==4:
+                minor_tail_sequences.append(record)
+            elif arr_class[sec_code]==5:
+                portal_sequences.append(record)
+            elif arr_class[sec_code]==6:
+                tail_fiber_sequences.append(record)
+            elif arr_class[sec_code]==7:
+                tail_shaft_sequences.append(record)
+            elif arr_class[sec_code]==8:
+                collar_sequences.append(record)
+            elif arr_class[sec_code]==9:
+                htj_sequences.append(record)
+            elif arr_class[sec_code]==10:
+                other_sequences.append(record)
+
+            sec_code += 1
+        SeqIO.write(major_capsid_sequences, "csv_saves/major_capsid_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(minor_capsid_sequences, "csv_saves/minor_capsid" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(baseplate_sequences, "csv_saves/baseplate" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(major_tail_sequences, "csv_saves/major_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(minor_tail_sequences, "csv_saves/minor_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(portal_sequences, "csv_saves/portal" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(tail_fiber_sequences, "csv_saves/tail_fiber" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(tail_shaft_sequences, "csv_saves/tail_shaft" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(collar_sequences, "csv_saves/collar" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(htj_sequences, "csv_saves/htj" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(other_sequences, "csv_saves/other" + "_"+ ntpath.basename(self.infile) , "fasta")
+
 
 def entrypoint(filename):
     #open_file = 'A45_phage_orfs.txt'

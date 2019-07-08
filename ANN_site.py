@@ -53,9 +53,9 @@ def allowed_file(filename):
 #@app.route('/bar/<filename>')
 @app.route('/uploads/<filename>')
 def bar(filename):
-    if os.path.exists('saves/'+filename):
-        return redirect(fix_url_for('show_file',filename=filename))
-    else:
+#    if os.path.exists('saves/'+filename):
+#        return redirect(fix_url_for('show_file',filename=filename))
+#    else:
         return render_template('loading.html',filename=filename)
 
 
@@ -127,7 +127,7 @@ def upload_file():
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
-            return redirect(request.url)
+         #   return redirect()
         file = request.files['file']
         # if user does not select file, browser also
         # submit an empty part without filename

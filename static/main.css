@@ -78,3 +78,11 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+
+table.fixed_table_header{
+  position: fixed;
+  display: none;
+  border: 1px solid black;
+  background-color:#fafafa;
+}
