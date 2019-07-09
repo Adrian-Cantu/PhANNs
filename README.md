@@ -1,6 +1,7 @@
 # ANN_site
 
 ##install conda enviroment
+conda env export | grep -v "^prefix: " > environment.yml
 conda env create -f environment.yml
 
 
