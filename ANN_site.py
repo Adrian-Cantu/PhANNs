@@ -98,9 +98,11 @@ def progress(filename):
                 yield "event: running\ndata:" + str(model_is_running) + "\n\n"
         while not job.is_finished:
             time.sleep(1)
-        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
-        
-  #          print("data:" + url_fix_for('saves') + 'A45_phage_orfs.txt' + "\n\n")
+#        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
+        with app.app_context(), app.test_request_context():
+            yield "event: url\ndata: {\"url\":\"" + fix_url_for('show_file',filename=filename) +"\"}\n\n"
+#        with app.app_context(), app.test_request_context():
+#            print("data:" + fix_url_for('show_file',filename=filename)  + "\n\n")
     
     return Response(generate(), mimetype= 'text/event-stream')
 
