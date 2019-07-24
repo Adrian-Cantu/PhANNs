@@ -16,12 +16,14 @@ import urllib
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['APPLICATION_ROOT']=''
+#app.config['APPLICATION_ROOT']='/adrian_net'
+app.config['APPLICATION_ROOT']='/phannies'
+#app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
-
+#    return url_for(path, **kwargs)
 
 #make fix_url_for available in tamplates
 @app.context_processor
@@ -56,6 +58,7 @@ def bar(filename):
 #    if os.path.exists('saves/'+filename):
 #        return redirect(fix_url_for('show_file',filename=filename))
 #    else:
+        print(filename)
         return render_template('loading.html',filename=filename)
 
 
@@ -100,7 +103,7 @@ def progress(filename):
             time.sleep(1)
 #        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
         with app.app_context(), app.test_request_context():
-            yield "event: url\ndata: {\"url\":\"" + fix_url_for('show_file',filename=filename) +"\"}\n\n"
+            yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
 #        with app.app_context(), app.test_request_context():
 #            print("data:" + fix_url_for('show_file',filename=filename)  + "\n\n")
     
@@ -127,9 +130,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-           # print( fix_url_for('upload_file',filename=filename))
-            return redirect(fix_url_for('bar',
-                                    filename=filename))
+            print( fix_url_for('bar',filename=filename))
+            return redirect(url_for('bar',filename=filename))
     print( fix_url_for('upload_file'))
     return render_template('main.html')
 
