@@ -156,6 +156,12 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+
+@app.route('/tri_p.h5')
+def model_file():
+    return send_file('tri_p_model/tri_p.h5')
+
+
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):
 	try:
