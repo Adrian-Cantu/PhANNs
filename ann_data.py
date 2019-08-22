@@ -1,11 +1,14 @@
+# %%
 import os
 import sys
 import phage_init
 import numpy
 
+# %%
 import pickle
 final=pickle.load(open( os.path.join(phage_init.data_dir,"zscore_all_final.p"), "rb" ))
 
+# %%
 tt=200000  
 f_num=final.shape[1]-11
 train_id=final[0:tt,0]
@@ -15,10 +18,7 @@ test_id=final[tt:,0]
 test_X_total=final[tt:,1:f_num]
 test_Y_total=final[tt:,f_num:]
 
-
-
-
-
+# %%
 di_train       = train_X_total[:,0:400]
 tri_train      = train_X_total[:,400:8400]
 di_sc_train    = train_X_total[:,8400:8449] 
@@ -26,6 +26,7 @@ tri_sc_train   = train_X_total[:,8449:8792]
 tetra_sc_train = train_X_total[:,8792:11193]
 tt_train       = train_X_total[:,11193:]
 
+# %%
 di_test        = test_X_total[:,0:400]
 tri_test       = test_X_total[:,400:8400]
 di_sc_test     = test_X_total[:,8400:8449] 
@@ -33,6 +34,11 @@ tri_sc_test    = test_X_total[:,8449:8792]
 tetra_sc_test  = test_X_total[:,8792:11193]
 tt_test        = test_X_total[:,11193:]
 
+
+# %%
+#pickle.load(open( os.path.join(phage_init.data_dir,"zscore_all_final.p"), "rb" ))
+
+# %%
 def get_formated_train(model_name):
     train_x=[]
     train_y=train_Y_total
@@ -60,6 +66,7 @@ def get_formated_train(model_name):
         train_x=train_X_total
     return (train_x,train_y)
 
+# %%
 def get_formated_test(model_name):
     test_x=[]
     test_y=test_Y_total
@@ -88,4 +95,10 @@ def get_formated_test(model_name):
     return (test_x,test_y)
 
 
- 
+# %%
+def get_train_id():
+    return train_id
+
+def get_test_id():
+    return test_id
+
