@@ -201,3 +201,38 @@ pickle.dump(final, open( os.path.join(phage_init.data_dir,"zscore_all_final.p"),
 # %%
 #import pickle
 #final=pickle.load(open( os.path.join(phage_init.data_dir,"zscore_all_final.p"), "rb" ))
+
+# %%
+#import pickle
+#final=pickle.load(open( os.path.join(phage_init.data_dir,"zscore_all_final.p"), "rb" ))
+
+# %%
+tt=200000  
+f_num=final.shape[1]-11
+train_id=final[0:tt,0]
+train_X_total=final[0:tt,1:f_num]
+train_Y_total=final[0:tt,f_num:]
+test_id=final[tt:,0]
+test_X_total=final[tt:,1:f_num]
+test_Y_total=final[tt:,f_num:]
+
+# %%
+pickle.dump(train_X_total[:,0:400], open( os.path.join(phage_init.data_dir,"di_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,400:8400], open( os.path.join(phage_init.data_dir,"tri_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,8400:8449], open( os.path.join(phage_init.data_dir,"di_sc_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,8449:8792], open( os.path.join(phage_init.data_dir,"tri_sc_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,8792:11193], open( os.path.join(phage_init.data_dir,"tetra_sc_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,11193:], open( os.path.join(phage_init.data_dir,"tt_train.p"), "wb" ),protocol=4 )
+
+# %%
+
+pickle.dump(test_X_total[:,0:400], open( os.path.join(phage_init.data_dir,"di_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,400:8400], open( os.path.join(phage_init.data_dir,"tri_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,8400:8449], open( os.path.join(phage_init.data_dir,"di_sc_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,8449:8792], open( os.path.join(phage_init.data_dir,"tri_sc_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,8792:11193], open( os.path.join(phage_init.data_dir,"tetra_sc_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,11193:], open( os.path.join(phage_init.data_dir,"tt_test.p"), "wb" ),protocol=4 )
+
+# %%
+pickle.dump(test_Y_total,open( os.path.join(phage_init.data_dir,"test_Y.p"), "wb" ),protocol=4 )
+pickle.dump(train_Y_total,open( os.path.join(phage_init.data_dir,"train_Y.p"), "wb" ),protocol=4 )
