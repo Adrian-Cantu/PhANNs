@@ -6,6 +6,7 @@ import numpy
 
 # %%
 import pickle
+import itertools
 #final=pickle.load(open( os.path.join(phage_init.data_dir,"zscore_all_final.p"), "rb" ))
 
 
@@ -76,3 +77,36 @@ def get_train_id():
 def get_test_id():
     return test_id
 
+def get_feature_names(model_name):
+    AA=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
+    SC=["1","2","3","4","5","6","7"]
+    di_pep = [''.join(i) for i in itertools.product(AA, repeat = 2)]
+    tri_pep = [''.join(i) for i in itertools.product(AA, repeat = 3)]
+    di_sc = [''.join(i) for i in itertools.product(SC, repeat = 2)]
+    tri_sc = [''.join(i) for i in itertools.product(SC, repeat = 3)]
+    tetra_sc = [''.join(i) for i in itertools.product(SC, repeat = 4)]
+    extra=["IP","In_index","lenght","aromaticity","molar_extinction_1","molar_extrinction_2","gravy","weight"]
+    f_index=[]
+    if model_name == 'di':
+        f_index=di_pep
+    elif model_name == 'di_p':
+        f_index=numpy.concatenate((di_pep,extra))
+    elif model_name == 'tri':
+        f_idex=tri_pep
+    elif model_name == 'tri_p':
+        f_index=numpy.concatenate((tri_pep,extra))
+    elif model_name == 'di_sc':
+        f_index=di_sc
+    elif model_name == 'di_sc_p':
+        f_index=numpy.concatenate((di_sc,extra))
+    elif model_name == 'tri_sc':
+        f_index=tri_sc
+    elif model_name == 'tri_sc_p':
+        f_index=numpy.concatenate((tri_sc,extra))
+    elif model_name == 'tetra_sc':
+        f_index=tetra_sc
+    elif model_name == 'tetra_sc_p':
+        f_index=numpy.concatenate((tetra_sc,extra))
+    elif model_name == 'all':
+        f_index=numpy.concatenate((di_pep,tri_pep,di_sc,tri_sc,tetra_sc,extra))
+    return f_index
