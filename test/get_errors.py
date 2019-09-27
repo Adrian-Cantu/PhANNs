@@ -47,6 +47,10 @@ test_Y_index = test_Y.argmax(axis=1)
 test_Y_predicted = model.predict_classes(test_X)
 
 # %%
+#pickle.dump(test_X,open( os.path.join(phage_init.data_dir,"test_X.p"), "wb" ),protocol=4 )
+#pickle.dump(test_Y_index,open( os.path.join(phage_init.data_dir,"test_Y_index.p"), "wb" ),protocol=4 )
+
+# %%
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(test_Y_index, test_Y_predicted, target_names=labels_names ))

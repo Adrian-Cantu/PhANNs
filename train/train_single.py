@@ -23,10 +23,10 @@ import phage_init
 import ann_data
 
 # %%
-(train_X,train_Y)=ann_data.get_formated_train('all')
+#(train_X,train_Y)=ann_data.get_formated_train('all')
 
 # %%
-(test_X,test_Y)=ann_data.get_formated_test('all')
+#(test_X,test_Y)=ann_data.get_formated_test('all')
 
 # %%
 from keras.models import Sequential
@@ -41,33 +41,11 @@ import numpy
 from keras import backend as K
 from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
+from collections import Counter
 
 # %%
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
-
-# %%
-ff_num=train_X.shape[1]
-model = Sequential()
-opt=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
-model.add(Dense(ff_num, input_dim=ff_num, kernel_initializer='random_uniform',activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(200,activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(200,activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(11,activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
-print(model.summary())
-
-# %%
-from collections import Counter
-train_Y_index = train_Y.argmax(axis=1)
-train_count=Counter(train_Y_index)
-train_w_temp=[train_Y.shape[0]/train_count[i] for i in range(0,11,1)]
-train_weights = dict(zip(range(0,11,1),train_w_temp) )
-print(train_weights)
-
 
 # %%
 es = EarlyStopping(monitor='loss', mode='min', verbose=1, patience=5, min_delta=0.02 )
@@ -75,11 +53,7 @@ mc = ModelCheckpoint(os.path.join(phage_init.model_dir,'test_single.h5'), monito
                          mode='min', save_best_only=True, verbose=1)
 
 # %%
-model.fit(train_X, train_Y, epochs=100,verbose=1, batch_size=5000,class_weight=train_weights,callbacks=[es,mc])
-
-# %%
-K.clear_session()
-del model
+#model.fit(train_X, train_Y, epochs=100,verbose=1, batch_size=5000,class_weight=train_weights,callbacks=[es,mc])
 
 # %%
 from collections import Counter
