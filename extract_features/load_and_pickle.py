@@ -236,3 +236,7 @@ pickle.dump(test_X_total[:,11193:], open( os.path.join(phage_init.data_dir,"tt_t
 # %%
 pickle.dump(test_Y_total,open( os.path.join(phage_init.data_dir,"test_Y.p"), "wb" ),protocol=4 )
 pickle.dump(train_Y_total,open( os.path.join(phage_init.data_dir,"train_Y.p"), "wb" ),protocol=4 )
+
+# %%
+pickle.dump(test_id,open( os.path.join(phage_init.data_dir,"test_id.p"), "wb" ),protocol=4 )
+pickle.dump(train_id,open( os.path.join(phage_init.data_dir,"train_id.p"), "wb" ),protocol=4 )

@@ -72,9 +72,11 @@ def get_formated_test(model_name):
 
 # %%
 def get_train_id():
+    train_id=pickle.load(open( os.path.join(phage_init.data_dir,"train_id.p"), "rb" ))
     return train_id
 
 def get_test_id():
+    test_id=pickle.load(open( os.path.join(phage_init.data_dir,"test_id.p"), "rb" ))
     return test_id
 
 def get_feature_names(model_name):
