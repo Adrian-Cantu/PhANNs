@@ -146,7 +146,7 @@ fig2.set_size_inches(18, 15)
 sns.set(style="whitegrid")
 ax2.tick_params(axis='y',labelsize=16)
 ax2.tick_params(axis='x',labelsize=14)
-ax2.set_title('Per model f1-score', fontsize=40,va='bottom')
+#ax2.set_title('Per model f1-score', fontsize=40,va='bottom')
 sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df)
 ax2.set_ylabel('')    
 ax2.set_xlabel('')
@@ -158,6 +158,16 @@ ax2.set(xlim=(-0.5, 11.2))
 #ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
 fig2.savefig('f1_score_master_per_model.png')
+
+# %%
+handles,labels = ax2.get_legend_handles_labels()
+fige, axe = plt.subplots()
+axe.legend(handles, labels, loc='center')
+axe.xaxis.set_visible(False)
+axe.yaxis.set_visible(False)
+for v in axe.spines.values():
+    v.set_visible(False)
+plt.show()
 
 # %%
 fig3, ax3 = plt.subplots()
