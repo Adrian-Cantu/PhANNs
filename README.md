@@ -15,11 +15,11 @@ This yet to be named tool uses an artificial neural network to classify phage st
 
 ## Install?
 
-You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu/phannies/upload)
+You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu/phanns)
 
 ## But I really want to install it!
 
-Clone this repository, download the [model file](https://edwards.sdsu.edu/phannies/model_file) and put  it in the tri_p_model directory. 
+Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/tri_p.h5) and put  it in the tri_p_model directory. 
 
 You will need a Redis server installed. Other than that, all requirement are listed on the `environment.yml` file, but the easier way to install them is using anaconda
 
