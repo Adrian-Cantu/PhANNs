@@ -75,10 +75,9 @@ def add_to_df(df,test_Y_index, test_Y_predicted,model_name):
 df = pd.DataFrame(data=d)
 
 # %%
-df
+all_models=['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','tetra_sc_tri_p','all']
 
 # %%
-all_models=['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','all']
 for this_model in all_models:
     (test_X,test_Y)=ann_data.get_formated_test(this_model)
     test_Y_index = test_Y.argmax(axis=1)
@@ -97,8 +96,12 @@ for this_model in all_models:
         K.clear_session()
 
 # %%
-pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
+#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
 #df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
+
+# %%
+#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
+df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "rb" ))
 
 # %%
 import seaborn as sns
@@ -107,7 +110,7 @@ import matplotlib.pyplot as plt
 
 # %%
 custom_dict = {'di_sc':0,'di_sc_p':1,'tri_sc':2,'tri_sc_p':3,'tetra_sc':4,'tetra_sc_p':5,'di':6,'di_p':7,
-               'tri':8,'tri_p':9,'all':10}
+               'tri':8,'tri_p':9,'tetra_sc_tri_p':10,'all':11}
 
 
 f1_df=df[df['score_type'] == 'f1-score']
@@ -121,43 +124,63 @@ avg_df['model'] = pd.Categorical(
 )
 
 # %%
+
+# %%
 fig, ax = plt.subplots()
 
 #fig.set_size_inches(18, 15)
 fig.set_size_inches(8, 6)
 sns.set(style="whitegrid")
-ax.tick_params(axis='y',labelsize=16)
-ax.tick_params(axis='x',labelsize=14, rotation=80)
-ax.set_title('Weighted average model metrics', fontsize=30,va='bottom')
+ax.tick_params(axis='y',labelsize=24)
+ax.tick_params(axis='x',labelsize=24, rotation=80)
+#ax.set_title('Weighted average model metrics', fontsize=30,va='bottom')
+ax.set_title('')
 sns.barplot(ax=ax,y="value", x="model", hue="score_type", data=avg_df)
 ax.set_ylabel('')    
 ax.set_xlabel('')
 l = ax.legend()
 plt.setp(ax.get_legend().get_texts(), fontsize='18') # for legend text
 #print(dir(l))
-ax.set(ylim=(0.2, 1))
+ax.set(ylim=(0.4, 1))
 #ax.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
 fig.savefig('avg_score_master.png',bbox_inches="tight")
 
 # %%
+#ax.properties()['children']
+#ax.lines[0].get_data()
+
+kk= [(x.get_x(),x.get_height()) for x in ax.patches]
+kkk =numpy.array(kk,dtype=[('x', float), ('y', float)])
+kkk
+
+# %%
+kkkk=numpy.sort(kkk,order='x')
+for xx in zip(kkkk[0::3],all_models):
+    print(xx[0],xx[1])
+
+# %%
+
+# %%
 fig2, ax2 = plt.subplots()
 fig2.set_size_inches(18, 15)
+#fig2.set_size_inches(8, 6)
 sns.set(style="whitegrid")
-ax2.tick_params(axis='y',labelsize=16)
-ax2.tick_params(axis='x',labelsize=14)
+ax2.tick_params(axis='y',labelsize=30)
+ax2.tick_params(axis='x',labelsize=35,rotation=80)
 #ax2.set_title('Per model f1-score', fontsize=40,va='bottom')
 sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df)
 ax2.set_ylabel('')    
 ax2.set_xlabel('')
 l = ax2.legend()
-plt.setp(ax2.get_legend().get_texts(), fontsize='22') # for legend text
+plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
 #print(dir(l))
 ax2.set(ylim=(0, 1))
-ax2.set(xlim=(-0.5, 11.2))
+ax2.set(xlim=(-0.5, 12.2))
+plt.yticks(numpy.arange(0, 1.1, 0.1))
 #ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
-fig2.savefig('f1_score_master_per_model.png')
+fig2.savefig('f1_score_master_per_model.png',bbox_inches="tight")
 
 # %%
 handles,labels = ax2.get_legend_handles_labels()
@@ -173,21 +196,24 @@ plt.show()
 fig3, ax3 = plt.subplots()
 fig3.set_size_inches(18, 15)
 sns.set(style="whitegrid")
-ax3.tick_params(axis='y',labelsize=18)
-ax3.tick_params(axis='x',labelsize=18,rotation=80)
-ax3.set_title('Per class f1-score', fontsize=40,va='bottom')
+ax3.tick_params(axis='y',labelsize=30)
+ax3.tick_params(axis='x',labelsize=35,rotation=80)
+#ax3.set_title('Per class f1-score', fontsize=40,va='bottom')
 sns.barplot(ax=ax3,y="value", x="class", hue="model", data=f1_df)
 ax3.set_ylabel('')    
 ax3.set_xlabel('')
 l = ax3.legend()
-plt.setp(ax3.get_legend().get_texts(), fontsize='22') # for legend text
+plt.setp(ax3.get_legend().get_texts(), fontsize='27') # for legend text
 #print(dir(l))
 #plt.xticks(tick_marks, labels_names, rotation=90)
 ax3.set(ylim=(0, 1))
 ax3.set(xlim=(-0.5, 12.2))
-#ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
+plt.yticks(numpy.arange(0, 1.1, 0.1))
 plt.show()
 fig3.savefig('f1_score_master_per_class.png',bbox_inches="tight")
+
+# %%
+df.to_csv("sup_data_1.tsv", sep='\t', encoding='utf-8')
 
 # %%
 fig4, ax4 = plt.subplots()
@@ -219,3 +245,45 @@ plt.axvline(9.5, linestyle = '--', color = 'g')
 plt.axvline(10.5, linestyle = '--', color = 'g')
 plt.show()
 fig4.savefig('f1_score_master_per_class_boxplot.png',bbox_inches="tight")
+
+# %%
+fig5, ax5 = plt.subplots()
+
+#fig.set_size_inches(18, 15)
+fig5.set_size_inches(8, 6)
+sns.set(style="whitegrid")
+ax5.tick_params(axis='y',labelsize=24)
+ax5.tick_params(axis='x',labelsize=24, rotation=80)
+#ax.set_title('Weighted average model metrics', fontsize=30,va='bottom')
+ax5.set_title('')
+sns.barplot(ax=ax5,y="value", x="model", hue="score_type", data=avg_df)
+ax5.set_ylabel('')    
+ax5.set_xlabel('')
+l = ax5.legend()
+plt.setp(ax5.get_legend().get_texts(), fontsize='18') # for legend text
+#print(dir(l))
+ax5.set(ylim=(0.4, 1))
+#ax.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
+plt.show()
+
+# %%
+fig3, ax3 = plt.subplots()
+fig3.set_size_inches(10, 10)
+sns.set(style="whitegrid")
+ax3.tick_params(axis='y',labelsize=20)
+ax3.tick_params(axis='x',labelsize=25,rotation=80)
+#ax3.set_title('Per class f1-score', fontsize=40,va='bottom')
+sns.barplot(ax=ax3,y="value", x="class", data=f1_df)
+ax3.set_ylabel('')    
+ax3.set_xlabel('')
+l = ax3.legend()
+plt.setp(ax3.get_legend().get_texts(), fontsize='22') # for legend text
+#print(dir(l))
+#plt.xticks(tick_marks, labels_names, rotation=90)
+ax3.set(ylim=(0, 1))
+ax3.set(xlim=(-0.5, 12.2))
+plt.yticks(numpy.arange(0, 1.1, 0.1))
+plt.show()
+
+# %%
+ K.clear_session()

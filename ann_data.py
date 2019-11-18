@@ -39,6 +39,10 @@ def get_formated_train(model_name):
         train_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_train.p"), "rb" ))),axis=1)
     elif model_name == 'tetra_sc_tri_p':
         train_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_train.p"), "rb" ))),axis=1)
+    elif model_name == 'g_tetra_inf':
+        train_x=pickle.load(open( os.path.join(phage_init.data_dir,"g_tetra_inf_train.p"), "rb" ))
+    elif model_name == 'g_tetra_inf_p':
+        train_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"g_tetra_inf_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_train.p"), "rb" ))),axis=1)
     elif model_name == 'all':
         train_x=train_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"di_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"di_sc_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_sc_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_train.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_train.p"), "rb" ))),axis=1)
     return (train_x,train_y)
@@ -69,6 +73,10 @@ def get_formated_test(model_name):
         test_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_test.p"), "rb" ))),axis=1)
     elif model_name == 'tetra_sc_tri_p':
         test_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_test.p"), "rb" ))),axis=1)
+    elif model_name == 'g_tetra_inf':
+        test_x=pickle.load(open( os.path.join(phage_init.data_dir,"g_tetra_inf_test.p"), "rb" ))
+    elif model_name == 'g_tetra_inf_p':
+        test_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"g_tetra_inf_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_test.p"), "rb" ))),axis=1)
     elif model_name == 'all':
         test_x=numpy.concatenate((pickle.load(open( os.path.join(phage_init.data_dir,"di_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"di_sc_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tri_sc_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tetra_sc_test.p"), "rb" )),pickle.load(open( os.path.join(phage_init.data_dir,"tt_test.p"), "rb" ))),axis=1)
     return (test_x,test_y)

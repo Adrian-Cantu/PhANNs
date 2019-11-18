@@ -87,8 +87,29 @@ def train_model(model_name):
 
 
 # %%
-all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all']
-#all_models=['all']
+#all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all']
+all_models=['g_tetra_inf_p']
 for this_model in all_models:
     print('training ' + this_model)
     train_model(this_model)
+
+# %%
+test_model="g_tetra_inf_p"
+(test_X,test_Y)=ann_data.get_formated_test(test_model)
+
+# %%
+test_Y_index = test_Y.argmax(axis=1)
+
+# %%
+model =  load_model( os.path.join(phage_init.model_dir,test_model + '_single.h5') )
+
+# %%
+test_Y_index
+
+# %%
+predicted_Y=model.predict_classes(test_X)
+
+# %%
+labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+             "Tail shaft","Collar","Head-Tail joining","Others"]
+print(classification_report(test_Y_index, predicted_Y , target_names=labels_names ))
