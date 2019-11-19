@@ -81,7 +81,7 @@ def add_to_df(df,test_Y_index, test_Y_predicted,model_name):
 df = pd.DataFrame(data=d)
 
 # %%
-all_models=['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','tetra_sc_tri_p','all']
+all_models=['di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','tetra_sc_tri_p','all']
 
 # %%
 for this_model in all_models:
