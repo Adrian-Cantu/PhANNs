@@ -38,6 +38,12 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import StratifiedKFold
 
 # %%
+#stop using gpu to not run into memoru issues
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+
+# %%
 #this list the devices, just making sure there is a GPU present, you might be fine with no GPU
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
@@ -96,12 +102,12 @@ for this_model in all_models:
         K.clear_session()
 
 # %%
-#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
+pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
 #df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
 
 # %%
 #pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
-df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "rb" ))
+#df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "rb" ))
 
 # %%
 import seaborn as sns
@@ -160,6 +166,16 @@ for xx in zip(kkkk[0::3],all_models):
     print(xx[0],xx[1])
 
 # %%
+#colors = ["#C46210", "#2E5894","#9C2542","#A57164","#58427C","#85754E","#319177","#9C7C38","#8D4E85","#8FD400","#D98695","#0081AB"]
+#colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf", "#fda547"]
+#colors=["#fda547", "#691b9e", "#8dba22", "#c551dc", "#0b5313", "#38b5fc", "#752e4f", "#3fe34b", "#f24325", "#94e4ca", "#1f4196", "#ffacec"]
+colors=["#fda547", "#2c4a5e", "#83e9a3", "#cc156d", "#1d8a20", "#8711ac", "#80de1a", "#ef66f0", "#687f39", "#30b6f3", "#743502", "#adbea6"]
+#colors = ["#C46210", "#2E5894"]
+customPalette = sns.color_palette(colors)
+#sns.set_palette(colors)
+
+# %%
+sns.palplot(customPalette)
 
 # %%
 fig2, ax2 = plt.subplots()
@@ -169,7 +185,9 @@ sns.set(style="whitegrid")
 ax2.tick_params(axis='y',labelsize=30)
 ax2.tick_params(axis='x',labelsize=35,rotation=80)
 #ax2.set_title('Per model f1-score', fontsize=40,va='bottom')
-sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df)
+#sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df, palette="Paired")
+sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df, palette=colors)
+#sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df)
 ax2.set_ylabel('')    
 ax2.set_xlabel('')
 l = ax2.legend()

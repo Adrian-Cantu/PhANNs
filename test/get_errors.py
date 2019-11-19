@@ -35,7 +35,7 @@ import numpy
 import pickle
 
 # %%
-model = load_model( os.path.join(phage_init.model_dir,'tri_p_single.h5') )
+model = load_model( os.path.join(phage_init.model_dir,'tri_p_01.h5') )
 
 # %%
 import pandas as pd
@@ -83,8 +83,8 @@ plt.savefig('tri_p_CM.pdf',bbox_inches="tight")
 plt.show()
 
 # %%
-row_class=10
-col_class=0
+row_class=6
+col_class=4
 
 # %%
 kk=numpy.intersect1d(numpy.where(test_Y_index == row_class)[0],numpy.where( test_Y_predicted == col_class)[0])

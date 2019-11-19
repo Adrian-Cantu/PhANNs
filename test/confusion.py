@@ -79,7 +79,7 @@ for model_number in range(n_members):
 #row.shape
 
 # %%
-pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
+#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
 
 # %%
 test_Y_index = test_Y.argmax(axis=1)
