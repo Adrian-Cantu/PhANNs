@@ -67,7 +67,7 @@ class ann_result:
             tetra_sc_count=[myseq.count(i)/(ll-3) for i in tetra_sc]
             tetra_sc_count_n = numpy.asarray(tetra_sc_count,dtype=numpy.float)
     
-            cat_n= numpy.concatenate((tri_pep_count_n,tetra_sc_count_n,tt_n))
+            cat_n= numpy.concatenate((tetra_sc_count_n,tri_pep_count_n,tt_n))
             cat_n = cat_n.reshape((1,cat_n.shape[0]))
 
 
@@ -80,7 +80,10 @@ class ann_result:
         (names,arr)=self.extract()
         for i in range(arr.shape[0]):
             for j in range(arr.shape[1]):
-                arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
+                if ann_config.std_arr[j]==0:
+                    pass
+                else:
+                    arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
         return(names,arr)
 
 
