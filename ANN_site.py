@@ -9,10 +9,18 @@ import pickle
 from redis import Redis
 import rq
 import ntpath
+import Phanns_f
+import ann_config
+from keras.models import load_model
+import tensorflow as tf
+
+
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'faa', 'fasta', 'gif', 'fa'])
 import urllib
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -20,6 +28,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/phanns'
 app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
+#model =  load_model( 'deca_model/single.h5')
+graph = tf.get_default_graph()
 
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
@@ -62,8 +72,8 @@ def bar(filename):
         return render_template('loading.html',filename=filename)
 
 
-@app.route('/progress/<filename>')
-def progress(filename):
+#@app.route('/progress/<filename>')
+def progress2(filename):
     #yield "data:0" + "\n\n"
     #yield "event:url" + "\n" + "data:'http://0.0.0.0:8080/upload'" + "\n\n"
     
@@ -109,9 +119,26 @@ def progress(filename):
     
     return Response(generate(), mimetype= 'text/event-stream')
 
+@app.route('/progress/<filename>')
+def progress(filename):
+    def generate():
+        test=Phanns_f.ann_result('uploads/'+filename)
+        (names,scores)=test.predict_score()
+        with app.app_context(), app.test_request_context():
+            yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
+    
+    return Response(generate(), mimetype= 'text/event-stream')
+
 @app.route('/test')
 def test_template():
-    return "mira un salmon"
+    test=Phanns_f.ann_result('test.fasta')
+    test.predict_score_test()
+    #(names,features)=test.extract_n()
+    #yhats_v=ann_config.models.predict(features)
+#    global graph
+#    with graph.as_default():
+#        yhats_v=model.predict(features)
+    return test.html_table
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/upload', methods=['GET', 'POST'])

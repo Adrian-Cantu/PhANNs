@@ -1,6 +1,7 @@
 import os
 import pickle
 from keras.models import load_model
+import tensorflow as tf
 
 path = os.path.abspath(__file__)
 root_dir = os.path.dirname(path)
@@ -13,7 +14,9 @@ std_arr=pickle.load(open( os.path.join(model_dir,"std_part.p"), "rb" ))
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-models=pickle.load(open( os.path.join(model_dir,"deca_model.p"), "rb" ))
+#models=pickle.load(open( os.path.join(model_dir,"deca_model.p"), "rb" ))
+models=pickle.load(open( os.path.join(model_dir,"single.p"), "rb" ))
+graph = tf.get_default_graph()
 web_test_X=pickle.load(open( os.path.join(model_dir,"web_test_X.p"), "rb" ))
 n_members = 10
 #models = list()
