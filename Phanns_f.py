@@ -19,6 +19,11 @@ class ann_result:
 
     infile=''
     html_table=''
+    g_total_fasta=''
+    g_current_fasta=''
+    g_names=''
+    #g_arr=numpy.empty(1)
+    g_arr=None
     
     def __init__(self, filename):
         self.infile=filename
@@ -80,17 +85,21 @@ class ann_result:
             arr[sec_code,:]=cat_n
             names[sec_code,0]=seq_name
             sec_code += 1
-        return (names,arr)
+        #return (names,arr)
+        #self.g_arr=numpy.reshape(self.g_arr,arr.shape)
+        print(arr.shape)
+        self.g_names=names
+        self.g_arr=numpy.copy(arr)
 
     def extract_n(self):
-        (names,arr)=self.extract()
-        for i in range(arr.shape[0]):
-            for j in range(arr.shape[1]):
+#        if not self.g_names:
+        self.extract()
+        for i in range(self.g_arr.shape[0]):
+            for j in range(self.g_arr.shape[1]):
                 if ann_config.std_arr[j]==0:
                     pass
                 else:
-                    arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
-        return(names,arr)
+                    self.g_arr[i,j]=(self.g_arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
     
     def predict_score(self):
         (names,arr)=self.extract_n()
@@ -103,7 +112,7 @@ class ann_result:
             "HTJ","Other"]
 
         table1=pd.DataFrame(data=arr_pred,
-            index=names[:,0],
+            index=self.g_names[:,0],
             columns=col_names,
             dtype=numpy.float64
             )
@@ -118,8 +127,8 @@ class ann_result:
     def predict_score_test(self):
         #global ann_config.graph
         with ann_config.graph.as_default():
-            (names,arr)=self.extract_n()
-            yhats_v=ann_config.models.predict(arr)
+            self.extract_n()
+            yhats_v=ann_config.models.predict(self.g_arr)
             predicted_Y=numpy.sum(yhats_v, axis=0)
             col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
@@ -127,7 +136,7 @@ class ann_result:
             "HTJ","Other"]
 
             table1=pd.DataFrame(data=yhats_v,
-            index=names[:,0],
+            index=self.g_names[:,0],
             columns=col_names,
             dtype=numpy.float64
             )
@@ -137,7 +146,7 @@ class ann_result:
             self.html_table=html_style.render()
             table_code_raw= Markup(self.html_table)
             pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
-            return (names,predicted_Y)
+            #return (names,predicted_Y)
     
     
 

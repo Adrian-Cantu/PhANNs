@@ -123,7 +123,7 @@ def progress2(filename):
 def progress(filename):
     def generate():
         test=Phanns_f.ann_result('uploads/'+filename)
-        (names,scores)=test.predict_score()
+        (names,scores)=test.predict_score_test()
         with app.app_context(), app.test_request_context():
             yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
     
