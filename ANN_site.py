@@ -13,6 +13,8 @@ import Phanns_f
 import ann_config
 from keras.models import load_model
 import tensorflow as tf
+from flask_socketio import SocketIO, emit
+from random import *
 
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
@@ -23,6 +25,8 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
 #app.config['APPLICATION_ROOT']='/phanns'
@@ -69,7 +73,7 @@ def bar(filename):
 #        return redirect(fix_url_for('show_file',filename=filename))
 #    else:
         print(filename)
-        return render_template('loading.html',filename=filename)
+        return render_template('loading_t.html',filename=filename)
 
 
 #@app.route('/progress/<filename>')
@@ -119,15 +123,35 @@ def progress2(filename):
     
     return Response(generate(), mimetype= 'text/event-stream')
 
-@app.route('/progress/<filename>')
+@app.route('/progress2/<filename>')
 def progress(filename):
     def generate():
         test=Phanns_f.ann_result('uploads/'+filename)
-        (names,scores)=test.predict_score_test()
+        test.predict_score_test()
         with app.app_context(), app.test_request_context():
-            yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
+            #yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
+            emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
     
     return Response(generate(), mimetype= 'text/event-stream')
+
+#@app.route('/progress/<filename>')
+#@socketio.on('connect', namespace='/test')
+#def progress(filename):
+#    test=Phanns_f.ann_result('uploads/'+filename)
+#    test.predict_score_test()
+#    with app.app_context(), app.test_request_context():
+#        emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
+
+@app.route('/test_io')
+def test_io():
+    return render_template('loading_t.html')
+    
+@socketio.on('my event')
+def handle_my_custom_event(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    #socketio.emit('my response', json, callback=messageReceived)
+    xx = randint(1, 100)
+    socketio.emit('set bar', {'data': xx},room=request.sid)
 
 @app.route('/test')
 def test_template():
@@ -197,5 +221,7 @@ def return_csv(filename):
 		return str(e)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+    #app.run(debug=True, host="0.0.0.0", port=8080)
     #app.run(host="0.0.0.0", port=8080)
+    #socketio.run(app)
+    socketio.run(app, debug=True)

@@ -48,7 +48,10 @@ class ann_result:
         names = numpy.empty((total_fasta,1),  dtype=object)
         names_dic=dict()
         for record in SeqIO.parse(self.infile, "fasta"):
+            data=(record_current/total_fasta) * 100
+            #yield "event: update\ndata:" + str(data) + "\n\n"
             record_current += 1
+            
             #job.meta['current']=record_current
             #job.save_meta()
             ll=len(record.seq)
