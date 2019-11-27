@@ -12,6 +12,7 @@ import os
 import ntpath
 from flask import Markup
 import pickle
+from flask_socketio import emit, SocketIO
 
 import ann_config
 
@@ -21,12 +22,13 @@ class ann_result:
     html_table=''
     g_total_fasta=''
     g_current_fasta=''
-    g_names=''
-    #g_arr=numpy.empty(1)
-    g_arr=None
+    g_sid=''
+    g_socketio = SocketIO()
     
-    def __init__(self, filename):
+    def __init__(self, filename,sid_n,socketio):
         self.infile=filename
+        self.g_sid=sid_n
+        self.g_socketio=socketio
     
     def prot_check(self, sequence):
         return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
@@ -49,6 +51,7 @@ class ann_result:
         names_dic=dict()
         for record in SeqIO.parse(self.infile, "fasta"):
             data=(record_current/total_fasta) * 100
+            self.g_socketio.emit('set bar', {'data': data},room=self.g_sid)
             #yield "event: update\ndata:" + str(data) + "\n\n"
             record_current += 1
             
@@ -88,21 +91,20 @@ class ann_result:
             arr[sec_code,:]=cat_n
             names[sec_code,0]=seq_name
             sec_code += 1
-        #return (names,arr)
-        #self.g_arr=numpy.reshape(self.g_arr,arr.shape)
-        print(arr.shape)
-        self.g_names=names
-        self.g_arr=numpy.copy(arr)
+        self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
+        self.g_socketio.emit('done features',1,room=self.g_sid)
+        return (names,arr)
 
     def extract_n(self):
 #        if not self.g_names:
-        self.extract()
-        for i in range(self.g_arr.shape[0]):
-            for j in range(self.g_arr.shape[1]):
+        (names,arr)=self.extract()
+        for i in range(arr.shape[0]):
+            for j in range(arr.shape[1]):
                 if ann_config.std_arr[j]==0:
                     pass
                 else:
-                    self.g_arr[i,j]=(self.g_arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
+                    arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
+        return (names,arr)
     
     def predict_score(self):
         (names,arr)=self.extract_n()
@@ -130,8 +132,8 @@ class ann_result:
     def predict_score_test(self):
         #global ann_config.graph
         with ann_config.graph.as_default():
-            self.extract_n()
-            yhats_v=ann_config.models.predict(self.g_arr)
+            (names,arr)=self.extract_n()
+            yhats_v=ann_config.models.predict(arr)
             predicted_Y=numpy.sum(yhats_v, axis=0)
             col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
@@ -139,7 +141,7 @@ class ann_result:
             "HTJ","Other"]
 
             table1=pd.DataFrame(data=yhats_v,
-            index=self.g_names[:,0],
+            index=names[:,0],
             columns=col_names,
             dtype=numpy.float64
             )
@@ -149,7 +151,7 @@ class ann_result:
             self.html_table=html_style.render()
             table_code_raw= Markup(self.html_table)
             pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
-            #return (names,predicted_Y)
+            return (names,predicted_Y)
     
     
 

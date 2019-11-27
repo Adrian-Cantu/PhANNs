@@ -15,6 +15,7 @@ from keras.models import load_model
 import tensorflow as tf
 from flask_socketio import SocketIO, emit
 from random import *
+import json
 
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
@@ -123,16 +124,16 @@ def progress2(filename):
     
     return Response(generate(), mimetype= 'text/event-stream')
 
-@app.route('/progress2/<filename>')
-def progress(filename):
-    def generate():
-        test=Phanns_f.ann_result('uploads/'+filename)
-        test.predict_score_test()
-        with app.app_context(), app.test_request_context():
+#@app.route('/progress2/<filename>')
+#def progress(filename):
+#    def generate():
+#        test=Phanns_f.ann_result('uploads/'+filename)
+#        test.predict_score_test()
+#        with app.app_context(), app.test_request_context():
             #yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
-            emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
+#            emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
     
-    return Response(generate(), mimetype= 'text/event-stream')
+#    return Response(generate(), mimetype= 'text/event-stream')
 
 #@app.route('/progress/<filename>')
 #@socketio.on('connect', namespace='/test')
@@ -149,9 +150,16 @@ def test_io():
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
     print('received my event: ' + str(json))
-    #socketio.emit('my response', json, callback=messageReceived)
-    xx = randint(1, 100)
-    socketio.emit('set bar', {'data': xx},room=request.sid)
+    test=Phanns_f.ann_result('uploads/'+json['filename'],request.sid,socketio)
+    (names,pp)=test.predict_score_test()
+    #resp_dict = json.loads(json)
+    redict=''
+    with app.app_context(), app.test_request_context():
+        redict=url_for('show_file',filename=json['filename'])
+    #print(json['filename'])
+    socketio.emit('url', {'url':redict},room=request.sid)
+    #xx = randint(1, 100)
+    #socketio.emit('set bar', {'data': xx},room=request.sid)
 
 @app.route('/test')
 def test_template():
