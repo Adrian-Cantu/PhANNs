@@ -43,6 +43,9 @@ import keras
 pickle.dump(test_X, open( os.path.join(phage_init.model_dir,"web_test_X.p"), "wb" ) )
 
 # %%
+pickle.dump(test_Y, open( os.path.join(phage_init.model_dir,"web_test_Y.p"), "wb" ) )
+
+# %%
 test_X.shape
 
 # %%
@@ -67,6 +70,9 @@ for model_number in range(n_members):
     #K.clear_session()
 
 # %%
+model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
+
+# %%
 #model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_01.h5') )
 
 # %%
@@ -80,12 +86,14 @@ for model_number in range(n_members):
 
 # %%
 #pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
+#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model_di.p"), "wb" ) )
+pickle.dump(model, open( os.path.join(phage_init.model_dir,"single.p"), "wb" ) )
 
 # %%
 test_Y_index = test_Y.argmax(axis=1)
 
 # %%
-yhats = [model.predict(test_X) for model in models]
+yhats = [model.predict(test_X,verbose=1) for model in models]
 yhats_v=numpy.array(yhats)
 predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
@@ -94,6 +102,22 @@ predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(test_Y_index, predicted_Y_index, target_names=labels_names ))
+
+# %%
+import pandas as pd
+id_df=pickle.load(open( os.path.join(phage_init.data_dir,"raw_df.p"), "rb" ))
+
+# %%
+row_class=1
+col_class=1
+
+# %%
+kk=numpy.intersect1d(numpy.where(test_Y_index == row_class)[0],numpy.where( predicted_Y_index == col_class)[0])
+print(kk)
+
+# %%
+test_id=ann_data.get_test_id()
+kk2=test_id[kk]
 
 # %%
 from collections import Counter
