@@ -4,7 +4,9 @@
 {% endblock JavaScript %}	
 
 {% block content %}
-    <h1>Upload new File</h1>
+    <h1>Welcome to PhANNs</h1>
+    <p>PhANNs predicts the structural class of a phage ORF by running an artificial neural network ensemble. </p>
+    <p>To start, upload an amino-acid fasta file. </p>
     <form method=post action="{{fix_url_for('upload_file')}}"  enctype=multipart/form-data>
       <input type=file name=file>
       <input type=submit value=Upload>

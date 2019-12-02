@@ -33,7 +33,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/phanns'
 app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
-#model =  load_model( 'deca_model/single.h5')
 graph = tf.get_default_graph()
 
 def fix_url_for(path, **kwargs):

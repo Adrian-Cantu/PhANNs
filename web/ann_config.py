@@ -17,7 +17,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 #models=pickle.load(open( os.path.join(model_dir,"deca_model.p"), "rb" ))
 models=pickle.load(open( os.path.join(model_dir,"single.p"), "rb" ))
 graph = tf.get_default_graph()
-web_test_X=pickle.load(open( os.path.join(model_dir,"web_test_X.p"), "rb" ))
+#web_test_X=pickle.load(open( os.path.join(model_dir,"web_test_X.p"), "rb" ))
 n_members = 10
 #models = list()
 #yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
