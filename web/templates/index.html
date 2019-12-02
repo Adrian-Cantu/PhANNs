@@ -1,0 +1,110 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+	<script src="{{ fix_url_for('static', filename='sorttable.js') }}" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	 <script>
+//var tableOffset = $("#T_table_1").offset().top;
+//var div_offset = $("main_div").offset();
+//var $header = $("#T_table_1 > thead").clone();
+//var $fixedHeader = $("#header-fixed").append($header);
+//$fixedHeader.offset($("#T_table_1").offset());
+//$('#header-fixed').copyCSS('#T_table_1', null, ['display', 'position']);
+
+//$(window).bind("scroll", function() {
+//    var offset = $(this).scrollTop();
+
+//    if (offset >= tableOffset && $fixedHeader.is(":hidden")) {
+//        $fixedHeader.show();
+//	$fixedHeader.children().width(function(i,val) {
+//		return $("#T_table_1").children().eq(i).width();
+//	});
+//	$fixedHeader.find("th").each(function(index) {
+//		               $(this).css("min-width",$("#T_table_1").find("th").eq(index).width()+"px");
+//		            });
+//    }
+//    else if (offset < tableOffset) {
+//        $fixedHeader.hide();
+//    }
+//});
+
+
+window.scrollTo(0,0);
+var $table = $("#T_table_1");
+var $t_fixed= $();
+var $t_clone=$();
+var head_off= $();
+
+function init() {
+                head_off=$("#main_div").offset().top;
+	            $t_clone = $table.clone();
+	            $t_clone.attr("id","clone_table");
+//	            $t_fixed.find('tbody').remove().end().addClass('fixed_table_header').insertBefore($table);
+//	            $t_fixed.addClass('fixed_table_header').insertBefore($table);
+                $t_clone.insertBefore($table);
+                $t_clone.attr('border', '1px solid black');
+	            $t_clone.attr('box-sizing', 'border-box');
+	            $t_clone.attr('width', '100%');
+	            $t_fixed= $t_clone.clone();
+	            $t_fixed.find('tbody').remove().end().addClass('fixed_table_header').insertBefore($t_clone);
+	        //    $t_fixed.attr('padding','15px' );
+                //$t_fixed.find("th").each(function() {
+                //$(this).attr('padding','15px' );
+                //});
+                $table.remove().end();
+	            resizeFixed();
+                
+	         }
+function resizeFixed() {
+    $t_fixed.offset({top:head_off - $t_fixed.height()+ $(window).scrollTop(),left:$t_clone.offset().left});
+    $t_fixed.width($t_clone.width())
+	$t_fixed.find("th").each(function(index) {
+        	$(this).width($t_clone.find("th").eq(index).width());
+            });
+//    $table.find("th").each(function(index) {
+//    	$(this).width($t_fixed.find("th").eq(index).width());
+//    });
+
+
+         }
+
+function scrollFixed() {
+            $t_fixed.offset({top:head_off - $t_fixed.height()+$(window).scrollTop(),left:$t_clone.offset().left});
+            $t_fixed.width($t_clone.width())
+            	$t_fixed.find("th").each(function(index) {
+        	$(this).width($t_clone.find("th").eq(index).width());
+            });
+            var offset = $(this).scrollTop(),
+            tableOffsetTop = $t_clone.offset().top,
+            tableOffsetBottom = tableOffsetTop + $t_clone.height() - $t_clone.find("thead").height();
+            if(offset < tableOffsetTop || offset > tableOffsetBottom)
+               $t_fixed.hide();
+            else if(offset >= tableOffsetTop && offset <= tableOffsetBottom && $t_fixed.is(":hidden"))
+               $t_fixed.show();
+
+            // left-align $t_fixed with $table
+          //  $t_fixed.css("left", $table.offset().left - $(this).scrollLeft());
+         }
+         $(window).resize(resizeFixed);
+         $(window).scroll(scrollFixed);
+
+         init();
+
+
+	 </script>	 
+{% endblock JavaScript %}	
+
+{% block content %}
+     <a href="{{ fix_url_for('return_csv',filename=csv_table) }}">Download as csv</a> 
+	{{ table_code  }}
+	<a href="{{ fix_url_for('return_csv',filename='major_capsid_' + filename_base) }}">Major Capsid</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='minor_capsid_' + filename_base) }}">Minor Capsid</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='baseplate_' + filename_base) }}">Baseplate</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='major_tail_' + filename_base) }}">Major Tail</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='minor_tail_' + filename_base) }}">Minor Tail</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='portal_' + filename_base) }}">Portal</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='tail_fiber_' + filename_base) }}">Tail Fiber</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='tail_shaft_' + filename_base) }}">Tail Shaft</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='collar_' + filename_base) }}">Collar</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='htj_' + filename_base) }}">HTJ</a><br>
+	<a href="{{ fix_url_for('return_csv',filename='other_' + filename_base) }}">Other</a><br>
+{% endblock content %}
