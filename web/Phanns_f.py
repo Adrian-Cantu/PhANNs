@@ -111,28 +111,34 @@ class ann_result:
                     arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
         return (names,arr)
     
+    
     def predict_score(self):
-        (names,arr)=self.extract_n()
-        yhats = [model.predict(arr) for model in ann_config.models]
-        yhats_v=numpy.array(yhats)
-        predicted_Y=numpy.sum(yhats_v, axis=0)
-        col_names=["Major capsid","Minor capsid","Baseplate",
+        #global ann_config.graph
+        with ann_config.graph.as_default():
+            (names,arr)=self.extract_n()
+            yhats = [model.predict(arr) for model in ann_config.models]
+            yhats_v=numpy.array(yhats)
+            predicted_Y=numpy.sum(yhats_v, axis=0)
+            #predicted_Y=numpy.sum(yhats_v, axis=0)
+            col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
             "Tail fiber","Tail shaft","Collar",
             "HTJ","Other"]
 
-        table1=pd.DataFrame(data=arr_pred,
-            index=self.g_names[:,0],
+            table1=pd.DataFrame(data=predicted_Y,
+            index=names[:,0],
             columns=col_names,
             dtype=numpy.float64
             )
-        pd.options.display.float_format = '{:.2f}'.format
-        table1.astype(float).to_csv("csv_saves/"+ os.path.splitext(ntpath.basename(self.infile))[0] + '.csv',float_format = "%.2f")
-        html_style=table1.style.set_uuid("table_1").set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
-        self.html_table=html_style.render()
-        table_code_raw= Markup(self.html_table)
-        pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
-        return (names,predicted_Y)
+            pd.options.display.float_format = '{:.2f}'.format
+            table1.astype(float).to_csv("csv_saves/"+ os.path.splitext(ntpath.basename(self.infile))[0] + '.csv',float_format = "%.2f")
+            html_style=table1.style.set_uuid("table_1").set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
+            self.html_table=html_style.render()
+            table_code_raw= Markup(self.html_table)
+            pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
+            self.generate_fasta(predicted_Y)
+            return (names,predicted_Y)
+
     
     def predict_score_test(self):
         #global ann_config.graph

@@ -76,7 +76,8 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
             redict=url_for('error',error_msg="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT']))
         socketio.emit('url', {'url':redict},room=request.sid)
     else:
-        (names,pp)=test.predict_score_test()
+        #(names,pp)=test.predict_score_test()
+        (names,pp)=test.predict_score()
         redict=''
         with app.app_context(), app.test_request_context():
             redict=url_for('show_file',filename=json['filename'])
@@ -133,5 +134,5 @@ def return_csv(filename):
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)
     #app.run(host="0.0.0.0", port=8080)
-    #socketio.run(app)
-    socketio.run(app, debug=True)
+    socketio.run(app)
+    #socketio.run(app, debug=True)
