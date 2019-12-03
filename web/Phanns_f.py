@@ -139,7 +139,7 @@ class ann_result:
         with ann_config.graph.as_default():
             (names,arr)=self.extract_n()
             yhats_v=ann_config.models.predict(arr)
-            predicted_Y=numpy.sum(yhats_v, axis=0)
+            #predicted_Y=numpy.sum(yhats_v, axis=0)
             col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
             "Tail fiber","Tail shaft","Collar",
@@ -156,8 +156,61 @@ class ann_result:
             self.html_table=html_style.render()
             table_code_raw= Markup(self.html_table)
             pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
-            return (names,predicted_Y)
-    
+            self.generate_fasta(yhats_v)
+            return (names,yhats_v)
+
+    def generate_fasta(self, predicted_Y):
+        arr_class=predicted_Y.argmax(axis=1)
+        sec_code=0
+        major_capsid_sequences = []
+        minor_capsid_sequences = []
+        baseplate_sequences = []
+        major_tail_sequences = []
+        minor_tail_sequences = []
+        portal_sequences = []
+        tail_fiber_sequences = []
+        tail_shaft_sequences = []
+        collar_sequences = []
+        htj_sequences = []
+        other_sequences = []
+        for record in SeqIO.parse(self.infile, "fasta"):
+            seq_name=''
+            if not self.prot_check(str(record.seq)):
+                continue
+            if arr_class[sec_code]==0:
+                major_capsid_sequences.append(record)
+            elif arr_class[sec_code]==1:
+                minor_capsid_sequences.append(record)
+            elif arr_class[sec_code]==2:
+                baseplate_sequences.append(record)
+            elif arr_class[sec_code]==3:
+                major_tail_sequences.append(record)
+            elif arr_class[sec_code]==4:
+                minor_tail_sequences.append(record)
+            elif arr_class[sec_code]==5:
+                portal_sequences.append(record)
+            elif arr_class[sec_code]==6:
+                tail_fiber_sequences.append(record)
+            elif arr_class[sec_code]==7:
+                tail_shaft_sequences.append(record)
+            elif arr_class[sec_code]==8:
+                collar_sequences.append(record)
+            elif arr_class[sec_code]==9:
+                htj_sequences.append(record)
+            elif arr_class[sec_code]==10:
+                other_sequences.append(record)
+            sec_code += 1
+        SeqIO.write(major_capsid_sequences, "csv_saves/major_capsid_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(minor_capsid_sequences, "csv_saves/minor_capsid" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(baseplate_sequences, "csv_saves/baseplate" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(major_tail_sequences, "csv_saves/major_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(minor_tail_sequences, "csv_saves/minor_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(portal_sequences, "csv_saves/portal" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(tail_fiber_sequences, "csv_saves/tail_fiber" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(tail_shaft_sequences, "csv_saves/tail_shaft" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(collar_sequences, "csv_saves/collar" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(htj_sequences, "csv_saves/htj" + "_"+ ntpath.basename(self.infile) , "fasta")
+        SeqIO.write(other_sequences, "csv_saves/other" + "_"+ ntpath.basename(self.infile) , "fasta")
     
 
 
