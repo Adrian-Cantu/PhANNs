@@ -29,6 +29,11 @@ class ann_result:
         self.infile=filename
         self.g_sid=sid_n
         self.g_socketio=socketio
+        total_fasta=0
+        for record in SeqIO.parse(self.infile, "fasta"):
+            if self.prot_check(str(record.seq)):
+                total_fasta+=1
+        self.g_total_fasta=total_fasta
     
     def prot_check(self, sequence):
         return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
@@ -40,12 +45,9 @@ class ann_result:
         myseq="AILMVNQSTGPCHKRDEFWY"
         trantab2=myseq.maketrans("AILMVNQSTGPCHKRDEFWY","11111222233455566777")
         tetra_sc = [''.join(i) for i in itertools.product(SC, repeat = 4)]
-        total_fasta=0
+        total_fasta=self.g_total_fasta
         sec_code=0
         record_current=0
-        for record in SeqIO.parse(self.infile, "fasta"):
-            if self.prot_check(str(record.seq)):
-                total_fasta+=1
         arr = numpy.empty((total_fasta,10409), dtype=numpy.float)
         names = numpy.empty((total_fasta,1),  dtype=object)
         names_dic=dict()

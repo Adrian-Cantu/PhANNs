@@ -27,7 +27,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
+socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
 #app.config['APPLICATION_ROOT']='/phanns'
@@ -37,9 +37,7 @@ graph = tf.get_default_graph()
 
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
-#    return url_for(path, **kwargs)
 
-#make fix_url_for available in tamplates
 @app.context_processor
 def contex():
     return dict(fix_url_for = fix_url_for)
