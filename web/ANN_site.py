@@ -27,7 +27,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-app.config['FASTA_SIZE_LIMIT']=50
+app.config['FASTA_SIZE_LIMIT']=100
 socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
@@ -54,7 +54,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
+@app.route('/error/<error_msg>')
+def error(error_msg):
+    error_text=error_msg
+    #if (error_msg == '1'):
+    #    error_text="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT'])
+    return render_template('error.html',error_msg=error_text)
 
 @app.route('/uploads/<filename>')
 def bar(filename):
@@ -67,6 +72,9 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
     test=Phanns_f.ann_result('uploads/'+json['filename'],request.sid,socketio)
     if ( test.g_total_fasta > app.config['FASTA_SIZE_LIMIT']):
         print ("fasta size : " + str(test.g_all_fasta))
+        with app.app_context(), app.test_request_context():
+            redict=url_for('error',error_msg="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT']))
+        socketio.emit('url', {'url':redict},room=request.sid)
     else:
         (names,pp)=test.predict_score_test()
         redict=''
