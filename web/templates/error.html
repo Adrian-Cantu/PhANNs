@@ -1,0 +1,45 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+    
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+      socket.on( 'connect', function() {
+        socket.emit( 'my event', {
+          data: 'User Connected'
+        , 'filename' : '{{filename}}'} )
+      } )
+      socket.on( 'set bar', function( msg ) {
+        console.log( msg )
+            $('.progress-bar').css('width', msg.data+'%').attr('aria-valuenow', msg.data);
+			$('.progress-bar-label').text(msg.data+'%');
+      })
+      socket.on( 'url', function( msg ) {
+        socket.disconnect();
+        window.location.replace(msg.url);
+      })
+      socket.on( 'done features', function change_text(msg) {
+        document.getElementById("p1").innerHTML = "Predicting.....";
+        })
+    </script>
+    
+
+{% endblock JavaScript %}	
+
+{% block content %}
+<p id="p0">extracting features</p>
+<div class="progress" style="width: 100%; margin: 50px;">
+		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+			<span class="progress-bar-label">0%</span>
+		</div>
+	</div>
+<p id="p1"></p>
+{% endblock content %}

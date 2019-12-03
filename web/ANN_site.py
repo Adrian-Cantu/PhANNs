@@ -27,6 +27,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
+app.config['FASTA_SIZE_LIMIT']=50
 socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
@@ -49,125 +50,30 @@ def sorttable_filter(s):
     return s
 
 
-def return_html_table(filename):
-    cmd = ["python" , "run_tri_model.py" , app.config['UPLOAD_FOLDER'] + '/' + filename]
-    p = subprocess.Popen(cmd, stdout = subprocess.PIPE,
-                         stderr=subprocess.PIPE,
-                         stdin=subprocess.PIPE)
-    out,err = p.communicate()
-    print(err)
-    return out
-
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-#@app.route('/bar/<filename>')
+
 @app.route('/uploads/<filename>')
 def bar(filename):
-#    if os.path.exists('saves/'+filename):
-#        return redirect(fix_url_for('show_file',filename=filename))
-#    else:
-        print(filename)
-        return render_template('loading_t.html',filename=filename)
+    print(filename)
+    return render_template('loading_t.html',filename=filename)
 
-
-#@app.route('/progress/<filename>')
-def progress2(filename):
-    #yield "data:0" + "\n\n"
-    #yield "event:url" + "\n" + "data:'http://0.0.0.0:8080/upload'" + "\n\n"
-    
-    
-    #yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/upload\"}\n\n"
-    queue = rq.Queue('microblog-tasks', connection=Redis.from_url('redis://'))
-    job = queue.enqueue('run_tri_model_app.entrypoint','uploads/'+filename,job_timeout=3000000)
-    
-    def generate():
-        data=1
-        seq_total=1
-        while data < 100:
-            job.refresh()
-            try:
-                seq_total=job.meta['total']
-            except:
-                seq_total=1
-            try:
-                seq_current=job.meta['current']
-            except:
-                seq_current=0
-            data=(seq_current/seq_total) * 100
-            yield "event: update\ndata:" + str(data) + "\n\n"
-            time.sleep(0.2)
-            print(data)
-        table_string=None
-        model_is_running=None
-        while model_is_running is None:
-            try:
-                job.refresh()
-                model_is_running=job.meta['running']
-            except:
-                time.sleep(0.5)
-            else:
-                yield "event: running\ndata:" + str(model_is_running) + "\n\n"
-        while not job.is_finished:
-            time.sleep(1)
-#        yield "event: url\ndata: {\"url\":\"http://0.0.0.0:8080/saves" + '/' + filename + "\"}\n\n"
-        with app.app_context(), app.test_request_context():
-            yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
-#        with app.app_context(), app.test_request_context():
-#            print("data:" + fix_url_for('show_file',filename=filename)  + "\n\n")
-    
-    return Response(generate(), mimetype= 'text/event-stream')
-
-#@app.route('/progress2/<filename>')
-#def progress(filename):
-#    def generate():
-#        test=Phanns_f.ann_result('uploads/'+filename)
-#        test.predict_score_test()
-#        with app.app_context(), app.test_request_context():
-            #yield "event: url\ndata: {\"url\":\"" + url_for('show_file',filename=filename) +"\"}\n\n"
-#            emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
-    
-#    return Response(generate(), mimetype= 'text/event-stream')
-
-#@app.route('/progress/<filename>')
-#@socketio.on('connect', namespace='/test')
-#def progress(filename):
-#    test=Phanns_f.ann_result('uploads/'+filename)
-#    test.predict_score_test()
-#    with app.app_context(), app.test_request_context():
-#        emit('url',{'data': "url\":\"" + url_for('show_file',filename=filename) +"\"" })
-
-@app.route('/test_io')
-def test_io():
-    return render_template('loading_t.html')
-    
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
     print('received my event: ' + str(json))
     test=Phanns_f.ann_result('uploads/'+json['filename'],request.sid,socketio)
-    (names,pp)=test.predict_score_test()
-    #resp_dict = json.loads(json)
-    redict=''
-    with app.app_context(), app.test_request_context():
-        redict=url_for('show_file',filename=json['filename'])
-    #print(json['filename'])
-    socketio.emit('url', {'url':redict},room=request.sid)
-    #xx = randint(1, 100)
-    #socketio.emit('set bar', {'data': xx},room=request.sid)
-
-@app.route('/test')
-def test_template():
-    test=Phanns_f.ann_result('test.fasta')
-    test.predict_score_test()
-    #(names,features)=test.extract_n()
-    #yhats_v=ann_config.models.predict(features)
-#    global graph
-#    with graph.as_default():
-#        yhats_v=model.predict(features)
-    return test.html_table
+    if ( test.g_total_fasta > app.config['FASTA_SIZE_LIMIT']):
+        print ("fasta size : " + str(test.g_all_fasta))
+    else:
+        (names,pp)=test.predict_score_test()
+        redict=''
+        with app.app_context(), app.test_request_context():
+            redict=url_for('show_file',filename=json['filename'])
+        socketio.emit('url', {'url':redict},room=request.sid)
+    return True    
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/upload', methods=['GET', 'POST'])
@@ -195,13 +101,6 @@ def upload_file():
 def about():
     return render_template('about.html', title='about')
 
-#@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    table_code_raw= Markup(return_html_table(filename).decode('utf8'))
-    table=render_template('index.html', table_code= table_code_raw)
-    pickle.dump(table_code_raw,open('saves/' + filename,"wb"))
-    return table
-
 @app.route('/saves/<filename>')
 def show_file(filename):
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
@@ -212,11 +111,9 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-
 @app.route('/tri_p.h5')
 def model_file():
     return send_file('tri_p_model/tri_p.h5')
-
 
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):

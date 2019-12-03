@@ -21,7 +21,7 @@ class ann_result:
     infile=''
     html_table=''
     g_total_fasta=''
-    g_current_fasta=''
+    g_all_fasta=''
     g_sid=''
     g_socketio = SocketIO()
     
@@ -30,10 +30,13 @@ class ann_result:
         self.g_sid=sid_n
         self.g_socketio=socketio
         total_fasta=0
+        all_fasta=0
         for record in SeqIO.parse(self.infile, "fasta"):
+            all_fasta+=1
             if self.prot_check(str(record.seq)):
                 total_fasta+=1
         self.g_total_fasta=total_fasta
+        self.g_all_fasta=all_fasta
     
     def prot_check(self, sequence):
         return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
