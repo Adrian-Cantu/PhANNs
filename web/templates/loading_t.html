@@ -10,8 +10,9 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     
+    console.log(document.domain);
 
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
+var socket = io.connect('http://' + document.domain + '{{config.APPLICATION_ROOT}}' + ':' + location.port,{'path': '{{config.APPLICATION_ROOT}}' +'/socket.io','secure':'true'});
       socket.on( 'connect', function() {
         socket.emit( 'my event', {
           data: 'User Connected'

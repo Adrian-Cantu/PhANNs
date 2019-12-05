@@ -28,3 +28,5 @@ sudo ufw allow 'Nginx Full'
 #start rq
 
 rq worker microblog-tasks
+
+KERAS_BACKEND=tensorflow python ANN_site.py

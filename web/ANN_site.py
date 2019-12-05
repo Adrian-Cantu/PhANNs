@@ -6,8 +6,6 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory , Markup, send_file
 import subprocess
 import pickle
-from redis import Redis
-import rq
 import ntpath
 import Phanns_f
 import ann_config
@@ -24,18 +22,20 @@ ALLOWED_EXTENSIONS = set(['txt', 'faa', 'fasta', 'gif', 'fa'])
 import urllib
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
-
+os.environ["KERAS_BACKEND"]="tensorflow"
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-app.config['FASTA_SIZE_LIMIT']=100
-socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
+app.config['FASTA_SIZE_LIMIT']=500
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
-#app.config['APPLICATION_ROOT']='/phanns'
-app.config['APPLICATION_ROOT']=''
+app.config['APPLICATION_ROOT']='/phanns'
+#app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 graph = tf.get_default_graph()
 
+#socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
+socketio = SocketIO(app,ping_timeout=60000)
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
 
@@ -64,7 +64,12 @@ def error(error_msg):
 @app.route('/uploads/<filename>')
 def bar(filename):
     print(filename)
-    return render_template('loading_t.html',filename=filename)
+    #return render_template('loading_t.html',filename=filename)
+    test=Phanns_f.ann_result('uploads/'+filename)
+    (names,pp)=test.predict_score()
+    #(names,pp)=test.predict_score_test()
+    return redirect(url_for('show_file',filename=filename))
+
 
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
@@ -76,8 +81,8 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
             redict=url_for('error',error_msg="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT']))
         socketio.emit('url', {'url':redict},room=request.sid)
     else:
-        #(names,pp)=test.predict_score_test()
-        (names,pp)=test.predict_score()
+        (names,pp)=test.predict_score_test()
+        #(names,pp)=test.predict_score()
         redict=''
         with app.app_context(), app.test_request_context():
             redict=url_for('show_file',filename=json['filename'])
@@ -101,7 +106,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#            print( fix_url_for('bar',filename=filename))
+            #print( fix_url_for('bar',filename=filename))
+            #print( url_for('bar',filename=filename))
             return redirect(url_for('bar',filename=filename))
 #    print( fix_url_for('upload_file'))
     return render_template('main.html')
@@ -134,5 +140,6 @@ def return_csv(filename):
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)
     #app.run(host="0.0.0.0", port=8080)
-    socketio.run(app)
+    #socketio.run(app,host="0.0.0.0", port=8080,ssl_context='adhoc')
+    socketio.run(app,host="0.0.0.0", port=8080)
     #socketio.run(app, debug=True)

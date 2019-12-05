@@ -24,11 +24,24 @@ class ann_result:
     g_all_fasta=''
     g_sid=''
     g_socketio = SocketIO()
+    g_is_socket = 1
     
     def __init__(self, filename,sid_n,socketio):
         self.infile=filename
         self.g_sid=sid_n
         self.g_socketio=socketio
+        total_fasta=0
+        all_fasta=0
+        for record in SeqIO.parse(self.infile, "fasta"):
+            all_fasta+=1
+            if self.prot_check(str(record.seq)):
+                total_fasta+=1
+        self.g_total_fasta=total_fasta
+        self.g_all_fasta=all_fasta
+
+    def __init__(self, filename):
+        self.infile=filename
+        self.g_is_socket = 0
         total_fasta=0
         all_fasta=0
         for record in SeqIO.parse(self.infile, "fasta"):
@@ -56,7 +69,8 @@ class ann_result:
         names_dic=dict()
         for record in SeqIO.parse(self.infile, "fasta"):
             data=(record_current/total_fasta) * 100
-            self.g_socketio.emit('set bar', {'data': data},room=self.g_sid)
+            if (self.g_is_socket==1):
+                self.g_socketio.emit('set bar', {'data': data},room=self.g_sid)
             #yield "event: update\ndata:" + str(data) + "\n\n"
             record_current += 1
             
@@ -96,8 +110,9 @@ class ann_result:
             arr[sec_code,:]=cat_n
             names[sec_code,0]=seq_name
             sec_code += 1
-        self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
-        self.g_socketio.emit('done features',1,room=self.g_sid)
+        if (self.g_is_socket==1):
+            self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
+            self.g_socketio.emit('done features',1,room=self.g_sid)
         return (names,arr)
 
     def extract_n(self):
