@@ -1,0 +1,9 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+{% endblock JavaScript %}	
+
+{% block content %}
+<a href="{{ fix_url_for('down_file',filename='PhANNs_DB.fasta.tgz') }}" >Database</a><br>
+<a href="{{ fix_url_for('down_file',filename='model.tar') }}" >Model_file</a><br>
+<a href="{{ fix_url_for('down_file',filename='test.fasta') }}" >test fasta file</a>
+{% endblock content %}

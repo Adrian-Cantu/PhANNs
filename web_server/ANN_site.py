@@ -66,8 +66,8 @@ def bar(filename):
     print(filename)
     #return render_template('loading_t.html',filename=filename)
     test=Phanns_f.ann_result('uploads/'+filename)
-    (names,pp)=test.predict_score()
-    #(names,pp)=test.predict_score_test()
+    #(names,pp)=test.predict_score()
+    (names,pp)=test.predict_score_test()
     return redirect(url_for('show_file',filename=filename))
 
 
@@ -89,8 +89,13 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
         socketio.emit('url', {'url':redict},room=request.sid)
     return True    
 
+#@app.route('/', methods=['GET', 'POST'])
+#def show_home():
+#    return render_template('home.html')
+
+
+#@app.route('/upload', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -126,9 +131,18 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.route('/tri_p.h5')
-def model_file():
-    return send_file('tri_p_model/tri_p.h5')
+@app.route('/downloads')
+def downloads():
+    return render_template('downloads.html')
+
+@app.route('/download/<filename>')
+def down_file(filename):
+    if (filename == "model.tar"):
+        return send_file('deca_model/model.tar')
+    elif (filename == 'test.fasta'):
+        return send_file('deca_model/test.fasta')
+    elif (filename == 'PhANNs_DB.fasta.tgz'):
+        return send_file('deca_model/PhANNs_DB.fasta.tgz')
 
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):

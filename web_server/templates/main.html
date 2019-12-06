@@ -5,8 +5,17 @@
 
 {% block content %}
     <h1>Welcome to PhANNs</h1>
-    <p>PhANNs predicts the structural class of a phage ORF by running an artificial neural network ensemble. </p>
-    <p>To start, upload an amino-acid fasta file. </p>
+
+<p>PhANNs predicts the structural class of a phage ORF by running an artificial neural network ensemble that we created against a fasta file of protein sequences. If you upload a multi-fasta file, we’ll provide you estimates of the structural classes of all the proteins, and we’ll let you download the sequences for each class as a fasta file. </p>
+
+ <p>PhANNs was made by analyzing the protein sequence composition of almost 100,000 proteins and using those characteristics to build a feed-forward neural network that predicts the structural classes.  </p>
+
+ <p>Here is an example data set that you can use to test the output. This small fasta file contains one protein from each class, and so you can download this fasta file, upload it to the PhANNs website, and see the predictions.  </p>
+
+ <p>To find out more about PhANNs, please check our  <a href="https://github.com/Adrian-Cantu/PhANNs">Git Hub</a> repository.  If you don’t want to use, or trust, our servers you can download the code from GitHub and the <a href="{{ fix_url_for('down_file',filename='model.tar') }}" >model file</a>, and run PhANNs on your own, too! </p>
+
+    <h2>To start, upload an amino-acid fasta file. </h2>
+    
     <form method=post action="{{fix_url_for('upload_file')}}"  enctype=multipart/form-data>
       <input type=file name=file>
       <input type=submit value=Upload>
