@@ -139,8 +139,8 @@ def downloads():
 def down_file(filename):
     if (filename == "model.tar"):
         return send_file('deca_model/model.tar')
-    elif (filename == 'test.fasta'):
-        return send_file('deca_model/test.fasta')
+    elif (filename == 'PhANNs_test.fasta'):
+        return send_file('deca_model/PhANNs_test.fasta')
     elif (filename == 'PhANNs_DB.fasta.tgz'):
         return send_file('deca_model/PhANNs_DB.fasta.tgz')
 

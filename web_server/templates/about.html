@@ -3,9 +3,13 @@
 {% endblock JavaScript %}	
 
 {% block content %}
- 
-PhANNs is a neural network that that can classify phage structural proteins. It takes protein fasta files as input and return a score.
+<p> PhANNs was written by <a href="https://scholar.google.com/citations?user=Vc7DmLIAAAAJ">Adrian Cantu</a> 
+in the <a href="https://edwards.sdsu.edu/research">EdwardsLab</a>
+and  <a href="http://segall-lab.sdsu.edu">SegallLab</a>  
+at <a href="https://www.sdsu.edu/">San Diego State University</a>.
 
-More details can be found at  <a href="https://github.com/Adrian-Cantu/PhANNs">https://github.com/Adrian-Cantu/PhANNs</a> 
+<p>PhANNs is designed to address the `dark-matter`: we  are unable to assign functions to 50-90% of genes using homology-based alignments. Yet phages have analogous structural proteins with a similar 3D structure that are needed to protect the nucleic acid genome and infect next host. PhANNs is a new method that classifies phage ORFs into ten classes of structural proteins or, if that fails, into the `other` category. PhANNs was trained against a <a href="{{ fix_url_for('down_file',filename='PhANNs_DB.fasta.tgz') }}">database of 70,601 manually curated phage protein sequences</a>. The PhANN classifier reached an F<sub>1</sub>-score of 0.916 using 10-fold cross-validation. PhANNs provide a new approach for functional annotation of phage proteins.</p>
+
+<p>The PhANNs technology uses Keras and Tensorflow to build a model based on the classes of phage structural proteins.  You can download <a href="{{ fix_url_for('down_file',filename='model.tar') }}" >Model file</a> from the link above to donwload that model and run it using the code in our <a href="https://github.com/Adrian-Cantu/PhANNs">https://github.com/Adrian-Cantu/PhANNs</a> repository. </p>
 
 {% endblock content %}
