@@ -29,7 +29,7 @@ app.config['FASTA_SIZE_LIMIT']=500
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
-app.config['APPLICATION_ROOT']='/phanns'
+app.config['APPLICATION_ROOT']=ann_config.prefix
 #app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 graph = tf.get_default_graph()
@@ -66,8 +66,8 @@ def bar(filename):
     print(filename)
     #return render_template('loading_t.html',filename=filename)
     test=Phanns_f.ann_result('uploads/'+filename)
-    #(names,pp)=test.predict_score()
-    (names,pp)=test.predict_score_test()
+    (names,pp)=test.predict_score()
+    #(names,pp)=test.predict_score_test()
     return redirect(url_for('show_file',filename=filename))
 
 
