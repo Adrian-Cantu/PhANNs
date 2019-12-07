@@ -19,7 +19,7 @@ You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu
 
 ## But I really want to install it!
 
-Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/tri_p.h5), put it in the "deca\_model" directory and uncompress it. 
+Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/download/model.tar), put it in the "deca\_model" directory and uncompress it. 
 
 All requirement are listed on the `environment.yml` file, but the easier way to install them is using anaconda
 
