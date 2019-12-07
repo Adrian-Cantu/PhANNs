@@ -8,4 +8,4 @@ The easiest way to run PhANNs it to use the [Web server.](https://edwards.sdsu.e
 
 ## Repository
 
-The repository is divided in two parts. The ["web\_server"](https://github.com/Adrian-Cantu/PhANNs/web_server) directory contains all you need to run PhANNs locally. The ["model\_training"](https://github.com/Adrian-Cantu/PhANNs/model_training) directory contains the code to download sequences and to train and test the Artificial Neural Networks.
+The repository is divided in two parts. The ["web\_server"](https://github.com/Adrian-Cantu/PhANNs/tree/master/web_server) directory contains all you need to run PhANNs locally. The ["model\_training"](https://github.com/Adrian-Cantu/PhANNs/tree/master/model_training) directory contains the code to download sequences and to train and test the Artificial Neural Networks.
