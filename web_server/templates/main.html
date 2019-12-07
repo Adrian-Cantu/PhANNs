@@ -1,6 +1,5 @@
 {% extends "layout.html" %} 
 {% block JavaScript %}
-	<script src="{{ fix_url_for('static', filename='sorttable.js') }}" type="text/javascript"></script>
 {% endblock JavaScript %}	
 
 {% block content %}
@@ -10,7 +9,7 @@
 
  <p>PhANNs was made by analyzing the protein sequence composition of almost 100,000 proteins and using those characteristics to build a feed-forward neural network that predicts the structural classes.  </p>
 
- <p>Here is an example data set that you can use to test the output. This small fasta file contains one protein from each class, and so you can download this fasta file, upload it to the PhANNs website, and see the predictions.  </p>
+ <p>Here is an example <a href="{{ fix_url_for('down_file',filename='PhANNs_test.fasta') }}" >data set</a>, that you can use to test the output. This small fasta file contains one protein from each class, and so you can download this fasta file, upload it to the PhANNs website, and see the predictions.  </p>
 
  <p>To find out more about PhANNs, please check our  <a href="https://github.com/Adrian-Cantu/PhANNs">Git Hub</a> repository.  If you don’t want to use, or trust, our servers you can download the code from GitHub and the <a href="{{ fix_url_for('down_file',filename='model.tar') }}" >model file</a>, and run PhANNs on your own, too! </p>
 
