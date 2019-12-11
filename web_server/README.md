@@ -19,9 +19,21 @@ You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu
 
 ## But I really want to install it!
 
-Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/download/model.tar), put it in the "deca\_model" directory and uncompress it. 
+Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/download/model.tar), put it in the "deca\_model" directory and uncompress it. *Warning:* The model file is 12G compressed, and so will take a while to download. 
 
-All requirement are listed on the `environment.yml` file, but the easier way to install them is using anaconda
+```bash
+cd deca_model
+curl -Lo model.tar https://edwards.sdsu.edu/phanns/download/model.tar
+tar xf model.tar
+```
+
+### Install conda
+
+If you already have `conda` installed, you can skip this step and just activate `conda`. However, if you don't have `conda` installed, the easiest way to start is to download and install [Anaconda](https://www.anaconda.com/distribution/)
+
+### Create a conda environment
+
+All the requirements are listed in the `environment.yml` file, but the easier way to install them is using anaconda
 
 ```
 conda env create -f environment.yml
