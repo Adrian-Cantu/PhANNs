@@ -5,8 +5,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.2.1
+#       format_version: '1.3'
+#       jupytext_version: 1.3.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -40,13 +40,13 @@ import keras
 (test_X,test_Y)=ann_data.get_formated_test("tetra_sc_tri_p")
 
 # %%
-pickle.dump(test_X, open( os.path.join(phage_init.model_dir,"web_test_X.p"), "wb" ) )
+#pickle.dump(test_X, open( os.path.join(phage_init.model_dir,"web_test_X.p"), "wb" ) )
 
 # %%
-pickle.dump(test_Y, open( os.path.join(phage_init.model_dir,"web_test_Y.p"), "wb" ) )
+#pickle.dump(test_Y, open( os.path.join(phage_init.model_dir,"web_test_Y.p"), "wb" ) )
 
 # %%
-test_X.shape
+#test_X.shape
 
 # %%
 #stop using gpu to not run into memoru issues
@@ -73,9 +73,6 @@ for model_number in range(n_members):
 model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
 
 # %%
-#model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_01.h5') )
-
-# %%
 #yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
 
 # %%
@@ -85,9 +82,10 @@ model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
 #row.shape
 
 # %%
-#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
+pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
 #pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model_di.p"), "wb" ) )
 pickle.dump(model, open( os.path.join(phage_init.model_dir,"single.p"), "wb" ) )
+#models=pickle.load(open( os.path.join(phage_init.model_dir,"deca_model.p"), "rb" ))
 
 # %%
 test_Y_index = test_Y.argmax(axis=1)
@@ -148,3 +146,17 @@ for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
                 color="white" if CM_n[i, j] < 0.50 else "black")
 plt.savefig('tetra_sc_tri_p_CM.png',bbox_inches="tight")
 plt.show()
+
+# %%
+import pickle
+import os
+mf=pickle.load(open( os.path.join(phage_init.data_dir,"mean_final.p"), "rb" ))
+sd=pickle.load(open( os.path.join(phage_init.data_dir,"std_final.p"), "rb" ))
+
+# %%
+mf_s=numpy.concatenate((mf[400:8400],mf[8792:11193],mf[-8:]))
+sd_s=numpy.concatenate((sd[400:8400],sd[8792:11193],sd[-8:]))
+
+# %%
+pickle.dump(mf_s, open( os.path.join(phage_init.model_dir,"mean_part.p"), "wb" ))
+pickle.dump(sd_s, open( os.path.join(phage_init.model_dir,"std_part.p"), "wb" ))

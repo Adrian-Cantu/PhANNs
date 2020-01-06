@@ -5,8 +5,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.2.1
+#       format_version: '1.3'
+#       jupytext_version: 1.3.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -102,8 +102,8 @@ for this_model in all_models:
         K.clear_session()
 
 # %%
-#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
-df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
+pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
+#df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
 
 # %%
 #pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
@@ -120,16 +120,19 @@ custom_dict = {'di_sc':0,'di_sc_p':1,'tri_sc':2,'tri_sc_p':3,'tetra_sc':4,'tetra
 
 
 f1_df=df[df['score_type'] == 'f1-score']
-f1_df['model'] = pd.Categorical(
-    f1_df['model'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True
-)
+#f1_df.loc['model'] = pd.Categorical(
+#    f1_df['model'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True
+#)
 
 avg_df=df[df['class'] == 'weighted avg']
-avg_df['model'] = pd.Categorical(
-    avg_df['model'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True
-)
+#avg_df['model'] = pd.Categorical(
+#    avg_df['model'], categories=sorted(custom_dict, key=custom_dict.get), ordered=True
+#)
 
 # %%
+
+# %%
+f1_df
 
 # %%
 fig, ax = plt.subplots()

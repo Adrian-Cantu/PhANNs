@@ -5,8 +5,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.2.1
+#       format_version: '1.3'
+#       jupytext_version: 1.3.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -96,7 +96,7 @@ def train_kfold(model_name,df):
         mc = ModelCheckpoint(os.path.join(phage_init.model_dir,model_name+'_'+"{:02d}".format(model_number)+'.h5'), monitor='loss', 
                          mode='min', save_best_only=True, verbose=1)
         model = Sequential()
-        opt=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+        opt=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, decay=0.0, amsgrad=False)
         model.add(Dense(f_num, input_dim=f_num, kernel_initializer='random_uniform',activation='relu'))
         model.add(Dropout(0.2))
         model.add(Dense(200,activation='relu'))
@@ -105,8 +105,8 @@ def train_kfold(model_name,df):
         model.add(Dropout(0.2))
         model.add(Dense(11,activation='softmax'))
         model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
-        model.fit(train_X[train], train_YY, epochs=120, batch_size=5000, verbose=1,
-                  class_weight=train_weights,callbacks=[es,mc])
+        print(train_weights)
+        model.fit(train_X[train], train_YY, epochs=120, batch_size=5000, verbose=1,class_weight=train_weights,callbacks=[es,mc])
         test_Y_predicted = model.predict_classes(train_X[test])
 #        df=add_to_df(df,train_Y_index[test], test_Y_predicted,this_model)
 #        scores = model.evaluate(train_X[test], test_YY, verbose=0)
@@ -126,5 +126,12 @@ def train_kfold(model_name,df):
 
 all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc_tri_p','all']
 #all_models=['tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all']
+#all_models=['di_sc','di_sc_p']
 for this_model in all_models:
-    df=train_kfold(this_model,df)
+    kk=train_kfold(this_model,df)
+
+# %%
+(train_X,train_Y)=ann_data.get_formated_train("di_sc")
+
+# %%
+train_X.shape

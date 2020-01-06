@@ -5,8 +5,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.2.1
+#       format_version: '1.3'
+#       jupytext_version: 1.3.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -53,7 +53,7 @@ all_fasta=(os.path.join(phage_init.fasta_dir,"major_capsid_all_clustered.fasta")
            os.path.join(phage_init.fasta_dir,"minor_tail_all_clustered.fasta"),os.path.join(phage_init.fasta_dir,"portal_all_clustered.fasta"),
            os.path.join(phage_init.fasta_dir,"tail_fiber_all_clustered.fasta"),os.path.join(phage_init.fasta_dir,"shaft_all_clustered.fasta"),
            os.path.join(phage_init.fasta_dir,"collar_all_clustered.fasta"),os.path.join(phage_init.fasta_dir,"HTJ_all_clustered.fasta"),
-           os.path.join(phage_init.fasta_dir,"others_derep.fasta"))
+           os.path.join(phage_init.fasta_dir,"others_v3.2.fasta"))
 
 # %%
 with open(os.path.join(phage_init.data_dir,"informative_kmer_re.txt")) as f:
@@ -195,7 +195,10 @@ def extract_all_re(fasta_list,re_list):
 #one_fasta=[os.path.join(phage_init.fasta_dir,"minor_capsid_all_clustered.fasta")]
 #print(one_fasta)
 #(arr,class_arr,id_arr,df)=extract_all_re(one_fasta,content)
-(arr_2,class_arr,id_arr,df)=extract_all_re(all_fasta,content)
+(arr_2,class_arr2,id_arr2,df2)=extract_all_re(all_fasta,content)
+
+# %%
+del class_arr2,id_arr2,df2
 
 # %%
 (arr,class_arr,id_arr,df)=extract_all(all_fasta)
