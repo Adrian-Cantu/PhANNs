@@ -25,16 +25,16 @@ import ann_data
 # %%
 #import keras and numpy
 import numpy
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from keras.layers import Activation
-from keras.layers import Dropout
-from keras.optimizers import Adam
-from keras import backend as K
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras import backend as K
 import pickle
-from keras.callbacks import EarlyStopping
-from keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import ModelCheckpoint
 from sklearn.metrics import classification_report
 
 
@@ -126,12 +126,19 @@ def train_kfold(model_name,df):
 
 all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc_tri_p','all']
 #all_models=['tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all']
-#all_models=['di_sc','di_sc_p']
+#all_models=['di_sc','tetra_sc_tri_p']
 for this_model in all_models:
     kk=train_kfold(this_model,df)
 
 # %%
 (train_X,train_Y)=ann_data.get_formated_train("di_sc")
+(test_X,test_Y)=ann_data.get_formated_test("di_sc")
 
 # %%
 train_X.shape
+
+# %%
+test_X.shape
+
+# %%
+train_X.shape[0]+test_X.shape[0]

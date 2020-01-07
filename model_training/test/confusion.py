@@ -23,21 +23,20 @@ import phage_init
 import ann_data
 
 # %%
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from keras.layers import Activation
-from keras.layers import Dropout
-from keras.models import load_model
-from keras import backend as K
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.models import load_model
+from tensorflow.keras import backend as K
 from sklearn.metrics import classification_report
 import numpy
 #load the saved matrices
 import pickle
-import keras
+import tensorflow.keras as keras
 
 # %%
-(test_X,test_Y)=ann_data.get_formated_test("tetra_sc_tri_p")
 
 # %%
 #pickle.dump(test_X, open( os.path.join(phage_init.model_dir,"web_test_X.p"), "wb" ) )
@@ -58,7 +57,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 n_members = 10
 models = list()
-yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
+#yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
 for model_number in range(n_members):
     # load model
         print('loading ...' + os.path.join(phage_init.model_dir,'tetra_sc_tri_p_'+"{:02d}".format(model_number+1)+'.h5'))
@@ -82,10 +81,13 @@ model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
 #row.shape
 
 # %%
-pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
+#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
 #pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model_di.p"), "wb" ) )
-pickle.dump(model, open( os.path.join(phage_init.model_dir,"single.p"), "wb" ) )
+#pickle.dump(model, open( os.path.join(phage_init.model_dir,"single.p"), "wb" ) )
 #models=pickle.load(open( os.path.join(phage_init.model_dir,"deca_model.p"), "rb" ))
+
+# %%
+(test_X,test_Y)=ann_data.get_formated_test("tetra_sc_tri_p")
 
 # %%
 test_Y_index = test_Y.argmax(axis=1)

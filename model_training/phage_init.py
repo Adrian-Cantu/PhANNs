@@ -9,7 +9,7 @@ fasta_dir = os.path.join(root_dir, 'fasta')
 #model_dir = os.path.join(root_dir, 'model_v3')
 #data_dir =  os.path.join(root_dir, 'data_v3')
 
-model_dir = os.path.join(root_dir, 'model_v3.2')
+model_dir = os.path.join(root_dir, 'model_v3.3')
 data_dir =  os.path.join(root_dir, 'data_v3.2')
 
 kfold_dir  = os.path.join(root_dir,'k_fold_model')
