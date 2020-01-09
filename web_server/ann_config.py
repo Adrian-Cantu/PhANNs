@@ -4,14 +4,13 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 ### chage the base path.
-#prefix='/phanns'
-prefix=''
+prefix='/phanns'
+#prefix=''
 
 path = os.path.abspath(__file__)
 root_dir = os.path.dirname(path)
 fasta_dir = os.path.join(root_dir, 'fasta')
-#model_dir = os.path.join(root_dir, 'deca_model')
-model_dir = os.path.join(root_dir, 'deca_model_v3.3')
+model_dir = os.path.join(root_dir, 'deca_model')
 
 
 mean_arr=pickle.load(open( os.path.join(model_dir,"mean_part.p"), "rb" ))
