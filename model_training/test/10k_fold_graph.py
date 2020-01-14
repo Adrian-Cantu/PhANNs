@@ -25,15 +25,15 @@ import ann_data
 # %%
 #import keras and numpy
 import numpy
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
-from keras.layers import Activation
-from keras.layers import Dropout
-from keras.optimizers import Adam
-from keras import backend as K
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras import backend as K
 import pickle
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from sklearn.metrics import classification_report
 from sklearn.model_selection import StratifiedKFold
 
