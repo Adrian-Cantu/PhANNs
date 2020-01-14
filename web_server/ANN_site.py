@@ -9,7 +9,7 @@ import pickle
 import ntpath
 import Phanns_f
 import ann_config
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import tensorflow as tf
 from flask_socketio import SocketIO, emit
 from random import *
