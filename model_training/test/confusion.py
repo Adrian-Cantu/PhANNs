@@ -69,7 +69,10 @@ for model_number in range(n_members):
     #K.clear_session()
 
 # %%
-model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
+model =  load_model( os.path.join(phage_init.model_dir,'di_sc_03.h5') )
+
+# %%
+model.summary()
 
 # %%
 #yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
@@ -90,10 +93,16 @@ model =  load_model( os.path.join(phage_init.model_dir,'tetra_sc_tri_p_03.h5') )
 (test_X,test_Y)=ann_data.get_formated_test("tetra_sc_tri_p")
 
 # %%
+test_Y.shape
+
+# %%
 test_Y_index = test_Y.argmax(axis=1)
 
 # %%
-yhats = [model.predict(test_X,verbose=1) for model in models]
+yhats = [model.predict(test_X,verbose=2) for model in models]
+
+# %%
+
 yhats_v=numpy.array(yhats)
 predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
@@ -102,6 +111,12 @@ predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(test_Y_index, predicted_Y_index, target_names=labels_names ))
+
+# %%
+report=classification_report(test_Y_index, predicted_Y_index , target_names=labels_names,output_dict=True )
+
+# %%
+report
 
 # %%
 import pandas as pd
@@ -146,6 +161,9 @@ fmt = '.2f'
 for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
         plt.text(j, i, format(CM_n[i, j], fmt),horizontalalignment="center",verticalalignment='center',
                 color="white" if CM_n[i, j] < 0.50 else "black")
+plt.ylabel('True Class',fontsize='20')
+plt.xlabel('Predicted Class',fontsize='20')
+plt.clim(0,1)
 plt.savefig('tetra_sc_tri_p_CM.png',bbox_inches="tight")
 plt.show()
 

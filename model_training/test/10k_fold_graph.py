@@ -102,8 +102,8 @@ for this_model in all_models:
         K.clear_session()
 
 # %%
-pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
-#df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
+#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
+df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
 
 # %%
 #pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
@@ -130,9 +130,12 @@ avg_df=df[df['class'] == 'weighted avg']
 #)
 
 # %%
+f1_df
 
 # %%
-f1_df
+for x in all_models:
+    kk=df.loc[(df['model']==x) & (df['class']=='weighted avg') & (df['score_type'] == 'f1-score')].describe()['value']['mean']
+    print(x +' -> ' + str(kk))
 
 # %%
 fig, ax = plt.subplots()
@@ -151,22 +154,10 @@ l = ax.legend()
 plt.setp(ax.get_legend().get_texts(), fontsize='18') # for legend text
 #print(dir(l))
 ax.set(ylim=(0.4, 1))
+ax.yaxis.grid(True)
 #ax.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
 fig.savefig('avg_score_master.png',bbox_inches="tight")
-
-# %%
-#ax.properties()['children']
-#ax.lines[0].get_data()
-
-kk= [(x.get_x(),x.get_height()) for x in ax.patches]
-kkk =numpy.array(kk,dtype=[('x', float), ('y', float)])
-kkk
-
-# %%
-kkkk=numpy.sort(kkk,order='x')
-for xx in zip(kkkk[0::3],all_models):
-    print(xx[0],xx[1])
 
 # %%
 import seaborn as sns
