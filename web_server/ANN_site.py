@@ -7,7 +7,7 @@ from flask import send_from_directory , Markup, send_file
 import subprocess
 import pickle
 import ntpath
-import Phanns_f
+#import Phanns_f
 import ann_config
 from tensorflow.keras.models import load_model
 import tensorflow as tf
@@ -16,6 +16,15 @@ from random import *
 import json
 #import keras.backend.tensorflow_backend as tb
 #tb._SYMBOLIC_SCOPE.value = True
+
+import zmq
+
+context = zmq.Context()
+
+#  Socket to talk to server
+print("Connecting to hello world server…")
+socket = context.socket(zmq.REQ)
+socket.connect("tcp://localhost:5555")
 
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
@@ -66,9 +75,14 @@ def error(error_msg):
 def bar(filename):
     print(filename)
     #return render_template('loading_t.html',filename=filename)
-    test=Phanns_f.ann_result('uploads/'+filename)
-    (names,pp)=test.predict_score()
+    #test=Phanns_f.ann_result('uploads/'+filename)
+    #(names,pp)=test.predict_score()
     #(names,pp)=test.predict_score_test()
+    print("Sending request %s …" % filename)
+    socket.send(filename.encode('UTF-8'))
+
+#  Get the reply.
+    message = socket.recv()
     return redirect(url_for('show_file',filename=filename))
 
 

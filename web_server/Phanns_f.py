@@ -15,6 +15,7 @@ import pickle
 from flask_socketio import emit, SocketIO
 
 import ann_config
+import load_server
 
 class ann_result:
 
@@ -128,10 +129,10 @@ class ann_result:
         (names,arr)=self.extract()
         for i in range(arr.shape[0]):
             for j in range(arr.shape[1]):
-                if ann_config.std_arr[j]==0:
+                if load_server.std_arr[j]==0:
                     pass
                 else:
-                    arr[i,j]=(arr[i,j]-ann_config.mean_arr[j])/ann_config.std_arr[j]
+                    arr[i,j]=(arr[i,j]-load_server.mean_arr[j])/load_server.std_arr[j]
         return (names,arr)
     
     
@@ -139,7 +140,7 @@ class ann_result:
         #global ann_config.graph
         #with ann_config.graph.as_default():
             (names,arr)=self.extract_n()
-            yhats = [model.predict(arr) for model in ann_config.models]
+            yhats = [model.predict(arr) for model in load_server.models]
             yhats_v=numpy.array(yhats)
             predicted_Y=numpy.sum(yhats_v, axis=0)
             #predicted_Y=numpy.sum(yhats_v, axis=0)
@@ -167,7 +168,7 @@ class ann_result:
         #global ann_config.graph
         #with ann_config.graph.as_default():
             (names,arr)=self.extract_n()
-            yhats_v=ann_config.models.predict(arr)
+            yhats_v=load_server.models.predict(arr)
             #predicted_Y=numpy.sum(yhats_v, axis=0)
             col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
@@ -190,7 +191,7 @@ class ann_result:
         
     def predict_score_single_run(self):
             (names,arr)=self.extract_n()
-            yhats = [model.predict(arr) for model in ann_config.models]
+            yhats = [model.predict(arr) for model in load_server.models]
             yhats_v=numpy.array(yhats)
             predicted_Y=numpy.sum(yhats_v, axis=0)
             #print(arr)
