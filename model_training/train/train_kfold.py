@@ -124,21 +124,8 @@ def train_kfold(model_name,df):
 
 # %%
 
-all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc_tri_p','all']
+#all_models=['tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc_tri_p','all']
 #all_models=['tetra_sc_p','di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all']
-#all_models=['di_sc','tetra_sc_tri_p']
+all_models=['tetra_sc_tri_p','di_sc']
 for this_model in all_models:
     kk=train_kfold(this_model,df)
-
-# %%
-(train_X,train_Y)=ann_data.get_formated_train("di_sc")
-(test_X,test_Y)=ann_data.get_formated_test("di_sc")
-
-# %%
-train_X.shape
-
-# %%
-test_X.shape
-
-# %%
-train_X.shape[0]+test_X.shape[0]

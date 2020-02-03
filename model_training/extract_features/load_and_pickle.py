@@ -212,18 +212,18 @@ import pickle
 
 
 # %%
-#pickle.dump(arr, open( os.path.join(dump_data_dir,"raw_arr.p"), "wb" ),protocol=4 )
-#pickle.dump(class_arr, open( os.path.join(dump_data_dir,"raw_class_arr.p"), "wb" ),protocol=4 )
-#pickle.dump(id_arr, open( os.path.join(dump_data_dir,"raw_id_arr.p"), "wb" ),protocol=4 )
-#pickle.dump(df, open( os.path.join(dump_data_dir,"raw_df.p"), "wb" ),protocol=4 )
-#pickle.dump(arr_2, open( os.path.join(dump_data_dir,"re_raw_arr.p"), "wb" ),protocol=4 )
+pickle.dump(arr, open( os.path.join(dump_data_dir,"raw_arr.p"), "wb" ),protocol=4 )
+pickle.dump(class_arr, open( os.path.join(dump_data_dir,"raw_class_arr.p"), "wb" ),protocol=4 )
+pickle.dump(id_arr, open( os.path.join(dump_data_dir,"raw_id_arr.p"), "wb" ),protocol=4 )
+pickle.dump(df, open( os.path.join(dump_data_dir,"raw_df.p"), "wb" ),protocol=4 )
+pickle.dump(arr_2, open( os.path.join(dump_data_dir,"re_raw_arr.p"), "wb" ),protocol=4 )
 #####
 
-arr=pickle.load(open( os.path.join(dump_data_dir,"raw_arr.p"), "rb" ))
-class_arr=pickle.load(open( os.path.join(dump_data_dir,"raw_class_arr.p"), "rb" ))
-id_arr=pickle.load(open( os.path.join(dump_data_dir,"raw_id_arr.p"), "rb" ))
-df=pickle.load(open( os.path.join(dump_data_dir,"raw_df.p"), "rb" ))
-arr_2=pickle.load(open( os.path.join(dump_data_dir,"re_raw_arr.p"), "rb" ))
+#arr=pickle.load(open( os.path.join(dump_data_dir,"raw_arr.p"), "rb" ))
+#class_arr=pickle.load(open( os.path.join(dump_data_dir,"raw_class_arr.p"), "rb" ))
+#id_arr=pickle.load(open( os.path.join(dump_data_dir,"raw_id_arr.p"), "rb" ))
+#df=pickle.load(open( os.path.join(dump_data_dir,"raw_df.p"), "rb" ))
+#arr_2=pickle.load(open( os.path.join(dump_data_dir,"re_raw_arr.p"), "rb" ))
 
 # %%
 print(arr.shape)
@@ -310,8 +310,9 @@ print(final.shape)
 print(g_tetra_inf_end)
 
 # %%
-tt=210000  
+#tt=210000  
 #tt=63000
+tt=150000
 f_num=final.shape[1]-11
 train_id=final[0:tt,0]
 train_X_total=final[0:tt,1:f_num]
