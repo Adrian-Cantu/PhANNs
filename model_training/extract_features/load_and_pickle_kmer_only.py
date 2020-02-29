@@ -55,12 +55,6 @@ all_fasta=(os.path.join(phage_init.fasta_dir,"major_capsid_all_clustered.fasta")
            os.path.join(phage_init.fasta_dir,"collar_all_clustered.fasta"),os.path.join(phage_init.fasta_dir,"HTJ_all_clustered.fasta"),
            os.path.join(phage_init.fasta_dir,"others_v3.2.fasta"))
 
-# %%
-with open(os.path.join(phage_init.data_dir,"informative_kmer_re.txt")) as f:
-    content = f.readlines()
-# you may also want to remove whitespace characters like `\n` at the end of each line
-content = [x.strip() for x in content] 
-
 
 # %%
 
@@ -140,48 +134,6 @@ def extract_all(fasta_list):
 
 
 # %%
-import re
-import pandas as pd
-def extract_all_re(fasta_list,re_list):
-    d = {'seq_description': [], 'seq_id': [], "sec_code":[]}
-    sec_code=0
-    df = pd.DataFrame(data=d)
-    total_fasta=0
-    for file in fasta_list:
-        for record in SeqIO.parse(file, "fasta"):
-            total_fasta+=1
-    prot_class=0;
-    arr = numpy.empty((total_fasta,len(re_list)), dtype=numpy.int)
-    id_arr = numpy.empty((total_fasta), dtype=numpy.int)
-    class_arr = numpy.empty((total_fasta), dtype=numpy.int)
-    this_prot=0
-    for file in fasta_list:
-        print('####################' + file)
-        for record in SeqIO.parse(file, "fasta"):
-            ll=len(record.seq)
-            re_match_count=[len(re.findall(x,str(record.seq))) for x in re_list]
-
-
-
-            #arr = numpy.append(arr,cat_n , axis=0)
-            #class_arr = numpy.append(class_arr,prot_class)
-            #id_arr = numpy.append(id_arr,sec_code)
-            arr[sec_code,:]=re_match_count
-            class_arr[sec_code]=prot_class
-            id_arr[sec_code]=sec_code
-            
-            data_row=[record.description,record.id,int(sec_code)]
-            df=df.append(pd.Series(data_row,index=df.columns),sort=False,ignore_index=True)
-            sec_code+=1
-            this_prot+=1
-            if (this_prot%50==0):
-                print("processing sequence # " + str(this_prot),end="\r")
-            
-        prot_class+=1
-        this_prot=0
-    return (arr,class_arr,id_arr,df)
-
-# %%
 #0     - 400   (400)  di
 #400   - 8400  (8000) tri
 #8400  - 4449  (49)   di_sc
@@ -195,10 +147,10 @@ def extract_all_re(fasta_list,re_list):
 #one_fasta=[os.path.join(phage_init.fasta_dir,"minor_capsid_all_clustered.fasta")]
 #print(one_fasta)
 #(arr,class_arr,id_arr,df)=extract_all_re(one_fasta,content)
-(arr_2,class_arr2,id_arr2,df2)=extract_all_re(all_fasta,content)
+#(arr_2,class_arr2,id_arr2,df2)=extract_all_re(all_fasta,content)
 
 # %%
-del class_arr2,id_arr2,df2
+#del class_arr2,id_arr2,df2
 
 # %%
 (arr,class_arr,id_arr,df)=extract_all(all_fasta)
@@ -216,7 +168,7 @@ pickle.dump(arr, open( os.path.join(dump_data_dir,"raw_arr.p"), "wb" ),protocol=
 pickle.dump(class_arr, open( os.path.join(dump_data_dir,"raw_class_arr.p"), "wb" ),protocol=4 )
 pickle.dump(id_arr, open( os.path.join(dump_data_dir,"raw_id_arr.p"), "wb" ),protocol=4 )
 pickle.dump(df, open( os.path.join(dump_data_dir,"raw_df.p"), "wb" ),protocol=4 )
-pickle.dump(arr_2, open( os.path.join(dump_data_dir,"re_raw_arr.p"), "wb" ),protocol=4 )
+#pickle.dump(arr_2, open( os.path.join(dump_data_dir,"re_raw_arr.p"), "wb" ),protocol=4 )
 #####
 
 #arr=pickle.load(open( os.path.join(dump_data_dir,"raw_arr.p"), "rb" ))
@@ -227,7 +179,7 @@ pickle.dump(arr_2, open( os.path.join(dump_data_dir,"re_raw_arr.p"), "wb" ),prot
 
 # %%
 print(arr.shape)
-print(arr_2.shape[1])
+#print(arr_2.shape[1])
 #0     - 400   (400)  di
 #400   - 8400  (8000) tri
 #8400  - 4449  (49)   di_sc
@@ -243,14 +195,14 @@ tri_n=8000
 di_sc_n=49
 tri_sc_n=343
 tetra_sc_n=2401
-g_tetra_inf_n=arr_2.shape[1]
+#g_tetra_inf_n=arr_2.shape[1]
 p_n=8
 di_end=di_n
 tri_end=di_end+tri_n
 di_sc_end=tri_end+di_sc_n
 tri_sc_end=di_sc_end+tri_sc_n
 tetra_sc_end=tri_sc_end+tetra_sc_n
-g_tetra_inf_end=tetra_sc_end+g_tetra_inf_n
+#g_tetra_inf_end=tetra_sc_end+g_tetra_inf_n
 
 # %%
 arr_z=numpy.apply_along_axis(stats.zscore,0,arr)
@@ -284,7 +236,7 @@ numpy.isnan(arr_z).any()
 print(id_arr.reshape((id_arr.shape[0],1)).shape)
 print(arr_z.shape)
 print(one_hot_targets.shape)
-final = numpy.concatenate((id_arr.reshape((id_arr.shape[0],1)), arr_z, arr_2, one_hot_targets), axis=1)
+final = numpy.concatenate((id_arr.reshape((id_arr.shape[0],1)), arr_z, one_hot_targets), axis=1)
 
 # %%
 del arr_z
@@ -307,7 +259,7 @@ pickle.dump(final, open( os.path.join(dump_data_dir,"zscore_all_final.p"), "wb" 
 
 # %%
 print(final.shape)
-print(g_tetra_inf_end)
+
 
 # %%
 #tt=210000  
@@ -329,8 +281,8 @@ pickle.dump(train_X_total[:,di_end:tri_end], open( os.path.join(dump_data_dir,"t
 pickle.dump(train_X_total[:,tri_end:di_sc_end], open( os.path.join(dump_data_dir,"di_sc_train.p"), "wb" ),protocol=4 )
 pickle.dump(train_X_total[:,di_sc_end:tri_sc_end], open( os.path.join(dump_data_dir,"tri_sc_train.p"), "wb" ),protocol=4 )
 pickle.dump(train_X_total[:,tri_sc_end:tetra_sc_end], open( os.path.join(dump_data_dir,"tetra_sc_train.p"), "wb" ),protocol=4 )
-pickle.dump(train_X_total[:,tetra_sc_end:g_tetra_inf_end], open( os.path.join(dump_data_dir,"g_tetra_inf_train.p"), "wb" ),protocol=4 )
-pickle.dump(train_X_total[:,g_tetra_inf_end:], open( os.path.join(dump_data_dir,"tt_train.p"), "wb" ),protocol=4 )
+#pickle.dump(train_X_total[:,tetra_sc_end:g_tetra_inf_end], open( os.path.join(dump_data_dir,"g_tetra_inf_train.p"), "wb" ),protocol=4 )
+pickle.dump(train_X_total[:,tetra_sc_end:], open( os.path.join(dump_data_dir,"tt_train.p"), "wb" ),protocol=4 )
 
 # %%
 
@@ -339,8 +291,8 @@ pickle.dump(test_X_total[:,di_end:tri_end], open( os.path.join(dump_data_dir,"tr
 pickle.dump(test_X_total[:,tri_end:di_sc_end], open( os.path.join(dump_data_dir,"di_sc_test.p"), "wb" ),protocol=4 )
 pickle.dump(test_X_total[:,di_sc_end:tri_sc_end], open( os.path.join(dump_data_dir,"tri_sc_test.p"), "wb" ),protocol=4 )
 pickle.dump(test_X_total[:,tri_sc_end:tetra_sc_end], open( os.path.join(dump_data_dir,"tetra_sc_test.p"), "wb" ),protocol=4 )
-pickle.dump(test_X_total[:,tetra_sc_end:g_tetra_inf_end], open( os.path.join(dump_data_dir,"g_tetra_inf_test.p"), "wb" ),protocol=4 )
-pickle.dump(test_X_total[:,g_tetra_inf_end:], open( os.path.join(dump_data_dir,"tt_test.p"), "wb" ),protocol=4 )
+#pickle.dump(test_X_total[:,tetra_sc_end:g_tetra_inf_end], open( os.path.join(dump_data_dir,"g_tetra_inf_test.p"), "wb" ),protocol=4 )
+pickle.dump(test_X_total[:,tetra_sc_end:], open( os.path.join(dump_data_dir,"tt_test.p"), "wb" ),protocol=4 )
 
 # %%
 pickle.dump(test_Y_total,open( os.path.join(dump_data_dir,"test_Y.p"), "wb" ),protocol=4 )
