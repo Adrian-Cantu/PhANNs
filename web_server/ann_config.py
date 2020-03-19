@@ -4,8 +4,8 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 ### chage the base path.
-#prefix='/phanns'
-prefix=''
+prefix='/phanns'
+#prefix=''
 
 path = os.path.abspath(__file__)
 root_dir = os.path.dirname(path)

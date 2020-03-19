@@ -11,12 +11,13 @@ import ann_config
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
+#socket.bind("tcp://*:5555")
+socket.connect("tcp://127.0.0.1:5555")
 
 while True:
     #  Wait for next request from client
     filename = socket.recv()
-    #print("Received request: %s" % message)
+    print("Received request: uploads/"+filename.decode('UTF-8'))
     test=Phanns_f.ann_result('uploads/'+filename.decode('UTF-8'))
     (names,pp)=test.predict_score()
     #  Do some 'work'

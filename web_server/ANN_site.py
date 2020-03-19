@@ -19,13 +19,27 @@ import json
 
 import zmq
 
+#from zmq.devices.basedevice import ProcessDevice
+#from multiprocessing import Process
+
+frontend_port = 5559
+#backend_port = 5556
+
+#queuedevice = ProcessDevice(zmq.QUEUE, zmq.XREP, zmq.XREQ)
+#queuedevice.bind_in("tcp://127.0.0.1:%d" % frontend_port)
+#queuedevice.bind_out("tcp://127.0.0.1:%d" % backend_port)
+#queuedevice.setsockopt_in(zmq.RCVHWM, 1)
+#queuedevice.setsockopt_out(zmq.SNDHWM, 1)
+#queuedevice.start()
+#time.sleep (2) 
+
+
 context = zmq.Context()
-
 #  Socket to talk to server
-print("Connecting to hello world server…")
-socket = context.socket(zmq.REQ)
-socket.connect("tcp://localhost:5555")
 
+socket = context.socket(zmq.REQ)
+#socket.connect("tcp://localhost:5555")
+socket.connect("tcp://127.0.0.1:%s" % frontend_port)
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
@@ -78,7 +92,6 @@ def bar(filename):
     #test=Phanns_f.ann_result('uploads/'+filename)
     #(names,pp)=test.predict_score()
     #(names,pp)=test.predict_score_test()
-    print("Sending request %s …" % filename)
     socket.send(filename.encode('UTF-8'))
 
 #  Get the reply.
