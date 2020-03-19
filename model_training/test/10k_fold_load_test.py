@@ -39,9 +39,9 @@ from sklearn.model_selection import StratifiedKFold
 
 # %%
 #stop using gpu to not run into memoru issues
-import os
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
+#import os
+#os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+#os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 # %%
 #this list the devices, just making sure there is a GPU present, you might be fine with no GPU
@@ -85,13 +85,16 @@ all_models=['di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','di','
 
 # %%
 for this_model in all_models:
-    (test_X,test_Y)=ann_data.get_formated_test(this_model)
-    test_Y_index = test_Y.argmax(axis=1)
+    #(test_X,test_Y)=ann_data.get_formated_test(this_model)
+    #test_Y_index = test_Y.argmax(axis=1)
     print('Runing model '+this_model)
     for model_number in range(1, 11):
         #print("\tsplit  "+ "{:02d}".format(model_number),end=' ', flush=True)
         print("\tsplit  "+ "{:02d}".format(model_number))
         model = load_model( os.path.join(phage_init.model_dir,this_model+'_'+"{:02d}".format(model_number)+'.h5') )
+        test_X=pickle.load(open( os.path.join(phage_init.kfold_dir,this_model+ "_" +"{:02d}".format(model_number)+'_test_X.p'), "rb" ))
+        test_Y=pickle.load(open( os.path.join(phage_init.kfold_dir,this_model+ "_" +"{:02d}".format(model_number)+'_test_Y.p'), "rb" ))
+        test_Y_index = test_Y.argmax(axis=1)
         test_Y_predicted = model.predict_classes(test_X)
         #print(classification_report(test_Y_index, test_Y_predicted, target_names=labels_names ))
         df=add_to_df(df,test_Y_index, test_Y_predicted,this_model)
@@ -104,10 +107,6 @@ for this_model in all_models:
 # %%
 pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
 #df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
-
-# %%
-#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
-#df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "rb" ))
 
 # %%
 import seaborn as sns
@@ -186,7 +185,7 @@ sns.barplot(ax=ax2,y="value", x="model", hue="class", data=f1_df, palette=colors
 ax2.set_ylabel('')    
 ax2.set_xlabel('')
 l = ax2.legend()
-plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
+plt.setp(ax2.get_legend().get_texts(), fontsize='20') # for legend text 27
 #print(dir(l))
 ax2.set(ylim=(0, 1))
 ax2.set(xlim=(-0.5, 12.2))

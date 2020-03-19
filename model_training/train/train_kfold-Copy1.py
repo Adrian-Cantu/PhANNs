@@ -113,8 +113,8 @@ def train_kfold(model_name,df):
 #        print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 #        cvscores.append(scores[1] * 100)
 #        model.save( os.path.join(phage_init.model_dir,model_name+'_'+"{:02d}".format(model_number)+'.h5') )
-#        pickle.dump(train_X[test], open( os.path.join(phage_init.kfold_dir,"{:02d}".format(model_number)+'_test_X.p' ), "wb"))
-#        pickle.dump(test_YY, open( os.path.join(phage_init.kfold_dir,"{:02d}".format(model_number)+'_test_Y.p' ), "wb"))
+        pickle.dump(train_X[test], open( os.path.join(phage_init.kfold_dir,model_name+ "_" +"{:02d}".format(model_number)+'_test_X.p' ), "wb"))
+        pickle.dump(test_YY,       open( os.path.join(phage_init.kfold_dir,model_name+ "_" +"{:02d}".format(model_number)+'_test_Y.p' ), "wb"))
         
         K.clear_session()
         del model

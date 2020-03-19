@@ -69,27 +69,6 @@ for model_number in range(n_members):
     #K.clear_session()
 
 # %%
-model =  load_model( os.path.join(phage_init.model_dir,'di_sc_03.h5') )
-
-# %%
-model.summary()
-
-# %%
-#yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
-
-# %%
-#row=model.predict(test_X)
-
-# %%
-#row.shape
-
-# %%
-#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model.p"), "wb" ) )
-#pickle.dump(models, open( os.path.join(phage_init.model_dir,"deca_model_di.p"), "wb" ) )
-#pickle.dump(model, open( os.path.join(phage_init.model_dir,"single.p"), "wb" ) )
-#models=pickle.load(open( os.path.join(phage_init.model_dir,"deca_model.p"), "rb" ))
-
-# %%
 (test_X,test_Y)=ann_data.get_formated_test("tetra_sc_tri_p")
 
 # %%
@@ -97,6 +76,23 @@ test_Y.shape
 
 # %%
 test_Y_index = test_Y.argmax(axis=1)
+
+# %%
+(kk_X,kk_Y)=ann_data.get_formated_test("all")
+(kkt_X,kkt_Y)=ann_data.get_formated_train("all")
+
+# %%
+kk_X.shape
+
+# %%
+kkt_X.shape
+
+# %%
+kk_X.shape[0]+kkt_X.shape[0]
+
+# %%
+#model.predict(test_X,verbose=1)
+
 
 # %%
 yhats = [model.predict(test_X,verbose=2) for model in models]
@@ -108,9 +104,15 @@ predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 
 # %%
+pickle.dump(predicted_Y_index, open( os.path.join(phage_init.model_dir,"CM_predicted_test_Y.p"), "wb" ) )
+pickle.dump(test_Y_index, open( os.path.join(phage_init.model_dir,"CM_test_Y.p"), "wb" ) )
+
+# %%
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(test_Y_index, predicted_Y_index, target_names=labels_names ))
+
+# %%
 
 # %%
 report=classification_report(test_Y_index, predicted_Y_index , target_names=labels_names,output_dict=True )
@@ -152,6 +154,7 @@ CM_n=CM/numpy.array(sample_w)[:,None]
 scale_up=1.4
 plt.figure(figsize=[6.4*scale_up, 4.8*scale_up])
 plt.imshow(CM_n, interpolation='nearest')
+#plt.title('CM : ' + df)
 #plt.title('CM all')
 plt.colorbar()
 tick_marks = numpy.arange(len(labels_names))
