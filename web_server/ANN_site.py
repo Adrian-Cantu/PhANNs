@@ -14,6 +14,7 @@ import tensorflow as tf
 from flask_socketio import SocketIO, emit
 from random import *
 import json
+import sys
 #import keras.backend.tensorflow_backend as tb
 #tb._SYMBOLIC_SCOPE.value = True
 
@@ -38,7 +39,6 @@ context = zmq.Context()
 #  Socket to talk to server
 
 socket = context.socket(zmq.REQ)
-#socket.connect("tcp://localhost:5555")
 socket.connect("tcp://127.0.0.1:%s" % frontend_port)
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
@@ -95,9 +95,9 @@ def bar(filename):
     socket.send(filename.encode('UTF-8'))
 
 #  Get the reply.
-    message = socket.recv()
-    return redirect(url_for('show_file',filename=filename))
-
+    #message = socket.recv()
+    #return redirect(url_for('show_file',filename=filename))
+    return redirect(url_for('wait_page',filename=filename))
 
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
@@ -154,6 +154,17 @@ def show_file(filename):
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
     return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv', filename_base=ntpath.basename(filename))
 
+@app.route('/tmp/<filename>')
+def wait_page(filename):
+    try:
+        message = socket.recv(zmq.NOBLOCK)
+    #except zmq.Again as e:
+    except zmq.error.ZMQError:
+        print("Unexpected error:", sys.exc_info()[0]())
+        #print(e)
+        return render_template('wait.html', filename=filename )
+    return redirect(url_for('show_file',filename=filename))
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -169,8 +180,14 @@ def down_file(filename):
         return send_file('deca_model/model.tar')
     elif (filename == 'PhANNs_test.fasta'):
         return send_file('deca_model/PhANNs_test.fasta')
-    elif (filename == 'PhANNs_DB.fasta.tgz'):
-        return send_file('deca_model/PhANNs_DB.fasta.tgz')
+    elif (filename == 'rawDB.tgz'):
+        return send_file('deca_model/rawDB.tgz')
+    elif (filename == 'curatedDB.tgz'):
+        return send_file('deca_model/curatedDB.tgz')
+    elif (filename == 'dereplicate40DB.tgz'):
+        return send_file('deca_model/dereplicate40DB.tgz')
+    elif (filename == 'expandedDB.tgz'):
+        return send_file('deca_model/expandedDB.tgz')
 
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):

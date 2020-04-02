@@ -3,7 +3,12 @@
 {% endblock JavaScript %}	
 
 {% block content %}
-<a href="{{ fix_url_for('down_file',filename='PhANNs_DB.fasta.tgz') }}" >Database</a><br>
+
 <a href="{{ fix_url_for('down_file',filename='model.tar') }}" >Model_file</a><br>
-<a href="{{ fix_url_for('down_file',filename='PhANNs_test.fasta') }}" >test fasta file</a>
+<a href="{{ fix_url_for('down_file',filename='PhANNs_test.fasta') }}" >test fasta file</a><br>
+
+<a href="{{ fix_url_for('down_file',filename='rawDB.tgz') }}" >Raw sequences</a><br>
+<a href="{{ fix_url_for('down_file',filename='curatedDB.tgz') }}" >Curated sequences</a><br>
+<a href="{{ fix_url_for('down_file',filename='dereplicate40DB.tgz') }}" >Sequences de-replicated at 40%</a><br>
+<a href="{{ fix_url_for('down_file',filename='expandedDB.tgz') }}" >Expanded clusters de-replicated at 100%</a><br>
 {% endblock content %}
