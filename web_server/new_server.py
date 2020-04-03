@@ -24,11 +24,12 @@ while True:
     time.sleep(1)
     files=os.listdir('uploads')
     for f in files:
-        if f not in done.keys():
-            print(f + ' is a new file')
-            test=Phanns_f.ann_result('uploads/'+f)
-            (names,pp)=test.predict_score()
-            done[f]=True
+        if not f.startswith('.'):
+            if f not in done.keys():
+                print(f + ' is a new file')
+                test=Phanns_f.ann_result('uploads/'+f)
+                (names,pp)=test.predict_score()
+                done[f]=True
 
     #  Send reply back to client
     #socket.send(b"World")
