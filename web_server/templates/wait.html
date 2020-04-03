@@ -1,0 +1,21 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+
+<script type="text/javascript">
+
+setTimeout(function() {
+  location.reload();
+  }, 30000);
+
+</script>
+
+{% endblock JavaScript %}	
+
+{% block content %}
+
+PhANNs is working on your predictions, you will be redirected to the results when they are ready. <br>
+If automatic redirection is not working, you can use this <a href="{{ fix_url_for('show_file',filename=filename) }}" >link</a>.<br> 
+
+{{filename}} 
+
+{% endblock content %}

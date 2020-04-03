@@ -15,31 +15,17 @@ from flask_socketio import SocketIO, emit
 from random import *
 import json
 import sys
-#import keras.backend.tensorflow_backend as tb
-#tb._SYMBOLIC_SCOPE.value = True
+from flask import session
 
-import zmq
+import random
+import string
 
-#from zmq.devices.basedevice import ProcessDevice
-#from multiprocessing import Process
-
-frontend_port = 5559
-#backend_port = 5556
-
-#queuedevice = ProcessDevice(zmq.QUEUE, zmq.XREP, zmq.XREQ)
-#queuedevice.bind_in("tcp://127.0.0.1:%d" % frontend_port)
-#queuedevice.bind_out("tcp://127.0.0.1:%d" % backend_port)
-#queuedevice.setsockopt_in(zmq.RCVHWM, 1)
-#queuedevice.setsockopt_out(zmq.SNDHWM, 1)
-#queuedevice.start()
-#time.sleep (2) 
+def randomStringDigits(stringLength=6):
+    """Generate a random string of letters and digits """
+    lettersAndDigits = string.ascii_letters + string.digits
+    return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
 
 
-context = zmq.Context()
-#  Socket to talk to server
-
-socket = context.socket(zmq.REQ)
-socket.connect("tcp://127.0.0.1:%s" % frontend_port)
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
@@ -58,8 +44,6 @@ app.config['APPLICATION_ROOT']=ann_config.prefix
 #app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 
-#socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
-socketio = SocketIO(app,ping_timeout=60000)
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
 
@@ -88,41 +72,10 @@ def error(error_msg):
 @app.route('/uploads/<filename>')
 def bar(filename):
     print(filename)
-    #return render_template('loading_t.html',filename=filename)
-    #test=Phanns_f.ann_result('uploads/'+filename)
-    #(names,pp)=test.predict_score()
-    #(names,pp)=test.predict_score_test()
-    socket.send(filename.encode('UTF-8'))
-
-#  Get the reply.
     #message = socket.recv()
     #return redirect(url_for('show_file',filename=filename))
     return redirect(url_for('wait_page',filename=filename))
-
-@socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
-    test=Phanns_f.ann_result('uploads/'+json['filename'],request.sid,socketio)
-    if ( test.g_total_fasta > app.config['FASTA_SIZE_LIMIT']):
-        print ("fasta size : " + str(test.g_all_fasta))
-        with app.app_context(), app.test_request_context():
-            redict=url_for('error',error_msg="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT']))
-        socketio.emit('url', {'url':redict},room=request.sid)
-    else:
-        #(names,pp)=test.predict_score_test()
-        (names,pp)=test.predict_score()
-        redict=''
-        with app.app_context(), app.test_request_context():
-            redict=url_for('show_file',filename=json['filename'])
-        socketio.emit('url', {'url':redict},room=request.sid)
-    return True    
-
-#@app.route('/', methods=['GET', 'POST'])
-#def show_home():
-#    return render_template('home.html')
-
-
-#@app.route('/upload', methods=['GET', 'POST'])
+    
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -137,7 +90,8 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            #filename = secure_filename(file.filename)
+            filename = randomStringDigits(15) + '.fasta' 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #print( fix_url_for('bar',filename=filename))
             #print( url_for('bar',filename=filename))
@@ -156,14 +110,10 @@ def show_file(filename):
 
 @app.route('/tmp/<filename>')
 def wait_page(filename):
-    try:
-        message = socket.recv(zmq.NOBLOCK)
-    #except zmq.Again as e:
-    except zmq.error.ZMQError:
-        print("Unexpected error:", sys.exc_info()[0]())
-        #print(e)
+    if os.path.exists(os.path.join('saves',filename)):
+        return redirect(url_for('show_file',filename=filename))
+    else:
         return render_template('wait.html', filename=filename )
-    return redirect(url_for('show_file',filename=filename))
 
 @app.route('/favicon.ico')
 def favicon():
