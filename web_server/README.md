@@ -21,17 +21,19 @@ You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu
 
 Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/download/model.tar), put it in the "deca\_model" directory and uncompress it. 
 
-All requirement are listed on the `environment.yml` file, but the easier way to install them is using anaconda
+All requirement are listed on the `cpu_environment.yml` file, but the easier way to install them is using anaconda
 
 ```
-conda env create -f environment.yml
+conda env create -f cpu_environment.yml
 ```
 
 then activate the environment
 
 ```
-conda activate tf
+conda activate tf2_cpu
 ```
+
+
 
 and finally start the webserver, making sure you use tensorflow as the backend
 
