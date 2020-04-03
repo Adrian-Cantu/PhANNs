@@ -102,8 +102,8 @@ for this_model in all_models:
         K.clear_session()
 
 # %%
-pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
-#df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
+#pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df.p"), "wb" ) )
+df=pickle.load(open( os.path.join(phage_init.data_dir,"kfold_df.p"), "rb" ))
 
 # %%
 #pickle.dump(df, open( os.path.join(phage_init.data_dir,"kfold_df_p.p"), "wb" ) )
