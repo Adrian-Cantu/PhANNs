@@ -3,11 +3,15 @@ import Phanns_f
 import ann_config
 import os
 
+
+done=dict()
+
 for mydir in ['saves','uploads','csv_saves']:
     files=os.listdir(mydir)
     for f in files:
         if not f.startswith('.'):
-            os.remove(os.path.join(mydir, f))
+            done[f]=True
+            #os.remove(os.path.join(mydir, f))
 
 done=dict()
 

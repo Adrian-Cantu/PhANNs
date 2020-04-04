@@ -33,12 +33,37 @@ then activate the environment
 conda activate tf2_cpu
 ```
 
+from here you have a few options
 
+### Run as a web server
 
-and finally start the webserver, making sure you use tensorflow as the backend
+Run the server back-end
 
 ```
-KERAS_BACKEND=tensorflow python ANN_site.py
+python run_server.py
 ```
+in another terminal with the conda environment activated run the front end
 
+```
+python run_PhANNs_site.py
+```
 You should be able to see the server running at < 0.0.0.0:8080>.
+
+### Run on a single file
+
+```
+pythons run_model.py filename.fasta
+```
+
+This has to load the model in RAM each time it runs and it's not recommended for more than one file
+
+### Run as batch
+
+Put all the fasta files on the "uploads"  directory, then run 
+
+```
+python run_server_once.py
+```
+
+the results will be on the  "csv_saves" directory
+
