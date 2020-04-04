@@ -21,22 +21,49 @@ You don’t have to!! you can use our web server [here](https://edwards.sdsu.edu
 
 Clone this repository, download the [model file](https://edwards.sdsu.edu/phanns/download/model.tar), put it in the "deca\_model" directory and uncompress it. 
 
-All requirement are listed on the `environment.yml` file, but the easier way to install them is using anaconda
+All requirement are listed on the `cpu_environment.yml` file, but the easier way to install them is using anaconda
 
 ```
-conda env create -f environment.yml
+conda env create -f cpu_environment.yml
 ```
 
 then activate the environment
 
 ```
-conda activate tf
+conda activate tf2_cpu
 ```
 
-and finally start the webserver, making sure you use tensorflow as the backend
+from here you have a few options
+
+### Run as a web server
+
+Run the server back-end
 
 ```
-KERAS_BACKEND=tensorflow python ANN_site.py
+python run_server.py
 ```
+in another terminal with the conda environment activated run the front end
 
+```
+python run_PhANNs_site.py
+```
 You should be able to see the server running at < 0.0.0.0:8080>.
+
+### Run on a single file
+
+```
+pythons run_model.py filename.fasta
+```
+
+This has to load the model in RAM each time it runs and it's not recommended for more than one file
+
+### Run as batch
+
+Put all the fasta files on the "uploads"  directory, then run 
+
+```
+python run_server_once.py
+```
+
+the results will be on the  "csv_saves" directory
+
