@@ -20,12 +20,13 @@ from flask import session
 import random
 import string
 
+
 def randomStringDigits(stringLength=6):
     """Generate a random string of letters and digits """
     lettersAndDigits = string.ascii_letters + string.digits
     return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
 
-
+from Bio import SeqIO
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
@@ -58,16 +59,14 @@ def sorttable_filter(s):
     return s
 
 
+def prot_check(sequence):
+    return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWYZ*")
+
+
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-@app.route('/error/<error_msg>')
-def error(error_msg):
-    error_text=error_msg
-    #if (error_msg == '1'):
-    #    error_text="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT'])
-    return render_template('error.html',error_msg=error_text)
 
 @app.route('/uploads/<filename>')
 def bar(filename):
@@ -92,10 +91,21 @@ def upload_file():
         if file and allowed_file(file.filename):
             #filename = secure_filename(file.filename)
             filename = randomStringDigits(15) + '.fasta' 
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join('temp_saves', filename))
             #print( fix_url_for('bar',filename=filename))
             #print( url_for('bar',filename=filename))
+            total_fasta=0
+            all_fasta=0
+            for record in SeqIO.parse(os.path.join('temp_saves', filename), "fasta"):
+                all_fasta+=1
+                if not prot_check(str(record.seq)):
+                    #total_fasta+=1
+                    return render_template('error.html',error_h="Invalid sequence" ,error_msg=record.id + ' is not a valid protein sequence')
+            if all_fasta==0:
+                return render_template('error.html',error_h="Not a fasta file" ,error_msg=file.filename + ' is not a fasta file')
+            os.rename(os.path.join('temp_saves', filename),os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('bar',filename=filename))
+
 #    print( fix_url_for('upload_file'))
     return render_template('main.html')
 
@@ -112,6 +122,9 @@ def show_file(filename):
 def wait_page(filename):
     if os.path.exists(os.path.join('saves',filename)):
         return redirect(url_for('show_file',filename=filename))
+    elif not os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], filename)):
+        return render_template('error.html',error_h="File not found" ,error_msg="There is no file named " + filename +
+                " in our server. Old files are deleted periodically from our server. Please upload again.")
     else:
         return render_template('wait.html', filename=filename )
 
@@ -125,7 +138,7 @@ def downloads():
     return render_template('downloads.html')
 
 @app.route('/download/<filename>')
-def down_file(filename):
+def down_file(filename='none'):
     if (filename == "model.tar"):
         return send_file('deca_model/model.tar')
     elif (filename == 'PhANNs_test.fasta'):
@@ -138,6 +151,8 @@ def down_file(filename):
         return send_file('deca_model/dereplicate40DB.tgz')
     elif (filename == 'expandedDB.tgz'):
         return send_file('deca_model/expandedDB.tgz')
+    else:
+        return redirect(url_for('upload_file'))
 
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):

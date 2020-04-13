@@ -13,7 +13,6 @@ for mydir in ['saves','uploads','csv_saves']:
             done[f]=True
             #os.remove(os.path.join(mydir, f))
 
-done=dict()
 
 while True:
     #  Wait for next request from client

@@ -59,7 +59,7 @@ class ann_result:
 #        self.g_all_fasta=all_fasta
     
     def prot_check(self, sequence):
-        return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
+        return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWYZ*")
 
     def extract(self):
         AA=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
