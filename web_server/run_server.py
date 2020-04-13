@@ -12,7 +12,7 @@ for mydir in ['saves','uploads','csv_saves']:
         if not f.startswith('.'):
             done[f]=True
             #os.remove(os.path.join(mydir, f))
-
+print('READY')
 
 while True:
     #  Wait for next request from client
@@ -33,6 +33,7 @@ while True:
                 test=Phanns_f.ann_result('uploads/'+f)
                 (names,pp)=test.predict_score()
                 done[f]=True
+                print("Done with " + f)
 
     #  Send reply back to client
     #socket.send(b"World")

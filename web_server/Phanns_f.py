@@ -59,7 +59,7 @@ class ann_result:
 #        self.g_all_fasta=all_fasta
     
     def prot_check(self, sequence):
-        return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWYZ*")
+        return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*")
 
     def extract(self):
         AA=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
@@ -122,6 +122,7 @@ class ann_result:
         if (self.g_is_socket==1):
             self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
             self.g_socketio.emit('done features',1,room=self.g_sid)
+        print("/nDone")
         return (names,arr)
 
     def extract_n(self):

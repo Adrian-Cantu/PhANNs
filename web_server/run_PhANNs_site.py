@@ -23,6 +23,7 @@ import string
 
 def randomStringDigits(stringLength=6):
     """Generate a random string of letters and digits """
+    random.seed()
     lettersAndDigits = string.ascii_letters + string.digits
     return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
 
@@ -36,8 +37,8 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["KERAS_BACKEND"]="tensorflow"
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-app.config['FASTA_SIZE_LIMIT']=50000
+app.config['SECRET_KEY'] = 'secret_key_4853rfgttr5!'
+app.config['FASTA_SIZE_LIMIT']=5000
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
@@ -60,7 +61,7 @@ def sorttable_filter(s):
 
 
 def prot_check(sequence):
-    return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWYZ*")
+    return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*")
 
 
 
@@ -70,9 +71,6 @@ def allowed_file(filename):
 
 @app.route('/uploads/<filename>')
 def bar(filename):
-    print(filename)
-    #message = socket.recv()
-    #return redirect(url_for('show_file',filename=filename))
     return redirect(url_for('wait_page',filename=filename))
     
 @app.route('/', methods=['GET', 'POST'])
@@ -92,6 +90,7 @@ def upload_file():
             #filename = secure_filename(file.filename)
             filename = randomStringDigits(15) + '.fasta' 
             file.save(os.path.join('temp_saves', filename))
+            print("renamed file: " + file.filename + ' ---> ' + filename)
             #print( fix_url_for('bar',filename=filename))
             #print( url_for('bar',filename=filename))
             total_fasta=0
@@ -103,6 +102,8 @@ def upload_file():
                     return render_template('error.html',error_h="Invalid sequence" ,error_msg=record.id + ' is not a valid protein sequence')
             if all_fasta==0:
                 return render_template('error.html',error_h="Not a fasta file" ,error_msg=file.filename + ' is not a fasta file')
+            if all_fasta>app.config['FASTA_SIZE_LIMIT']:
+                return render_template('error.html',error_h="Too many sequences" ,error_msg="{} has {:d} sequences while the limit is {:d}".format(file.filename,all_fasta,app.config['FASTA_SIZE_LIMIT']))
             os.rename(os.path.join('temp_saves', filename),os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('bar',filename=filename))
 
