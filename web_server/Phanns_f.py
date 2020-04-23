@@ -122,7 +122,7 @@ class ann_result:
         if (self.g_is_socket==1):
             self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
             self.g_socketio.emit('done features',1,room=self.g_sid)
-        print("/nDone")
+        print("\nDone")
         return (names,arr)
 
     def extract_n(self):
