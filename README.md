@@ -17,3 +17,9 @@ PhANNs paper is under review, a preprint is availble from bioRxiv [here](https:/
 
 [![PhANNs](qr.png)](https://www.biorxiv.org/content/10.1101/2020.04.03.023523v1)
 
+## Cite
+
+Please cite as
+```
+Cantu, V.A., Salamon, P., Seguritan, V., Redfield, J., Salamon, D., Edwards, R.A., and Segall, A.M. (2020). PhANNs, a fast and accurate tool and web server to classify phage structural proteins. BioRxiv 2020.04.03.023523.
+```
