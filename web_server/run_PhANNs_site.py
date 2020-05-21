@@ -61,7 +61,7 @@ def sorttable_filter(s):
 
 
 def prot_check(sequence):
-    return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*")
+    return (set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*") and (len(sequence)>0))
 
 
 
@@ -116,6 +116,9 @@ def about():
 
 @app.route('/saves/<filename>')
 def show_file(filename):
+    if not os.path.exists(os.path.join('saves', filename)):
+        return render_template('error.html',error_h="File not found" ,error_msg="There is no file named " + filename +
+        " in our server. Old files are deleted periodically from our server. Please upload again.")
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
     return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv', filename_base=ntpath.basename(filename))
 
