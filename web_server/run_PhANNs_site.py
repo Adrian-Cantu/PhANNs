@@ -165,6 +165,11 @@ def return_csv(filename):
 	except Exception as e:
 		return str(e)
 
+@app.route('/interpret')
+def interpret():
+    return render_template('interpret.html', title='how to' )        
+
+
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)
     app.run(host="0.0.0.0", port=8080,threaded=False)
