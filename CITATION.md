@@ -1,0 +1,10 @@
+Please cite as
+```
+Cantu, V.A., Salamon, P., Seguritan, V., Redfield, J., Salamon, D., Edwards, R.A., and Segall, A.M. (2020). PhANNs, a fast and accurate tool and web server to classify phage structural proteins. BioRxiv 2020.04.03.023523.
+```
+
+or
+
+```
+@article{Cantu_Salamon_Seguritan_Redfield_Salamon_Edwards_Segall_2020, title={PhANNs, a fast and accurate tool and web server to classify phage structural proteins}, DOI={10.1101/2020.04.03.023523}, abstractNote={<p>For any given bacteriophage genome or phage sequences in metagenomic data sets, we are unable to assign a function to 50-90% of genes. Structural protein-encoding genes constitute a large fraction of the average phage genome and are among the most divergent and difficult-to-identify genes using homology-based methods. To understand the functions encoded by phages, their contributions to their environments, and to help gauge their utility as potential phage therapy agents, we have developed a new approach to classify phage ORFs into ten major classes of structural proteins or into an “other” category. The resulting tool is named PhANNs (Phage Artificial Neural Networks). We built a database of 538,213 manually curated phage protein sequences that we split into eleven subsets (10 for cross-validation, one for testing) using a novel clustering method that ensures there are no homologous proteins between sets yet maintains the maximum sequence diversity for training. An Artificial Neural Network ensemble trained on features extracted from those sets reached a test F 1 -score of 0.875 and test accuracy of 86.2%. PhANNs can rapidly classify proteins into one of the ten classes, and non-phage proteins are classified as “other”, providing a new approach for functional annotation of phage proteins. PhANNs is open source and can be run from our web server or installed locally.</p>}, journal={bioRxiv}, publisher={Cold Spring Harbor Laboratory}, author={Cantu, Vito Adrian and Salamon, Peter and Seguritan, Victor and Redfield, Jackson and Salamon, David and Edwards, Robert A. and Segall, Anca M.}, year={2020}, month={Apr}, pages={2020.04.03.023523} }
+```

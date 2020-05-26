@@ -1,0 +1,11 @@
+{% extends "layout.html" %} 
+{% block JavaScript %}
+{% endblock JavaScript %}
+
+{% block content %}
+For each input sequence, PhANNs run 10 ANNs predictions. Each of those 10 ANNs outputs
+the soft-max scores for every class (a number between 0 and 1, such that the score of each class adds to 1). <br>
+PhANNs outputs the per class sum of the ANNs scores. The input sequence is classified as the class with the 
+highest score (highlighted in yellow).
+Furthermore the Precision score shows which proportion of sequences in test set, classified as that class with that score or better, were correctly classified.
+{% endblock content %}
