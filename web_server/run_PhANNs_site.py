@@ -14,18 +14,20 @@ import tensorflow as tf
 from flask_socketio import SocketIO, emit
 from random import *
 import json
-#import keras.backend.tensorflow_backend as tb
-#tb._SYMBOLIC_SCOPE.value = True
+import sys
+from flask import session
 
-import zmq
+import random
+import string
 
-context = zmq.Context()
 
-#  Socket to talk to server
-print("Connecting to hello world server…")
-socket = context.socket(zmq.REQ)
-socket.connect("tcp://localhost:5555")
+def randomStringDigits(stringLength=6):
+    """Generate a random string of letters and digits """
+    random.seed()
+    lettersAndDigits = string.ascii_letters + string.digits
+    return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
 
+from Bio import SeqIO
 
 ROOT_FOLDER = os.path.dirname(os.path.realpath(__file__)) 
 UPLOAD_FOLDER = ROOT_FOLDER + '/uploads'
@@ -35,8 +37,8 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["KERAS_BACKEND"]="tensorflow"
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-app.config['FASTA_SIZE_LIMIT']=50000
+app.config['SECRET_KEY'] = 'secret_key_4853rfgttr5!'
+app.config['FASTA_SIZE_LIMIT']=5000
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
@@ -44,8 +46,6 @@ app.config['APPLICATION_ROOT']=ann_config.prefix
 #app.config['APPLICATION_ROOT']=''
 PREFIX=app.config['APPLICATION_ROOT'] 
 
-#socketio = SocketIO(app,async_mode='threading',ping_timeout=60000)
-socketio = SocketIO(app,ping_timeout=60000)
 def fix_url_for(path, **kwargs):
     return PREFIX + url_for(path, **kwargs)
 
@@ -60,56 +60,19 @@ def sorttable_filter(s):
     return s
 
 
+def prot_check(sequence):
+    return (set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*") and (len(sequence)>0))
+
+
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/error/<error_msg>')
-def error(error_msg):
-    error_text=error_msg
-    #if (error_msg == '1'):
-    #    error_text="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT'])
-    return render_template('error.html',error_msg=error_text)
-
 @app.route('/uploads/<filename>')
 def bar(filename):
-    print(filename)
-    #return render_template('loading_t.html',filename=filename)
-    #test=Phanns_f.ann_result('uploads/'+filename)
-    #(names,pp)=test.predict_score()
-    #(names,pp)=test.predict_score_test()
-    print("Sending request %s …" % filename)
-    socket.send(filename.encode('UTF-8'))
-
-#  Get the reply.
-    message = socket.recv()
-    return redirect(url_for('show_file',filename=filename))
-
-
-@socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
-    test=Phanns_f.ann_result('uploads/'+json['filename'],request.sid,socketio)
-    if ( test.g_total_fasta > app.config['FASTA_SIZE_LIMIT']):
-        print ("fasta size : " + str(test.g_all_fasta))
-        with app.app_context(), app.test_request_context():
-            redict=url_for('error',error_msg="Too many sequences, got " + str(test.g_total_fasta) + " but limit is " + str(app.config['FASTA_SIZE_LIMIT']))
-        socketio.emit('url', {'url':redict},room=request.sid)
-    else:
-        #(names,pp)=test.predict_score_test()
-        (names,pp)=test.predict_score()
-        redict=''
-        with app.app_context(), app.test_request_context():
-            redict=url_for('show_file',filename=json['filename'])
-        socketio.emit('url', {'url':redict},room=request.sid)
-    return True    
-
-#@app.route('/', methods=['GET', 'POST'])
-#def show_home():
-#    return render_template('home.html')
-
-
-#@app.route('/upload', methods=['GET', 'POST'])
+    return redirect(url_for('wait_page',filename=filename))
+    
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -124,11 +87,26 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            #filename = secure_filename(file.filename)
+            filename = randomStringDigits(15) + '.fasta' 
+            file.save(os.path.join('temp_saves', filename))
+            print("renamed file: " + file.filename + ' ---> ' + filename)
             #print( fix_url_for('bar',filename=filename))
             #print( url_for('bar',filename=filename))
+            total_fasta=0
+            all_fasta=0
+            for record in SeqIO.parse(os.path.join('temp_saves', filename), "fasta"):
+                all_fasta+=1
+                if not prot_check(str(record.seq)):
+                    #total_fasta+=1
+                    return render_template('error.html',error_h="Invalid sequence" ,error_msg=record.id + ' is not a valid protein sequence')
+            if all_fasta==0:
+                return render_template('error.html',error_h="Not a fasta file" ,error_msg=file.filename + ' is not a fasta file')
+            if all_fasta>app.config['FASTA_SIZE_LIMIT']:
+                return render_template('error.html',error_h="Too many sequences" ,error_msg="{} has {:d} sequences while the limit is {:d}".format(file.filename,all_fasta,app.config['FASTA_SIZE_LIMIT']))
+            os.rename(os.path.join('temp_saves', filename),os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('bar',filename=filename))
+
 #    print( fix_url_for('upload_file'))
     return render_template('main.html')
 
@@ -138,8 +116,21 @@ def about():
 
 @app.route('/saves/<filename>')
 def show_file(filename):
+    if not os.path.exists(os.path.join('saves', filename)):
+        return render_template('error.html',error_h="File not found" ,error_msg="There is no file named " + filename +
+        " in our server. Old files are deleted periodically from our server. Please upload again.")
     table_code_raw=pickle.load(open('saves/' + filename,"rb"))
     return render_template('index.html', table_code= table_code_raw, csv_table=os.path.splitext(ntpath.basename(filename))[0] + '.csv', filename_base=ntpath.basename(filename))
+
+@app.route('/tmp/<filename>')
+def wait_page(filename):
+    if os.path.exists(os.path.join('saves',filename)):
+        return redirect(url_for('show_file',filename=filename))
+    elif not os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], filename)):
+        return render_template('error.html',error_h="File not found" ,error_msg="There is no file named " + filename +
+                " in our server. Old files are deleted periodically from our server. Please upload again.")
+    else:
+        return render_template('wait.html', filename=filename )
 
 @app.route('/favicon.ico')
 def favicon():
@@ -151,13 +142,21 @@ def downloads():
     return render_template('downloads.html')
 
 @app.route('/download/<filename>')
-def down_file(filename):
+def down_file(filename='none'):
     if (filename == "model.tar"):
         return send_file('deca_model/model.tar')
     elif (filename == 'PhANNs_test.fasta'):
         return send_file('deca_model/PhANNs_test.fasta')
-    elif (filename == 'PhANNs_DB.fasta.tgz'):
-        return send_file('deca_model/PhANNs_DB.fasta.tgz')
+    elif (filename == 'rawDB.tgz'):
+        return send_file('deca_model/rawDB.tgz')
+    elif (filename == 'curatedDB.tgz'):
+        return send_file('deca_model/curatedDB.tgz')
+    elif (filename == 'dereplicate40DB.tgz'):
+        return send_file('deca_model/dereplicate40DB.tgz')
+    elif (filename == 'expandedDB.tgz'):
+        return send_file('deca_model/expandedDB.tgz')
+    else:
+        return redirect(url_for('upload_file'))
 
 @app.route('/csv_saves/<filename>')
 def return_csv(filename):
@@ -165,6 +164,11 @@ def return_csv(filename):
 		return send_file('csv_saves/' + filename)
 	except Exception as e:
 		return str(e)
+
+@app.route('/interpret')
+def interpret():
+    return render_template('interpret.html', title='how to' )        
+
 
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)

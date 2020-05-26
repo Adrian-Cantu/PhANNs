@@ -4,15 +4,18 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 
 ### chage the base path.
-#prefix='/phanns'
-prefix=''
+prefix='/phanns'
+#prefix=''
 
 path = os.path.abspath(__file__)
 root_dir = os.path.dirname(path)
-fasta_dir = os.path.join(root_dir, 'fasta')
+#fasta_dir = os.path.join(root_dir, 'fasta')
 model_dir = os.path.join(root_dir, 'deca_model')
+fasta_dir = os.path.join(root_dir, 'fasta')
+#model_dir = os.path.join(root_dir, 'model_under_val')
 
 
+#model_under_val
 
 
 
