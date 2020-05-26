@@ -27,19 +27,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # %%
-#import keras and numpy
+
 import numpy
-#from tensorflow.keras.models import Sequential
-#from tensorflow.keras.layers import Dense
-#from tensorflow.keras.layers import LSTM
-#from tensorflow.keras.layers import Activation
-#from tensorflow.keras.layers import Dropout
-#from tensorflow.keras.optimizers import Adam
-#from tensorflow.keras import backend as K
 import pickle
-#from tensorflow.keras.models import load_model
 from sklearn.metrics import classification_report
-#from sklearn.model_selection import StratifiedKFold
 
 # %%
 df90=pickle.load(open( "../data_v3.3/kfold_df.p", "rb" ))
@@ -47,11 +38,18 @@ df80=pickle.load(open( "../data80/kfold_df.p", "rb" ))
 df70=pickle.load(open( "../data70/kfold_df.p", "rb" ))
 df50=pickle.load(open( "../data50/kfold_df.p", "rb" ))
 df50_s=pickle.load(open( "../data50_sub/kfold_df.p", "rb" ))
-df_log=pickle.load(open( "../logistic/kfold_df.p", "rb" ))
+#df_log=pickle.load(open( "../logistic/kfold_df.p", "rb" ))
+#df_log=pickle.load(open( "../undereplicate/log_kfold_df.p", "rb" ))
+df_log=pickle.load(open( "../undereplicate/log_kfold_fast_df.p", "rb" ))
+df_un=pickle.load(open( "../undereplicate/data/all_results_df.p", "rb" ))
+df_un_val=pickle.load(open( "../undereplicate/data/val_all_results_df.p", "rb" ))
+df_un_acc=pickle.load(open( "../undereplicate/data/acc_all_results_df.p", "rb" ))
+df40=pickle.load(open( "../undereplicate/data30/val_30_all_results_df.p", "rb" ))
 
 # %%
-my_df_dic= {'90':df90,'80':df80,'70':df70,'50':df50,'50_s':df50_s,'logistic':df_log}
-df_n=['90','80','70','50','50_s','logistic']          
+my_df_dic= {'90':df90,'80':df80,'70':df70,'50':df50,'50_s':df50_s,'40':df40,'logistic':df_log, 'undereplicate':df_un,
+           'undereplicate_val':df_un_val,'undereplicate_acc':df_un_acc}
+df_n=['90','80','70','50','50_s','40','logistic','undereplicate','undereplicate_val','undereplicate_acc']          
 
 # %%
 all_models=['di_sc','di_sc_p','tri_sc','tri_sc_p','tetra_sc','tetra_sc_p','di','di_p','tri','tri_p','tetra_sc_tri_p','all']
@@ -67,6 +65,9 @@ test_p_70=pickle.load(open( "../model70/CM_predicted_test_Y.p", "rb" ))
 test_p_50=pickle.load(open( "../model50/CM_predicted_test_Y.p", "rb" ))
 test_p_50_s=pickle.load(open( "../model50_sub/CM_predicted_test_Y.p", "rb" ))
 test_p_ll=pickle.load(open( "../logistic/CM_predicted_test_Y.p", "rb" ))
+test_p_un=pickle.load(open( "../undereplicate/data/CM_predicted_test_Y.p", "rb" ))
+test_p_un_val=pickle.load(open( "../undereplicate/data/val_CM_predicted_test_Y.p", "rb" ))
+test_p_un_acc=pickle.load(open( "../undereplicate/data/acc_CM_predicted_test_Y.p", "rb" ))
 
 # %%
 test_90=pickle.load(open( "../model_v3.3/CM_test_Y.p", "rb")) 
@@ -75,14 +76,17 @@ test_70=pickle.load(open( "../model70/CM_test_Y.p", "rb" ))
 test_50=pickle.load(open( "../model50/CM_test_Y.p", "rb" ))
 test_50_s=pickle.load(open( "../model50_sub/CM_test_Y.p", "rb" ))
 test_ll=pickle.load(open( "../logistic/CM_test_Y.p", "rb" ))
+test_un=pickle.load(open( "../undereplicate/data/CM_test_Y.p", "rb" ))
 
 # %%
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 
 # %%
-test_p_dic= {'90':test_p_90,'80':test_p_80,'70':test_p_70,'50':test_p_50,'50_s':test_p_50_s,'logistic':test_p_ll}
-test_dic= {'90':test_90,'80':test_80,'70':test_70,'50':test_50,'50_s':test_50_s,'logistic':test_ll}
+test_p_dic= {'90':test_p_90,'80':test_p_80,'70':test_p_70,'50':test_p_50,'50_s':test_p_50_s,'logistic':test_p_ll,
+             'undereplicate':test_p_un,'undereplicate_val':test_p_un_val,'undereplicate_acc':test_p_un_acc}
+test_dic= {'90':test_90,'80':test_80,'70':test_70,'50':test_50,'50_s':test_50_s,'logistic':test_ll,
+           'undereplicate':test_un,'undereplicate_val':test_un,'undereplicate_acc':test_un}
 
 # %%
 from collections import Counter
@@ -124,6 +128,7 @@ for df in df_n:
 # %%
 sns.set(style="whitegrid")
 for df in df_n:
+#for df in ['undereplicate_val','40']:
     avg_df=my_df_dic[df][my_df_dic[df]['class'] == 'weighted avg']
     f1_df=my_df_dic[df][my_df_dic[df]['score_type'] == 'f1-score']
     fig, ax = plt.subplots()
@@ -153,58 +158,41 @@ d = {'model': [],'derep':[],'mean':[]}
 df_all_f1 = pd.DataFrame(data=d)
 
 # %%
-df_log.loc[(df_log['model']=="di_sc") & (df_log['class']=='weighted avg') & (df_log['score_type'] == 'f1-score')].describe()
-
-# %%
-for df in ['90','80','70','50','logistic']  :
+print('average average f1-score')
+for df in df_n :
     print(df)
     for x in all_models:
         kk=my_df_dic[df].loc[(my_df_dic[df]['model']==x) & (my_df_dic[df]['class']=='weighted avg') & (my_df_dic[df]['score_type'] == 'f1-score')].describe()['value']['mean']
         print(x.rjust(15,' ') +" -> " + "{:.3f}".format(kk))
-        #df_all_f1['model']=x
-        #df_all_f1['derep']=df
-        #df_all_f1['mean']=kk
         data_row=[x,df,kk]
         df_all_f1=df_all_f1.append(pd.Series(data_row,index=df_all_f1.columns),sort=False,ignore_index=True)
 
 
 # %%
-dd = {'model': [],'dereplication level':[],'f1-score':[]}
+dd = {'model': [],'Model':[],'F1-score':[]}
 df_si_f1 = pd.DataFrame(data=dd)
-for df in ['90','80','70','50','logistic']  :
-    print(df)
+legend_dic={'40':'1d-10d ANN ensemble','logistic':'logistic regression','undereplicate_val':'1D-10D ANN ensemble'}
+for df in ['40','logistic','undereplicate_val']  :
+#for df in df_n:
+#    print(df)
     for x in all_models:
         kk=my_df_dic[df].loc[(my_df_dic[df]['model']==x) & (my_df_dic[df]['class']=='weighted avg') & (my_df_dic[df]['score_type'] == 'f1-score')]
         for index, row in kk.iterrows():
-            #df_all_f1['model']=x
-            #df_all_f1['derep']=df
-            #df_all_f1['mean']=kk
-            data_row=[x,df+'%',row['value']]
+            data_row=[x,legend_dic[df],row['value']]
             df_si_f1=df_si_f1.append(pd.Series(data_row,index=df_si_f1.columns),sort=False,ignore_index=True)
-
-# %%
-df_si_f1
 
 # %%
 colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf", "#fda547"]
 customPalette = sns.color_palette(colors)
 
 # %%
-fig2, ax2 = plt.subplots()
-fig2.set_size_inches(7, 7)
-sns.pointplot(x='derep',y='mean',hue='model', ax=ax2, data=df_si_f1, palette=colors,order=['90','80','70','50']  )
-ax2.tick_params(axis='y',labelsize=30)
-ax2.tick_params(axis='x',labelsize=35,rotation=80)
-ax2.set_ylabel('')    
-ax2.set_xlabel('')
-#plt.yticks(numpy.arange(0, 1.1, 0.1))
-ax2.set(xlim=(-0.5, 4.7))
-fig2.savefig('f1vsderep.png',bbox_inches="tight")
-
-# %%
 fig3, ax3 = plt.subplots()
-fig3.set_size_inches(7, 7)
-sns.boxplot(x='model',y='f1-score',hue='dereplication level', ax=ax3, hue_order=['90%','80%','70%','50%','logistic%'],data=df_si_f1, palette=colors )
+fig3.set_size_inches(13, 7)
+sns.boxplot(x='model',y='F1-score',hue='Model', ax=ax3, 
+#            hue_order=['90%','80%','70%','50%','logistic%','undereplicate%',
+#                       'undereplicate_val%','undereplicate_acc%']
+            hue_order=[legend_dic['logistic'],legend_dic['40'],legend_dic['undereplicate_val']]
+                        ,data=df_si_f1, palette=colors )
 ax3.tick_params(axis='y',labelsize=15)
 ax3.tick_params(axis='x',labelsize=20,rotation=90)
 plt.axvline( 0.5, linestyle = '--', color = 'g')
@@ -218,11 +206,53 @@ plt.axvline( 7.5, linestyle = '--', color = 'g')
 plt.axvline( 8.5, linestyle = '--', color = 'g')
 plt.axvline( 9.5, linestyle = '--', color = 'g')
 plt.axvline(10.5, linestyle = '--', color = 'g')
-ax3.set_ylabel('10-fold Cross-Validatio f1-score',fontsize='20')    
+ax3.set_ylabel('10-fold Cross-Validation F1-score',fontsize='20')    
 ax3.set_xlabel('')
 ax3.set_yticks(numpy.arange(0, 1.1, 0.025),minor=False)
 ax3.set(ylim=(0.4, 1))
-plt.setp(ax3.get_legend().get_title(), fontsize='20',text='Dereplication')
+#plt.setp(ax3.get_legend().get_title(), fontsize='20',text='Dereplication')
+plt.setp(ax3.get_legend().get_title(),fontsize='0',text='')
 plt.setp(ax3.get_legend().get_texts(), fontsize='20')
-fig3.savefig('f1vsderep.png',bbox_inches="tight")
+fig3.savefig('derep_per_model.png',bbox_inches="tight")
+plt.show()
+
+# %%
+xx='tetra_sc_tri_p'
+ddd = {'class': [],'Model':[],'F1-score':[]}
+df_class_f1 = pd.DataFrame(data=ddd)
+for df in ['40','logistic','undereplicate_val']  :
+    kk=my_df_dic[df].loc[(my_df_dic[df]['model']==xx) & (my_df_dic[df]['class']!='weighted avg') & (my_df_dic[df]['score_type'] == 'f1-score')]
+    for index, row in kk.iterrows():
+        data_row=[row['class'],legend_dic[df],row['value']]
+        df_class_f1=df_class_f1.append(pd.Series(data_row,index=df_class_f1.columns),sort=False,ignore_index=True)
+
+# %%
+fig4, ax4 = plt.subplots()
+fig4.set_size_inches(13, 7)
+sns.boxplot(x='class',y='F1-score',hue='Model', ax=ax4, 
+#            hue_order=['90%','80%','70%','50%','logistic%','undereplicate%',
+#                       'undereplicate_val%','undereplicate_acc%']
+            hue_order=[legend_dic['logistic'],legend_dic['40'],legend_dic['undereplicate_val']]
+                        ,data=df_class_f1, palette=colors )
+ax4.tick_params(axis='y',labelsize=15)
+ax4.tick_params(axis='x',labelsize=20,rotation=90)
+plt.axvline( 0.5, linestyle = '--', color = 'g')
+plt.axvline( 1.5, linestyle = '--', color = 'g')
+plt.axvline( 2.5, linestyle = '--', color = 'g')
+plt.axvline( 3.5, linestyle = '--', color = 'g')
+plt.axvline( 4.5, linestyle = '--', color = 'g')
+plt.axvline( 5.5, linestyle = '--', color = 'g')
+plt.axvline( 6.5, linestyle = '--', color = 'g')
+plt.axvline( 7.5, linestyle = '--', color = 'g')
+plt.axvline( 8.5, linestyle = '--', color = 'g')
+plt.axvline( 9.5, linestyle = '--', color = 'g')
+#plt.axvline(10.5, linestyle = '--', color = 'g')
+ax4.set_ylabel('10-fold Cross-Validation F1-score',fontsize='20')    
+ax4.set_xlabel('')
+ax4.set_yticks(numpy.arange(0, 1.1, 0.1),minor=False)
+ax4.set(ylim=(0, 1))
+#plt.setp(ax3.get_legend().get_title(), fontsize='20',text='Dereplication')
+plt.setp(ax4.get_legend().get_title(),fontsize='0',text='')
+plt.setp(ax4.get_legend().get_texts(), fontsize='20')
+fig4.savefig('derep_per_class.png',bbox_inches="tight")
 plt.show()
