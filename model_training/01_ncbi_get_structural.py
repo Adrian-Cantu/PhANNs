@@ -28,6 +28,7 @@ import phage_init
 from Bio import Entrez
 from urllib.error import HTTPError
 Entrez.email = "garbanyo@gmail.com"
+Entrez.api_key = "a726a2a54c70b589387b7fa6bf8784f73e08"
 
 # %% [markdown]
 # ## get_search and get_full_search
@@ -65,16 +66,29 @@ def get_full_search(term, extra=''):
 # %% [markdown]
 # ## get_sequences
 #
-# Download sequences to fasta files. Sequence retrieval is prone to fail depending on the load of the servers. you can restart the download from a particular batch (use the last mentioned before any error), save to a different file and concatenate
+# Download sequences to fasta files. Sequence retrieval is prone to fail depending on the load of the servers. You can restart the download from a particular batch (use the last batch mentioned before any error). A new file with the part number in its tilte will be created. Concatenate all parts to get the final fasta.
 #
 
 # %%
 
-def get_sequences(search_results, out="out.fasta", batch_size = 5000, start_batch=0):
+def get_sequences(search_results, out="out.fasta", batch_size = 100, start_batch=0):
     webenv = search_results["WebEnv"]
     query_key = search_results["QueryKey"]
     count= int(search_results["Count"])
-    out_handle = open(out, "w")
+    
+    
+    file_name = out
+    if os.path.isfile(file_name):
+        expand = 1
+        while True:
+            expand += 1
+            new_file_name = file_name.split(".fasta")[0] + str(expand) + ".fasta"
+            if os.path.isfile(new_file_name):
+                continue
+            else:
+                file_name = new_file_name
+                break
+    out_handle = open(file_name, "w")
     for start in range(start_batch*batch_size, count, batch_size):
         end = min(count, start+batch_size)
         print("Going to download record %i to %i of %i (batch %i)" % (start+1, end, count, start/batch_size))
@@ -107,40 +121,60 @@ def get_sequences(search_results, out="out.fasta", batch_size = 5000, start_batc
 
 # %%
 search_results = get_search('major capsid')
-get_sequences(search_results,out='major_capsid.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/major_capsid.fasta',start_batch=0)
 
 # %%
 search_results = get_search('minor capsid')
-get_sequences(search_results,out='minor_capsid.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/minor_capsid.fasta',start_batch=0)
 
 # %%
 search_results = get_search('baseplate')
-get_sequences(search_results,out='baseplate.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/baseplate.fasta',start_batch=0)
 
 # %%
 search_results = get_search('major tail')
-get_sequences(search_results,out='major_tail.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/major_tail.fasta',start_batch=0)
 
 # %%
 search_results = get_search('minor tail')
-get_sequences(search_results,out='minor_tail.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/minor_tail.fasta',start_batch=0)
 
 # %%
 search_results = get_search('portal')
-get_sequences(search_results,out='portal.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/portal.fasta',start_batch=0)
 
 # %%
 search_results = get_search('tail fiber')
-get_sequences(search_results,out='tail_fiber.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/tail_fiber.fasta',start_batch=0)
 
 # %%
 search_results = get_search('collar')
-get_sequences(search_results,out='collar.fasta')
+
+# %%
+get_sequences(search_results,out='fasta/collar.fasta',start_batch=0)
 
 # %%
 search_results = get_full_search('tail[Title] AND (shaft[Title] OR sheath[Title])')
-get_sequences(search_results,out='shaft.fasta')
 
 # %%
-search_results = get_search('head-tail joinning')
-get_sequences(search_results,out='HTJ.fasta')
+get_sequences(search_results,out='fasta/shaft.fasta',start_batch=0)
+
+# %%
+search_results = get_search('head-tail')
+
+# %%
+get_sequences(search_results,out='fasta/HTJ.fasta',start_batch=167)
