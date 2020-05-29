@@ -16,7 +16,7 @@
 # %% [markdown]
 # ## ncbi_get_structural
 #
-# This script connects to NCBI to download all non curated, non de-replicated sequences. Code is included for reference. unless you want to rebuild the database or add a new class, there is no need to run this. The raw database is available at SOMESITE
+# This script connects to NCBI to download all non curated, non de-replicated sequences. Code is included for reference. unless you want to rebuild the database or add a new class, there is no need to run this.
 
 # %%
 import os
