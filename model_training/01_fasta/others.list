@@ -1,462 +1,462 @@
- 457437 hypothetical protein 
- 111957 Phage protein 
-   3231 Phage terminase, large subunit 
++ 457437 hypothetical protein 
++ 111957 Phage protein 
++   3231 Phage terminase, large subunit 
    2314 putative uncharacterised protein 
    1685 Phage capsid and scaffold 
-   1678 Phage DNA helicase 
-   1587 Phage terminase, small subunit 
-   1299 Thioredoxin, phage-associated 
-   1265 Phage holin 
-   1144 Ribonucleotide reductase of class Ia (aerobic), alpha subunit (EC 1.17.4.1) 
-   1110 Phage exonuclease 
-   1074 Phage-associated homing endonuclease 
-   1015 Phage DNA primase/helicase 
++   1678 Phage DNA helicase 
++   1587 Phage terminase, small subunit 
++   1299 Thioredoxin, phage-associated 
++   1265 Phage holin 
++   1144 Ribonucleotide reductase of class Ia (aerobic), alpha subunit (EC 1.17.4.1) 
++   1110 Phage exonuclease 
++   1074 Phage-associated homing endonuclease 
++   1015 Phage DNA primase/helicase 
     999 Phage prohead assembly (scaffolding) protein 
-    968 Ribonucleotide reductase of class Ia (aerobic), beta subunit (EC 1.17.4.1) 
-    959 Phage endolysin 
++    968 Ribonucleotide reductase of class Ia (aerobic), beta subunit (EC 1.17.4.1) 
++    959 Phage endolysin 
     955 Phage tail fiber protein 
     888 Phage neck protein 
-    885 Phage antirepressor protein 
-    847 Single stranded DNA-binding protein, phage-associated 
-    825 Phage endonuclease 
++    885 Phage antirepressor protein 
++    847 Single stranded DNA-binding protein, phage-associated 
++    825 Phage endonuclease 
     791 
-    786 Phage lysin, N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
-    743 Transcriptional regulator 
-    720 Phage tail tape measure 
-    680 Phage integrase 
-    675 Thymidylate synthase ThyX (EC 2.1.1.148) 
-    621 Thymidylate synthase (EC 2.1.1.45) 
-    606 Phage repressor 
-    601 HNH homing endonuclease # Phage intron 
-    587 DNA polymerase I (EC 2.7.7.7) 
-    573 Single-stranded DNA-binding protein 
-    573 DNA polymerase (EC 2.7.7.7), phage-associated 
-    533 Phage endoribonulcease translational repressor of early genes, regA 
-    517 Phage external scaffolding protein #Protein D 
-    516 Phage recombination-related endonuclease Gp46 
++    786 Phage lysin, N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
++    743 Transcriptional regulator 
++    720 Phage tail tape measure 
++    680 Phage integrase 
++    675 Thymidylate synthase ThyX (EC 2.1.1.148) 
++    621 Thymidylate synthase (EC 2.1.1.45) 
++    606 Phage repressor 
++    601 HNH homing endonuclease # Phage intron 
++    587 DNA polymerase I (EC 2.7.7.7) 
++    573 Single-stranded DNA-binding protein 
++    573 DNA polymerase (EC 2.7.7.7), phage-associated 
++    533 Phage endoribonulcease translational repressor of early genes, regA 
++    517 Phage external scaffolding protein #Protein D 
++    516 Phage recombination-related endonuclease Gp46 
     516 conserved uncharacterised protein 
-    508 Phage single stranded DNA synthesis #Protein C 
-    504 Phosphate starvation-inducible protein PhoH, predicted ATPase 
-    493 Replication factor C small subunit / Phage DNA polymerase clamp loader subunit 
-    493 Phage DNA-directed DNA polymerase (EC 2.7.7.7) 
-    492 DNA polymerase I (EC 2.7.7.7), phage-associated 
-    490 Phage lysozyme R (EC 3.2.1.17) 
-    468 Ribonucleotide reductase of class III (anaerobic), large subunit (EC 1.17.4.2) 
++    508 Phage single stranded DNA synthesis #Protein C 
++    504 Phosphate starvation-inducible protein PhoH, predicted ATPase 
++    493 Replication factor C small subunit / Phage DNA polymerase clamp loader subunit 
++    493 Phage DNA-directed DNA polymerase (EC 2.7.7.7) 
++    492 DNA polymerase I (EC 2.7.7.7), phage-associated 
++    490 Phage lysozyme R (EC 3.2.1.17) 
++    468 Ribonucleotide reductase of class III (anaerobic), large subunit (EC 1.17.4.2) 
     465 Phage tail tape measure protein 
-    463 Phage DNA polymerase clamp loader subunit Gp62 
-    460 Phage recombination-related endonuclease Gp47 
-    429 Phage recombination protein 
-    427 Ribonucleotide reductase of class II (coenzyme B12-dependent) (EC 1.17.4.1) 
++    463 Phage DNA polymerase clamp loader subunit Gp62 
++    460 Phage recombination-related endonuclease Gp47 
++    429 Phage recombination protein 
++    427 Ribonucleotide reductase of class II (coenzyme B12-dependent) (EC 1.17.4.1) 
     417 Phage baseplate wedge subunit (T4-like gp8) 
-    411 Phage DNA transfer protein 
-    406 Phage exonuclease (EC 3.1.11.3) 
++    411 Phage DNA transfer protein 
++    406 Phage exonuclease (EC 3.1.11.3) 
     404 Phage baseplate wedge subunit (T4-like gp25) 
-    401 Phage DNA-binding protein 
-    399 Phage-associated DNA primase (EC 2.7.7.-) 
-    391 Phage DNA replication protein #protein A 
++    401 Phage DNA-binding protein 
++    399 Phage-associated DNA primase (EC 2.7.7.-) 
++    391 Phage DNA replication protein #protein A 
     381 Phage tail fiber 
     375 Phage head completion protein 
-    372 Nicotinamide phosphoribosyltransferase (EC 2.4.2.12) 
++    372 Nicotinamide phosphoribosyltransferase (EC 2.4.2.12) 
     370 Phage tail assembly protein 
     368 Phage baseplate wedge subunit (T4-like gp6) 
-    366 Phage rIIA lysis inhibitor 
-    362 RNA ligase 
-    361 Phage DNA-directed RNA polymerase (EC 2.7.7.6) 
-    356 Sliding clamp DNA polymerase accessory protein, phage associated 
++    366 Phage rIIA lysis inhibitor 
++    362 RNA ligase 
++    361 Phage DNA-directed RNA polymerase (EC 2.7.7.6) 
++    356 Sliding clamp DNA polymerase accessory protein, phage associated 
     356 Phage baseplate wedge subunit 
-    350 Phage endonuclease VII 
-    349 Phage terminase large subunit Gp19, DNA packaging 
++    350 Phage endonuclease VII 
++    349 Phage terminase large subunit Gp19, DNA packaging 
     343 gp51 
-    336 T4-like phage RNA polymerase sigma factor for late transcription 
-    335 Photosystem II protein D1 (PsbA) 
-    334 Transaldolase (EC 2.2.1.2) 
++    336 T4-like phage RNA polymerase sigma factor for late transcription 
++    335 Photosystem II protein D1 (PsbA) 
++    334 Transaldolase (EC 2.2.1.2) 
     332 Phage major capsid protein #Fam0039 
     330 baseplate wedge subunit 
-    326 DNA helicase, phage-associated 
-    325 DNA ligase, phage-associated 
-    318 Integrase 
-    317 Phage DNA helicase loader 
-    312 Ribonucleotide reductase of class III (anaerobic), activating protein (EC 1.97.1.4) 
-    311 DNA polymerase III alpha subunit (EC 2.7.7.7) 
-    308 Photosystem II protein D2 (PsbD) 
-    305 DNA-cytosine methyltransferase (EC 2.1.1.37) 
++    326 DNA helicase, phage-associated 
++    325 DNA ligase, phage-associated 
++    318 Integrase 
++    317 Phage DNA helicase loader 
++    312 Ribonucleotide reductase of class III (anaerobic), activating protein (EC 1.97.1.4) 
++    311 DNA polymerase III alpha subunit (EC 2.7.7.7) 
++    308 Photosystem II protein D2 (PsbD) 
++    305 DNA-cytosine methyltransferase (EC 2.1.1.37) 
     298 Phage protein, contains HNH endonuclease motif 
-    295 Deoxyuridine 5'-triphosphate nucleotidohydrolase (EC 3.6.1.23) 
-    292 DNA primase (EC 2.7.7.-) / DNA helicase (EC 3.6.1.-), phage-associated 
++    295 Deoxyuridine 5'-triphosphate nucleotidohydrolase (EC 3.6.1.23) 
++    292 DNA primase (EC 2.7.7.-) / DNA helicase (EC 3.6.1.-), phage-associated 
     288 Phage protein # Pham1942 
     286 predicted 14.0Kd protein 
     285 Phage tail tube 
-    285 Phage DNA replication protein O 
-    283 Phage heat shock protein Hsp20 #T4 GC0170 
-    281 Phage tail length tape-measure protein T 
-    274 Phage ribonuclease H (EC 3.1.26.4) 
-    271 Mycobacteriophage lysis protein, LysB 
-    268 Phage recombination protein Bet 
-    265 Mycobacteriophage lysis protein, LysB # Pham73 
-    264 Phage primase/helicase protein Gp4A 
-    264 Phage HNH homing endonuclease (ACLAME 27) 
-    260 Glutaredoxin, NrdC #T4 GC0311 
++    285 Phage DNA replication protein O 
++    283 Phage heat shock protein Hsp20 #T4 GC0170 
+-    281 Phage tail length tape-measure protein T 
++    274 Phage ribonuclease H (EC 3.1.26.4) 
++    271 Mycobacteriophage lysis protein, LysB 
++    268 Phage recombination protein Bet 
++    265 Mycobacteriophage lysis protein, LysB # Pham73 
++    264 Phage primase/helicase protein Gp4A 
++    264 Phage HNH homing endonuclease (ACLAME 27) 
++    260 Glutaredoxin, NrdC #T4 GC0311 
     254 Phage protein # Pham1397 
     252 Phage protein # Pham1480 
     252 Phage ea22 protein 
     251 gp7 
-    247 HNH homing endonuclease # Phage intron # Pham154 
++    247 HNH homing endonuclease # Phage intron # Pham154 
     246 Phage baseplate tail tube cap (T4-like gp48) 
-    246 Dihydrofolate reductase (EC 1.5.1.3) 
-    243 Phage terminase, large subunit (T4-like headful) 
++    246 Dihydrofolate reductase (EC 1.5.1.3) 
++    243 Phage terminase, large subunit (T4-like headful) 
     243 gp1 
-    242 Phage DNA ejectosome component Gp16, peptidoglycan lytic exotransglycosylase (EC 4.2.2.n1) 
-    242 Phage baseplate wedge initiator (T4-like gp7) 
++    242 Phage DNA ejectosome component Gp16, peptidoglycan lytic exotransglycosylase (EC 4.2.2.n1) 
+-    242 Phage baseplate wedge initiator (T4-like gp7) 
     242 HNH homing endonuclease 
-    239 Phage DNA helicase; Type III restriction enzme 
-    235 Molybdenum ABC transporter, periplasmic molybdenum-binding protein ModA (TC 3.A.1.8.1) 
++    239 Phage DNA helicase; Type III restriction enzme 
++    235 Molybdenum ABC transporter, periplasmic molybdenum-binding protein ModA (TC 3.A.1.8.1) 
     234 T4-like phage protein, T4 GC0198 
-    233 Thymidylate synthase ThyX (EC 2.1.1.-) 
-    231 Mobile element protein 
++    233 Thymidylate synthase ThyX (EC 2.1.1.-) 
++    231 Mobile element protein 
     228 phage associated protein 
-    228 Phage anti-restriction nuclease 
++    228 Phage anti-restriction nuclease 
     225 Phage prohead core protein 
     225 Phage baseplate hub structural protein / Phage lysozyme R (EC 3.2.1.17) 
     224 T4-like phage protein, T4 GC0312 
-    217 DNA primase (EC 2.7.7.-) 
-    214 Phage repressor protein cI 
++    217 DNA primase (EC 2.7.7.-) 
++    214 Phage repressor protein cI 
     214 gp4 
-    213 Phage tape measure 
-    212 Phage DNA binding protein 
-    212 Phage-associated ATP-dependent DNA ligase (EC 6.5.1.1) 
-    210 Phage DNA topoisomerase large subunit (EC 5.99.1.3) 
-    208 Phytanoyl-CoA dioxygenase (EC 1.14.11.18) #T4 GC0101 
-    208 Glutaredoxin-like protein NrdH, required for reduction of Ribonucleotide reductase class Ib 
+-    213 Phage tape measure 
++    212 Phage DNA binding protein 
++    212 Phage-associated ATP-dependent DNA ligase (EC 6.5.1.1) 
++    210 Phage DNA topoisomerase large subunit (EC 5.99.1.3) 
++    208 Phytanoyl-CoA dioxygenase (EC 1.14.11.18) #T4 GC0101 
++    208 Glutaredoxin-like protein NrdH, required for reduction of Ribonucleotide reductase class Ib 
     205 Phage protein Gp2.8/Gp7.7 contains HNH endonuclease motif 
-    204 Phage-encoded high light-inducible protein, HliP #T4 GC0267 
-    203 DNA endonuclease V 
++    204 Phage-encoded high light-inducible protein, HliP #T4 GC0267 
++    203 DNA endonuclease V 
     201 Phage protein (ACLAME 240) 
     200 Phage T4-like protein, T4 GC0043 
-    199 Phage-encoded high light-inducible protein, HliP 
++    199 Phage-encoded high light-inducible protein, HliP 
     198 T4-like phage structural protein, T4 GC0426 
     197 T4-like phage protein, T4 GC01011 
-    197 Phage immunity 
++    197 Phage immunity 
     196 T4-like phage protein, T4 GC0142 
-    195 DNA end protector protein 
-    195 Adenine-specific methyltransferase (EC 2.1.1.72) 
++    195 DNA end protector protein 
++    195 Adenine-specific methyltransferase (EC 2.1.1.72) 
     194 soluble 
-    194 Phage terminase small subunit Gp18, DNA packaging 
++    194 Phage terminase small subunit Gp18, DNA packaging 
     194 baseplate wedge subunit and tail pin 
     191 T4-like phage protein, T4 GC0112 
-    191 Phage fibritin (wac) protein 
-    191 DNA polymerase, phage-associated 
-    190 Phage antitermination protein Q 
-    189 Phage recombination related exonuclease (EC 3.1.11.-) 
-    189 Cyanophage-encoded pyrophosphatase, MazG #T4 GC0184 
+-    191 Phage fibritin (wac) protein 
++    191 DNA polymerase, phage-associated 
++    190 Phage antitermination protein Q 
++    189 Phage recombination related exonuclease (EC 3.1.11.-) 
++    189 Cyanophage-encoded pyrophosphatase, MazG #T4 GC0184 
     188 T4-like phage protein, T4 GC0922 
     187 Phage protein (ACLAME 959) 
     185 T4-like phage protein, T4 GC0948 
-    185 Phage DNA replication protein #Vp4 
-    184 Phage-associated recombinase 
++    185 Phage DNA replication protein #Vp4 
++    184 Phage-associated recombinase 
     183 Phage baseplate wedge tail fiber connector (T4-like gp9) 
-    183 exonuclease 
-    181 dCMP deaminase (EC 3.5.4.12) 
++    183 exonuclease 
++    181 dCMP deaminase (EC 3.5.4.12) 
     180 T4-like phage structural protein, T4 GC0347 
-    179 Phage baseplate hub subunit (T4-like gp5) / Phage tail lysozyme (T4-like gp5) 
++    179 Phage baseplate hub subunit (T4-like gp5) / Phage tail lysozyme (T4-like gp5) 
     178 T4-like phage protein, T4 GC0987 
     178 Phage protein # Pham1601 
     177 Phage minor tail protein 
-    175 Phage endopeptidase Rz 
++    175 Phage endopeptidase Rz 
     175 Phage baseplate wedge subunit (T4-like gp53) 
-    174 Glutaredoxin-like protein NrdH, required for reduction of Ribonucleotide reductase class Ib # Pham43 
++    174 Glutaredoxin-like protein NrdH, required for reduction of Ribonucleotide reductase class Ib # Pham43 
     172 Phage protein # Pham1974 
     172 Phage DUF1825 domain-containing protein #T4 GC0004 
-    172 Cyanophage-encoded carbon metabolic regulator, CP12 #T4 GC0337 
-    169 Phage internal (core) protein 
-    169 hypothetical membrane protein 
-    168 RNA-2',3'-PO4:RNA-5'-OH ligase 
-    166 Cyanophage-encoded photosynthetic antenna protein, CpeT #T4 GC0338 
++    172 Cyanophage-encoded carbon metabolic regulator, CP12 #T4 GC0337 
++    169 Phage internal (core) protein 
++    169 hypothetical membrane protein 
++    168 RNA-2',3'-PO4:RNA-5'-OH ligase 
++    166 Cyanophage-encoded photosynthetic antenna protein, CpeT #T4 GC0338 
     165 baseplate hub subunit 
     164 T4-like phage protein with DUF1583 domain, #T4 GC0928 
     164 Phage tail tip, assembly protein I 
     164 Phage protein (ACLAME 1281) 
-    164 Dihydrofolate reductase, phage-associated 
-    163 Phage endonuclease I (EC 3.1.21.2), four-way DNA junctions resolving 
-    163 DNA topoisomerase, phage-associated 
-    162 Phage recombination protein NinG 
++    164 Dihydrofolate reductase, phage-associated 
++    163 Phage endonuclease I (EC 3.1.21.2), four-way DNA junctions resolving 
++    163 DNA topoisomerase, phage-associated 
++    162 Phage recombination protein NinG 
     162 Phage protein (ACLAME 976) 
-    162 6-phosphogluconate dehydrogenase, decarboxylating (EC 1.1.1.44) 
-    161 RecA protein 
-    161 Phage repressor # Pham54 
++    162 6-phosphogluconate dehydrogenase, decarboxylating (EC 1.1.1.44) 
++    161 RecA protein 
++    161 Phage repressor # Pham54 
     161 capsid and scaffold protein 
-    159 DNA helicase (EC 3.6.4.12), phage-associated 
++    159 DNA helicase (EC 3.6.4.12), phage-associated 
     157 T4-like phage protein, T4 GC0918 
     157 hypothetical protein within a prophage 
-    156 Phage lysin (EC 3.2.1.17) 
++    156 Phage lysin (EC 3.2.1.17) 
     155 Phage minor capsid protein - DNA pilot protein #protein H 
-    153 Type II, N6M-methyladenine DNA methyltransferase (group beta) 
-    153 Phage outer membrane lipoprotein Rz1 
-    153 Phage-associated DNA primase 
-    152 terminase large subunit 
++    153 Type II, N6M-methyladenine DNA methyltransferase (group beta) 
++    153 Phage outer membrane lipoprotein Rz1 
++    153 Phage-associated DNA primase 
++    152 terminase large subunit 
     152 T4-like phage structural protein, T4 GC0934 
-    152 cytitidyltransferase 
-    151 Possible methylamine utilization protein, T4-like #T4 GC0139 
-    151 Phage replication initiation protein 
++   152 cytitidyltransferase 
++    151 Possible methylamine utilization protein, T4-like #T4 GC0139 
++   151 Phage replication initiation protein 
     151 Phage protein (ACLAME 630) 
-    150 Phage single-stranded DNA-binding protein Gp2.5 
-    149 Phosphoribosylaminoimidazole-succinocarboxamide synthase (EC 6.3.2.6) 
++    150 Phage single-stranded DNA-binding protein Gp2.5 
++    149 Phosphoribosylaminoimidazole-succinocarboxamide synthase (EC 6.3.2.6) 
     149 Phage protein #T4 GC1036 
-    148 3'-phosphatase, 5'-polynucleotide kinase, phage-associated 
++    148 3'-phosphatase, 5'-polynucleotide kinase, phage-associated 
     147 unknown protein encoded by bacteriophage BP-933W 
-    147 Phage tail, tail length tape-measure protein H 
-    147 Phage Holliday junction endonuclease RuvC (ACLAME 335) 
+-    147 Phage tail, tail length tape-measure protein H 
++    147 Phage Holliday junction endonuclease RuvC (ACLAME 335) 
     146 Phage protein # Pham554 
     145 Phage protein # Pham567 
     145 Phage protein # Pham1484 
     145 Phage baseplate hub 
-    145 2OG-Fe(II) oxygenase 
++    145 2OG-Fe(II) oxygenase 
     144 T4-like phage protein, T4 GC0876 
     144 Phage tail fibers 
-    144 Phage head assembly chaperone protein 
++    144 Phage head assembly chaperone protein 
     142 Phosphoribosylformylglycinamidine cyclo-ligase (EC 6.3.3.1) 
     142 Phage major capsid protein of Caudovirales 
-    140 T4-like phage protein, cyanophage only #T4-like GC0988 
-    140 Phage DNA N-6-adenine methyltransferase 
-    140 Phage activator protein cII 
++    140 T4-like phage protein, cyanophage only #T4-like GC0988 
++    140 Phage DNA N-6-adenine methyltransferase 
++    140 Phage activator protein cII 
     139 tail assembly protein 
     138 Phage baseplate hub subunit 
-    137 Transposase 
++    137 Transposase 
     137 Phage protein # Pham592 
-    137 Phage DNA polymerase I (EC 2.7.7.7) 
-    137 Phage DNA ejectosome component, internal virion protein Gp15 
-    137 Phage baseplate assembly chaperone (T4-like gp26) 
-    135 putative membrane protein 
++    137 Phage DNA polymerase I (EC 2.7.7.7) 
++    137 Phage DNA ejectosome component, internal virion protein Gp15 
++    137 Phage baseplate assembly chaperone (T4-like gp26) 
++    135 putative membrane protein 
     135 predicted 9.0Kd protein 
-    135 Phage recombination protein NinB 
++    135 Phage recombination protein NinB 
     134 Phage protein # Pham550 
-    134 NAD-dependent protein deacetylase of SIR2 family 
++    134 NAD-dependent protein deacetylase of SIR2 family 
     133 Phage protein # Pham114 
-    133 Phage integrase, site-specific tyrosine recombinase # Pham107 
-    132 Sporulation regulatory protein WhiB 
-    131 Ribonucleotide reductase of class Ib (aerobic), alpha subunit (EC 1.17.4.1) 
++    133 Phage integrase, site-specific tyrosine recombinase # Pham107 
++    132 Sporulation regulatory protein WhiB 
++    131 Ribonucleotide reductase of class Ib (aerobic), alpha subunit (EC 1.17.4.1) 
     131 Phage non-contractile tail tubular protein Gp12 
-    131 Phage holin, class II Gp17.5 
-    131 Phage DNA helicase loader # T4-like phage gp59, loader of gp41 DNA helicase #T4 GC0003 
-    130 endolysin 
-    130 5,5-phosphoribosylformylglycinamide amidotransferase 
-    129 Phosphoesterase 
-    129 Phage tail completion protein (T4-like gp15) 
-    129 DNA helicase (EC 3.6.1.-), phage-associated 
++    131 Phage holin, class II Gp17.5 
++    131 Phage DNA helicase loader # T4-like phage gp59, loader of gp41 DNA helicase #T4 GC0003 
++    130 endolysin 
++    130 5,5-phosphoribosylformylglycinamide amidotransferase 
++    129 Phosphoesterase 
++    129 Phage tail completion protein (T4-like gp15) 
++    129 DNA helicase (EC 3.6.1.-), phage-associated 
     128 T4-like phage protein, T4 GC0176 
-    128 T4-like late promoter transcriptional accessory protein #T4-like phage gp33 #T4-like GC0326 
-    128 Replicative DNA helicase (DnaB) (EC 3.6.4.12) 
++    128 T4-like late promoter transcriptional accessory protein #T4-like phage gp33 #T4-like GC0326 
++    128 Replicative DNA helicase (DnaB) (EC 3.6.4.12) 
     128 Phage protein Gp5.7 
-    128 Phage double-stranded DNA binding protein #T4-like dsbA, late transcriptional regulation #T4 GC1668 
++    128 Phage double-stranded DNA binding protein #T4-like dsbA, late transcriptional regulation #T4 GC1668 
     128 Lj965 prophage protein 
-    127 Thymidine kinase (EC 2.7.1.21) 
++    127 Thymidine kinase (EC 2.7.1.21) 
     127 Phage protein (ACLAME 596) 
-    127 DNA primase, phage associated 
-    127 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4-like GC0104 
-    125 Cyanophage-encoded cytidylyltransferase (EC 2.7.7.-) #T4 GC0190 
-    125 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4-like GC0412 
++    127 DNA primase, phage associated 
++    127 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4-like GC0104 
++    125 Cyanophage-encoded cytidylyltransferase (EC 2.7.7.-) #T4 GC0190 
++    125 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4-like GC0412 
     124 Phage capsid assembly scaffolding protein Gp9 
-    124 Cyanophage-encoded plastocyanin #T4-like GC0225 
-    123 Plastocyanin 
++    124 Cyanophage-encoded plastocyanin #T4-like GC0225 
++    123 Plastocyanin 
     122 Phage protein # Pham1455 
     121 T4-like phage protein, T4 GC0881 
-    121 Phage transcriptional regulator WhiB (ACLAME 471) 
++    121 Phage transcriptional regulator WhiB (ACLAME 471) 
     121 Phage protein # Pham21 
     121 Phage minor capsid protein - DNA pilot protein #Vp2 
     121 Phage head, terminase DNA packaging protein A 
     121 gp2 
-    121 DNA translocase FtsK 
-    121 deoxynucleoside monophosphate kinase 
-    119 Ribonucleotide reductase of class Ib (aerobic), beta subunit (EC 1.17.4.1) 
++    121 DNA translocase FtsK 
++    121 deoxynucleoside monophosphate kinase 
++    119 Ribonucleotide reductase of class Ib (aerobic), beta subunit (EC 1.17.4.1) 
     119 Phage tail protein 
     119 Phage-related protein 
-    118 Valyl-tRNA synthetase 
-    118 Phage protein NinH 
-    118 Phage protein NinE 
-    118 Phage nucleotide kinase Gp1.7, phosphorylates dGMP to dGDP and dTMP to dTDP 
-    118 N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
-    117 glutaredoxin 
-    116 Phage TraR/YbiI family protein 
++    118 Valyl-tRNA synthetase 
++    118 Phage protein NinH 
++    118 Phage protein NinE 
++    118 Phage nucleotide kinase Gp1.7, phosphorylates dGMP to dGDP and dTMP to dTDP 
++    118 N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
++    117 glutaredoxin 
++    116 Phage TraR/YbiI family protein 
     116 Phage protein (ACLAME 864) 
-    115 Phage recombination exonuclease 
++    115 Phage recombination exonuclease 
     115 Phage protein (ACLAME 862) 
     115 Phage long tail fiber 
-    115 3'-phosphatase, 5'-polynucleotide kinase, phage-associated #T4-like phage PseT #T4 GC1648 
-    114 Recombinational DNA repair protein RecT (prophage associated) 
++    115 3'-phosphatase, 5'-polynucleotide kinase, phage-associated #T4-like phage PseT #T4 GC1648 
++    114 Recombinational DNA repair protein RecT (prophage associated) 
     114 Phage protein (ACLAME 855) 
-    114 ATP-dependent Clp protease proteolytic subunit (EC 3.4.21.92) 
++    114 ATP-dependent Clp protease proteolytic subunit (EC 3.4.21.92) 
     113 Unclassified tail protein 
     113 putative anti-sigma factor 
     113 Phage protein # Pham40 
     113 Phage protein # Pham117 
-    113 Phage-associated DNA primase (EC 2.7.7.-) # Pham38 
++    113 Phage-associated DNA primase (EC 2.7.7.-) # Pham38 
     112 T4-like phage protein, T4 GC0838 
     112 putative thymidylate synthase 
-    112 Phage tail completion protein 
++    112 Phage tail completion protein 
     112 Phage baseplate hub protein (T4-like gp54) 
     112 Hypothetical protein, SAV0877 homolog 
     111 Phage protein (ACLAME 1164) 
     111 DNA helicase 
     110 unknown protein encoded within prophage CP-933V 
-    110 thioredoxin 
++    110 thioredoxin 
     110 T4-like phage protein, T4 GC0900 
-    110 Helicase loader DnaI 
-    109 Phage terminase 
-    109 Phage recombinase 
-    109 Phage anti-sigma factor 
-    107 T4-like phage protein, T4 GC01010 
++    110 Helicase loader DnaI 
++    109 Phage terminase 
++    109 Phage recombinase 
++    109 Phage anti-sigma factor 
++    107 T4-like phage protein, T4 GC01010 
     107 Phage scaffold protein Gp13, required for Gp6.7 incorporation into virion 
     107 gp5 
-    107 DNA primase subunit 
++    107 DNA primase subunit 
     106 T4-like phage YadA domain structural protein #T4 GC0402 
     106 T4-like phage protein, T4 GC0937 
-    106 Secretory antigen SsaA-like protein 
-    106 Inh inhibitor of gp21 prohead protease 
++    106 Secretory antigen SsaA-like protein 
++    106 Inh inhibitor of gp21 prohead protease 
     105 Phage tail fiber assembly protein 
     105 Phage protein # Pham7 
     105 Phage protein # Pham168 
-    105 Phage DNA ejectosome component, internal virion protein Gp14 
++    105 Phage DNA ejectosome component, internal virion protein Gp14 
     105 Hypothetical protein, PVL orf51 homolog 
     104 Phage protein # Pham8 
     104 Phage protein (ACLAME 444) 
-    104 Phage Holliday junction resolvase 
-    103 Type II, 5-methyl-cytosine DNA methyltransferase 
++    104 Phage Holliday junction resolvase 
++    103 Type II, 5-methyl-cytosine DNA methyltransferase 
     103 T4-like phage protein, cyanophage only #T4-like GC0751 
-    103 Phage virulence-associated protein 
+-    103 Phage virulence-associated protein 
     103 Phage endolysin or lysozyme (ACLAME 32) 
     103 Phage baseplate protein 
-    102 RNA polymerase binding protein 
++    102 RNA polymerase binding protein 
     102 Phage protein # Pham29 
-    102 Glutaredoxin, NrdC #T4-like GC0311 
++    102 Glutaredoxin, NrdC #T4-like GC0311 
     102 FIG00820647: hypothetical protein 
     101 Phage protein # Pham9 
     101 Hypothetical protein, PVL orf52 homolog 
-    101 Autonomous glycyl radical cofactor 
-    100 T4-like phage RNA polymerase sigma factor for late transcription # T4-like phage gp55 #T4 GC0140 
-    100 Phage virion assembly protein Gp7.3 ejected into infected cell 
++    101 Autonomous glycyl radical cofactor 
++    100 T4-like phage RNA polymerase sigma factor for late transcription # T4-like phage gp55 #T4 GC0140 
++    100 Phage virion assembly protein Gp7.3 ejected into infected cell 
     100 Phage protein # Pham2317 
     100 Phage non-contractile tail tubular protein Gp11 
     100 NAD--protein ADP-ribosyltransferase modA (EC 2.4.2.-) 
-    100 Histone protein Lsr2 
-    100 DNA primase/helicase, phage-associated 
-     99 Phage deoxyuridine 5'-triphosphate nucleotidohydrolase (EC 3.6.1.23) 
++    100 Histone protein Lsr2 
++    100 DNA primase/helicase, phage-associated 
++     99 Phage deoxyuridine 5'-triphosphate nucleotidohydrolase (EC 3.6.1.23) 
      99 Hypothetical protein, Lmo2313 homolog 
-     98 Pin protease inhibitor 
++     98 Pin protease inhibitor 
      98 Phage protein # Pham25 
      98 Phage protein (ACLAME 1260) 
      98 Phage protein (ACLAME 1113) 
      98 Phage minor capsid protein 
-     98 Phage EaA protein 
-     98 Phage DNA adenine methylase (EC 2.1.1.72) 
-     97 Thymidine kinase 
++     98 Phage EaA protein 
++     98 Phage DNA adenine methylase (EC 2.1.1.72) 
++     97 Thymidine kinase 
      97 Phage protein # Pham139 
      97 Phage protein (ACLAME 1288) 
      97 Phage protein (ACLAME 1287) 
-     97 Phage endopeptidase 
++     97 Phage endopeptidase 
      96 Phage protein (ACLAME 1083) 
-     96 Phage integration and excision endonuclease VII (ACLAME 151) 
++     96 Phage integration and excision endonuclease VII (ACLAME 151) 
      96 ORF101 
      96 head completion protein 
-     96 Acridine resistance 
-     95 Phage N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
-     95 Phage baseplate wedge tail fiber connector (T4-like gp9) # T4 GC 1595 
-     95 N-acetylmuramoyl-L-alanine amidase 
++     96 Acridine resistance 
++     95 Phage N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) 
++     95 Phage baseplate wedge tail fiber connector (T4-like gp9) # T4 GC 1595 
++     95 N-acetylmuramoyl-L-alanine amidase 
      95 DUF1825 domain-containing protein 
      94 Phage transcriptional regulator cro 
      94 Phage protein (ACLAME 711) 
      94 Phage protein (ACLAME 141) 
-     94 Phage endonuclease #T4-like phage gp49, endonuclease VII #T4 GC1525 
++     94 Phage endonuclease #T4-like phage gp49, endonuclease VII #T4 GC1525 
      94 gp6 
-     94 DNA polymerase (EC 2.7.7.7), phage-associated #T4-like phage gp43 #T4 GC0178 
-     93 recombination protein 
-     93 Putative glycerophosphoryl diester phosphodiesterase (EC 3.1.4.46) (ACLAME 1495) 
-     93 DNA ligase, phage-associated #T4-like phage gp30 #T4 GC1627 
-     93 Dimeric dUTPase (EC 3.6.1.23) 
++     94 DNA polymerase (EC 2.7.7.7), phage-associated #T4-like phage gp43 #T4 GC0178 
++     93 recombination protein 
++     93 Putative glycerophosphoryl diester phosphodiesterase (EC 3.1.4.46) (ACLAME 1495) 
++     93 DNA ligase, phage-associated #T4-like phage gp30 #T4 GC1627 
++     93 Dimeric dUTPase (EC 3.6.1.23) 
      92 Phage protein (ACLAME 61) 
-     91 Immunodominant staphylococcal antigen A precursor 
-     90 Phage rIIB lysis inhibitor 
++     91 Immunodominant staphylococcal antigen A precursor 
++     90 Phage rIIB lysis inhibitor 
      90 Phage protein # Pham500 
      90 Hypothetical protein, PVL orf50 homolog 
-     90 Glutaredoxin, phage-associated #T4-like nrdC, glutaredoxin, PF00462 #T4 GC1531 
-     89 T4-like phage virulence associated protein, VrlC #T4 GC0400 
-     89 recombination endonuclease subunit 
++     90 Glutaredoxin, phage-associated #T4-like nrdC, glutaredoxin, PF00462 #T4 GC1531 
++     89 T4-like phage virulence associated protein, VrlC #T4 GC0400 
++     89 recombination endonuclease subunit 
      89 Phage T4-like structural protein, T4 GC0015 
      89 Phage protein # Pham611 
      89 Phage protein # Pham122 
      89 Hypothetical protein, PVL orf39 homolog 
-     89 Crossover junction endodeoxyribonuclease RuvC (EC 3.1.22.4) (ACLAME 272) # Pham415 
-     88 Putative holin (ACLAME 1073) 
++     89 Crossover junction endodeoxyribonuclease RuvC (EC 3.1.22.4) (ACLAME 272) # Pham415 
++     88 Putative holin (ACLAME 1073) 
      88 Phage protein # Pham409 
      88 Phage protein # Pham1981 
      88 Phage protein (ACLAME 1283) 
      88 Phage minor structural protein 
-     88 Phage DNA helicase (ACLAME 43) 
-     88 Peptide deformylase (EC 3.5.1.88) 
++     88 Phage DNA helicase (ACLAME 43) 
++     88 Peptide deformylase (EC 3.5.1.88) 
      88 Hypothetical-Protein | belonging to T4-LIKE GC: 61 
-     88 Cyanophage-encoded carboxylesterase #T4 GC0438 
-     88 CCA tRNA nucleotidyltransferase (EC 2.7.7.72) 
-     87 Phage Rz-like lysis protein Gp18.5 
-     87 Phage protein Gp4.5, inhibitor of host toxin/antitoxin system 
++     88 Cyanophage-encoded carboxylesterase #T4 GC0438 
++     88 CCA tRNA nucleotidyltransferase (EC 2.7.7.72) 
++     87 Phage Rz-like lysis protein Gp18.5 
++     87 Phage protein Gp4.5, inhibitor of host toxin/antitoxin system 
      87 Phage protein (ACLAME 712) 
      87 Phage portal (connector) protein (T4-like gp20) 
-     87 Pentapeptide repeat family protein 
++     87 Pentapeptide repeat family protein 
      86 T4-like phage structural protein, cyanophage only #T4-like GC0344 
-     86 Serine/threonine protein phosphatase (EC 3.1.3.16) 
++     86 Serine/threonine protein phosphatase (EC 3.1.3.16) 
      86 Phage protein Gp2, bacterial RNA polymerase inhibitor 
      86 Phage protein (ACLAME 863) 
      86 gp3 
      85 T4-like phage structural protein, T4 GC0642 
      85 Phage protein (ACLAME 1282) 
-     85 discriminator of mRNA degradation, phage-associated 
-     84 Transcriptional activator rinB, phage associated 
++     85 discriminator of mRNA degradation, phage-associated 
++     84 Transcriptional activator rinB, phage associated 
      84 T4-like phage protein, T4 GC0884 
      84 Phage protein # Pham157 
      84 Phage protein # Pham1447 
-     84 Phage-encoded phospholipase (ACLAME 172) 
-     84 Phage-encoded host-cell envelope protein Lom 
-     83 putative serine/threonine protein phosphatase 
++     84 Phage-encoded phospholipase (ACLAME 172) 
++     84 Phage-encoded host-cell envelope protein Lom 
++     83 putative serine/threonine protein phosphatase 
      83 phage T4-like protein, cyanophage only # T4 GC 931 
-     83 Phage serine/threonine kinase involved in host transcription shutoff Gp0.7 
++     83 Phage serine/threonine kinase involved in host transcription shutoff Gp0.7 
      83 Phage protein # Pham120 
-     83 Phage essential recombination function protein, Erf 
-     83 Phage DNA binding protein Roi 
++     83 Phage essential recombination function protein, Erf 
++     83 Phage DNA binding protein Roi 
      82 Phage protein # Pham140 
      82 Phage host specificity protein (ACLAME 1259) 
-     82 Phage host-killing protein Kil 
++     82 Phage host-killing protein Kil 
      82 Phage head, head-tail preconnector protease C 
-     82 Phage 3'-phosphatase, 5'-polynucleotide kinase # Pham1985 
++     82 Phage 3'-phosphatase, 5'-polynucleotide kinase # Pham1985 
      82 ORF B85 
      82 Mycobacteriophage Barnyard protein gp56 
      82 gp8 
      82 gp75 
      82 gp64 
-     82 Glycerophosphoryl diester phosphodiesterase (EC 3.1.4.46), phage variant 
++     82 Glycerophosphoryl diester phosphodiesterase (EC 3.1.4.46), phage variant 
      81 Phage virion protein Gp6.7 ejected into infected cell 
-     81 Phage ribose-phosphate pyrophosphokinase 
-     81 Phage excisionase 
-     80 Putative major teichoic acid biosynthesis protein C 
++     81 Phage ribose-phosphate pyrophosphokinase 
++     81 Phage excisionase 
++     80 Putative major teichoic acid biosynthesis protein C 
      80 Phage protein (ACLAME 357) 
-     80 dNMP kinase 
-     79 Ribonuclease HI (EC 3.1.26.4) 
-     79 putative single-stranded DNA binding protein 
++     80 dNMP kinase 
++     79 Ribonuclease HI (EC 3.1.26.4) 
++     79 putative single-stranded DNA binding protein 
      79 Phage protein # Pham377 
      79 Phage protein # Pham227 
      79 Phage protein (ACLAME 1247) 
      79 Hypothetical protein, PV83 orf19 homolog 
-     79 HNH endonuclease 
-     79 glucosyl transferase 
++     79 HNH endonuclease 
++     79 glucosyl transferase 
      78 Phage Mrh or Srh transcription modulator (ACLAME 1277) 
      78 Hypothetical protein, SAB1734c homolog 
-     78 Endodeoxyribonuclease RusA 
++     78 Endodeoxyribonuclease RusA 
      77 T4-like phage structural protein, cyanophage only #T4-like GC0641 
      77 Phage protein # Pham358 
      77 Phage protein Gp1.6 
      77 Phage protein (ACLAME 1539) 
-     77 Methyl-directed repair DNA adenine methylase (EC 2.1.1.72) 
++     77 Methyl-directed repair DNA adenine methylase (EC 2.1.1.72) 
      77 gp20 
-     77 dCMP deaminase (EC 3.5.4.12) @ Late competence protein ComEB 
++     77 dCMP deaminase (EC 3.5.4.12) @ Late competence protein ComEB 
      76 T4-like phage protein, T4 GC0923 
      76 structural protein 
-     76 Ribonucleotide reduction protein NrdI 
++     76 Ribonucleotide reduction protein NrdI 
      76 Phage protein # Pham170 
      76 Phage protein # Pham160 
      75 Phage protein # Pham399 
@@ -465,42 +465,42 @@
      75 Phage protein (ACLAME 1501) 
      75 Phage protein (ACLAME 1299) 
      75 Phage protein (ACLAME 1284) 
-     75 DNA packaging 
-     75 DNA adenine methyltransferase, phage-associated 
-     75 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4 GC0412 
++     75 DNA packaging 
++     75 DNA adenine methyltransferase, phage-associated 
++     75 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4 GC0412 
      74 T4-like phage protein, T4 GC0744 
-     74 Sliding clamp DNA polymerase accessory protein, phage associated # T4-like phage gp45 #T4 GC0153 
-     74 ribose-phosphate pyrophosphokinase family protein 
-     74 Putative DNA polymerase (ACLAME 1298) 
-     74 Putative DNA-binding protein Roi of bacteriophage BP-933W 
++     74 Sliding clamp DNA polymerase accessory protein, phage associated # T4-like phage gp45 #T4 GC0153 
++     74 ribose-phosphate pyrophosphokinase family protein 
++     74 Putative DNA polymerase (ACLAME 1298) 
++     74 Putative DNA-binding protein Roi of bacteriophage BP-933W 
      74 Phage protein # Pham563 
      74 Phage protein # Pham165 
-     74 Phage lysin (EC 3.2.1.17) # Phage lysozyme or muramidase (EC 3.2.1.17) 
-     74 Peptide chain release factor 1 
++     74 Phage lysin (EC 3.2.1.17) # Phage lysozyme or muramidase (EC 3.2.1.17) 
++     74 Peptide chain release factor 1 
      74 ATP-dependent Clp protease proteolytic subunit ClpP (EC 3.4.21.92) 
      73 T4-like phage protein, T4 GC0201 
      73 RNA polymerase (EC 2.7.7.6), phage-associated 
-     73 polynucleotide kinase 
++     73 polynucleotide kinase 
      73 Phage protein # Pham613 
      73 Phage protein # Pham607 
      73 Phage protein # Pham602 
      73 Phage protein # Pham601 
      73 Phage protein # Pham570 
      73 Phage DNA polymerase clamp loader subunit Gp62 #T4-like phage gp62 #T4 GC0167 
-     73 Peptidyl-tRNA hydrolase # Pham586 
++     73 Peptidyl-tRNA hydrolase # Pham586 
      73 GTP cyclohydrolase I (EC 3.5.4.16) type 1 
      72 UvsY 
-     72 Phage repressor protein 
-     72 Phage replicative DNA helicase, repA 
++     72 Phage repressor protein 
++     72 Phage replicative DNA helicase, repA 
      72 Phage protein # Pham643 
      72 Phage protein # Pham197 
      72 Phage protein NinF 
      72 Phage protein Gp6.5 
      72 Phage minor tail protein (ACLAME 1131) 
-     72 HNH Endonuclease 
++     72 HNH Endonuclease 
      72 gp53 
      71 T4-like phage protein, cyanophage only #T4-like GC0937 
-     71 Putative DNA binding protein or helix-turn-helix motif (ACLAME 933) 
++     71 Putative DNA binding protein or helix-turn-helix motif (ACLAME 933) 
      71 Phage virion morphogenesis protein Mup30, F 
      71 Phage protein # Pham633 
      71 Phage protein # Pham630 
@@ -516,8 +516,8 @@
      71 ORF B78 
      71 gp49 
      71 gp36 
-     71 Adenylosuccinate synthetase-like protein 
-     71 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4 GC0104 
++     71 Adenylosuccinate synthetase-like protein 
++     71 2-Oxoglutarate/Fe(II)-dependent oxygenase (EC 1.14.11) #T4 GC0104 
      70 T4-like phage protein, T4 GC0903 
      70 predicted 6.3Kd protein 
      70 Phage protein # Pham663 
@@ -527,10 +527,10 @@
      70 Phage protein # Pham163 
      70 Phage protein (ACLAME 547) 
      70 Phage portal (connector) protein 
-     70 Phage chromosome segregation protein 
-     70 DNA polymerase III epsilon subunit (EC 2.7.7.7) 
-     70 Chromosome (plasmid) partitioning protein ParA 
-     69 putative exodeoxyribonuclease 
++     70 Phage chromosome segregation protein 
++     70 DNA polymerase III epsilon subunit (EC 2.7.7.7) 
++     70 Chromosome (plasmid) partitioning protein ParA 
++     69 putative exodeoxyribonuclease 
      69 Phage tailspike 
      69 Phage recombination protein UvsX RecA (ACLAME 253) 
      69 Phage protein # Pham584 
@@ -542,8 +542,8 @@
      69 Phage protein (ACLAME 1500) 
      69 gp74 
      69 gp66 
-     69 a-gt alpha glucosyl transferase 
-     69 7-carboxy-7-deazaguanine synthase (EC 4.3.99.3) 
++     69 a-gt alpha glucosyl transferase 
++    69 7-carboxy-7-deazaguanine synthase (EC 4.3.99.3) 
      68 Prophage Clp protease-like protein (ACLAME 20) 
      68 Phage protein # Pham638 
      68 Phage protein # Pham561 
@@ -552,7 +552,7 @@
      68 Phage protein # Pham210 
      68 Phage protein p21 
      68 Phage protein Gp4.3 
-     68 Phage Holliday junction resolvase, RusA # Pham615 
++     68 Phage Holliday junction resolvase, RusA # Pham615 
      68 Phage head completion protein (gp4) 
      68 gp219 
      67 Putative prohead protease 
@@ -565,7 +565,7 @@
      67 Phage phosphate starvation-inducible protein PhoH (ACLAME 589) 
      67 Phage non-contractile tail fiber protein Gp17 
      67 Phage antitermination protein N 
-     67 Adenylate cyclase (EC 4.6.1.1) 
++     67 Adenylate cyclase (EC 4.6.1.1) 
      66 PhoH-like protein 
      66 Phage protein # Pham670 
      66 Phage protein # Pham626 
@@ -579,19 +579,19 @@
      66 gp161 
      66 FIG00639620: hypothetical protein 
      65 T4-like phage protein, T4 GC0810 
-     65 RstB phage-related integrase 
++    65 RstB phage-related integrase 
      65 Phage tail length tape-measure protein GpT 
      65 Phage protein # Pham596 
      65 Phage protein # Pham585 
      65 Phage protein # Pham208 
      65 Phage protein (ACLAME 1541) 
      65 Orf80 
-     65 DNA ligase 
++     65 DNA ligase 
      64 T4-like phage structural protein with PA14 domain #T4 GC1038 
      64 T4-like phage protein, T4 GC0313 
      64 T4-like phage head completion, neck hetero-dimeric protein #T4-like phage gp13 #T4 GC0116 
-     64 putative deoxynucleotide monophosphate kinase 
-     64 phage T4-like vrlC, virulence associated protein # T4 GC 400 
++     64 putative deoxynucleotide monophosphate kinase 
++     64 phage T4-like vrlC, virulence associated protein # T4 GC 400 
      64 Phage protein # Pham636 
      64 Phage protein # Pham635 
      64 Phage protein # Pham551 
@@ -611,8 +611,8 @@
      63 Phage glycosyltransferase (EC 2.4.-.-), GTA type (ACLAME 1229) 
      63 Hypothetical protein, phi-ETA orf58 homolog 
      63 Hypothetical protein, phi-ETA orf24 homolog 
-     63 Glutaredoxin, phage-associated #T4-like nrdH, anaerobic glutaredoxin, PF00462 #T4 GC1519 
-     62 Type III restriction-modification system methylation subunit (EC 2.1.1.72) 
++     63 Glutaredoxin, phage-associated #T4-like nrdH, anaerobic glutaredoxin, PF00462 #T4 GC1519 
++     62 Type III restriction-modification system methylation subunit (EC 2.1.1.72) 
      62 T4-like phage protein, T4 GC0919 
      62 RstA phage-related replication protein 
      62 Phage protein # Pham660 
@@ -621,12 +621,12 @@
      62 Phage protein # Pham225 
      62 Phage protein # Pham178 
      62 Phage protein # Pham152 
-     62 Phage lysin 
-     62 Phage integrase, site-specific serine recombinase # Pham23 
-     62 Phage-encoded chromosome segregation protein (ACLAME 485) 
++     62 Phage lysin 
++     62 Phage integrase, site-specific serine recombinase # Pham23 
++     62 Phage-encoded chromosome segregation protein (ACLAME 485) 
      62 gp41 
      62 FIG00640276: hypothetical protein 
-     62 endonuclease 
++     62 endonuclease 
      61 putative morphogenetic function 
      61 Phage protein # Pham621 
      61 Phage protein (ACLAME 1121) 
@@ -636,8 +636,8 @@
      61 FIG00641463: hypothetical protein 
      61 FIG00638618: hypothetical protein 
      60 Unclassified head protein 
-     60 Shiga toxin II subunit B 
-     60 Shiga toxin II subunit A (EC 3.2.2.22) 
++     60 Shiga toxin II subunit B 
++     60 Shiga toxin II subunit A (EC 3.2.2.22) 
      60 Phage tail protein (ACLAME 541) 
      60 Phage straight tail fiber (short tail fiber) 
      60 Phage protein # Pham230 
@@ -645,41 +645,41 @@
      60 Phage protein # Pham134 
      60 Phage protein (ACLAME 1290) 
      60 Phage protein (ACLAME 1289) 
-     60 Phage integrase, site-specific tyrosine recombinase 
-     60 Phage integrase, site-specific serine recombinase 
-     60 Phage host-nuclease inhibitor protein Gam 
-     60 Phage holin # Pham95 
-     60 Phage exonuclease (ACLAME 70) 
-     60 Phage DNA polymerase 
++     60 Phage integrase, site-specific tyrosine recombinase 
++     60 Phage integrase, site-specific serine recombinase 
++     60 Phage host-nuclease inhibitor protein Gam 
++     60 Phage holin # Pham95 
++     60 Phage exonuclease (ACLAME 70) 
++     60 Phage DNA polymerase 
      60 Phage baseplate 
      60 inhibition of exonuclease digestion of Mu DNA 
      60 gp84 
      60 gp56 
-     60 Crossover junction endodeoxyribonuclease ruvC (EC 3.1.22.4) 
-     59 Phage T4-like CP12, carbon metabolic regulator #T4 GC0063 
++     60 Crossover junction endodeoxyribonuclease ruvC (EC 3.1.22.4) 
++     59 Phage T4-like CP12, carbon metabolic regulator #T4 GC0063 
      59 Phage protein # Pham671 
      59 Phage protein (ACLAME 234) 
      59 Phage prohead assembly (scaffolding) protein (T4-like gp21) 
-     59 Phage integration host factor 
++     59 Phage integration host factor 
      59 Phage head decoration protein (Soc) 
-     59 Phage DNA primase (EC 2.7.7.-) (ACLAME 269) 
-     59 Phage anti-RecBCD 2 
++     59 Phage DNA primase (EC 2.7.7.-) (ACLAME 269) 
++     59 Phage anti-RecBCD 2 
      59 gp71 
      59 gp57 
      59 gp18 
-     59 7-cyano-7-deazaguanine synthase (EC 6.3.4.20) 
++     59 7-cyano-7-deazaguanine synthase (EC 6.3.4.20) 
      58 WLM domain-containing protein 
      58 Transcriptional regulator, Xre family 
      58 T4-like phage protein with Macro domain, Poa1p_like family (high-affinity ADP-ribose binding module)cyanophages only #T4 GC1557 
-     58 S-adenosylmethionine decarboxylase proenzyme (EC 4.1.1.50), prokaryotic class 1B 
++     58 S-adenosylmethionine decarboxylase proenzyme (EC 4.1.1.50), prokaryotic class 1B 
      58 Putative phage alc transcription terminator (ACLAME 1242) 
-     58 Phage T4-like exonuclease A, DexA #T4 GC0325 
++     58 Phage T4-like exonuclease A, DexA #T4 GC0325 
      58 Phage protein # Pham571 
      58 Phage protein # Pham128 
      58 Phage protein Ocr (Gp0.3), restriction-modification evasion, mimics B-form DNA 
      58 Phage protein (ACLAME 155) 
-     58 holin 
-     57 Phage replicative DNA helicase (EC 3.6.1.-) 
++     58 holin 
++     57 Phage replicative DNA helicase (EC 3.6.1.-) 
      57 Phage protein # Pham97 
      57 Phage protein # Pham679 
      57 Phage protein # Pham423 
@@ -690,12 +690,12 @@
      57 Phage protein (ACLAME 302) 
      57 Phage nucleoid disruption protein Ndd (ACLAME 1102) 
      57 Phage HTH/DNA binding domain-containing phage protein # Pham371 (ACLAME 1271) 
-     57 Phage HNH homing endonuclease (ACLAME 312) 
-     57 Phage endonuclease / Phage holin (ACLAME 9) 
++     57 Phage HNH homing endonuclease (ACLAME 312) 
++     57 Phage endonuclease / Phage holin (ACLAME 9) 
      57 gp43 
-     56 Putative integration and excision endonuclease VII (ACLAME 151) 
++     56 Putative integration and excision endonuclease VII (ACLAME 151) 
      56 Putative head protein (ACLAME 50) 
-     56 Phage transcriptional terminator 
++     56 Phage transcriptional terminator 
      56 Phage tail tube protein 
      56 Phage protein # Pham669 
      56 Phage protein # Pham664 
@@ -704,7 +704,7 @@
      56 Phage protein # Pham503 
      56 Phage protein (ACLAME 266) 
      56 Phage protein (ACLAME 1254) 
-     56 Phage oxidoreductase 
++     56 Phage oxidoreductase 
      56 Phage-associated HNH homing endonuclease # Phage intron 
      56 Hypothetical protein, PV83 orf22 homolog 
      56 gp83 
@@ -724,12 +724,12 @@
      55 Gp2 DNA end protector protein 
      55 dTDP-glucose 4,6-dehydratase (EC 4.2.1.46) 
      55 A2 protein 
-     54 Thymidylate synthase thyX (EC 2.1.1.-) 
++     54 Thymidylate synthase thyX (EC 2.1.1.-) 
      54 T4-like phage structural protein, T4 GC0344 
      54 T4-like late promoter transcriptional accessory protein #T4-like phage gp33 #T4 GC0326 
      54 SAM-dependent methyltransferase 
      54 prohead core protein 
-     54 Phage Rha protein 
++     54 Phage Rha protein 
      54 Phage protein # related to L5 Gp22 # Pham10 
      54 Phage protein # Pham667 
      54 Phage protein # Pham647 
@@ -738,24 +738,24 @@
      54 Phage protein # Pham234 
      54 Phage protein (ACLAME 1493) 
      54 Phage protein (ACLAME 1266) FIG00820647 
-     54 Metallopeptidase, phage-associated 
++     54 Metallopeptidase, phage-associated 
      54 hypothetical protein within prophage 
      54 gp82 
      54 gp37 
      54 gp17 
-     53 Phage transcriptional regulator (ACLAME 866) 
++     53 Phage transcriptional regulator (ACLAME 866) 
      53 Phage protein # Pham673 
      53 Phage protein # Pham659 
      53 Phage protein # Pham538 
      53 Phage protein Gp6.3 
      53 Phage protein (ACLAME 1492) 
      53 Phage eae protein 
-     53 Phage DNA invertase 
++     53 Phage DNA invertase 
      53 Phage collar, head-to-tail connector protein Gp8 
      53 gp78 
      53 gp46 
      53 cro-like protein 
-     53 Carboxylesterase (EC 3.1.1.1) 
++     53 Carboxylesterase (EC 3.1.1.1) 
      52 T4-like phage structural protein, T4 GC0334 
      52 Phage tail tip, assembly protein K 
      52 Phage protein # Pham618 
@@ -779,7 +779,7 @@
      51 gp23 
      51 GDP-mannose 4,6-dehydratase (EC 4.2.1.47) 
      51 FIG00864208: hypothetical protein 
-     50 Zona occludens toxin 
++     50 Zona occludens toxin 
      50 T4-like phage protein, cyanophage only #T4-like GC0931 
      50 predicted 16.0Kd protein 
      50 Phage protein # Pham382 
@@ -791,7 +791,7 @@
      50 gp59 
      50 gp35 
      50 FIG00831908: hypothetical protein 
-     50 DNA polymerase III beta subunit (EC 2.7.7.7) 
++     50 DNA polymerase III beta subunit (EC 2.7.7.7) 
      49 Unclassified head-tail protein (gp13) 
      49 Transposase InsO for insertion sequence element IS911 
      49 Putative RNA polymerase-ADP-ribosyltransferase Alt (ACLAME 423) 
@@ -806,9 +806,9 @@
      49 Deoxycytidine triphosphate deaminase (EC 3.5.4.13) 
      49 2-ketobutyrate formate-lyase (EC 2.3.1.-) @ Pyruvate formate-lyase (EC 2.3.1.54) 
      48 putative spanin 
-     48 Phage terminase, ATPase subunit GpP 
++     48 Phage terminase, ATPase subunit GpP 
      48 Phage tail tube protein (T4-like gp19) 
-     48 Phage replication protein 
++     48 Phage replication protein 
      48 Phage protein # Pham228 
      48 Phage protein (ACLAME 203) 
      48 Phage protein (ACLAME 1092) 
@@ -828,8 +828,8 @@
      47 Late competence protein ComEB 
      47 gp65 
      47 GDP-L-fucose synthetase (EC 1.1.1.271) 
-     47 dihydrofolate reductase 
-     47 dCTP pyrophosphatase (EC 3.6.1.12), phage-associated (ACLAME 965) 
++     47 dihydrofolate reductase 
++     47 dCTP pyrophosphatase (EC 3.6.1.12), phage-associated (ACLAME 965) 
      47 13.88 kDa late protein 
      46 Phage tail formation protein GpI 
      46 Phage protein # Pham666 
@@ -837,34 +837,34 @@
      46 Phage protein # Pham354 
      46 Phage lysin, N-acetylmuramoyl-L-alanine amidase 
      46 Phage head assembly chaperone protein (T4-like gp31) 
-     46 Nodulation protein nolNO (EC 2.1.3.-) 
-     46 Holliday junction resolvase / Crossover junction endodeoxyribonuclease rusA (EC 3.1.22.-) 
-     46 DNA adenine methyltransferase 
-     45 Site-specific recombinase 
-     45 Putative dCMP deaminase (ACLAME 374) 
-     45 putative antirepressor protein 
++     46 Nodulation protein nolNO (EC 2.1.3.-) 
++     46 Holliday junction resolvase / Crossover junction endodeoxyribonuclease rusA (EC 3.1.22.-) 
++     46 DNA adenine methyltransferase 
++     45 Site-specific recombinase 
++     45 Putative dCMP deaminase (ACLAME 374) 
++     45 putative antirepressor protein 
      45 putative adsorption protein, phage related 
      45 Phage protein @ Uncharacterized protein COG3236 
      45 Phage protein # Pham680 
      45 Phage protein # Pham179 
      45 Phage protein (ACLAME 1471) 
-     45 Phage MazG nucleotide pyrophosphatase/toxin-antitoxin (ACLAME 361) 
-     45 Phage lysin, 1,4-beta-N-acetylmuramidase (EC 3.2.1.17) or lysozyme 
++     45 Phage MazG nucleotide pyrophosphatase/toxin-antitoxin (ACLAME 361) 
++     45 Phage lysin, 1,4-beta-N-acetylmuramidase (EC 3.2.1.17) or lysozyme 
      45 Phage internal virion protein B 
      45 JK_43P 
-     45 Holin 
++     45 Holin 
      45 FIG00641106: hypothetical protein 
-     44 Superfamily II DNA/RNA helicases, SNF2 family 
++     44 Superfamily II DNA/RNA helicases, SNF2 family 
      44 predicted 18.6kd protein 
      44 predicted 17.6kd protein 
      44 predicted 13.4Kd protein 
-     44 Phage rI lysis inhibition regulator 
++     44 Phage rI lysis inhibition regulator 
      44 Phage replication protein GpA, endonuclease 
-     44 Phage alc transcription terminator (ACLAME 1242) 
++     44 Phage alc transcription terminator (ACLAME 1242) 
      44 gp70 
      44 gp21 
-     44 DNA polymerase 
-     44 DNA adenine methylase 
++     44 DNA polymerase 
++     44 DNA adenine methylase 
      43 T4-like phage structural protein, T4 GC0641 
      43 Phage protein # Pham668 
      43 Phage protein # Pham45 
@@ -875,7 +875,7 @@
      43 Phage DNA replication protein P 
      43 Gp33 late promoter transcription factor 
      43 DNA stabilization, phage-associated 
-     43 Adenine DNA methyltransferase, phage-associated 
++     43 Adenine DNA methyltransferase, phage-associated 
      42 predicted 7.4Kd protein 
      42 PiuC 
      42 Phage protein # Pham639 
@@ -883,39 +883,39 @@
      42 Phage protein # Pham19 
      42 Phage maturation protease 
      42 Phage major spike protein 
-     42 Phage lipoprotein 
++     42 Phage lipoprotein 
      42 Phage head completion-stabilization protein GpL 
-     42 Phage endopeptidase (EC 3.4.-.-) Rz 
-     42 homing endonuclease 
++     42 Phage endopeptidase (EC 3.4.-.-) Rz 
++     42 homing endonuclease 
      42 gp81 
      42 gp69 
-     42 Gp59 Loader of T4-like helicase 
++     42 Gp59 Loader of T4-like helicase 
      42 GIY-YIG endonuclease 
      42 DNA recombination-dependent growth factor RdgC 
      42 DNA primase DnaG 
      42 DNA-damage-inducible protein D 
-     42 Deoxycytidylate deaminase (EC 3.5.4.12) 
++     42 Deoxycytidylate deaminase (EC 3.5.4.12) 
      41 RstR phage-related transcriptional repressor 
      41 putative secreted protein 
      41 Predicted CDP-4-keto-6-deoxy-D-glucose-3-dehydrase 
-     41 Phage transcriptional regulator 
-     41 Phage terminase, large subunit (T4-like gp17) 
-     41 Phage S-adenosyl-L-methionine hydrolase (EC 3.3.1.2) 
++     41 Phage transcriptional regulator 
++     41 Phage terminase, large subunit (T4-like gp17) 
++     41 Phage S-adenosyl-L-methionine hydrolase (EC 3.3.1.2) 
      41 Phage protein # Pham559 
      41 Phage protein # Pham360 
      41 Phage protein (ACLAME 1111) 
      41 Phage head maturation protease 
      41 Phage head, head-tail preconnector protease C / Phage head, scaffolding domain Nu3 
      41 Methyl-accepting chemotaxis protein 
-     41 Host RNA polymerase inhibitor, T7-like gp2 
++     41 Host RNA polymerase inhibitor, T7-like gp2 
      41 Gp32 single-strand DNA binding protein 
      41 baseplate wedge tail fiber connector 
-     40 Thymidylate synthase ThyX (EC 2.1.1.148) @ intein-containing 
-     40 Putative chromosome segregation protein (ACLAME 485) 
++     40 Thymidylate synthase ThyX (EC 2.1.1.148) @ intein-containing 
++     40 Putative chromosome segregation protein (ACLAME 485) 
      40 Phage tail protein GpX 
-     40 Phage tail completion protein GpS 
-     40 Phage single-stranded DNA binding protein (replication) (ACLAME 218) 
-     40 Phage rIII lysis inhibitor accessory 
++     40 Phage tail completion protein GpS 
++     40 Phage single-stranded DNA binding protein (replication) (ACLAME 218) 
++     40 Phage rIII lysis inhibitor accessory 
      40 Phage protein (ACLAME 1536) 
      40 Phage protein (ACLAME 1215) 
      40 Phage-associated protease 
@@ -923,25 +923,25 @@
      40 Nucleotide reductase subunit C 
      40 HNH endonuclease family protein 
      40 FIG00639394: hypothetical protein 
-     40 clamp holder for DNA polymerase 
-     40 Accessory cholera enterotoxin 
++     40 clamp holder for DNA polymerase 
++     40 Accessory cholera enterotoxin 
      39 T4-like phage protein, cyanophage only #T4-like GC0176 
-     39 Superinfection exclusion protein 
-     39 Ribosylnicotinamide kinase (EC 2.7.1.22) 
-     39 ribonuclease H 
++     39 Superinfection exclusion protein 
++     39 Ribosylnicotinamide kinase (EC 2.7.1.22) 
++     39 ribonuclease H 
      39 Putative tail protein (ACLAME 1) 
-     39 putative replication protein 
++     39 putative replication protein 
      39 Phage protein # Pham672 
      39 Phage protein # Pham656 
      39 Phage protein # Pham203 
      39 Phage protein (ACLAME 856) 
-     39 Phage packaged DNA stabilization protein 
++    39 Phage packaged DNA stabilization protein 
      39 Phage ModA or ModB ribosyltransferase (ACLAME 972) 
      39 Phage major capsid protein Gp10A 
-     39 Phage DNA polymerase I (EC 2.7.7.7) # Pham28 
-     39 Gp55 sigma factor for late transcription 
-     39 Exodeoxyribonuclease VIII (EC 3.1.11.-) 
-     39 DNA replication helicase loader DnaC/DnaI 
++     39 Phage DNA polymerase I (EC 2.7.7.7) # Pham28 
++     39 Gp55 sigma factor for late transcription 
++     39 Exodeoxyribonuclease VIII (EC 3.1.11.-) 
++     39 DNA replication helicase loader DnaC/DnaI 
      39 capsid vertex protein 
      38 T4-like phage structural protein, T4 GC0345 
      38 Similarity 
@@ -995,9 +995,9 @@
      36 Phage protein (ACLAME 1112) 
      36 Phage anti-termination 
      36 Gp61 DNA primase subunit 
-     36 Glutaredoxin, phage-associated 
++     36 Glutaredoxin, phage-associated 
      36 Gene 21 protein (Gp21) 
-     36 DNA ligase (NAD(+)) (EC 6.5.1.2) 
++     36 DNA ligase (NAD(+)) (EC 6.5.1.2) 
      35 Replicative DNA helicase (EC 3.6.1.-) 
      35 predicted 8.0Kd protein 
      35 predicted 7.8Kd protein 
@@ -1005,19 +1005,19 @@
      35 Phage protein # Pham24 
      35 Phage protein (ACLAME 1263) 
      35 Phage protein (ACLAME 1118) 
-     35 Phage phosphoesterase 
++     35 Phage phosphoesterase 
      35 Phage DNA transfer protein for transport across the cytoplasmic membrane 
      35 ORF30 
      35 NrdA.1 conserved hypothetical protein 
      35 DUF680 domain-containing protein 
-     35 DNA recombinase, phage-associated 
++     35 DNA recombinase, phage-associated 
      35 DexA exonuclease A? 
-     35 dCTP pyrophosphatase (EC 3.6.1.12), phage-associated 
++     35 dCTP pyrophosphatase (EC 3.6.1.12), phage-associated 
      34 T4-like phage structural protein, cyanophage only #T4-like GC0334 
      34 structural protein VP3 
      34 Putative transcriptional regulator MotA (ACLAME 1235) 
      34 Phage transcriptional regulator of middle promoters 
-     34 Phage serine/threonine protein phosphatase NinI (EC 3.1.3.16) 
++     34 Phage serine/threonine protein phosphatase NinI (EC 3.1.3.16) 
      34 Phage RNA polymerase binding protein (EC 2.7.7.6) (ACLAME 854) 
      34 Phage protein # Pham351 
      34 Phage protein NinD 
@@ -1026,54 +1026,54 @@
      34 Phage protein (ACLAME 1272) 
      34 Phage protein (ACLAME 1261) 
      34 Phage P2 GpE family protein 
-     34 Phage lysin, N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) #T7-like gp3.5 
-     34 Phage holin/antiholin component S 
++     34 Phage lysin, N-acetylmuramoyl-L-alanine amidase (EC 3.5.1.28) #T7-like gp3.5 
++     34 Phage holin/antiholin component S 
      34 N4 gp44-like protein 
      34 Hypothetical protein, SAV0880 homolog 
      34 Hypothetical protein, phi-ETA orf17 homolog 
-     34 host killer protein 
-     34 Gp44-sliding clamp holder 
-     34 dUTPase 
-     34 DNA N-6-adenine-methyltransferase of bacteriophage 
-     34 Bactoprenol-linked glucose translocase 
-     34 Alpha-galactosidase (EC 3.2.1.22) 
++     34 host killer protein 
++     34 Gp44-sliding clamp holder 
++     34 dUTPase 
++     34 DNA N-6-adenine-methyltransferase of bacteriophage 
++     34 Bactoprenol-linked glucose translocase 
++     34 Alpha-galactosidase (EC 3.2.1.22) 
      33 Protein co-occuring with molybdenum cofactor biosynthesis protein B 
-     33 Phosphate ABC transporter, substrate-binding protein PstS (TC 3.A.1.7.1) 
-     33 Phage transcriptional regulator, Cro/CI family 
++     33 Phosphate ABC transporter, substrate-binding protein PstS (TC 3.A.1.7.1) 
++     33 Phage transcriptional regulator, Cro/CI family 
      33 Phage tail length tape-measure protein 
-     33 Phage structural protein, holin, or lysin (ACLAME 23) 
++     33 Phage structural protein, holin, or lysin (ACLAME 23) 
      33 Phage protein # Pham32 
      33 Phage protein # Pham211 
      33 Phage protein (ACLAME 1472) 
-     33 Nicotinamide-nucleotide adenylyltransferase, NadM family (EC 2.7.7.1) / ADP-ribose pyrophosphatase (EC 3.6.1.13) 
-     33 Metallo-beta-lactamase superfamily domain protein in prophage 
++     33 Nicotinamide-nucleotide adenylyltransferase, NadM family (EC 2.7.7.1) / ADP-ribose pyrophosphatase (EC 3.6.1.13) 
++     33 Metallo-beta-lactamase superfamily domain protein in prophage 
      33 Hypothetical protein, SLT orf99 homolog 
      33 hypothetical phage protein 
      33 gp44 
      33 FIG007491: hypothetical protein YeeN 
      33 DNA replication protein dnaC # contains dnaC domains, no evidence for helicase 
-     33 DNA modification methylase 
-     33 colonization factor 
++     33 DNA modification methylase 
++     33 colonization factor 
      32 RpbA RNA polymerase binding protein 
-     32 Ribose-phosphate pyrophosphokinase (EC 2.7.6.1) 
-     32 plasmid stability protein 
++     32 Ribose-phosphate pyrophosphokinase (EC 2.7.6.1) 
++     32 plasmid stability protein 
      32 Phage protein # Pham598 
      32 Phage protein (ACLAME 29) 
      32 Phage head, head-DNA stabilization protein D 
-     32 Phage DNA helicase loader # Phage T4-like gp59, loader of gp41 DNA helicase #T4-like GC0003 
-     32 Metal-dependent hydrolases of the metallobeta-lactamase superfamily 
++     32 Phage DNA helicase loader # Phage T4-like gp59, loader of gp41 DNA helicase #T4-like GC0003 
++     32 Metal-dependent hydrolases of the metallobeta-lactamase superfamily 
      32 Hypothetical protein, phi-ETA orf16 homolog 
-     32 Glutaredoxin 
++     32 Glutaredoxin 
      32 62kDa structural protein 
      31 Zn-dependent hydrolase YycJ/WalJ homolog within prophage 
      31 Uncharacterized protein COG3236 
      31 predicted 16.3Kd protein 
      31 plastocyanine 
-     31 Phage transcriptional regulator of middle promoters MotA (ACLAME 1235) 
++     31 Phage transcriptional regulator of middle promoters MotA (ACLAME 1235) 
      31 Phage tail protein GpU 
      31 Phage tail completion protein GpR 
-     31 Phage superinfection exclusion protein B 
-     31 Phage regulatory protein 
++     31 Phage superinfection exclusion protein B 
++     31 Phage regulatory protein 
      31 Phage protein # Pham145 
      31 Phage protein # Pham121 
      31 Phage protein (ACLAME 210) 
@@ -1083,34 +1083,34 @@
      31 Phage protein (ACLAME 1241) 
      31 Phage protein (ACLAME 1142) 
      31 Phage capsid protein 
-     31 Phage anti-RecBCD 1 
-     31 ATP-dependent helicase 
-     31 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase (EC 4.2.99.20) 
++     31 Phage anti-RecBCD 1 
++     31 ATP-dependent helicase 
++     31 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase (EC 4.2.99.20) 
      30 Uncharacterized protein YfdQ 
      30 terminase, large subunit, putative 
      30 T4-like phage head completion, neck hetero-dimeric protein #T4-like phage gp14 #T4 GC0117 
      30 putative tail fiber protein 
-     30 putative nicotinate phosphoribosyltransferase 
-     30 putative lipoprotein 
-     30 putative homing endonuclease 
-     30 Phage transcriptional regulator (ACLAME 754) 
-     30 Phage transcriptional regulator (ACLAME 688) 
++     30 putative nicotinate phosphoribosyltransferase 
++     30 putative lipoprotein 
++     30 putative homing endonuclease 
++     30 Phage transcriptional regulator (ACLAME 754) 
++     30 Phage transcriptional regulator (ACLAME 688) 
      30 Phage tail, component Z 
-     30 phage T4-like nrdH, anaerobic glutaredoxin # T4 GC 1519 
-     30 Phage super-infection exclusion protein cor (ACLAME 1461) 
-     30 Phage ribonuclease H (EC 3.1.26.4) #T4-like phage Rnh #T4 GC0870 
++     30 phage T4-like nrdH, anaerobic glutaredoxin # T4 GC 1519 
++     30 Phage super-infection exclusion protein cor (ACLAME 1461) 
++     30 Phage ribonuclease H (EC 3.1.26.4) #T4-like phage Rnh #T4 GC0870 
      30 Phage protein # Pham99 
      30 Phage protein # Pham581 
      30 Phage protein # Pham112 
      30 Phage protein Ogr 
      30 Phage protein (ACLAME 971) 
      30 ORF A247 
-     30 Glucose-6-phosphate 1-dehydrogenase (EC 1.1.1.49) 
++     30 Glucose-6-phosphate 1-dehydrogenase (EC 1.1.1.49) 
      30 FIG01114380: hypothetical protein 
      30 DNA packaging protein A, T7-like gp18 
      30 dGTP triphosphohydrolase inhibitor 
      30 CI-like repressor, phage associated 
-     30 Chromosome (plasmid) partitioning protein ParB 
++     30 Chromosome (plasmid) partitioning protein ParB 
      29 Structural protein, phage associated 
      29 Replicative DNA helicase 
      29 putative tape measure protein 
