@@ -27,8 +27,8 @@ import phage_init
 # %%
 from Bio import Entrez
 from urllib.error import HTTPError
-Entrez.email = "garbanyo@gmail.com"
-Entrez.api_key = "a726a2a54c70b589387b7fa6bf8784f73e08"
+Entrez.email = ""
+#Entrez.api_key = ""
 
 # %% [markdown]
 # ## get_search and get_full_search

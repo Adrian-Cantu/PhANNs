@@ -170,12 +170,12 @@ predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 
 # %%
-#pickle.dump(predicted_Y_index, open( os.path.join('08_figures',"CM_predicted_test_Y.p"), "wb" ) )
-#pickle.dump(test_Y, open( os.path.join('08_figures',"CM_test_Y.p"), "wb" ) )
+pickle.dump(predicted_Y_index, open( os.path.join('08_figures',"CM_predicted_test_Y.p"), "wb" ) )
+pickle.dump(test_Y, open( os.path.join('08_figures',"CM_test_Y.p"), "wb" ) )
 
 # %%
-#predicted_Y_index=pickle.load(open( "data/val_CM_predicted_test_Y.p", "rb" ))
-#test_Y=pickle.load(open( "data/val_CM_test_Y.p", "rb" ))
+#predicted_Y_index=pickle.load(open( os.path.join('08_figures',"CM_predicted_test_Y.p"), "rb"))
+#test_Y=pickle.load(open( os.path.join('08_figures',"CM_test_Y.p"), "rb" ))
 
 # %%
 from sklearn.metrics import classification_report
