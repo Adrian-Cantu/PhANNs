@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---
 # jupyter:
 #   jupytext:
@@ -12,6 +13,10 @@
 #     language: python
 #     name: python3
 # ---
+
+# %% [markdown]
+# ## extract_features_and_pickle
+# This script extracts the features (di-peptide, tri-peptides etc…) normalize the counts and saves them in pickle objects. 
 
 # %%
 import os
@@ -154,17 +159,19 @@ mean_arr=numpy.apply_along_axis(numpy.mean,0,arr)
 std_arr=numpy.apply_along_axis(numpy.std,0,arr)
 
 # %%
-pickle.dump(mean_arr,  open( os.path.join('data',"mean_final.p") , "wb" ), protocol=4 )
-pickle.dump(std_arr,  open( os.path.join('data',"std_final.p") , "wb" ), protocol=4)
+data_dir='06_features'
 
-pickle.dump(class_arr,  open( os.path.join('data',"class_arr.p") , "wb" ), protocol=4)
-pickle.dump(group_arr,  open( os.path.join('data',"group_arr.p") , "wb" ), protocol=4)
+pickle.dump(mean_arr,  open( os.path.join(data_dir,"mean_final.p") , "wb" ), protocol=4 )
+pickle.dump(std_arr,  open( os.path.join(data_dir,"std_final.p") , "wb" ), protocol=4)
+
+pickle.dump(class_arr,  open( os.path.join(data_dir,"class_arr.p") , "wb" ), protocol=4)
+pickle.dump(group_arr,  open( os.path.join(data_dir,"group_arr.p") , "wb" ), protocol=4)
 
 # %%
 del arr
 
 # %%
-pickle.dump(arr_z,  open( os.path.join('data',"all_data.p") , "wb" ), protocol=4)
+pickle.dump(arr_z,  open( os.path.join(data_dir,"all_data.p") , "wb" ), protocol=4)
 
 # %%
 di_n=400
@@ -203,14 +210,9 @@ model_ranges=dict(zip(all_models,all_ranges))
 # %%
 for group_number in range(11):
     for model_name in all_models:
-        print(os.path.join('data',str(group_number+1)+'_'+model_name+".p"))
+        print(os.path.join(data_dir,str(group_number+1)+'_'+model_name+".p"))
         meh=arr_z[(group_arr==group_number),]
         mehh=meh[:,model_ranges[model_name]]
-        pickle.dump(mehh,  open( os.path.join('data',str(group_number+1)+'_'+model_name+".p") , "wb" ), protocol=4 )
+        pickle.dump(mehh,  open( os.path.join(data_dir,str(group_number+1)+'_'+model_name+".p") , "wb" ), protocol=4 )
         del mehh
         del meh
-
-# %%
-#for group in range(2):
-#    for p_class in range(11):
-#        pickle.dump(arr_z[(class_arr==p_class) & (group_arr==group),], open( os.path.join('data',str(group+1)+'_'+class_label[p_class]+".p"), "wb" ),protocol=4 )

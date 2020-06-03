@@ -13,6 +13,10 @@
 #     name: python3
 # ---
 
+# %% [markdown]
+# ## cluster_split_expand
+# This script clusters each class at 40% identity, splits it into 11 files ( 10 for cross validation, 1 for test), and expands the clusters in those files. Finally, each file is dereplicated at 100% identity (to remove identical sequences) 
+
 # %%
 import os
 import sys
@@ -20,10 +24,6 @@ sys.path.append("..")
 import phage_init
 import subprocess
 from Bio import SeqIO
-
-# %%
-#records = list(SeqIO.parse(file, "fasta"))
-#for record in SeqIO.parse(file, "fasta"):
 
 # %%
 fasta_list=[
@@ -42,7 +42,7 @@ fasta_list=[
 
 # %% [markdown]
 # ## warning
-# this step uses a modified version of cd-hit available here
+# This step uses a modified version of cd-hit [available here](https://github.com/Adrian-Cantu/cdhit)  . Compile it and put the binary in the "model_training" folder
 
 # %%
 for fasta in fasta_list:
