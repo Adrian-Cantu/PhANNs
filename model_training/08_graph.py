@@ -208,7 +208,7 @@ for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
 plt.ylabel('True Class',fontsize='20')
 plt.xlabel('Predicted Class',fontsize='20')
 plt.clim(0,1)
-plt.savefig('tetra_sc_tri_p_CM.png',bbox_inches="tight")
+plt.savefig('08_figures/tetra_sc_tri_p_CM.png',bbox_inches="tight")
 plt.show()
 
 # %%
