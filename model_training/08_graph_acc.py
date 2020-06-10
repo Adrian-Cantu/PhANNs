@@ -19,7 +19,7 @@ import pandas as pd
 import os
 
 # %%
-df=pickle.load(open( os.path.join('07_models','all_results_df.p'),'rb'))
+df=pickle.load(open( os.path.join('07_models','all_results_df_acc.p'),'rb'))
 
 
 # %%
@@ -143,7 +143,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 # %%
 n_members = 10
 models = list()
-part=''
+part='acc_'
 #yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
 for model_number in range(n_members):
     # load model
@@ -196,7 +196,7 @@ plt.viridis()
 #plt.grid(b=None)
 plt.figure(figsize=[6.4*scale_up, 4.8*scale_up])
 plt.imshow(CM_n, interpolation='nearest')
-plt.title('CM : train_loss')
+plt.title('CM : val_acc')
 #plt.colorbar()
 plt.grid(b=None)
 tick_marks = numpy.arange(len(labels_names))
@@ -209,7 +209,7 @@ for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
 plt.ylabel('True Class',fontsize='20')
 plt.xlabel('Predicted Class',fontsize='20')
 plt.clim(0,1)
-plt.savefig('08_figures/tetra_sc_tri_p_CM_train_loss.png',bbox_inches="tight")
+plt.savefig('08_figures/tetra_sc_tri_p_CM_val_acc.png',bbox_inches="tight")
 plt.show()
 
 # %%

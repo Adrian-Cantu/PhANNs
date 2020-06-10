@@ -34,7 +34,7 @@ import pickle
 
 # %%
 files=['major_capsid.fasta',
-       'minor_capsid.fasta',
+#       'minor_capsid.fasta',
        'baseplate.fasta',
        'major_tail.fasta',
        'minor_tail.fasta',
@@ -48,7 +48,7 @@ files=['major_capsid.fasta',
 
 # %%
 class_label=['major_capsid',
-       'minor_capsid',
+#       'minor_capsid',
        'baseplate',
        'major_tail',
        'minor_tail',
@@ -63,6 +63,7 @@ class_label=['major_capsid',
 
 # %%
 def extract_all(fasta_list):
+    num_of_class=10
     d = {'seq_description': [], 'seq_id': [], "sec_code":[]}
     sec_code=0
     df = pd.DataFrame(data=d)
@@ -122,8 +123,8 @@ def extract_all(fasta_list):
             #class_arr = numpy.append(class_arr,prot_class)
             #id_arr = numpy.append(id_arr,sec_code)
             arr[sec_code,:]=cat_n
-            class_arr[sec_code]=prot_class%11
-            group_arr[sec_code]=prot_class//11
+            class_arr[sec_code]=prot_class%num_of_class
+            group_arr[sec_code]=prot_class//num_of_class
             id_arr[sec_code]=sec_code
             
             data_row=[record.description,record.id,int(sec_code)]
@@ -145,13 +146,19 @@ for num in range(11):
     ll+=[os.path.join('05_2_expanded_clusters',str(num+1)+'_'+xx) for xx in files]
     #(arr,class_arr,id_arr,df)=extract_all(fasta_list)
     
-    #print(ll)
+print(ll)
 
 # %%
 (arr,class_arr,group_arr,id_arr,df)=extract_all(ll)
 
 # %%
 sum((class_arr==0) & (group_arr==0))
+
+# %%
+group_arr[0:100000:1000]
+
+# %%
+class_arr[0:100000:1000]
 
 # %%
 arr_z=numpy.apply_along_axis(stats.zscore,0,arr)
