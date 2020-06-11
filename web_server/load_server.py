@@ -13,7 +13,7 @@ n_members = 10
 models = list()
 for model_number in range(n_members):
     # load model
-        print('loading ...' + os.path.join(ann_config.model_dir,'tetra_sc_tri_p_'+"{:02d}".format(model_number+1)+'.h5'))
-        model =  load_model( os.path.join(ann_config.model_dir,'tetra_sc_tri_p_'+"{:02d}".format(model_number+1)+'.h5') )
+        print('loading ...' + os.path.join(ann_config.model_dir,'tetra_sc_tri_p_'+"{:02d}".format(model_number)+'.h5'))
+        model =  load_model( os.path.join(ann_config.model_dir,'tetra_sc_tri_p_'+"{:02d}".format(model_number)+'.h5') )
     # store in memory
         models.append(model)
