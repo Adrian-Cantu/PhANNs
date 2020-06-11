@@ -19,17 +19,22 @@ import numpy
 import seaborn as sns
 
 # %%
-test_predictions=pd.read_csv('cat_tag.csv',index_col=0)
+
+# %%
+test_predictions=pd.read_csv('cat_tag_train_loss.csv',index_col=0)
 
 
 # %%
-class_list=['Major capsid', 'Minor capsid', 'Baseplate', 'Major tail','Minor tail',
+test_predictions
+
+# %%
+class_list=['Major capsid', 'Baseplate', 'Major tail','Minor tail',
              'Portal','Tail fiber','Tail shaft','Collar','HTJ','Other']
 
 
 # %%
 def class_scores(tt,dataframe,prot_class,df):
-    class_dic={'Major capsid' : 'major_capsid','Minor capsid':'minor_capsid','Baseplate':'basplate',
+    class_dic={'Major capsid' : 'major_capsid','Minor capsid':'minor_capsid','Baseplate':'baseplate',
                'Major tail':'major_tail','Minor tail':'minor_tail','Portal':'portal',
                'Tail fiber':'tail_fiber','Tail shaft':'shaft','Collar':'collar',
                'HTJ':'HTJ','Other':'other'}
@@ -91,7 +96,7 @@ import matplotlib as mpl
 # %%
 
 #colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf", "#fda547"]
-colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf"]
+colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620"]
 
 customPalette = sns.color_palette(colors)
 
@@ -121,7 +126,7 @@ plt.xlabel('Threshold',fontsize='20')
 ax.set(xlim=(0,10))
 ax.set(ylim=(0,1))
 ax.set_aspect(10)
-fig.savefig('F1_vs_tt',bbox_inches="tight")
+#fig.savefig('F1_vs_tt',bbox_inches="tight")
 
 # %%
 fig, ax = plt.subplots()
@@ -146,7 +151,7 @@ handles, labels = ax.get_legend_handles_labels()
 ax.set_aspect('equal')
 plt.legend(handles[1:],labels[1:],handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.34, 1)) # for legend tex
-fig.savefig('ROC_curves',bbox_inches="tight")
+#fig.savefig('ROC_curves',bbox_inches="tight")
 
 
 # %%
@@ -174,7 +179,7 @@ plt.legend(handles[1:],labels[1:],handlelength=2,fontsize=27,markerfirst=False,h
 ax.set(xlim=(0, 10))
 ax.set(ylim=(0, 1))
 ax.set_aspect(10)
-fig.savefig('acc_vs_tt',bbox_inches="tight")
+#fig.savefig('acc_vs_tt',bbox_inches="tight")
 
 # %%
 fig, ax = plt.subplots()
