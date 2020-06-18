@@ -169,6 +169,10 @@ def return_csv(filename):
 def interpret():
     return render_template('interpret.html', title='how to' )        
 
+@app.route('/change')
+def change():
+    return render_template('change.html', title='Changes' )
+
 
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)
