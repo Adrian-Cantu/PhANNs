@@ -147,12 +147,13 @@ class ann_result:
             yhats_v=numpy.array(yhats)
             predicted_Y=numpy.sum(yhats_v, axis=0)
             #predicted_Y=numpy.sum(yhats_v, axis=0)
-            col_names=["Major capsid","Minor capsid","Baseplate",
+            col_names=["Major capsid","Baseplate",
             "Major tail","Minor tail","Portal",
             "Tail fiber","Tail shaft","Collar",
             "HTJ","Other","Precision"]
             class_max=[col_names[x] for x in predicted_Y.argmax(axis=1) ]
             score_max=predicted_Y.max(axis=1)
+            #add the confidence score
             add_scores_tmp=[ numpy.around(float(self.g_test_stat[(self.g_test_stat['threshold']==float(str(numpy.around(y,decimals=1)))) 
                              & (self.g_test_stat['class']==x)]['precision']),decimals=2)
                                            for x,y in zip(class_max,score_max)]
@@ -228,7 +229,7 @@ class ann_result:
         arr_class=predicted_Y.argmax(axis=1)
         sec_code=0
         major_capsid_sequences = []
-        minor_capsid_sequences = []
+        #minor_capsid_sequences = []
         baseplate_sequences = []
         major_tail_sequences = []
         minor_tail_sequences = []
@@ -244,29 +245,29 @@ class ann_result:
                 continue
             if arr_class[sec_code]==0:
                 major_capsid_sequences.append(record)
+         #   elif arr_class[sec_code]==1:
+         #       minor_capsid_sequences.append(record)
             elif arr_class[sec_code]==1:
-                minor_capsid_sequences.append(record)
-            elif arr_class[sec_code]==2:
                 baseplate_sequences.append(record)
-            elif arr_class[sec_code]==3:
+            elif arr_class[sec_code]==2:
                 major_tail_sequences.append(record)
-            elif arr_class[sec_code]==4:
+            elif arr_class[sec_code]==3:
                 minor_tail_sequences.append(record)
-            elif arr_class[sec_code]==5:
+            elif arr_class[sec_code]==4:
                 portal_sequences.append(record)
-            elif arr_class[sec_code]==6:
+            elif arr_class[sec_code]==5:
                 tail_fiber_sequences.append(record)
-            elif arr_class[sec_code]==7:
+            elif arr_class[sec_code]==6:
                 tail_shaft_sequences.append(record)
-            elif arr_class[sec_code]==8:
+            elif arr_class[sec_code]==7:
                 collar_sequences.append(record)
-            elif arr_class[sec_code]==9:
+            elif arr_class[sec_code]==8:
                 htj_sequences.append(record)
-            elif arr_class[sec_code]==10:
+            elif arr_class[sec_code]==9:
                 other_sequences.append(record)
             sec_code += 1
         SeqIO.write(major_capsid_sequences, "csv_saves/major_capsid_"+ ntpath.basename(self.infile) , "fasta")
-        SeqIO.write(minor_capsid_sequences, "csv_saves/minor_capsid" + "_"+ ntpath.basename(self.infile) , "fasta")
+        #SeqIO.write(minor_capsid_sequences, "csv_saves/minor_capsid" + "_"+ ntpath.basename(self.infile) , "fasta")
         SeqIO.write(baseplate_sequences, "csv_saves/baseplate" + "_"+ ntpath.basename(self.infile) , "fasta")
         SeqIO.write(major_tail_sequences, "csv_saves/major_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
         SeqIO.write(minor_tail_sequences, "csv_saves/minor_tail" + "_"+ ntpath.basename(self.infile) , "fasta")
