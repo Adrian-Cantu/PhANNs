@@ -10,8 +10,8 @@ for mydir in ['saves','uploads','csv_saves']:
     files=os.listdir(mydir)
     for f in files:
         if not f.startswith('.'):
-            done[f]=True
-            #os.remove(os.path.join(mydir, f))
+            #done[f]=True
+            os.remove(os.path.join(mydir, f))
 print('READY')
 
 while True:

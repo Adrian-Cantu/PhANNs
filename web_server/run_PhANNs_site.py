@@ -38,7 +38,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["KERAS_BACKEND"]="tensorflow"
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key_4853rfgttr5!'
-app.config['FASTA_SIZE_LIMIT']=5000
+app.config['FASTA_SIZE_LIMIT']=50000
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
