@@ -26,6 +26,7 @@ class ann_result:
     g_sid=''
     g_socketio = SocketIO()
     g_is_socket = 0
+    g_test_stat=''
     
     def __init__(self, filename,sid_n=8888,socketio=SocketIO()):
         self.infile=filename
@@ -39,6 +40,7 @@ class ann_result:
                 total_fasta+=1
         self.g_total_fasta=total_fasta
         self.g_all_fasta=all_fasta
+        self.g_test_stat=pd.read_csv('test_set_stats.csv',index_col=0)
         try:
             self.g_socketio.emit('set bar', {'data': '0'},room=self.g_sid)
         except AttributeError:
@@ -59,7 +61,7 @@ class ann_result:
 #        self.g_all_fasta=all_fasta
     
     def prot_check(self, sequence):
-        return set(sequence.upper()).issubset("ACDEFGHIJKLMNPQRSTVWY*")
+        return set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*")
 
     def extract(self):
         AA=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
@@ -122,6 +124,7 @@ class ann_result:
         if (self.g_is_socket==1):
             self.g_socketio.emit('set bar', {'data': 100},room=self.g_sid)
             self.g_socketio.emit('done features',1,room=self.g_sid)
+        print("\nDone")
         return (names,arr)
 
     def extract_n(self):
@@ -147,9 +150,15 @@ class ann_result:
             col_names=["Major capsid","Minor capsid","Baseplate",
             "Major tail","Minor tail","Portal",
             "Tail fiber","Tail shaft","Collar",
-            "HTJ","Other"]
-
-            table1=pd.DataFrame(data=predicted_Y,
+            "HTJ","Other","Precision"]
+            class_max=[col_names[x] for x in predicted_Y.argmax(axis=1) ]
+            score_max=predicted_Y.max(axis=1)
+            add_scores_tmp=[ numpy.around(float(self.g_test_stat[(self.g_test_stat['threshold']==float(str(numpy.around(y,decimals=1)))) 
+                             & (self.g_test_stat['class']==x)]['precision']),decimals=2)
+                                           for x,y in zip(class_max,score_max)]
+            add_scores=numpy.reshape(add_scores_tmp, (-1,1))
+            all_data = numpy.hstack((predicted_Y, numpy.asarray(add_scores)))
+            table1=pd.DataFrame(data=all_data,
             index=names[:,0],
             columns=col_names,
             dtype=numpy.float64
