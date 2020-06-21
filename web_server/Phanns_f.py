@@ -27,7 +27,19 @@ class ann_result:
     g_socketio = SocketIO()
     g_is_socket = 0
     g_test_stat=''
-    
+    g_table_format={
+            "Major capsid": "{:.2f}",
+            "Baseplate": "{:.2f}",
+            "Major tail": "{:.2f}",
+            "Minor tail": "{:.2f}",
+            "Portal": "{:.2f}",
+            "Tail fiber": "{:.2f}",
+            "Tail shaft": "{:.2f}",
+            "Collar": "{:.2f}",
+            "HTJ": "{:.2f}",
+            "Other": "{:.2f}",
+            "Confidence": "{:.2%}"
+            }
     def __init__(self, filename,sid_n=8888,socketio=SocketIO()):
         self.infile=filename
         self.g_sid=sid_n
@@ -150,7 +162,7 @@ class ann_result:
             col_names=["Major capsid","Baseplate",
             "Major tail","Minor tail","Portal",
             "Tail fiber","Tail shaft","Collar",
-            "HTJ","Other","Precision"]
+            "HTJ","Other","Confidence"]
             class_max=[col_names[x] for x in predicted_Y.argmax(axis=1) ]
             score_max=predicted_Y.max(axis=1)
             #add the confidence score
@@ -166,7 +178,7 @@ class ann_result:
             )
             pd.options.display.float_format = '{:.2f}'.format
             table1.astype(float).to_csv("csv_saves/"+ os.path.splitext(ntpath.basename(self.infile))[0] + '.csv',float_format = "%.2f")
-            html_style=table1.style.set_uuid("table_1").set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format("{:.2f}").highlight_max(axis=1)
+            html_style=table1.style.set_uuid("table_1").set_table_styles([{'selector':'table', 'props': [('border', '1px solid black'),('border-collapse','collapse'),('width','100%')]},{'selector':'th', 'props': [('border', '1px solid black'),('padding', '15px')]},{'selector':'td', 'props': [('border', '1px solid black'),('padding', '15px')]}]).format(self.g_table_format).highlight_max(axis=1)
             self.html_table=html_style.render()
             table_code_raw= Markup(self.html_table)
             pickle.dump(table_code_raw,open('saves/' + ntpath.basename(self.infile),"wb"))
