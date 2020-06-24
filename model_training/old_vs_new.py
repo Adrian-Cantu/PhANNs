@@ -179,13 +179,13 @@ sns.lineplot(ax=roc_old,x='false_positive_rate',y='recall',data=df_old,hue='clas
              palette=colors_old,style='class',ci=None,size='class',sizes=size_d_old
             ,dashes=dash_d_old,legend=False)
 roc_old.set(xlim=(0, 1),ylim=(0, 1))
-roc_old.annotate("A", xy=(-0.1, 1.1), xycoords="axes fraction")
+roc_old.annotate("A)", xy=(-0.1, 1.05), xycoords="axes fraction")
 #-----------------------
 sns.lineplot(ax=roc_new,x='false_positive_rate',y='recall',data=df_new,hue='class',
              palette=colors_new,style='class',ci=None,size='class',sizes=size_d_new
             ,dashes=dash_d_new,legend=False)
 roc_new.set(xlim=(0, 1),ylim=(0, 1))
-roc_new.annotate("B", xy=(-0.1, 1.1), xycoords="axes fraction")
+roc_new.annotate("B)", xy=(-0.1, 1.05), xycoords="axes fraction")
 #------------
 sns.lineplot(ax=conf_old,x='threshold',y='precision',data=df_old,hue='class',
              palette=colors_old,style='class',ci=None,size='class',sizes=size_d_old
@@ -193,7 +193,7 @@ sns.lineplot(ax=conf_old,x='threshold',y='precision',data=df_old,hue='class',
 conf_old.set(xlim=(0, 10),ylim=(0, 1))
 conf_old.set_xlabel('Score')
 conf_old.set_ylabel('Confidence')
-conf_old.annotate("B", xy=(-0.1, 1.1), xycoords="axes fraction")
+conf_old.annotate("C)", xy=(-0.1, 1.05), xycoords="axes fraction")
 #------------
 sns.lineplot(ax=conf_new,x='threshold',y='precision',data=df_new,hue='class',
              palette=colors_new,style='class',ci=None,size='class',sizes=size_d_new
@@ -201,13 +201,43 @@ sns.lineplot(ax=conf_new,x='threshold',y='precision',data=df_new,hue='class',
 conf_new.set(xlim=(0, 10),ylim=(0, 1))
 conf_new.set_xlabel('Score')
 conf_new.set_ylabel('Confidence')
-conf_new.annotate("B", xy=(-0.1, 1.1), xycoords="axes fraction")
+conf_new.annotate("d)", xy=(-0.1, 1.05), xycoords="axes fraction")
 #------------
 plt.legend(handles_old[1:],labels_old[1:],handlelength=2,fontsize=22,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.8, 2.2))
+fig.savefig('new_vs_old',bbox_inches="tight")
 
 # %%
-handles, labels = roc_old.get_legend_handles_labels()
+import get_arr
+from tensorflow.keras.models import load_model
+
 
 # %%
-get_axis_limits(roc_old)
+def get_class_old(class_index):
+        class_dic={'Major capsid' : 'major_capsid','Minor capsid':'minor_capsid','Baseplate':'baseplate',
+               'Major tail':'major_tail','Minor tail':'minor_tail','Portal':'portal',
+               'Tail fiber':'tail_fiber','Tail shaft':'shaft','Collar':'collar',
+               'HTJ':'HTJ','Other':'other'}
+        class_list_old=['Major capsid','Minor capsid', 'Baseplate', 'Major tail','Minor tail',
+             'Portal','Tail fiber','Tail shaft','Collar','HTJ','Other']
+        ret=0
+        for prot_class in class_list_old:
+            if class_dic[prot_class] in class_index:
+                return ret
+            else:
+                ret=ret+1
+        return ret
+
+
+# %%
+real_class_old=[get_class_old(x) for x in test_predictions_old.index.values]
+predicted_class_old=numpy.argmax(test_predictions_old.to_numpy(), axis=1)
+
+# %%
+predicted_class_old
+
+# %%
+from sklearn.metrics import classification_report
+labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+             "Tail shaft","Collar","Head-Tail joining","Others"]
+print(classification_report(real_class_old, predicted_class_old, target_names=labels_names ))
