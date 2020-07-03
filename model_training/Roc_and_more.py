@@ -21,7 +21,7 @@ import seaborn as sns
 # %%
 
 # %%
-test_predictions=pd.read_csv('cat_tag_train_loss.csv',index_col=0)
+test_predictions=pd.read_csv('cat_tag_val_loss.csv',index_col=0)
 
 
 # %%
@@ -101,7 +101,7 @@ colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4db
 customPalette = sns.color_palette(colors)
 
 # %%
-l_size=3
+l_size=6
 dash=[[2.8, 1.2] ,[7.8, 1.2, 1.8, 1.2], [1.1, 1.1],'' ,[2.8, 1.2] ,[7.8, 1.2, 1.8, 1.2], [1.1, 1.1],'' ,[2.8, 1.2] ,[7.8, 1.2, 1.8, 1.2],'']
 l_size_l=[l_size,l_size,l_size,l_size,l_size,l_size,l_size,l_size,l_size,l_size,l_size]
 dash_d=dict(zip(class_list,dash))
@@ -151,7 +151,7 @@ handles, labels = ax.get_legend_handles_labels()
 ax.set_aspect('equal')
 plt.legend(handles[1:],labels[1:],handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.34, 1)) # for legend tex
-#fig.savefig('ROC_curves',bbox_inches="tight")
+fig.savefig('ROC_curves',bbox_inches="tight")
 
 
 # %%
@@ -191,16 +191,23 @@ sns.lineplot(ax=ax,x='threshold',y='precision',data=df,hue='class',
 ax.tick_params(axis='y',labelsize=20)
 ax.tick_params(axis='x',labelsize=20)
 plt.setp(ax.get_legend().get_texts(), fontsize='27') # for legend text
-plt.ylabel('Precision',fontsize='20')
-plt.xlabel('Threshold',fontsize='20')
+plt.ylabel('Confidence',fontsize='27')
+plt.xlabel('PhANNs score',fontsize='27')
+handles, labels = ax.get_legend_handles_labels()
 plt.legend(handles[1:],labels[1:],handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.34, 1)) # for legend tex
+#leg = ax.legend()
+#for line in leg.get_lines():
+#    line.set_linewidth(4.0)
 ax.set(xlim=(0, 10))
 ax.set(ylim=(0, 1))
 ax.set_aspect(10)
+fig.savefig('conf',bbox_inches="tight")
 
 # %%
-float(df[(df['threshold']==7) & (df['class']=='Major capsid')]['precision'])
+for class_name in class_list:
+    print(class_name)
+    print(float(df[(df['threshold']==7) & (df['class']==class_name)]['precision']))
 
 
 

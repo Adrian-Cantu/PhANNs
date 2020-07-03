@@ -17,19 +17,42 @@
 import pandas as pd
 import numpy
 import seaborn as sns
+import pickle
 
 # %%
 test_predictions_new=pd.read_csv('cat_tag_val_loss.csv',index_col=0)
-test_predictions_old=pd.read_csv('cat_tag_old.csv',index_col=0)
+#test_predictions_old=pd.read_csv('cat_tag_old.csv',index_col=0)
 
 # %%
-test_predictions_old
+test_predictions_new
 
 # %%
 class_list_new=['Major capsid', 'Baseplate', 'Major tail','Minor tail',
              'Portal','Tail fiber','Tail shaft','Collar','HTJ','Other']
 class_list_old=['Major capsid','Minor capsid', 'Baseplate', 'Major tail','Minor tail',
              'Portal','Tail fiber','Tail shaft','Collar','HTJ','Other']
+old_class_index=['major_capsid','minor_capsid','baseplate',
+               'major_tail','minor_tail','portal',
+               'tail_fiber','shaft','collar',
+               'HTJ','other']
+
+# %%
+#pull old test predictions from the achived model (the one at the time of submiting the papaer for the first time)
+test_Y=pickle.load(open( "real_test_Y_old.p", "rb" ))
+predicted_Y=pickle.load(open( "predicted_test_Y_old.p", "rb" ))
+
+# %%
+test_Y_class=[old_class_index[x] for x in test_Y]
+
+# %%
+#predicted_Y
+
+#test_predictions_old=pd.DataFrame(data=predicted_Y,index=test_Y_class,columns=class_list_old)
+test_predictions_old=pd.DataFrame(data=numpy.round(predicted_Y,2),index=test_Y_class,columns=class_list_old)
+#test_predictions_old=pd.read_csv('cat_tag_old.csv',index_col=0)
+
+# %%
+test_predictions_old
 
 
 # %%
@@ -90,6 +113,9 @@ for class_name in class_list_old:
         print(tt,end="\r")
         df_old=class_scores(tt,df_part,class_name,df_old)
     print()
+
+# %%
+df_old
 
 # %%
 colors_old=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf"]
@@ -201,11 +227,11 @@ sns.lineplot(ax=conf_new,x='threshold',y='precision',data=df_new,hue='class',
 conf_new.set(xlim=(0, 10),ylim=(0, 1))
 conf_new.set_xlabel('Score')
 conf_new.set_ylabel('Confidence')
-conf_new.annotate("d)", xy=(-0.1, 1.05), xycoords="axes fraction")
+conf_new.annotate("D)", xy=(-0.1, 1.05), xycoords="axes fraction")
 #------------
 plt.legend(handles_old[1:],labels_old[1:],handlelength=2,fontsize=22,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.8, 2.2))
-fig.savefig('new_vs_old',bbox_inches="tight")
+fig.savefig('old_vs_new',bbox_inches="tight")
 
 # %%
 import get_arr
@@ -235,9 +261,13 @@ predicted_class_old=numpy.argmax(test_predictions_old.to_numpy(), axis=1)
 
 # %%
 predicted_class_old
+predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 
 # %%
 from sklearn.metrics import classification_report
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
              "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(real_class_old, predicted_class_old, target_names=labels_names ))
+
+# %%
+print(classification_report(test_Y, predicted_Y_index, target_names=labels_names ))
