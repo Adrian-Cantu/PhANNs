@@ -26,38 +26,12 @@ false_tail=pd.read_csv('vp_FALSE_TAIL.csv',index_col=0)
 true_tail=pd.read_csv('vp_TRUE_TAIL.csv',index_col=0)
 
 # %%
-#pos_tail=['baseplate','major_tail','minor_tail','tail_fiber','shaft','collar']
-#neg_tail=['major_capsid','portal','HTJ','other']
-#pos_capsid=['major_capsid']
-#neg_capsid=['baseplate','major_tail','minor_tail','portal','tail_fiber','shaft','collar','HTJ','other']
-
-
-# %%
-#baseplate collar
-#pos_tail=['Baseplate','Major tail','Minor tail','Tail fiber','Tail shaft','Collar']
 
 pos_tail=['Major tail','Minor tail','Tail fiber','Tail shaft']
 neg_tail=['Major capsid','Portal','HTJ','Other']
 
 pos_capsid=['Major capsid']
-#neg_capsid=['Baseplate','Major Tail','Minor tail','Portal','Tail fiber','Tail shaft','Collar','HTJ','Other']
 neg_capsid=['Major Tail','Minor tail','Portal','Tail fiber','Tail shaft','HTJ','Other']
-
-# %%
-#sum([any([class_dic[x]==y for y in pos_capsid]) for x in true_capsid.idxmax(1)])
-
-# %%
-sum(list(true_capsid[pos_tail].max(axis=1)>3))
-
-# %%
-kk1=[any([x==y for y in pos_capsid]) for x in true_capsid.idxmax(1)]
-kk2=[any([x==y for y in pos_capsid]) for x in false_capsid.idxmax(1)]
-
-# %%
-true_capsid[kk1]
-
-# %%
-false_capsid[kk2]
 
 
 # %%
@@ -134,9 +108,6 @@ for tt in score_range:
     df=class_scores2('tail',part_true_tail,part_false_tail,pos_tail,tt,df)
 
 # %%
-df
-
-# %%
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 #colors=["#69ef7b", "#b70d61", "#60e9dc", "#473c85", "#b4d170", "#104b6d", "#b4dbe7", "#1c5f1e", "#fd92fa", "#36a620", "#a834bf", "#fda547"]
@@ -148,7 +119,7 @@ size_d={'capsid':3,'tail':3}
 # %%
 fig, ax = plt.subplots()
 fig.set_size_inches(18, 15)
-sns.set(style="whitegrid")
+#sns.set(style="whitegrid")
 sns.lineplot(ax=ax,x='false_positive_rate',y='recall',data=df,hue='class',
 palette=colors,style='class',ci=None,size='class',sizes={'capsid':3,'tail':3})
 plt.title('ROC curve', fontsize=27)

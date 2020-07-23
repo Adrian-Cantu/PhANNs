@@ -32,13 +32,6 @@ class_index=['major_capsid','baseplate',
                'HTJ','other']
 
 # %%
-kk=capsid_scores[['major_capsid' in x for x in capsid_scores.index.values]]
-
-# %%
-pos = sum(kk['score'] > 0)
-total = kk.shape[0]
-
-# %%
 for prot_class in class_index:
     kk=capsid_scores[[prot_class in x for x in capsid_scores.index.values]]
     pos = sum(kk['score'] > 0)
@@ -59,12 +52,19 @@ for prot_class in class_index:
     print()
 
 # %%
-pos_tail=['baseplate','major_tail','minor_tail','tail_fiber','shaft','collar']
+#pos_tail=['baseplate','major_tail','minor_tail','tail_fiber','shaft','collar']
+pos_tail=['major_tail','minor_tail','tail_fiber','shaft']
 neg_tail=['major_capsid','portal','HTJ','other']
 
 pos_capsid=['major_capsid']
-neg_capsid=['baseplate','major_tail','minor_tail','portal','tail_fiber','shaft','collar','HTJ','other']
+neg_capsid=['major_tail','minor_tail','portal','tail_fiber','shaft','HTJ','other']
+#neg_capsid=['baseplate','major_tail','minor_tail','portal','tail_fiber','shaft','collar','HTJ','other']
+used_class=['major_capsid','major_tail','minor_tail','portal','tail_fiber','shaft','HTJ','other']
 
+
+# %%
+#sub dataframe of used class
+#capsid_scores[[any([prot_class in x for prot_class in used_class]) for x in capsid_scores.index.values]]
 
 # %%
 def class_scores(tt,dataframe,poss_class,hue,df):
@@ -96,19 +96,21 @@ d = {'class':[],'precision': [], 'recall': [],'f1-score':[],'specificity':[],
      'false_positive_rate':[],'accuracy':[],'threshold':[]}
 df = pd.DataFrame(data=d)
 df2 = pd.DataFrame(data=d)
-score_range=numpy.arange(min(capsid_scores['score']),max(capsid_scores['score'])+0.001,0.1)
+part_capsid_scores=capsid_scores[[any([prot_class in x for prot_class in used_class]) for x in capsid_scores.index.values]].copy()
+part_tail_scores  =tail_scores[[any([prot_class in x for prot_class in used_class]) for x in tail_scores.index.values]].copy()
+score_range=numpy.arange(min(part_capsid_scores['score']),max(part_capsid_scores['score'])+0.001,0.1)
 print('capsid')
 for tt in score_range:
-    df=class_scores(tt,capsid_scores,pos_capsid,'capsid',df)
+    df=class_scores(tt,part_capsid_scores,pos_capsid,'capsid',df)
     print(tt,end="\r")
-score_range=numpy.arange(min(tail_scores['score']),max(tail_scores['score'])+0.001,0.1)
+score_range=numpy.arange(min(part_tail_scores['score']),max(part_tail_scores['score'])+0.001,0.1)
 print()
 print('tails')
 for tt in score_range:
-    df=class_scores(tt,tail_scores,pos_tail,'tail',df)
+    df=class_scores(tt,part_tail_scores,pos_tail,'tail',df)
     print(tt,end="\r")
-df2=class_scores(0,capsid_scores,pos_capsid,'capsid',df2)
-df2=class_scores(0,tail_scores,pos_tail,'tail',df2)
+df2=class_scores(0,part_capsid_scores,pos_capsid,'capsid',df2)
+df2=class_scores(0,part_tail_scores,pos_tail,'tail',df2)
 
 # %%
 import matplotlib.pyplot as plt
@@ -126,7 +128,7 @@ size_d={'capsid':3,'tail':3}
 # %%
 fig, ax = plt.subplots()
 fig.set_size_inches(18, 15)
-sns.set(style="whitegrid")
+#sns.set(style="whitegrid")
 sns.lineplot(ax=ax,x='false_positive_rate',y='recall',data=df,hue='class',
              palette=colors,style='class',ci=None,size='class',sizes={'capsid':3,'tail':3})
 plt.title('ROC curve', fontsize=27)
