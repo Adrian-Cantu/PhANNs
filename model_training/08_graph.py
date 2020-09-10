@@ -360,7 +360,7 @@ def class_scores(tt,scores,is_real,prot_class,df):
                'Tail fiber':'tail_fiber','Tail shaft':'shaft','Collar':'collar',
                'HTJ':'HTJ','Other':'other'}
 #    is_real=[ class_dic[prot_class] in x for x in dataframe.index.values]
-    is_predicted=[x>=tt for x in scores]
+    is_predicted=[x>=tt-0.05 for x in scores]
     TP=sum(numpy.logical_and(is_real,is_predicted))
     FN=sum(numpy.logical_and(is_real,numpy.logical_not(is_predicted)))
     TN=sum(numpy.logical_and(numpy.logical_not(is_real),numpy.logical_not(is_predicted)))
@@ -392,6 +392,7 @@ def class_scores(tt,scores,is_real,prot_class,df):
 
 
 # %%
+#df score takes all proteins classified as some class
 d = {'class':[],'precision': [], 'recall': [],'f1-score':[],'specificity':[],
      'false_positive_rate':[],'accuracy':[],'threshold':[]}
 df_tt = pd.DataFrame(data=d)
@@ -416,6 +417,8 @@ print(test_set_t.shape)
 print(test_set_p[test_set_p>5].shape)
 
 # %%
+# -0.05 to deal with float rounjding error
+#df test score takes only the proteins classified with a score or better
 df_test_score = pd.DataFrame(data=d)
 score_range=numpy.arange(0,10.1,0.1)
 class_list=['Major capsid', 'Minor capsid', 'Baseplate', 'Major tail','Minor tail',
@@ -425,13 +428,23 @@ for num in range(11):
     #get only the entries where the specific class is predicted
     #df_part=test_predictions[test_predictions.idxmax(axis=1)==class_name]
     print(class_list[num])
+    test_set_p=predicted_Y[predicted_Y_index==num,num]
+    test_set_t=test_Y[predicted_Y_index==num]==num
     for tt in score_range:
-        tt=numpy.around(tt,decimals=2)
-        test_set_p=predicted_Y[predicted_Y_index==num,num]
-        test_set_t=test_Y[predicted_Y_index==num]==num
-        print(tt,end="\r")
-        df_test_score=class_scores(tt,numpy.around(test_set_p[test_set_p>tt],decimals=1)
-                                                   ,test_set_t[test_set_p>tt]
+        
+        #tt=numpy.around(tt,decimals=2)
+        #try:
+        #    kk1=max(numpy.around(test_set_p[test_set_p>=tt-0.05],decimals=1))
+        #except:
+        #    kk1='-'
+        #try:
+        #    kk2=max(test_set_p[test_set_p>=tt-0.05])
+        #except:
+        #    kk2='-'
+        print(numpy.around(tt,decimals=2),end="\r")
+        #print("{} {} {}".format(tt,kk1,kk2))
+        df_test_score=class_scores(tt,numpy.around(test_set_p[test_set_p>=tt-0.05],decimals=1)
+                                                   ,test_set_t[test_set_p>=tt-0.05]
                                                    ,class_list[num],df_test_score)
     print()
 
@@ -442,6 +455,7 @@ for prot_class in class_list:
     kk100=df_test_score[(df_test_score['threshold']==10) & (df_test_score['class']==prot_class)]
     kk99=df_test_score[(df_test_score['threshold']==9.9) & (df_test_score['class']==prot_class)]
     if kk100.empty:
+        print(prot_class)
         data_row=[prot_class,float(kk99['precision']),0,0,0,0,0,10]
         df_test_score=df_test_score.append(pd.Series(data_row,index=df_test_score.columns),sort=False,ignore_index=True)
 #with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
@@ -515,13 +529,13 @@ df_tt[df_tt['threshold']==7]
 fig, ax = plt.subplots()
 fig.set_size_inches(18, 15)
 sns.set(style="whitegrid")
-sns.lineplot(ax=ax,x='threshold',y='precision',data=df_tt,hue='class',
+sns.lineplot(ax=ax,x='threshold',y='precision',data=df_test_score,hue='class',
              palette=colors,style='class',ci=None,size='class',sizes=size_d
             ,dashes=dash_d)
 ax.tick_params(axis='y',labelsize=20)
 ax.tick_params(axis='x',labelsize=20)
 plt.setp(ax.get_legend().get_texts(), fontsize='27') # for legend text
-plt.ylabel('Accuracy',fontsize='20')
+plt.ylabel('Confidence',fontsize='20')
 plt.xlabel('Threshold',fontsize='20')
 plt.legend(handles[1:],labels[1:],handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.34, 1)) # for legend tex
