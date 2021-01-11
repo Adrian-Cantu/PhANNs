@@ -86,3 +86,10 @@ table.fixed_table_header{
   border: 1px solid black;
   background-color:#fafafa;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
