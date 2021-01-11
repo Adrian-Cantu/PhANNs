@@ -18,8 +18,17 @@ import pickle
 import pandas as pd
 import os
 
+
 # %%
-df=pickle.load(open( os.path.join('07_models','all_results_df.p'),'rb'))
+stop_number=0
+stop_time_list=['val_loss','val_acc','train_loss']
+stop_time=stop_time_list[stop_number]
+
+# %%
+
+# %%
+df_dir={'val_loss':'all_results_df_val.p','val_acc':'all_results_df_acc.p','train_loss':'all_results_df.p'}
+df=pickle.load(open( os.path.join('07_models',df_dir[stop_time]),'rb'))
 
 
 # %%
@@ -72,7 +81,8 @@ ax.set(ylim=(0.4, 1))
     
 #ax.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
-fig.savefig('08_figures/avg_score_master.png',bbox_inches="tight")
+#fig.savefig('08_figures/avg_score_master.png',bbox_inches="tight")
+fig.savefig(os.path.join('08_figures','avg_score_master',stop_time))
 
 # %%
 import seaborn as sns
@@ -101,7 +111,8 @@ ax2.set(xlim=(-0.5, 12.2))
 plt.yticks(numpy.arange(0, 1.1, 0.1))
 #ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
-fig2.savefig('08_figures/f1_score_master_per_model.png',bbox_inches="tight")
+fig2.savefig(os.path.join('08_figures','f1_score_master_per_model',stop_time))
+#fig2.savefig('08_figures/f1_score_master_per_model.png',bbox_inches="tight")
 
 # %%
 fig3, ax3 = plt.subplots()
@@ -122,7 +133,8 @@ ax3.set(ylim=(0, 1))
 ax3.set(xlim=(-0.5, 12.2))
 plt.yticks(numpy.arange(0, 1.1, 0.1))
 plt.show()
-fig3.savefig('08_figures/f1_score_master_per_class.png',bbox_inches="tight")
+fig3.savefig(os.path.join('08_figures','f1_score_master_per_class',stop_time))
+#fig3.savefig('08_figures/f1_score_master_per_class.png',bbox_inches="tight")
 
 # %%
 for x in all_models:
@@ -142,13 +154,14 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 # %%
+model_dir={'val_loss':'val_','val_acc':'acc_','train_loss':''}
 n_members = 10
 models = list()
 #yhats = numpy.empty((test_X.shape[0],10,11), dtype=numpy.float)
 for model_number in range(n_members):
-    # load model
-        print('loading ...' + os.path.join('07_models','tetra_sc_tri_p_'+"{:02d}".format(model_number)+'.h5'))
-        model =  load_model( os.path.join('07_models','tetra_sc_tri_p_'+"{:02d}".format(model_number)+'.h5') )
+    # load model.
+        print('loading ...' + os.path.join('07_models',"tetra_sc_tri_p_{}{:02d}.h5".format(model_dir[stop_time],model_number)))
+        model =  load_model( os.path.join('07_models',"tetra_sc_tri_p_{}{:02d}.h5".format(model_dir[stop_time],model_number)) )
     # store in memory
         models.append(model)
     #row=model.predict(test_X)
@@ -170,8 +183,10 @@ predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 
 # %%
-pickle.dump(predicted_Y_index, open( os.path.join('08_figures',"CM_predicted_test_Y.p"), "wb" ) )
-pickle.dump(test_Y, open( os.path.join('08_figures',"CM_test_Y.p"), "wb" ) )
+pickle.dump(predicted_Y_index, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_index_{}.p".format(stop_time)), "wb" ) )
+pickle.dump(predicted_Y, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_{}.p".format(stop_time)), "wb" ) )
+
+#pickle.dump(test_Y, open( os.path.join('08_figures','CM',"CM_test_Y.p"), "wb" ) )
 
 # %%
 #predicted_Y_index=pickle.load(open( os.path.join('08_figures',"CM_predicted_test_Y.p"), "rb"))
@@ -208,8 +223,9 @@ for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
 plt.ylabel('True Class',fontsize='20')
 plt.xlabel('Predicted Class',fontsize='20')
 plt.clim(0,1)
-plt.savefig('08_figures/tetra_sc_tri_p_CM.png',bbox_inches="tight")
+#plt.savefig('08_figures/tetra_sc_tri_p_CM.png',bbox_inches="tight")
 plt.show()
+fig.savefig(os.path.join('08_figures','CM',stop_time))
 
 # %%
 kk=classification_report(test_Y, predicted_Y_index, target_names=labels_names, output_dict=True )

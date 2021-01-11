@@ -9,7 +9,7 @@ All requirement are listed on the `environment.yml` file, but the easier way to 
 conda env create -f environment.yml
 ```
 
-then activate the environment
+Then activate the environment
 
 ```
 conda activate tf2
@@ -20,7 +20,7 @@ Beside the requirement in the environment file Perl and a modified version of CD
 
 ## Build your own model
 
-Training a model consist of seceral steps :
+Training a model consist of several steps :
 
 1. Download structural sequences from NCBI (and non structural from the PhANNs webserver)
 2. Generate the curating list and do manual curation on them.
@@ -30,12 +30,24 @@ Training a model consist of seceral steps :
 6. Feature extraction .
 7. Training and 10-fold cross-validation
 8. Interpret results and Generate figures.
-9. Compare to a simple logistic regresion model.
+9. Compare to a simple logistic regression model.
 
 All python scripts in this directory indicate the order they should be run to train a new model. Note that they are meant to be used as a jupyter notebook with the **jupytext** plugin (included in the environment file).   
 
+## If you want to:
+
+### Update the database, using the same curation:
+Run step 1, skip 2 and then run steps 3-9
+
+### Update manual curation
+Download and uncompress the [Raw sequences](https://edwards.sdsu.edu/phanns/download/rawDB.tgz) in the ``01_fasta/`` directory.
+Update the curating list in ``03_curated_fasta/`` and run steps 3-9.
+
+### Reproduce the figures in the paper
+Download and uncompress the [Expanded clusters](https://edwards.sdsu.edu/phanns/download/expandedDB.tgz) in the ``05_2_expanded_clusters`` directory and run steps 6-9.  
+
 ## Included files
-Most intermediary file are either to large or of little use by themselves to be included in this repository. Sequence files at from all stages of processing are available in the [PhANNs web server](https://edwards.sdsu.edu/phanns/downloads).
+Most intermediary file are either too large or of little use by themselves to be included in this repository. Sequence files at from all stages of processing are available in the [PhANNs web server](https://edwards.sdsu.edu/phanns/downloads).
 
 We have included a few files that make reproducing the models and figures in the paper possible:
 1. In the **01_fasta** directory, the original list of manual curation terms used.

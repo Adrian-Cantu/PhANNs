@@ -114,6 +114,10 @@ def upload_file():
 def about():
     return render_template('about.html', title='about')
 
+@app.route('/test')
+def test():
+        return render_template('test.html', title='test')
+
 @app.route('/saves/<filename>')
 def show_file(filename):
     if not os.path.exists(os.path.join('saves', filename)):

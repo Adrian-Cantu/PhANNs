@@ -30,3 +30,5 @@ sudo ufw allow 'Nginx Full'
 rq worker microblog-tasks
 
 KERAS_BACKEND=tensorflow python ANN_site.py
+
+ gunicorn --worker-class=gevent --worker-connections=1000 --workers=5 --bind 0.0.0.0:8080 -m 007 wsgi:app
