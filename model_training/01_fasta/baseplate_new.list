@@ -1,0 +1,606 @@
+  44738 phage baseplate assembly protein V 
+  16178 phage baseplate protein 
+  12265 phage baseplate assembly protein 
+   5908 BppU family phage baseplate upper protein 
+   2593 phage baseplate upper protein 
+   2265 phage baseplate assembly protein W 
+   2150 phage baseplate assembly protein V, partial 
+   2081 phage baseplate assembly protein J 
+   2042 baseplate wedge subunit 
+   1697 phage baseplate assembly V family protein 
+   1669 BppU family phage baseplate upper protein, partial 
+   1543 MULTISPECIES: phage baseplate assembly protein V 
+    952 baseplate hub subunit 
+    845 Phage baseplate assembly protein 
+    826 baseplate wedge protein 
+    786 Phage P2 baseplate assembly protein gpV 
+    545 phage baseplate upper protein, partial 
+    540 baseplate protein 
+    527 Phage baseplate assembly protein V 
+    485 baseplate wedge subunit and tail pin 
+    477 phage baseplate protein, partial 
+    450 baseplate wedge tail fiber connector 
+    397 MULTISPECIES: phage baseplate assembly protein 
+    394 baseplate wedge initiator 
+    392 baseplate tail tube cap 
+    318 phage baseplate assembly protein, partial 
+    285 baseplate assembly protein 
+    244 baseplate hub subunit and tail lysozyme 
+    240 baseplate wedge 
+    230 baseplate hub + tail lysozyme 
+    219 baseplate J-like protein 
+    216 MULTISPECIES: BppU family phage baseplate upper protein 
+    204 phage Baseplate Assembly protein V 
+    178 baseplate tail tube initiator 
+    176 Phage baseplate 
+    170 MULTISPECIES: phage baseplate protein 
+    164 phage baseplate assembly-like protein 
+    157 baseplate hub distal subunit 
+    153 baseplate hub 
+    151 baseplate subunit 
+    149 phage baseplate component 
+    143 baseplate wedge component 
+    143 baseplate J protein 
+    142 Phage baseplate assembly protein W 
+    141 baseplate 
+    136 baseplate hub protein 
+    109 baseplate hub assembly protein 
+    107 baseplate hub assembly catalyst 
+    103 baseplate tail tube cap protein 
+     87 phage P2 baseplate assembly protein gpV 
+     79 baseplate assembly protein V 
+     78 baseplate hub subunit tail length determinator 
+     74 baseplate hub assembly chaperone 
+     71 Phage lower baseplate protein 
+     69 phage baseplate assembly protein V (plasmid) 
+     67 MULTISPECIES: phage baseplate upper protein 
+     64 phage baseplate J-like protein 
+     59 baseplate component 
+     59 baseplate assembly protein J 
+     53 Baseplate protein J-like 
+     50 baseplate distal hub subunit 
+     49 baseplate structural protein 
+     49 Phage lower baseplate protein (TP901-1-like ORF49) 
+     44 baseplate protein J-like protein 
+     44 baseplate J family protein 
+     42 baseplate J 
+     41 phage baseplate wedge 
+     39 baseplate hub subunit, tail length determinator 
+     37 Phage baseplate protein 
+     37 Baseplate hub assembly protein, bacteriophage T4-like 
+     34 COG3628 Phage baseplate assembly protein W 
+     33 gp26 baseplate hub subunit 
+     33 baseplate tail tube 
+     32 phage P2-like baseplate assembly protein 
+     32 UNVERIFIED_ORG: phage baseplate assembly protein V 
+     31 phage baseplate hub 
+     29 Phage upper baseplate protein 
+     27 baseplate component protein 
+     25 gp8 baseplate wedge subunit 
+     25 gp10 baseplate wedge subunit and tail pin 
+     25 baseplate assembly protein W 
+     24 phage baseplate protein (plasmid) 
+     24 gp28 baseplate hub distal subunit 
+     24 baseplate wedge subunit protein 
+     24 baseplate hub and tail lysozyme 
+     24 T4-like phage baseplate hub + tail lysozyme 
+     24 Phage baseplate assembly protein J 
+     23 phage baseplate assembly protein V family protein 
+     22 gp6 baseplate wedge subunit 
+     22 gp51 baseplate hub assembly catalyst 
+     22 gp5 baseplate hub subunit and tail lysozyme 
+     22 gp48 baseplate tail tube cap 
+     22 gp27 baseplate hub subunit 
+     21 phage baseplate assembly protein GpV 
+     21 phage baseplate 
+     21 gp7 baseplate wedge initiator 
+     21 baseplate wedge completion tail pin 
+     21 Phage baseplate hub 
+     20 gp53 baseplate wedge subunit 
+     19 phage baseplate assembly V family protein, partial 
+     18 phage baseplate assembly protein gpV 
+     18 gp25 baseplate wedge subunit 
+     18 gp11 baseplate wedge subunit and tail pin 
+     17 baseplate tail tube junction 
+     16 baseplate hub subunit tail lysozyme 
+     16 BppU family phage baseplate upper protein (plasmid) 
+     15 phage baseplate assembly protein GpW 
+     15 phage baseplate assembly protein GpJ 
+     15 gp54 baseplate tail tube initiator 
+     15 accessory baseplate protein 
+     14 baseplate hub subunit and lysozyme 
+     14 Baseplate wedge protein gp53, bacteriophage T4 
+     13 baseplate wedge subunit and tail pin protein 
+     13 baseplate morphogenetic protein 
+     13 baseplate hub subunit, distal 
+     13 MULTISPECIES: phage baseplate assembly protein V, partial 
+     12 gp9 baseplate wedge tail fiber connector 
+     12 baseplate wedge tail fiber 
+     12 baseplate j protein 
+     12 baseplate hub needle 
+     12 baseplate assembly chaperone 
+     12 MULTISPECIES: BppU family phage baseplate upper protein, partial 
+     11 phage baseplate assembly protein GpJ1 
+     10 phage related baseplate assembly protein 
+     10 baseplate wedge subunit and tail fiber connector 
+     10 baseplate tail fiber connector 
+     10 baseplate structural protein domain 1 
+     10 Phage P2 baseplate assembly gpV-like protein 
+     10 Gp5 baseplate hub subunit and tail lysozyme 
+     10 Baseplate hub distal subunit 
+      9 phage baseplate wedge initiator 
+      9 baseplate wedge tail fiber connector and baseplate wedge subunit and tail pin 
+      9 T4-like baseplate tail tube cap 
+      9 GP11 baseplate wedge protein 
+      9 Baseplate structural protein, domain 1 
+      8 phage baseplate assembly protein V subfamily 
+      8 baseplate hub subunit and tail length determinator 
+      8 baseplate P2 J-like protein 
+      8 baseplate J-like family protein 
+      8 baseplate J protein (endogenous virus) 
+      8 Phage baseplate wedge subunit (T4-like gp8) 
+      8 Phage baseplate wedge subunit (T4-like gp25) 
+      8 Phage baseplate wedge subunit 
+      8 Phage baseplate hub (plasmid) 
+      8 Phage P2 baseplate assembly gpW-like protein 
+      8 Baseplate tail-tube protein gp48, T4-like virus 
+      7 gp29 baseplate hub subunit, tail length determinator 
+      7 gp29 baseplate hub subunit 
+      7 baseplate wedge subunit tail pin 
+      7 baseplate lysozyme 
+      7 baseplate central spike 
+      7 Baseplate structural protein Gp9/Gp10 
+      6 predicted phage P2-like baseplate assembly protein 
+      6 phage baseplate lysozyme 
+      6 phage baseplate assembly protein gpW3 
+      6 phage baseplate assembly protein gpW (fragment) 
+      6 phage baseplate assembly protein V1 
+      6 phage baseplate assembly protein GpW1 
+      6 phage P2 baseplate assembly protein 
+      6 phage P2 baseplate assembly gpJ-like protein 
+      6 gp6 baseplate wedge protein 
+      6 gp29 baseplate hub subunit tail length determinator 
+      6 baseplate wedge completion and tail fiber socket protein 
+      6 baseplate tail-tube initiator protein 
+      6 baseplate tail tube initiator protein 
+      6 baseplate puncturing device 
+      6 baseplate protein X 
+      6 baseplate hub subunit/tail lysozyme 
+      6 baseplate hub assembly 
+      6 baseplate assembly 
+      6 T4-like baseplate hub and tail lysozyme 
+      6 Phage baseplate wedge tail fiber connector (T4-like gp9) 
+      6 Phage baseplate wedge subunit and tail pin (T4-like gp10) 
+      6 Phage baseplate wedge subunit (T4-like gp6) 
+      6 Phage baseplate assembly protein GpV 
+      6 Phage baseplate assembly V family protein 
+      5 phage baseplate assembly J domain protein, partial 
+      5 phage P2 baseplate assembly protein GPV 
+      5 phage P2 baseplate assembly gpW-like protein 
+      5 phage P2 baseplate assembly gpV-like protein 
+      5 baseplate wedge tail fiber connector protein 
+      5 baseplate wedge subunit tail pin protein 
+      5 baseplate wedge connector for long tail fiber 
+      5 baseplate wedge completion 
+      5 baseplate protein with EPS depolymerase activity 
+      5 baseplate protein tal-like protein 
+      5 baseplate protein W 
+      5 baseplate assembly protein I 
+      5 T4-like baseplate wedge 
+      5 Phage baseplate, partial 
+      5 Phage baseplate wedge tail fiber connector (T4-like gp9) (plasmid) 
+      5 Phage baseplate tail tube cap (T4-like gp48) 
+      5 Phage baseplate hub subunit (T4-like gp5) / Phage tail lysozyme (T4-like gp5) 
+      5 Phage baseplate hub subunit 
+      5 Phage baseplate hub assembly chaperone (T4-like gp26) 
+      5 Phage baseplate J-like protein 
+      5 MULTISPECIES: phage baseplate assembly protein, partial 
+      4 tail tube baseplate junction protein 
+      4 structural baseplate protein 
+      4 phage baseplate wedge subunit (T4-like gp8) 
+      4 phage baseplate wedge subunit (T4-like gp25) 
+      4 phage baseplate upper protein (plasmid) 
+      4 phage baseplate tail tube cap (T4-like gp48) 
+      4 phage baseplate hub subunit 
+      4 phage baseplate assembly protein v/gp45 
+      4 phage baseplate assembly protein W (plasmid) 
+      4 phage baseplate assembly protein (plasmid) 
+      4 phage P2 baseplate assembly gpV protein 
+      4 phage P2 baseplate assembly W protein 
+      4 gp8 baseplate wedge protein 
+      4 gp5 baseplate hub + tail lysozyme 
+      4 gp48 baseplate tail tube cap protein 
+      4 gp10 baseplate wedge subunit and tail pin protein 
+      4 baseplate wedge subunit/tail pin 
+      4 baseplate wedge component, tail pin 
+      4 baseplate wedge component gp53 
+      4 baseplate wedge completion tail fiber socket 
+      4 baseplate upper protein 
+      4 baseplate tail-tube protein 
+      4 baseplate tail fiber connector protein 
+      4 baseplate hub subunit/ tail lysozyme 
+      4 baseplate hub subunit with lysozyme motif 
+      4 baseplate hub structural protein / lysozyme R 
+      4 baseplate hub assembly subunit 
+      4 baseplate central spike protein 
+      4 baseplate central spike complex protein 
+      4 baseplate J-like phage protein 
+      4 baseplate J superfamily protein 
+      4 Phage baseplate assembly-like protein 
+      4 Phage baseplate assembly protein W-like 
+      4 Phage P2 baseplate assembly gpJ-like protein 
+      4 LOW QUALITY PROTEIN: phage baseplate assembly protein V, partial 
+      4 Baseplate wedge subunit 
+      3 predicted phage baseplate assembly protein 
+      3 phage baseplate wedge subunit 
+      3 phage baseplate assembly protein V/Gp45 (plasmid) 
+      3 phage baseplate assembly V domain protein 
+      3 phage baseplate J-like protein, partial 
+      3 phage P2 baseplate assembly protein GpV 
+      3 phage P2 baseplate assembly gpV domain protein 
+      3 gp7 baseplate wedge subunit 
+      3 baseplate wedge protein gp25 
+      3 baseplate wedge lysozyme 
+      3 baseplate hub subunit protein 
+      3 baseplate hub subunit and tail lysozyme protein 
+      3 baseplate hub subunit and tail associated lysozyme 
+      3 baseplate hub structural protein 
+      3 baseplate hub protein and central tail fiber 
+      3 baseplate I protein 
+      3 Phage baseplate wedge subunit and tail pin (T4-like gp11) 
+      3 Phage baseplate wedge initiator 
+      3 Phage baseplate assembly protein, partial 
+      3 Phage baseplate assembly protein V, partial 
+      3 Phage baseplate assembly protein V (modular protein) 
+      3 Phage baseplate assembly protein V (fragment) 
+      3 Phage P2 baseplate assembly gpV protein 
+      3 Phage P2 baseplate assembly gpI-like protein 
+      3 Phage Baseplate Assembly Protein V 
+      3 Baseplate J-like protein 
+      2 upper baseplate protein 
+      2 tail tube associated baseplate protein 
+      2 punative baseplate protein 
+      2 phage-related baseplate assembly protein gp45 
+      2 phage-related baseplate assembly 
+      2 phage tail protein; baseplate J-like protein 
+      2 phage p2-like baseplate assembly protein 
+      2 phage baseplate wedge subunit and tail pin (T4-like gp10) 
+      2 phage baseplate wedge subunit (T4-like gp6) 
+      2 phage baseplate tail tube initiator 
+      2 phage baseplate hub assembly chaperone (T4-like gp26) 
+      2 phage baseplate hub and tail lysozyme 
+      2 phage baseplate assemblyprotein W 
+      2 phage baseplate assembly protein; prophage MuSo2, baseplate assembly protein V 
+      2 phage baseplate assembly protein v 
+      2 phage baseplate assembly protein gpv 
+      2 phage baseplate assembly protein gpW 
+      2 phage baseplate assembly protein V subfamily protein 
+      2 phage baseplate assembly protein J, partial 
+      2 phage baseplate assembly J-like protein 
+      2 minor baseplate protein 
+      2 mail baseplate wedge protein 
+      2 lysozyme family baseplate assembly protein 
+      2 gpV family phage P2 baseplate assembly protein 
+      2 gp9 baseplate wedge completion tail fiber socket protein 
+      2 gp9 baseplate wedge completion tail fiber socket 
+      2 gp9 baseplate tail fiber connector 
+      2 gp54 baseplate subunit 
+      2 gp51 baseplate hub assembly protein 
+      2 gp48 baseplate subunit 
+      2 gp48 baseplate 
+      2 gp39, phage baseplate assembly protein 
+      2 gp38, phage baseplate assembly protein 
+      2 gp35, phage baseplate assembly protein 
+      2 gp34, phage baseplate assembly protein 
+      2 gp11 baseplate wedge completion tail pin protein 
+      2 gp11 baseplate wedge completion tail pin 
+      2 gp10 baseplate wedge subunit/tail protein 
+      2 gp10 baseplate wedge subunit protein 
+      2 distal baseplate subunit protein 
+      2 conserved baseplate assembly protein 
+      2 baseplate wedge tail fiber connector and baseplate wedge 
+      2 baseplate wedge subunit-like protein 
+      2 baseplate wedge subunit, partial 
+      2 baseplate wedge subunit and tail pin II 
+      2 baseplate wedge subunit and tail pin I 
+      2 baseplate wedge subunit II 
+      2 baseplate wedge subunit I 
+      2 baseplate wedge subunit / tail lysozyme 
+      2 baseplate wedge subunit (baseplate J superfamily) 
+      2 baseplate wedge completion tail fiber socket protein 
+      2 baseplate wedge completion protein 
+      2 baseplate to short tail fiber connector protein 
+      2 baseplate tail tube junction protein 
+      2 baseplate tail tube cap domain protein, partial 
+      2 baseplate protein, phage associated protein 
+      2 baseplate protein Gp24 
+      2 baseplate morphogenetic protein B 
+      2 baseplate morphogenetic protein A 
+      2 baseplate injector 
+      2 baseplate hub tail length determinator 
+      2 baseplate hub subunit/tail length determinator 
+      2 baseplate hub subunit tape measure protein 
+      2 baseplate hub subunit and tail lysozyme domain protein, partial 
+      2 baseplate hub subunit / tail lysozyme 
+      2 baseplate hub structural protein and tail lysozyme 
+      2 baseplate hub and lysozyme 
+      2 baseplate hub - tail lysozyme 
+      2 baseplate domain-containing protein 
+      2 baseplate distal hub protein 
+      2 baseplate distal hub 
+      2 baseplate assembly protein, lysozyme domain 
+      2 baseplate assembly phage protein 
+      2 baseplate assembly V family protein 
+      2 baseplate W 
+      2 baseplate V 
+      2 baseplate P2 I-like protein 
+      2 baseplate J-like assembly protein 
+      2 baseplate J wedge protein 
+      2 baseplate J like protein 
+      2 baseplate J family protein gp47 
+      2 bacteriophage baseplate assembly protein J 
+      2 UNVERIFIED_ORG: phage baseplate assembly protein W 
+      2 UNVERIFIED_CONTAM: phage baseplate assembly protein V 
+      2 T4-like phage baseplate hub/tail lysozyme 
+      2 T4-like baseplate tail tube cap protein 
+      2 T4-like baseplate tail tubbe cap 
+      2 Phage upper baseplate protein (TP901-1-like ORF48) 
+      2 Phage lower baseplate protein, partial 
+      2 Phage baseplate, Phage-like element protein xkdT 
+      2 Phage baseplate wedge tail fiber connector (plasmid) 
+      2 Phage baseplate wedge subunit and tail pin (T4-like gp11) # T4 GC 1597 
+      2 Phage baseplate wedge subunit #T4-like gp7 
+      2 Phage baseplate wedge subunit #T4-like gp53 
+      2 Phage baseplate wedge 
+      2 Phage baseplate upper protein 
+      2 Phage baseplate tail tube initiator 
+      2 Phage baseplate protein GpP 
+      2 Phage baseplate outer wedge protein (Acidic lysozyme) 
+      2 Phage baseplate distal hub subunit (T4-like gp28) 
+      2 Phage baseplate assembly protein J, partial 
+      2 Phage P2 baseplate assembly protein gpV, partial 
+      2 Phage P2 baseplate assembly protein gpV (plasmid) 
+      2 Phage P2 baseplate assembly protein GPV-like protein 
+      2 Phage P2 baseplate assembly protein 
+      2 MULTISPECIES: phage baseplate upper protein, partial 
+      2 LOW QUALITY PROTEIN: phage baseplate assembly protein, partial 
+      2 J-like baseplate protein 
+      2 I-like baseplate protein 
+      2 Gp6 baseplate wedge subunit 
+      2 Gp54 baseplate tail tube initiator 
+      2 Gp53 baseplate wedge subunit 
+      2 Gp26 baseplate hub subunit 
+      2 Chain A, Phage baseplate protein
+      2 Baseplate wedge subunit and tail pin 
+      2 Baseplate structural protein BplA 
+      2 Baseplate hub subunit 
+      1 tail-associated lysozyme /baseplate 
+      1 ptuative baseplate wedge completion tail pin 
+      1 prophage LambdaW5, baseplate assembly protein J,Uncharacterized homolog of phage Mu protein gp47,Baseplate J-like protein 
+      1 prophage LambdaW1, baseplate assembly protein J,Uncharacterized homolog of phage Mu protein gp47,Baseplate J-like protein 
+      1 predicted phage p2-like baseplate assembly protein 
+      1 predicted phage baseplate assembly protein W 
+      1 phage-related baseplate assembly protein 
+      1 phage baseplate wedge subunit Gp6 
+      1 phage baseplate tail tube cap 
+      1 phage baseplate structural protein gp10 like protein 
+      1 phage baseplate structural protein (plasmid) 
+      1 phage baseplate structural protein 
+      1 phage baseplate proteinW 
+      1 phage baseplate hub subunit and tail lysozyme 
+      1 phage baseplate component (plasmid) 
+      1 phage baseplate assembly protein,Baseplate J-like protein 
+      1 phage baseplate assembly protein w 
+      1 phage baseplate assembly protein j 
+      1 phage baseplate assembly protein gpJ 
+      1 phage baseplate assembly protein gpI 
+      1 phage baseplate assembly protein W-like 
+      1 phage baseplate assembly protein W, partial 
+      1 phage baseplate assembly protein W (GpW) 
+      1 phage baseplate assembly protein V2 
+      1 phage baseplate assembly protein V family protein, partial 
+      1 phage baseplate assembly protein V domain protein 
+      1 phage baseplate assembly protein V (GpV) 
+      1 phage baseplate assembly protein GpW2 
+      1 phage baseplate assembly protein GpJ2 
+      1 phage baseplate assembly domain protein, partial 
+      1 phage baseplate assembly V family protein (plasmid) 
+      1 phage baseplate assembly J domain protein 
+      1 phage baseplate J-like protein, putative(W) 
+      1 phage baseplate J-like protein (plasmid) 
+      1 phage baseplate J family protein 
+      1 phage T4-like baseplate assembly protein with lysozyme activity 
+      1 phage P2 baseplate assemblyprotein gpV 
+      1 phage P2 baseplate assembly protein gpV, partial 
+      1 phage P2 baseplate assembly gpJ-like protein, partial 
+      1 phage P2 baseplate assembly gpI-like protein 
+      1 peptidoglycan hydrolase domain containing baseplate hub protein 
+      1 gp47, baseplate protein 
+      1 gp46, baseplate protein 
+      1 gp45, baseplate puncturing device protein 
+      1 gp28 baseplate distal hub subunit 
+      1 baseplate with lysin 
+      1 baseplate wedge tail finer connector 
+      1 baseplate wedge tail fiber connector (T4-like gp9) 
+      1 baseplate wedge intiator 
+      1 baseplate wedge initiator protein 
+      1 baseplate wedge completion subunit 
+      1 baseplate wedge and tail pin protein 
+      1 baseplate til tube cap 
+      1 baseplate tail-tube junction protein 
+      1 baseplate tail tube protein 
+      1 baseplate tail tube locus 
+      1 baseplate tail tub 
+      1 baseplate tail protein 
+      1 baseplate subunit and tail lysozyme 
+      1 baseplate sheath protein 
+      1 baseplate puncture protein 
+      1 baseplate protein%2C phage associated protein 
+      1 baseplate protein gp9 
+      1 baseplate protein J 
+      1 baseplate morphogenesis protein 
+      1 baseplate membrane puncture protein 
+      1 baseplate j family protein 
+      1 baseplate hub subunit, tape measure protein 
+      1 baseplate hub subunit, tail length 
+      1 baseplate hub subunit tail lenght determinator 
+      1 baseplate hub subunit or baseplate hub assembly protein 
+      1 baseplate hub subunit assembly catalyst 
+      1 baseplate hub subunit and tail lysozyme central spike complex 
+      1 baseplate hub subunit and tail length lysozyme 
+      1 baseplate hub subunit and phage tail lysozyme 
+      1 baseplate hub subunit / Phage tail lysozyme 
+      1 baseplate hub protein gp26 
+      1 baseplate hub component 
+      1 baseplate hub assembly chaperone (T4-like gp26) 
+      1 baseplate hub assembly catalyst protein 
+      1 baseplate hinge-pin protein 
+      1 baseplate distal hub sub 
+      1 baseplate assembly protein W-like protein 
+      1 baseplate assembly protein (W) 
+      1 baseplate assembly protein (V) 
+      1 baseplate assembly protein (J) 
+      1 baseplate assembly protein (I) 
+      1 baseplate assembly chaperone protein 
+      1 baseplate assembly J-like protein 
+      1 baseplate W protein 
+      1 baseplate J tail protein 
+      1 baseplate J family-like protein 
+      1 baseplate J assembly protein 
+      1 baseplate J / tail lysozyme 
+      1 W baseplate wedge protein 
+      1 TPA_exp: baseplate hub 
+      1 Predicted phage P2-like baseplate assembly protein 
+      1 Phage baseplate wedge subunit and tail pin 
+      1 Phage baseplate wedge subunit (T4-like gp53) 
+      1 Phage baseplate wedge initiator (T4-like gp7) 
+      1 Phage baseplate tail tube cap 
+      1 Phage baseplate protein with lysozyme-domain 
+      1 Phage baseplate lysozyme 
+      1 Phage baseplate hub subunit/Phage tail lysozyme 
+      1 Phage baseplate hub subunit and tail lysozyme 
+      1 Phage baseplate assembly protein W (GPW/gp25 family) 
+      1 Phage baseplate assembly protein Mup45, Q 
+      1 Phage baseplate assembly protein (modular protein) 
+      1 Phage baseplate assembly V family protein (plasmid) 
+      1 Phage baseplate assembly V family protein (fragment) 
+      1 Phage baseplate (uncharacterized for now) 
+      1 Phage baseplate (plasmid) 
+      1 Phage P2 baseplate assembly protein, partial 
+      1 Phage P2 baseplate assembly protein gpV-like protein 
+      1 Phage P2 baseplate assembly protein gpV,phage baseplate assembly protein V,Phage-related baseplate assembly protein 
+      1 Phage P2 baseplate assembly protein gpV,Gene 25-like lysozyme 
+      1 Phage P2 baseplate assembly gpV-like protein (modular protein) 
+      1 Phage P2 baseplate assembly W protein 
+      1 Phage Baseplate J-like protein 
+      1 P2 phage baseplate assembly protein 
+      1 P baseplate wedge subunit 
+      1 MuQ-like baseplate assembly protein 
+      1 Mu phage baseplate assembly protein gp45 
+      1 Mu phage baseplate assembly protein GpV 
+      1 Mu phage baseplate assembly protein GpP 
+      1 Mu phage baseplate assembly protein GpJ 
+      1 MULTISPECIES: phage baseplate protein, partial 
+      1 LOW QUALITY PROTEIN: phage baseplate 
+      1 LOW QUALITY PROTEIN: baseplate protein, phage associated protein, partial 
+      1 J baseplate assembly protein 
+      1 Gp5 baseplate hub subunit and tail lysozyme (Shigella phage phiSboM-AG3) 
+      1 Chain Z, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain Z, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain Y, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain Y, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain X, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain X, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain W, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain W, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain V, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain V, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain U, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain U, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain T, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain T, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain S, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain S, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain R, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain R, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain R, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain R, Phage baseplate protein
+      1 Chain Q, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain Q, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain Q, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain Q, Phage baseplate protein
+      1 Chain P, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain P, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain P, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain P, Phage baseplate protein
+      1 Chain O, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain O, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain O, Phage baseplate protein
+      1 Chain N, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain N, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain N, Phage baseplate protein
+      1 Chain M, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain M, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain M, Phage baseplate protein
+      1 Chain L, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain L, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain L, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain L, Phage baseplate protein
+      1 Chain K, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain K, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain K, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain K, Phage baseplate protein
+      1 Chain J, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain J, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain J, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain J, Phage baseplate protein
+      1 Chain I, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain I, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain I, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain I, Phage baseplate protein
+      1 Chain H, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain H, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain H, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain H, Phage baseplate protein
+      1 Chain G, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain G, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain G, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain G, Phage baseplate protein
+      1 Chain F, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain F, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain F, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain F, Phage baseplate protein
+      1 Chain E, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain E, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain E, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain E, Phage baseplate protein
+      1 Chain D, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain D, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain D, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain D, Phage baseplate protein
+      1 Chain C, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain C, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain C, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain C, Phage baseplate protein
+      1 Chain B, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain B, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain B, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain B, Phage baseplate protein
+      1 Chain A, Structures Of Lactococcal Phage P2 Baseplate Shed Light On A Novel Mechanism Of Host Attachment And Activation In Siphoviridae
+      1 Chain A, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain A, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 Chain 0, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 2 Of 2)
+      1 Chain 0, Structure Of The Phage P2 Baseplate In Its Activated Conformation With Ca (Part 1 Of 2)
+      1 BppU-like baseplate protein 
+      1 BppU family baseplate upper protein 
+      1 Baseplate wedge tail fiber connector 
+      1 Baseplate wedge initiator 
+      1 Baseplate tail tube cap 
+      1 Baseplate subunit 
+      1 Baseplate structural protein GP10-like protein 
+      1 Baseplate protein 
+      1 Baseplate hub assembly catalyst 
+      1 Baseplate hub + tail lysozyme 
+      1 Baseplate assembly protein 
+      1 Baseplate J family protein 
+      1 Afp11-like phage baseplate protein 

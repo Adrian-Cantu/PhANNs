@@ -28,16 +28,16 @@ import subprocess
 # %%
 fasta_list=[
 #'03_curated_fasta/others_indexed.fasta',
-'03_curated_fasta/minor_capsid.fasta',
-'03_curated_fasta/tail_fiber.fasta',
-'03_curated_fasta/major_tail.fasta',
-'03_curated_fasta/portal.fasta',
-'03_curated_fasta/minor_tail.fasta',
-'03_curated_fasta/baseplate.fasta',
-'03_curated_fasta/collar.fasta',
-'03_curated_fasta/shaft.fasta',
-'03_curated_fasta/major_capsid.fasta',
-'03_curated_fasta/HTJ.fasta'
+#'03_curated_fasta/minor_capsid.fasta',
+#'03_curated_fasta/tail_fiber.fasta',
+#'03_curated_fasta/major_tail.fasta',
+#'03_curated_fasta/portal.fasta',
+#'03_curated_fasta/minor_tail.fasta',
+'03_curated_fasta/baseplate_old.fasta',
+#'03_curated_fasta/collar.fasta',
+#'03_curated_fasta/shaft.fasta',
+#'03_curated_fasta/major_capsid.fasta',
+'03_curated_fasta/HTJ_old.fasta'
 ]
 
 # %%
@@ -57,6 +57,8 @@ __=subprocess.run(command,shell=True,check=True, text=True)
 
 # %%
 command='''cd-hit -i 03_curated_fasta/other_plus_structural.fasta -o 03_curated_fasta/hitmix.fasta -M 0 -T 0 -c  0.6 -n 3 > errlog'''
+#command='''cd-hit -i 03_curated_fasta/other_plus_structural.fasta -o 03_curated_fasta/hitmix.fasta -M 0 -T 0 -c  0.8 -n 3 > errlog'''
+
 print(command)
 __=subprocess.run(command,shell=True,check=True, text=True)
 

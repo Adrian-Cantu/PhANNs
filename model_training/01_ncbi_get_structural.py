@@ -120,16 +120,16 @@ def get_sequences(search_results, out="out.fasta", batch_size = 100, start_batch
 # ## Downloading sequences
 
 # %%
-search_results = get_search('major capsid')
+search_results = get_search('capsid')
 
 # %%
-get_sequences(search_results,out='01_fasta/major_capsid.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/major_capsid.fasta',start_batch=573)
 
 # %%
-search_results = get_search('minor capsid')
+#search_results = get_search('minor capsid')
 
 # %%
-get_sequences(search_results,out='01_fasta/minor_capsid.fasta',start_batch=0)
+#get_sequences(search_results,out='01_fasta/minor_capsid.fasta',start_batch=0)
 
 # %%
 search_results = get_search('baseplate')
@@ -141,25 +141,25 @@ get_sequences(search_results,out='01_fasta/baseplate.fasta',start_batch=0)
 search_results = get_search('major tail')
 
 # %%
-get_sequences(search_results,out='01_fasta/major_tail.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/major_tail.fasta',start_batch=846)
 
 # %%
 search_results = get_search('minor tail')
 
 # %%
-get_sequences(search_results,out='01_fasta/minor_tail.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/minor_tail.fasta',start_batch=291)
 
 # %%
 search_results = get_search('portal')
 
 # %%
-get_sequences(search_results,out='01_fasta/portal.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/portal.fasta',start_batch=1871)
 
 # %%
 search_results = get_search('tail fiber')
 
 # %%
-get_sequences(search_results,out='01_fasta/tail_fiber.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/tail_fiber.fasta',start_batch=141)
 
 # %%
 search_results = get_search('collar')
@@ -171,10 +171,12 @@ get_sequences(search_results,out='01_fasta/collar.fasta',start_batch=0)
 search_results = get_full_search('tail[Title] AND (shaft[Title] OR sheath[Title])')
 
 # %%
-get_sequences(search_results,out='01_fasta/shaft.fasta',start_batch=0)
+get_sequences(search_results,out='01_fasta/shaft.fasta',start_batch=368)
 
 # %%
 search_results = get_search('head-tail')
 
 # %%
-get_sequences(search_results,out='01_fasta/HTJ.fasta',start_batch=167)
+get_sequences(search_results,out='01_fasta/HTJ.fasta',start_batch=693)
+
+# %%

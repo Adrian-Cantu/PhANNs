@@ -1,359 +1,394 @@
-+ 126690 phage portal protein 
-  15774 phage portal protein, partial 
-+   9964 HK97 family phage portal protein 
-+   7041 phage portal protein, HK97 family 
-+   5063 phage portal protein, lambda family 
-+   4497 portal protein 
-+   4421 SPP1 family phage portal protein 
-+   3913 phage portal protein%2C pbsx family 
-+   3585 MULTISPECIES: phage portal protein 
-+   2941 Phage portal protein 
-+   2877 phage portal protein, PBSX family 
-+   2725 phage portal protein%2C SPP1 family 
-+   2619 PBSX family phage portal protein 
-+   1827 phage portal protein, SPP1 family 
-+   1776 Portal protein%2C phage associated 
-+   1481 phage portal protein%2C HK97 family 
-+   1035 SPP1 family phage portal protein, partial 
-+   1028 lambda family phage portal protein 
-+    951 phage portal protein, pbsx family 
-+    837 phage portal protein%2C lambda family 
-    814 phage portal protein (minor capsid protein) 
-+    727 Phage portal protein, SPP1 Gp6-like 
-+    501 Phage portal protein, lambda family 
-+    492 phage portal, SPP1 Gp6-like family protein 
-+    448 Portal protein, phage associated 
-+    410 phage portal protein%2C PBSX family 
-+    393 phage portal family protein 
-+    346 Phage portal protein, SPP1 Gp6 
--    321 portal vertex protein 
-+    314 phage portal protein (plasmid) 
-+    241 phage portal protein, HK97 family, partial 
-    234 HK97 family phage portal protein, partial 
+ 181741 phage portal protein 
+  27270 phage portal protein, partial 
+  10499 HK97 family phage portal protein 
+   8976 phage portal protein, HK97 family 
+   7944 phage portal protein, SPP1 family 
+   6810 portal protein 
+   5717 SPP1 family phage portal protein 
+   5173 phage portal protein, lambda family 
+   4836 MULTISPECIES: phage portal protein 
+   3913 phage portal protein%2C pbsx family 
+   3325 Phage portal protein 
+   3032 phage portal protein, PBSX family 
+   2736 PBSX family phage portal protein 
+   2635 phage portal protein%2C SPP1 family 
+   2322 Portal protein, phage associated 
+   1776 Portal protein%2C phage associated 
+   1450 phage portal protein%2C HK97 family 
+   1098 lambda family phage portal protein 
+   1035 SPP1 family phage portal protein, partial 
+   1033 phage portal protein, pbsx family 
+    837 phage portal protein%2C lambda family 
+    818 phage portal protein (minor capsid protein) 
+    814 Phage portal protein, SPP1 Gp6-like 
+    729 phage portal protein (plasmid) 
+    673 Phage portal protein, lambda family 
+    493 phage portal, SPP1 Gp6-like family protein 
+    464 portal vertex protein 
+    410 phage portal protein%2C PBSX family 
+    398 phage portal family protein 
+    348 Phage portal protein, SPP1 Gp6 
+    241 phage portal protein, HK97 family, partial 
+    237 HK97 family phage portal protein, partial 
+    212 Phage P22-like portal protein 
+    176 portal_HK97, phage portal protein, HK97 family 
     171 phage portal protein, lambda family, partial 
+    170 portal (connector) protein 
+    164 phage portal protein, HK97 family (plasmid) 
+    150 portal vertex protein of head 
+    144 MULTISPECIES: phage portal protein, partial 
+    139 portal vertex of the head 
+    132 Phage portal 
     125 phage portal protein%2C putative%2C A118 family 
-    124 Phage portal protein%2C SPP1 Gp6-like 
-    122 portal vertex protein of head 
-    121 Phage portal protein, HK97 family 
-    119 Phage portal 
-    108 portal vertex of the head 
+    123 Phage portal protein%2C SPP1 Gp6-like 
+    122 Phage portal protein, HK97 family 
+     92 Phage portal protein, HK97 
+     91 phage portal protein pbsx family 
      90 pbsx family phage portal protein 
-     88 phage portal protein pbsx family 
+     85 Bacteriophage/Gene transfer agent portal protein 
+     83 phage portal protein, SPP1 Gp6-like 
+     82 portal and MuF-like fusion protein 
+     82 Portal protein 
+     81 phage capsid portal protein 
      79 UNVERIFIED_ORG: phage portal protein 
-     79 phage capsid portal protein 
-     77 phage portal protein, SPP1 Gp6-like 
-     77 Phage portal protein, HK97 
      75 phage portal family protein, partial 
-     74 MULTISPECIES: phage portal protein, partial 
+     73 phage portal vertex protein 
+     72 portal protein, partial 
+     71 phage portal protein, SPP1 Gp6-like protein 
      66 SPP1 Gp6-like phage portal protein 
-     62 portal protein, partial 
      58 phage portal, lambda family protein 
-     57 portal (connector) protein 
-     53 phage portal protein, SPP1 Gp6-like protein 
      47 phage portal protein, HK97 family protein 
-     46 Phage P22-like portal protein 
      44 phage portal related protein 
      40 phage portal, lambda family protein, partial 
-     40 phage head portal protein 
+     40 phage portal protein lambda family 
+     40 A118 family predicted phage portal protein 
      39 Portal protein phage associated 
-     36 phage portal protein lambda family 
-     35 Phage portal protein, partial 
-     34 phage portal vertex protein 
+     38 portal vertex protein of the head 
+     38 phage head portal protein 
+     37 Phage portal protein, partial 
+     35 COG5518 Bacteriophage capsid portal protein 
      34 phage portal protein, HK97 
-     34 A118 family predicted phage portal protein 
-     31 phage portal protein gp6-like protein 
-     29 phage portal pbsx family protein 
+     33 portal_PBSX, phage portal protein, PBSX family 
+     33 phage portal pbsx family protein 
+     32 phage portal protein gp6-like protein 
+     29 phage portal protein HK97 family 
+     29 Phage portal (connector) protein 
      28 Phage portal protein%2C SPP1 Gp6 
-     28 Phage portal (connector) protein 
-     26 phage portal protein HK97 family 
-     25 portal 
-     25 lambda family phage portal protein, partial 
-     24 phage portal protein, SPP1 
+     27 phage P22-like portal protein 
+     26 phage portal protein, SPP1 
+     26 phage portal protein BeeE 
+     26 lambda family phage portal protein, partial 
+     25 phage portal protein, lambda family protein 
      24 Phage portal protein BeeE 
-     24 phage P22-like portal protein 
-     23 Phage portal protein, SPP1 Gp6-like protein 
-     23 Phage portal protein, lambda 
      23 pbsx family Phage portal protein 
+     23 Phage portal protein, lambda 
+     23 Phage portal protein, SPP1 Gp6-like protein 
+     23 PBSX family phage portal protein, partial 
      22 phage portal protein, SPP1 family, partial 
      22 phage portal protein, PBSX family, partial 
-     22 phage portal protein, lambda family protein 
-     22 PBSX family phage portal protein, partial 
-     21 phage portal protein BeeE 
-     19 hK97 family phage portal protein 
+     21 capsid portal protein 
+     20 hK97 family phage portal protein 
+     20 Phage portal protein, SPP1 family 
+     20 Phage portal protein (plasmid) 
+     19 portal protein, phage associated 
+     18 phage portal 
      18 Prophage PssSM-03, phage portal protein 
-     18 Phage portal protein, SPP1 family 
      17 portal protein (endogenous virus) 
+     17 portal 
      17 gp20 portal vertex protein of head 
+     16 phage portal protein, hk97 family 
      16 phage portal protein, SPP1 Gp6 
      16 phage portal protein SPP1 
-     16 phage portal protein, hk97 family 
      16 gene transfer agent portal protein 
+     16 SPP1 family portal protein 
      15 sPP1 family phage portal protein 
-     15 portal vertex protein of the head 
-     15 phage portal protein, HK97 family (plasmid) 
-     15 capsid portal protein 
-     14 UNVERIFIED_ORG: PBSX family phage portal protein 
-     14 SPP1 family portal protein 
-     14 Portal protein 
+     14 phage portal, SPP1 Gp6-like family protein, partial 
+     14 UNVERIFIED_ORG: HK97 family phage portal protein 
      14 Phage portal protein, SPP1 
      14 Phage portal protein, PBSX family 
-     14 phage portal 
-     13 UNVERIFIED_ORG: HK97 family phage portal protein 
-     13 phage portal, SPP1 Gp6-like family protein, partial 
-     12 portal protein, phage associated 
-     12 Phage portal protein (plasmid) 
-     12 phage portal protein, PBSX family (plasmid) 
+     13 phage capsid portal protein, PBSX family 
+     13 UNVERIFIED_ORG: lambda family phage portal protein 
+     13 UNVERIFIED_ORG: PBSX family phage portal protein 
      12 lambda family protein phage portal protein 
-     11 HK97 family phage portal protein (plasmid) 
-     11 head portal protein 
-     10 phage portal protein SPP1 family 
+     12 head portal protein 
+     11 phage portal protein, PBSX family (plasmid) 
+     11 head portal vertex protein 
+     10 phage portal, HK97 family domain protein, partial 
      10 phage portal protein, lambda 
      10 phage portal protein, HK97 family/phage portal protein, PBSX family,TIGR01540 
+     10 phage portal protein SPP1 family 
      10 phage Portal protein 
-     10 phage portal, HK97 family domain protein, partial 
      10 PBSX family protein phage portal protein 
-      9 Phage portal protein, HK97 family, partial 
+     10 HK97 family phage portal protein (plasmid) 
+     10 Bacteriophage/Gene transfer agent portal protein, partial 
       9 phage portal domain protein, partial 
-      9 phage capsid portal protein, PBSX family 
-      9 head portal vertex protein 
+      9 phage portal domain protein 
+      9 capsid portal protein Q 
+      9 Phage portal protein, HK97 family, partial 
+      9 Phage head portal protein 
+      9 Lambda family phage portal protein 
       8 portal vertex of head 
-      8 Phage portal protein; Phage capsid and scaffold 
+      8 portal protein, SPP1 family 
+      8 phage portal protein, partial (plasmid) 
       8 phage portal protein, lambda family (plasmid) 
-      8 phage portal domain protein 
-      8 Phage head portal protein 
       8 head-to-tail connector (portal) 
-      7 portal protein, SPP1 family 
-      7 portal and MuF-like fusion protein 
+      8 Phage portal vertex of the head 
+      8 Phage portal protein; Phage capsid and scaffold 
+      8 Phage portal protein, pbsx 
+      8 Phage portal protein gp6 
+      7 portal head vertex protein 
+      7 lambda family Phage portal protein 
+      7 Portal 
       7 Phage portal, SPP1 Gp6-like family protein 
       7 Phage portal protein SPP1 Gp6-like protein 
-      7 Phage portal protein, pbsx 
-      7 Phage portal protein gp6 
-      7 lambda family Phage portal protein 
-      7 capsid portal protein Q 
+      7 HK97 family portal protein 
       6 xkdM-like portal protein (endogenous virus) 
+      6 viral portal protein 
+      6 portal_lambda, phage portal protein, lambda family 
+      6 portal_HK97, phage portal protein, HK97 family, partial 
       6 phage portal vertex of the head 
-      6 phage portal protein, SPP1 family (plasmid) 
       6 phage portal protein, pbsx family, partial 
-      6 Phage portal protein, PBSX 
-      6 phage portal protein, partial (plasmid) 
+      6 phage portal protein, SPP1 family (plasmid) 
       6 phage portal protein, HK97-like family protein, partial 
       6 phage portal protein, HK97 family domain protein, partial 
       6 phage portal protein, HK97 family domain protein 
-      5 TPA: phage portal protein 
-      5 Phage portal vertex of the head 
-      5 Phage portal protein / Phage capsid and scaffold 
-      5 Phage portal protein, lambda family, partial 
-      5 Phage portal protein lambda family 
-      5 Phage portal protein, HK97 family protein 
-      5 phage portal protein, family, partial 
+      6 Portal vertex protein 
+      6 Phage portal protein, lambda family, partial 
+      6 Phage portal protein, PBSX 
+      6 Phage P22-like portal protein, partial 
+      5 portal vertex head protein 
       5 phage portal, HK97 family domain protein 
+      5 phage portal protein, family, partial 
+      5 phage capsid portal protein, partial 
       5 phage capsid portal protein Q 
-      5 Lambda family phage portal protein 
-      5 HK97 family portal protein 
       5 bacteriophage portal protein 
-      4 UNVERIFIED_ORG: phage portal, SPP1 Gp6-like family protein 
-      4 SPP1 family portal protein (endogenous virus) 
+      5 TPA: phage portal protein 
+      5 Phage portal protein, lambda family (plasmid) 
+      5 Phage portal protein, HK97 family protein 
+      5 Phage portal protein lambda family 
+      5 Phage portal protein SPP1 
+      5 Phage portal protein / Phage capsid and scaffold 
       4 spp1 family phage portal protein 
-      4 portal vertex head protein 
-      4 portal head vertex protein 
+      4 portal vertex 
       4 portal domain protein 
-      4 phage portal protein, SPP1 Gp6-like family protein 
-      4 phage portal protein SPP1 Gp6-like 
-      4 Phage portal protein SPP1 
-      4 phage portal protein PBSX family 
-      4 phage portal protein PbsX 
       4 phage portal protein, lambda-like family protein, partial 
       4 phage portal protein, lambda-like family protein 
+      4 phage portal protein, SPP1 Gp6-like family protein 
       4 phage portal protein, HK97 family protein, partial 
-      4 Phage portal protein, hk97 family 
       4 phage portal protein%2C lambda family protein 
+      4 phage portal protein lambda 
+      4 phage portal protein SPP1 Gp6-like 
+      4 phage portal protein PbsX 
+      4 phage portal protein PBSX family 
+      4 phage portal protein HK97 
       4 phage portal lambda family protein 
       4 phage portal lambda family 
-      4 phage capsid portal protein, partial 
       4 lambda family protein Phage portal protein, partial 
       4 lambda family protein Phage portal protein 
-      4 HK97 family Phage portal protein 
+      4 hk97 family portal protein 
       4 gp5, phage portal protein, pbsx family 
-      3 UNVERIFIED_ORG: lambda family phage portal protein 
+      4 UNVERIFIED_ORG: phage portal, SPP1 Gp6-like family protein 
+      4 SPP1 family portal protein (endogenous virus) 
+      4 Phage portal vertex 
+      4 Phage portal protein, hk97 family 
+      4 Phage portal protein of lambda family 
+      4 Phage portal protein HK97 family 
+      4 PBSX family portal protein 
+      4 HK97 family Phage portal protein 
+      3 portal protein B 
+      3 phage portal protein, lambda family protein, partial 
+      3 phage portal protein, HK97 family,phage portal protein, HK97 family,Phage portal protein 
+      3 lambda family protein phage portal protein, partial 
+      3 gp20 portal vertex of the head 
+      3 family phage portal protein, partial 
       3 UNVERIFIED_CONTAM: lambda family phage portal protein 
       3 UNVERIFIED_CONTAM: HK97 family phage portal protein 
-      3 portal vertex 
-      3 portal protein B 
       3 Portal protein2C phage associated 
-      3 Phage portal protein, SPP1, partial 
-      3 Phage portal protein, SPP1 Gp6-like (plasmid) 
-      3 Phage portal protein, SPP1 Gp6-like, partial 
-      3 Phage portal protein Phage capsid and scaffold 
-      3 Phage portal protein, pbsx family 
-      3 phage portal protein, lambda family protein, partial 
-      3 Phage portal protein, lambda family (plasmid) 
-      3 phage portal protein, HK97 family,phage portal protein, HK97 family,Phage portal protein 
-      3 Phage portal protein gp6-like protein 
       3 Phage portal, partial 
-      3 PBSX family portal protein 
+      3 Phage portal protein, pbsx family 
+      3 Phage portal protein, SPP1, partial 
+      3 Phage portal protein, SPP1 Gp6-like, partial 
+      3 Phage portal protein, SPP1 Gp6-like (plasmid) 
+      3 Phage portal protein gp6-like protein 
+      3 Phage portal protein Phage capsid and scaffold 
+      3 Phage portal family protein 
       3 PBSX family phage portal protein (plasmid) 
-      3 lambda family protein phage portal protein, partial 
-      3 hk97 family portal protein 
-      3 family phage portal protein, partial 
-      2 UNVERIFIED_ORG: phage portal protein, SPP1 family 
-      2 SPP1 Gp6 family phage portal protein 
-      2 portal protein SPP1 family 
-      2 portal protein Lambda B 
+      2 vertex portal protein of the head 
+      2 portal_PBSX, phage portal protein, PBSX family, partial 
+      2 portal vortex protein 
       2 portal protein, HK97 family 
-      2 portal protein GPB of phage lambda 
       2 portal protein gpB 
       2 portal protein gp3 
       2 portal protein gp29 
+      2 portal protein SPP1 family 
+      2 portal protein Lambda B 
+      2 portal protein : Phage portal protein, lambda family OS=Isosphaera pallida (strain ATCC 43644 / DSM 9630 / IS1B) GN=Isop_2435 PE=4 SV=1: Phage_portal_2 
+      2 portal protein (GP3) 
       2 portal HK97 family 
-      2 Portal 
-      2 Phage portal vertex 
-      2 Phage portal protein, SPP1-like protein 
-      2 Phage portal protein, SPP1 Gp6 (plasmid) 
-      2 phage portal protein, SPP1 Gp6, partial 
-      2 Phage portal protein, SPP1 Gp6-like protein, partial 
-      2 phage portal protein, SPP1 Gp6--like protein 
-      2 phage portal protein, SPP1 Gp6-like family protein, partial 
-      2 Phage portal protein SPP1 Gp6-like 
-      2 Phage portal protein, PBSX (plasmid) 
-      2 phage portal protein, PBSX-like family protein 
-      2 Phage portal protein of lambda family 
+      2 portal Gp-6 family-like protein 
       2 phage portal protein, lambda, partial 
-      2 phage portal protein lambda family, partial 
-      2 phage portal protein lambda 
-      2 phage portal protein, HK97 (plasmid) 
-      2 phage portal protein, HK97-like family protein 
-      2 Phage portal protein, HK97 family:Phage portal protein 
-      2 Phage portal protein, HK97 family (fragment) 
-      2 phage portal protein HK97 
-      2 phage portal protein, HI1409 family protein (plasmid) 
-      2 Phage portal protein GP3 
-      2 phage portal protein GP3 
       2 phage portal protein, family 
+      2 phage portal protein, SPP1 Gp6-like family protein, partial 
+      2 phage portal protein, SPP1 Gp6--like protein 
+      2 phage portal protein, SPP1 Gp6, partial 
+      2 phage portal protein, PBSX-like family protein 
+      2 phage portal protein, HK97-like family protein 
+      2 phage portal protein, HK97 (plasmid) 
+      2 phage portal protein, HI1409 family protein (plasmid) 
       2 phage portal protein, A118 family 
+      2 phage portal protein lambda family, partial 
+      2 phage portal protein GP3 
       2 phage portal protein 1481092:1481538 forward MW:16862 
       2 phage portal protein 1480550:1480978 forward MW:16007 
       2 phage portal protein 1479472:1480536 forward MW:39233 
       2 phage portal protei 
-      2 Phage portal family protein 
+      2 phage portal lambda family : Uncharacterized protein OS=Blastopirellula marina DSM 3645 GN=DSM3645_28872 PE=4 SV=1: Phage_portal_2 
+      2 phage portal lambda family : Phage portal protein, lambda family OS=Isosphaera pallida (strain ATCC 43644 / DSM 9630 / IS1B) GN=Isop_2435 PE=4 SV=1: Phage_portal_2 
       2 phage PBSX; phage capsid portal protein 
-      2 PbsX family phage portal protein 
-      2 Mu phage portal protein GpH 
-      2 Mu phage portal protein 
-      2 Lambda phage portal protein B 
       2 lambda-like phage portal protein 
-      2 HK97 family protein phage portal protein 
-      2 HK97 family phage portal protein,phage portal protein, HK97 family,Phage portal protein 
-      2 HK97 family phage portal protein/PBSX family phage portal protein,TIGR01540 
-      2 Gp6-like phage portal protein 
       2 gp4, phage portal protein, HK97 family 
       2 gp3, phage portal protein 
-      2 Gp20 portal vertex protein of head 
       2 gp20' portal vertex protein 
-      2 gp20 portal vertex of the head 
       2 gp20' portal vertex head protein 
       2 gp20 portal vertex head protein 
       2 gp20 portal head vertex protein 
-      1 vertex portal protein of the head 
+      2 capsid component, portal protein 
+      2 UNVERIFIED_ORG: phage portal protein, SPP1 family 
+      2 SPP1 Gp6 family phage portal protein 
+      2 Portal protein, partial 
+      2 Phage portal protein, SPP1-like protein 
+      2 Phage portal protein, SPP1 Gp6-like protein, partial 
+      2 Phage portal protein, SPP1 Gp6 (plasmid) 
+      2 Phage portal protein, PBSX (plasmid) 
+      2 Phage portal protein, HK97 family:Phage portal protein 
+      2 Phage portal protein, HK97 family (fragment) 
+      2 Phage portal protein, HK97 OS=Planctomyces maris DSM 8797 GN=PM8797T_10819 PE=4 SV=1: Phage_portal 
+      2 Phage portal protein SPP1 Gp6-like 
+      2 Phage portal protein HK97 family, partial 
+      2 Phage portal protein HK97 
+      2 Phage portal protein GP3 
+      2 Phage portal protein (fragment) 
+      2 Phage capsid portal protein 
+      2 PbsX family phage portal protein 
+      2 HK97 family protein phage portal protein 
+      2 HK97 family phage portal protein/PBSX family phage portal protein,TIGR01540 
+      2 HK97 family phage portal protein,phage portal protein, HK97 family,Phage portal protein 
+      2 Gp6-like phage portal protein 
+      2 Gp20 portal vertex protein of head 
+      2 Chain A, Phage portal protein, HK97 family
+      1 similar to portal vertex protein of head 
+      1 similar to portal protein GPB of phage lambda 
+      1 similar to phage Spp1 gp6 (portal protein) 
+      1 related to portal protein GPB of phage lambda 
+      1 predicted phage portal protein, SPP1 Gp6-like protein 
+      1 predicted phage portal protein 
+      1 predicted Phage portal protein 
+      1 portal_lambda, phage portal protein, lambda family, partial 
+      1 portal vertex protein of head gp20, partial 
+      1 portal vertex protein gp20 
+      1 portal vertex protein (endogenous virus) 
+      1 portal vertex protein (Q) 
+      1 portal vertax protein of head 
+      1 portal protein assembly 
+      1 portal protein GPB of phage lambda-like protein 
+      1 portal protein GPB of phage lambda 
+      1 portal protein (Gifsy-1 phage) 
+      1 portal or tail protein 
+      1 phage related protein, HK97 portal domain 
+      1 phage related head portal protein 
+      1 phage protein,Phage portal protein, SPP1 Gp6-like 
+      1 phage portal, partial 
+      1 phage portal, lambda family domain protein 
+      1 phage portal, SPP1 Gp6-like family protein (plasmid) 
+      1 phage portal protein, pbsx family protein 
+      1 phage portal protein, pbsx family (plasmid) 
+      1 phage portal protein, lambda family (TIGR01539) 
+      1 phage portal protein, SPP1 family; phi 11 orf31 
+      1 phage portal protein, SPP1 Gp6-like family 
+      1 phage portal protein, SPP1 Gp6 family protein 
+      1 phage portal protein, PBSX family,Phage portal protein 
+      1 phage portal protein, PBSX family protein 
+      1 phage portal protein, PBSX family (TIGR01540) 
+      1 phage portal protein, PBSX family ' 
+      1 phage portal protein, HK97 family (TIGR01537) 
+      1 phage portal protein, HI1409 family (plasmid) 
+      1 phage portal protein%2C putative%2C A118 family (plasmid) 
+      1 phage portal protein pbsx family protein 
+      1 phage portal protein of lambda family 
+      1 phage portal protein lambda family protein 
+      1 phage portal protein W 
+      1 phage portal protein ProA (plasmid) 
+      1 phage portal protein PBSX 
+      1 phage portal protein HK97 family protein 
+      1 phage portal protein Gp17 
+      1 phage portal protein BeeE, partial 
+      1 phage portal protein : Phage portal protein, lambda family OS=Isosphaera pallida (strain ATCC 43644 / DSM 9630 / IS1B) GN=Isop_2435 PE=4 SV=1: Phage_portal_2 
+      1 phage portal hk97 family 
+      1 phage portal family protein (plasmid) 
+      1 phage portal SPP1 Gp6-like protein 
+      1 phage portal %2C SPP1 Gp6-like family protein 
+      1 lambda phage portal protein 
+      1 hK97 family Phage portal protein 
+      1 gp29, portal protein 
+      1 gp20 portal vertex protein 
+      1 bacteriophage portal protein; Lambda gpB homolog 
+      1 bacteriophage head-to-tail joining protein; adapter between portal and gpFII; Lambda gpW homolog 
       1 UNVERIFIED_ORG: phage portal protein, HK97 family 
       1 UNVERIFIED_ORG: phage portal family protein 
       1 UNVERIFIED_ORG: HK97 family phage portal protein/PBSX family phage portal protein,TIGR01540 
       1 TPA_exp: portal protein 
-      1 SPP1 Gp6-like phage portal protein (plasmid) 
-      1 SPP1 Gp6-like phage portal protein, partial 
+      1 Ser protein kinase, similar to phage Spp1 gp6 (portal protein) 
       1 SPP1 family phage portal protein,phage portal protein, SPP1 family,Phage portal protein, SPP1 Gp6-like 
       1 SPP1 family Phage portal protein 
-      1 similar to portal vertex protein of head 
-      1 similar to portal protein GPB of phage lambda 
-      1 similar to phage Spp1 gp6 (portal protein) 
-      1 Ser protein kinase, similar to phage Spp1 gp6 (portal protein) 
-      1 related to portal protein GPB of phage lambda 
+      1 SPP1 Gp6-like phage portal protein, partial 
+      1 SPP1 Gp6-like phage portal protein (plasmid) 
       1 Q portal vertex protein 
-      1 predicted Phage portal protein 
-      1 predicted phage portal protein 
-      1 portal vortex protein 
-      1 portal vertex protein of head gp20, partial 
       1 Portal vertex protein of head 
-      1 portal vertex protein gp20 
-      1 portal vertex protein (endogenous virus) 
-      1 Portal protein, phage associated (plasmid) 
-      1 portal protein GPB of phage lambda-like protein 
-      1 portal protein (GP3) 
-      1 portal protein (Gifsy-1 phage) 
       1 Portal protein2C phage associated' 
+      1 Portal protein, phage associated (plasmid) 
+      1 Portal protein, phage associat (plasmid) 
       1 Portal Protein 
-      1 portal or tail protein 
-      1 portal Gp-6 family-like protein 
-      1 phage related protein, HK97 portal domain 
-      1 phage related head portal protein 
       1 Phage protein, portal protein 
-      1 phage protein,Phage portal protein, SPP1 Gp6-like 
-      1 phage portal SPP1 Gp6-like protein 
-      1 phage portal, SPP1 Gp6-like family protein (plasmid) 
-      1 phage portal protein W 
-      1 phage portal protein, SPP1 Gp6-like family 
-      1 phage portal protein, SPP1 Gp6 family protein 
-      1 phage portal protein, SPP1 family; phi 11 orf31 
-      1 phage portal protein ProA (plasmid) 
+      1 Phage portal, lambda family protein 
       1 Phage portal protein; poly(3-hydroxybutyrate) depolymerase 
-      1 Phage portal protein # Pham3 
-      1 phage portal protein, PBSX family (TIGR01540) 
-      1 phage portal protein, PBSX family protein 
-      1 phage portal protein, pbsx family protein 
-      1 phage portal protein pbsx family protein 
-      1 phage portal protein, pbsx family (plasmid) 
-      1 phage portal protein, PBSX family,Phage portal protein 
-      1 Phage portal protein, PbsX family 
-      1 Phage portal protein PBSX 
-      1 phage portal protein PBSX 
-      1 Phage portal protein of lambda family (fragment) 
-      1 phage portal protein of lambda family 
       1 Phage portal protein, lambda, partial 
-      1 phage portal protein, lambda family (TIGR01539) 
       1 Phage portal protein, lambda family protein 
-      1 phage portal protein lambda family protein 
+      1 Phage portal protein, lambda family (fragment) 
+      1 Phage portal protein, PbsX family 
+      1 Phage portal protein, HK97 family OS=Thermaerobacter marianensis (strain ATCC 700841 / DSM 12885 / JCM 10246 / 7p75a) GN=Tmar_0037 PE=4 SV=1: Phage_portal: Phage_Mu_F 
+      1 Phage portal protein, HK97 family OS=Desulfarculus baarsii (strain ATCC 33931 / DSM 2075 / VKM B-1802 / 2st14) GN=Deba_3281 PE=4 SV=1: Phage_portal 
       1 Phage portal protein, HK97 (plasmid) 
       1 Phage portal protein, HK97 (modular protein) 
-      1 phage portal protein, HK97 family (TIGR01537) 
-      1 phage portal protein HK97 family protein 
-      1 Phage portal protein HK97 family 
-      1 Phage portal protein HK97 
-      1 phage portal protein, HI1409 family (plasmid) 
-      1 phage portal protein Gp17 
-      1 Phage portal protein (fragment), partial 
-      1 Phage portal protein (fragment) 
-      1 Phage portal protein BeeE, partial 
-      1 phage portal protein BeeE, partial 
       1 Phage portal protein%2C SPP1 Gp6-like (plasmid) 
+      1 Phage portal protein of lambda family (fragment) 
+      1 Phage portal protein PBSX 
+      1 Phage portal protein BeeE, partial 
       1 Phage portal protein 2C SPP1 Gp6-like 
-      1 phage portal protein%2C putative%2C A118 family (plasmid) 
-      1 Phage Portal Protein 
-      1 phage portal, partial 
-      1 Phage portal, lambda family protein 
-      1 phage portal, lambda family domain protein 
-      1 phage portal hk97 family 
-      1 phage portal family protein (plasmid) 
+      1 Phage portal protein (fragment), partial 
+      1 Phage portal protein # Pham3 
+      1 Phage portal or tail protein (ACLAME 11), partial 
       1 Phage portal domain-containing protein, partial 
-      1 Phage portal (connector) protein (plasmid) 
       1 Phage portal connector protein 
-      1 phage portal %2C SPP1 Gp6-like family protein 
       1 Phage head portal protein, HK97 family 
       1 Phage capsid portal protein Q 
-      1 Phage capsid portal protein 
+      1 Phage Portal Protein 
+      1 Pbsx family phage portal protein 
+      1 Mu phage portal protein GpH 
+      1 Mu phage portal protein 
       1 MULTISPECIES: phage capsid portal protein, partial 
-      1 MULTISPECIES: phage capsid portal protein 
-      1 LOW QUALITY PROTEIN: phage portal 
-      1 lambda phage portal protein 
+      1 Lambda phage portal protein B 
       1 Lambda family phage portal protein (plasmid) 
-      1 HK 97 family portal protein 
-      1 hK97 family Phage portal protein 
+      1 LOW QUALITY PROTEIN: phage portal 
+      1 HK97 family phage portal protein OS=Lachnospiraceae bacterium COE1 GN=C809_04329 PE=4 SV=1: Phage_portal 
+      1 HK97 family phage portal protein (modular protein) 
+      1 HK97 family phage portal protein (Fragment) OS=Lachnospiraceae bacterium COE1 GN=C809_03867 PE=4 SV=1: Phage_portal 
       1 HK97 family phage portal potein (plasmid) 
       1 HK97 family phage 77 portal protein 008 
+      1 HK 97 family portal protein 
       1 Gp6-like phage portal protein, partial 
       1 Gp5, phage portal protein, pbsx family 
       1 Chain C, HK97 Family Phage Portal Protein
+      1 Chain B, Phage portal protein, HK97 family
       1 Chain B, HK97 Family Phage Portal Protein
       1 Chain A, HK97 Family Phage Portal Protein
-      1 capsid component, portal protein 
-      1 bacteriophage portal protein; Lambda gpB homolog 
-      1 bacteriophage head-to-tail joining protein; adapter between portal and gpFII; Lambda gpW homolog 
       1 A118 family phage portal protein 

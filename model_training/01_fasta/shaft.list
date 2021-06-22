@@ -1,155 +1,179 @@
-+  17245 phage tail sheath protein 
-+  11361 phage tail sheath family protein 
-+   2428 Phage tail sheath protein 
--    854 phage tail sheath family protein, partial 
-+    799 Phage tail sheath monomer 
-+    722 phage tail sheath monomer 
-+    684 tail sheath protein 
-+    478 MULTISPECIES: phage tail sheath protein 
-+    460 MULTISPECIES: phage tail sheath family protein 
--    353 phage tail sheath protein, partial 
-+    288 phage tail sheath protein FI 
-+    231 tail sheath monomer 
-+    220 Phage tail sheath protein FI 
--    179 tail completion and sheath stabilizer protein 
--    177 tail sheath stabilizer and completion protein 
--    149 tail sheath monomer protein 
--    148 proximal tail sheath protein 
-+    118 phage tail sheath gpL-like 
--    111 tail sheath stabilizer 
--     74 proximal tail sheath stabilization protein 
--     62 proximal tail sheath stabilization 
-+     53 tail sheath 
--     36 head-proximal tip of tail tube tail completion + sheath stabilizer protein 
-+     35 major tail sheath protein 
-+     30 Phage major tail shaft protein 
-+     24 major tail shaft protein 
-+     23 tail completion and sheath stabilizer 
-+     23 phage tail sheath protein (plasmid) 
--     22 gp15 tail sheath stabilizer and completion protein 
-+     21 Phage major tail sheath protein 
-+     20 phage tail sheath protein fi-like protein 
-+     20 major tail sheath 
-+     20 gp3 tail completion and sheath stabilizer protein 
-+     20 gp18 tail sheath protein 
--     18 Phage tail sheath protein, partial 
-+     17 Phage tail sheath protein FI-like protein 
--     16 Phage tail sheath monomer, partial 
-+     16 phage major tail sheath protein 
-+     13 tail sheath phage protein 
-+     12 Phage tail sheath protein FI-like 
-+     11 proximal tail sheath stabilizer 
--      9 tail sheath stabilization protein 
-+      9 phage tail sheath family protein (plasmid) 
-+      8 xkdK-like tail sheath protein (endogenous virus) 
--      8 tail sheath protein, partial 
-+      8 phage major tail shaft protein 
--      7 tail sheath stabiliser 
-+      7 Proximal tail sheath stabilization protein 
--      7 phage tail sheath protein FI, partial 
--      6 UNVERIFIED_ORG: phage tail sheath protein 
-+      6 tail sheath protein FI 
-+      6 tail sheath family protein 
--      5 UNVERIFIED_ORG: phage tail sheath family protein 
-+      5 proximal tail sheath 
-+      5 Phage tail sheath protein (plasmid) 
-+      5 Phage P2 tail sheath FI-like protein 
--      4 UNVERIFIED_ORG: phage tail sheath gpL-like 
--      4 tail sheath subunit 
-+      4 tail sheath protein gp18 
-+      4 tail shaft protein 
-+      4 sheath tail protein 
-+      4 phage tail sheath protein FI (plasmid) 
-+      4 Phage tail sheath family protein 
--      4 phage tail sheath domain protein, partial 
-+      4 phage tail sheath domain protein 
--      4 MULTISPECIES: phage tail sheath family protein, partial 
--      4 head-proximal tip of tail tube completion + sheath stabilizer protein 
-+      4 gp18 tail sheath monomer protein 
--      3 tail sheath stabilizing and tail completion protein 
-+      3 tail sheath protein (endogenous virus) 
--      3 tail completion and sheath stabiliser 
--      3 sheath stabilizing and tail completion protein 
-+      3 phage tail sheath protein XkdK 
-+      3 phage tail sheath protein FI-like 
-+      3 phage tail sheath protein fi 
--      3 phage tail shaft stabilization protein 
-+      3 phage sheath tail protein 
-+      3 MULTISPECIES: phage tail sheath protein FI 
-+      3 major tail shaft subunit 
-+      3 contractile tail sheath structural protein 
--      2 tail sheath stabilizer, partial 
--      2 tail sheath stabilizer and completion 
-+      2 tail sheath protein precursor 
-+      2 tail sheath protein gpL 
-+      2 tail sheath monomer-like protein 
--      2 tail sheath and receptor binding vision protein 
--      2 tail completrion and sheath stabiliser 
--      2 Tail completion and sheath stabilizer protein 
-+      2 phage tail sheath protein, XkdK-like 
--      2 phage tail sheath protein subtilisin-like domain protein 
-+      2 Phage tail sheath protein FI (plasmid) 
--      2 Phage tail sheath protein FI, partial 
-+      2 phage tail sheath protein fi-like protein (plasmid) 
-+      2 Phage tail sheath protein fi-like protein 
-+      2 phage tail sheath protein fi-like 
-+      2 Phage TAIL SHEATH PROTEIN 
-+      2 Mu phage tail sheath protein GpL 
-+      2 MULTISPECIES: phage tail sheath monomer 
-+      2 Major tail shaft protein 
-+      2 major shaft tail protein 
--      2 Gp3 tail completion and sheath stabilizer protein 
--      2 gp3 tail completion and sheath stabilizer 
-+      2 gp33, phage tail sheath protein 
-+      2 gp30, phage tail sheath protein 
-+      2 Gp18 tail sheath protein 
-+      2 gp18 tail sheath monomer 
--      2 gp15 proximal tail sheath stabilizer 
--      2 Gp15 proximal tail sheath stabilization protein 
--      2 gp15 proximal tail sheath stabilization protein 
-+      2 gp15 proximal tail sheath protein 
-+      2 gp13, phage tail sheath protein 
-+      2 contractile tail sheath protein 
-+      2 bacteriophage tail shaft stabilization protein; Lambda gpU homolog 
-+      1 XkdK-like tail sheath protein 
-+      1 virion structural / tail sheath protein 
--      1 tail sheath stablizer 
--      1 tail sheath stabilizer and completion protein, partial 
--      1 tail sheath stabilizer and completion protein (endogenous virus) 
--      1 Tail sheath stabilizer and completion protein 
--      1 tail sheath stabilization 
--      1 tail sheath stabiliser and completion protein 
-+      1 tail sheath protein Gp22 
-+      1 Tail Sheath protein 
--      1 tail sheath polimerization initiator 
--      1 tail sheath paralog 
--      1 tail completion and sheath stabilizer protein (endogenous virus) 
-+      1 T4-like tail sheath protein 
--      1 similar to tail sheath protein 
--      1 similar to phage-related contractile tail sheath protein 
--      1 phage tail sheath stabilizer protein 
-+      1 phage tail sheath protein Fl 
-+      1 Phage tail sheath protein FI (fragment) 
-+      1 Phage tail sheath protein FI CDS 
-+      1 Phage Tail Sheath Protein 
-+      1 phage tail SHEATH protein 
-+      1 phage tail sheath (plasmid) 
-+      1 Phage tail sheath monomer (plasmid) 
--      1 phage tail sheath monomer, partial 
--      1 phage tail sheath gpL-like, partial 
--      1 Phage tail sheath family protein (fragment) 
--      1 phage tail sheath C-terminal domain protein 
-+      1 Phage tail shaft protein 
-+      1 phage tail shaft protein 
-+      1 phage protein,Phage tail sheath protein 
-+      1 phage P2 tail sheath FI-like protein 
-+      1 phage Mu tail sheath protein 
-+      1 Phage major tail sheath protein,Phage tail sheath protein 
-+      1 Phage major tail sheath 
-+      1 Phage major tail shaft subunit 
-+      1 MULTISPECIES: phage tail sheath protein XkdK 
--      1 LOW QUALITY PROTEIN: phage tail sheath protein, partial 
-+      1 FI major tail sheath protein 
-+      1 FI family phage tail sheath protein 
-+      1 contractile tail sheath protein gp18 
-+      1 Afp3-like phage tail sheath protein 
+  22392 phage tail sheath protein 
+  16824 phage tail sheath family protein 
+  14003 phage tail sheath subtilisin-like domain-containing protein 
+   2573 Phage tail sheath protein 
+   1955 phage tail sheath subtilisin-like domain-containing protein, partial 
+   1501 phage tail sheath family protein, partial 
+   1196 tail sheath protein 
+   1038 MULTISPECIES: phage tail sheath subtilisin-like domain-containing protein 
+    837 Phage tail sheath monomer 
+    777 MULTISPECIES: phage tail sheath family protein 
+    771 phage tail sheath monomer 
+    531 MULTISPECIES: phage tail sheath protein 
+    416 phage tail sheath protein, partial 
+    306 tail sheath monomer 
+    289 tail completion and sheath stabilizer protein 
+    280 tail sheath stabilizer and completion protein 
+    274 phage tail sheath protein FI 
+    236 Phage tail sheath protein FI 
+    154 tail sheath monomer protein 
+    153 proximal tail sheath protein 
+    140 phage tail sheath gpL-like 
+    125 tail sheath stabilizer 
+    125 proximal tail sheath stabilization protein 
+     74 major tail shaft protein 
+     71 tail sheath 
+     65 proximal tail sheath stabilization 
+     43 phage tail sheath family protein (plasmid) 
+     39 major tail sheath protein 
+     37 phage tail sheath protein (plasmid) 
+     37 head-proximal tip of tail tube tail completion + sheath stabilizer protein 
+     30 Phage major tail shaft protein 
+     28 major tail sheath 
+     27 tail completion and sheath stabilizer 
+     27 Phage tail sheath C-terminal domain containing protein 
+     27 Phage major tail sheath protein 
+     24 gp15 tail sheath stabilizer and completion protein 
+     22 gp18 tail sheath protein 
+     21 gp3 tail completion and sheath stabilizer protein 
+     20 phage tail sheath protein fi-like protein 
+     19 tail sheath polymerization initiator 
+     19 COG3497 Phage tail sheath protein FI 
+     18 phage major tail sheath protein 
+     18 Phage tail sheath protein, partial 
+     17 Phage tail sheath protein FI-like protein 
+     16 Phage tail sheath monomer, partial 
+     13 tail sheath phage protein 
+     12 proximal tail sheath stabilizer 
+     12 Phage tail sheath protein FI-like 
+     11 Phage tail sheath protein subtilisin-like domain protein 
+     10 tail sheath stabilization protein 
+     10 tail sheath protein, partial 
+     10 tail sheath protein FI 
+     10 phage tail sheath protein FI, partial 
+     10 MULTISPECIES: phage tail sheath subtilisin-like domain-containing protein, partial 
+     10 MULTISPECIES: phage tail sheath family protein, partial 
+      9 UNVERIFIED_ORG: phage tail sheath gpL-like 
+      9 Phage tail sheath protein (plasmid) 
+      8 xkdK-like tail sheath protein (endogenous virus) 
+      8 phage major tail shaft protein 
+      8 Tail sheath protein 
+      8 Proximal tail sheath stabilization protein 
+      8 Myoviridae tail sheath stabiliser 
+      7 tail sheath stabiliser 
+      7 Tail sheath protein, subtilisin-like domain containing protein 
+      6 tail sheath stabilizing and tail completion protein 
+      6 tail sheath family protein 
+      6 UNVERIFIED_ORG: phage tail sheath protein 
+      5 tail sheath subunit 
+      5 proximal tail sheath 
+      5 head-proximal tip of tail tube completion + sheath stabilizer protein 
+      5 UNVERIFIED_ORG: phage tail sheath family protein 
+      5 Phage tail sheath protein FI, partial 
+      5 Phage P2 tail sheath FI-like protein 
+      4 tail sheath protein gp18 
+      4 tail shaft protein 
+      4 sheath tail protein 
+      4 sheath stabilizing and tail completion protein 
+      4 phage tail sheath protein FI (plasmid) 
+      4 phage tail sheath domain protein, partial 
+      4 phage tail sheath domain protein 
+      4 gp18 tail sheath monomer protein 
+      4 Phage tail sheath family protein 
+      3 tail sheath protein (endogenous virus) 
+      3 tail completion and sheath stabiliser 
+      3 phage tail sheath protein fi 
+      3 phage tail sheath protein XkdK 
+      3 phage tail sheath protein FI-like 
+      3 phage tail sheath gpL-like, partial 
+      3 phage tail sheath c-terminal domain 
+      3 phage tail shaft stabilization protein 
+      3 major tail shaft subunit 
+      3 gp18 tail sheath monomer 
+      3 gp15 proximal tail sheath stabilizer 
+      3 contractile tail sheath structural protein 
+      3 Phage major tail sheath 
+      2 tail sheath stabilizer, partial 
+      2 tail sheath stabilizer protein 
+      2 tail sheath stabilizer and completion 
+      2 tail sheath stabilization 
+      2 tail sheath protein precursor 
+      2 tail sheath protein gpL 
+      2 tail sheath protein Gp22 
+      2 tail sheath polimerization initiator 
+      2 tail sheath monomer-like protein 
+      2 tail sheath and receptor binding vision protein 
+      2 tail completrion and sheath stabiliser 
+      2 phage tail sheath subtilisin-like domain-containing protein (plasmid) 
+      2 phage tail sheath protein, XkdK-like 
+      2 phage tail sheath protein subtilisin-like domain protein 
+      2 phage tail sheath protein fi-like protein (plasmid) 
+      2 phage tail sheath protein fi-like 
+      2 phage tail sheath 
+      2 phage sheath tail protein 
+      2 major shaft tail protein 
+      2 gp33, phage tail sheath protein 
+      2 gp30, phage tail sheath protein 
+      2 gp3 tail completion and sheath stabilizer 
+      2 gp15 proximal tail sheath stabilization protein 
+      2 gp15 proximal tail sheath protein 
+      2 gp13, phage tail sheath protein 
+      2 contractile tail sheath protein 
+      2 bacteriophage tail shaft stabilization protein; Lambda gpU homolog 
+      2 Tail completion and sheath stabilizer protein 
+      2 Phage tail sheath protein subtilisin-like domain 
+      2 Phage tail sheath protein fi-like protein 
+      2 Phage tail sheath protein FI (plasmid) 
+      2 Phage TAIL SHEATH PROTEIN 
+      2 Major tail shaft protein 
+      2 Gp3 tail completion and sheath stabilizer protein 
+      2 Gp18 tail sheath protein 
+      2 Gp15 proximal tail sheath stabilization protein 
+      1 virion structural / tail sheath protein 
+      1 tail sheath stablizer 
+      1 tail sheath stabilizer and completion protein, partial 
+      1 tail sheath stabilizer and completion protein (endogenous virus) 
+      1 tail sheath stabiliser and completion protein 
+      1 tail sheath protein (FI) 
+      1 tail sheath paralog 
+      1 tail completion and sheath stabilizer protein (endogenous virus) 
+      1 similar to tail sheath protein 
+      1 similar to phage-related contractile tail sheath protein 
+      1 phage tail sheath stabilizer protein 
+      1 phage tail sheath protein Fl 
+      1 phage tail sheath protein FI (integrase domain) 
+      1 phage tail sheath C-terminal domain protein 
+      1 phage tail sheath (plasmid) 
+      1 phage tail shaft protein 
+      1 phage tail SHEATH protein 
+      1 phage protein,Phage tail sheath protein 
+      1 phage P2 tail sheath FI-like protein 
+      1 phage Mu tail sheath protein 
+      1 non-contractile tail sheath 
+      1 gpL, tail sheath protein 
+      1 contractile tail sheath protein gp18 
+      1 base plate wedge completion tail fiber socket, sheath contraction 
+      1 XkdK-like tail sheath protein 
+      1 Tail sheath stabilizer and completion protein 
+      1 Tail Sheath protein 
+      1 T4-like tail sheath protein 
+      1 Phage tail sheath protein subtilisin-like domai 
+      1 Phage tail sheath protein FI CDS 
+      1 Phage tail sheath protein FI (fragment) 
+      1 Phage tail sheath monomer (plasmid) 
+      1 Phage tail sheath family protein (fragment) 
+      1 Phage tail sheath 
+      1 Phage tail shaft protein 
+      1 Phage major tail sheath protein,Phage tail sheath protein 
+      1 Phage major tail shaft subunit 
+      1 Phage Tail Sheath Protein 
+      1 PHAGE-LIKE PBSX XKDK ELEMENT PHAGE LIN1278 SHEATH YQBL RELATED TAIL 
+      1 Mu phage tail sheath protein GpL 
+      1 MULTISPECIES: phage tail sheath protein, partial 
+      1 MULTISPECIES: phage tail sheath protein FI 
+      1 LOW QUALITY PROTEIN: phage tail sheath protein, partial 
+      1 FI major tail sheath protein 
+      1 FI family phage tail sheath protein 
+      1 Afp3-like phage tail sheath protein 
+      1 ATP-binding tail sheath protein 
+      1 

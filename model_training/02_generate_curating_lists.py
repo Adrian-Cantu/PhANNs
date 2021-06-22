@@ -28,7 +28,7 @@ import subprocess
 # %%
 fasta_list=[
 '01_fasta/others.fasta',
-'01_fasta/minor_capsid.fasta',
+#'01_fasta/minor_capsid.fasta',
 '01_fasta/tail_fiber.fasta',
 '01_fasta/major_tail.fasta',
 '01_fasta/portal.fasta',
@@ -36,7 +36,8 @@ fasta_list=[
 '01_fasta/baseplate.fasta',
 '01_fasta/collar.fasta',
 '01_fasta/shaft.fasta',
-'01_fasta/major_capsid.fasta',
+#'01_fasta/major_capsid.fasta',
+'01_fasta/capsid.fasta',
 '01_fasta/HTJ.fasta'
 ]
 
