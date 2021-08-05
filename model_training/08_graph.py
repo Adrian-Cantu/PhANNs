@@ -14,6 +14,7 @@
 # ---
 
 # %%
+import PIL
 import pickle
 import pandas as pd
 import os
@@ -45,8 +46,13 @@ custom_dict = {'di_sc':0,'di_sc_p':1,'tri_sc':2,'tri_sc_p':3,'tetra_sc':4,'tetra
                'tri':8,'tri_p':9,'tetra_sc_tri_p':10,'all':11}
 
 # %%
+#labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+#             "Tail shaft","Collar","Head-Tail joining","Others"]
 labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
-             "Tail shaft","Collar","Head-Tail joining","Others"]
+             "Tail sheath","Collar","Head-Tail joining","Others"]
+extra_labels=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+             "Tail sheath","Collar","Head-Tail joining","Others",'Weighted avg.']
+
 
 # %%
 from collections import Counter
@@ -62,28 +68,45 @@ avg_df=df[df['class'] == 'weighted avg']
 f1_df=df[df['score_type'] == 'f1-score']
 
 # %%
+#fm = mpl.font_manager
+#fm._fmcache
+from PIL import features
+from PIL import TiffImagePlugin
+print(features.check('libtiff'))
+#TiffImagePlugin.WRITE_LIBTIFF = True  
+
+# %%
+# Say, "the default sans-serif font is COMIC SANS"
+mpl.rcParams['font.sans-serif'] = "Arial"
+# Then, "ALWAYS use sans-serif fonts"
+mpl.rcParams['font.family'] = "sans-serif"
+
+# %%
+##figure 4
+
 fig, ax = plt.subplots()
 ax.yaxis.grid(True)
 #fig.set_size_inches(18, 15)
-fig.set_size_inches(8, 6)
+fig.set_size_inches(4, 4)
     
-ax.tick_params(axis='y',labelsize=24)
-ax.tick_params(axis='x',labelsize=24, rotation=80)
+ax.tick_params(axis='y',labelsize=10)
+ax.tick_params(axis='x',labelsize=10, rotation=80)
 #ax.set_title('Model metrics : ' + df , fontsize=30,va='bottom')
     #ax.set_title('')
-sns.barplot(ax=ax,y="value", x="model", hue="score_type", data=avg_df)
+sns.barplot(ax=ax,y="value", x="model", hue="score_type", data=avg_df,errwidth=1,capsize=0.15)
 #ax.set_ylabel('')    
 ax.set_xlabel('')
-ax.set_ylabel('Score',fontsize='27') 
-l = ax.legend()
-plt.setp(ax.get_legend().get_texts(), fontsize='18') # for legend text
+ax.set_ylabel('Score',fontsize='12') 
+handles, labels = ax.get_legend_handles_labels()
+l = ax.legend(handles,['Precision','Recall','F1-score'],loc='lower right')
+plt.setp(ax.get_legend().get_texts(), fontsize='11') # for legend text
 #print(dir(l))
 ax.set(ylim=(0.4, 1))
     
 #ax.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
 plt.show()
 #fig.savefig('08_figures/avg_score_master.png',bbox_inches="tight")
-fig.savefig(os.path.join('08_figures','avg_score_master',stop_time),bbox_inches="tight")
+fig.savefig(os.path.join('08_figures','avg_score_master',stop_time+'.tif'),bbox_inches="tight",dpi=300)
 
 # %%
 for kk in all_models:
@@ -131,17 +154,18 @@ df_pp_mod=df[(df['score_type'] == 'f1-score') & [x not in ['di_sc','di_sc_p','tr
 
 # %%
 fig2, ax2 = plt.subplots()
-fig2.set_size_inches(15, 15)
+fig2.set_size_inches(6,4)
 
 sns.set(style="whitegrid")
-ax2.tick_params(axis='y',labelsize=30)
-ax2.tick_params(axis='x',labelsize=35,rotation=80)
-sns.barplot(ax=ax2,y="value", x="model", hue="class", data=df_sc_mod, palette=colors)
+ax2.tick_params(axis='y',labelsize=10)
+ax2.tick_params(axis='x',labelsize=10,rotation=80)
+sns.barplot(ax=ax2,y="value", x="model", hue="class", data=df_sc_mod, palette=colors,errwidth=1,capsize=0.03)
+            #err_kws={'elinewidth':10})
 
-ax2.set_ylabel('F1-score',fontsize='27')    
+ax2.set_ylabel('F1-score',fontsize='12')    
 ax2.set_xlabel('')
 l = ax2.legend()
-plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
+#plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
 
 handles2, labels2 = ax2.get_legend_handles_labels()
 
@@ -149,26 +173,27 @@ ax2.set(ylim=(0, 1))
 ax2.set(xlim=(-0.5, 5.5))
 plt.yticks(numpy.arange(0, 1.1, 0.1))
 #ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
-plt.legend(handles2,labels2,handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
+plt.legend(handles2,labels2,handlelength=2,fontsize=11,markerfirst=False,handletextpad=0.1,
            loc='upper right',bbox_to_anchor=(1.4, 1))
 plt.show()
-fig2.savefig(os.path.join('08_figures','f1_score_master_per_model_sc'),bbox_inches="tight")
+fig2.savefig(os.path.join('08_figures','f1_score_master_per_model_sc'),bbox_inches="tight",dpi=300)
 #fig2.savefig(os.path.join('08_figures','f1_score_master_per_model',stop_time),bbox_inches="tight")
 #fig2.savefig('08_figures/f1_score_master_per_model.png',bbox_inches="tight")
 
 # %%
+## figure 2
 fig2, ax2 = plt.subplots()
-fig2.set_size_inches(15, 15)
+fig2.set_size_inches(5, 4)
 
 sns.set(style="whitegrid")
-ax2.tick_params(axis='y',labelsize=30)
-ax2.tick_params(axis='x',labelsize=35,rotation=80)
-sns.barplot(ax=ax2,y="value", x="model", hue="class", data=df_pp_mod, palette=colors)
+ax2.tick_params(axis='y',labelsize=10)
+ax2.tick_params(axis='x',labelsize=10,rotation=80)
+sns.barplot(ax=ax2,y="value", x="model", hue="class", data=df_pp_mod, palette=colors,errwidth=1,capsize=0.03)
 
-ax2.set_ylabel('F1-score',fontsize='27')    
+ax2.set_ylabel('F1-score',fontsize='12')    
 ax2.set_xlabel('')
 l = ax2.legend()
-plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
+#plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
 
 handles2, labels2 = ax2.get_legend_handles_labels()
 
@@ -176,10 +201,13 @@ ax2.set(ylim=(0, 1))
 #ax2.set(xlim=(-0.5, 5.5))
 plt.yticks(numpy.arange(0, 1.1, 0.1))
 #ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
-plt.legend(handles2,labels2,handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
-           loc='upper right',bbox_to_anchor=(1.4, 1))
+#plt.legend(handles2,labels2,handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
+#           loc='upper right',bbox_to_anchor=(1.4, 1))
+plt.legend(handles2,extra_labels,handlelength=2,fontsize=11,markerfirst=False,handletextpad=0.1,
+           loc='upper right',bbox_to_anchor=(1.45, 1))
 plt.show()
-fig2.savefig(os.path.join('08_figures','f1_score_master_per_model_pp'),bbox_inches="tight")
+#fig2.savefig(os.path.join('08_figures','f1_score_master_per_model_pp'),bbox_inches="tight")
+fig2.savefig(os.path.join('08_figures','Fig2.tif'),bbox_inches="tight",dpi=300)
 #fig2.savefig(os.path.join('08_figures','f1_score_master_per_model',stop_time),bbox_inches="tight")
 #fig2.savefig('08_figures/f1_score_master_per_model.png',bbox_inches="tight")
 
@@ -210,28 +238,29 @@ fig2.savefig(os.path.join('08_figures','f1_score_master_per_class_sc'),bbox_inch
 plt.show()
 
 # %%
+##figure 3
 fig2, ax2 = plt.subplots()
-fig2.set_size_inches(15, 15)
+fig2.set_size_inches(5, 4)
 
 sns.set(style="whitegrid")
-ax2.tick_params(axis='y',labelsize=30)
-ax2.tick_params(axis='x',labelsize=35,rotation=80)
-sns.barplot(ax=ax2,y="value", x="class", hue="model", data=df_pp_mod, palette=colors)
+ax2.tick_params(axis='y',labelsize=10)
+ax2.tick_params(axis='x',labelsize=10,rotation=80)
+sns.barplot(ax=ax2,y="value", x="class", hue="model", data=df_pp_mod, palette=colors,errwidth=1,capsize=0.03)
 
-ax2.set_ylabel('F1-score',fontsize='27')    
+ax2.set_ylabel('F1-score',fontsize='12')    
 ax2.set_xlabel('')
 l = ax2.legend()
-plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
+#plt.setp(ax2.get_legend().get_texts(), fontsize='27') # for legend text
 
 handles2, labels2 = ax2.get_legend_handles_labels()
 
 ax2.set(ylim=(0, 1))
 #ax2.set(xlim=(-0.5, 5.5))
 plt.yticks(numpy.arange(0, 1.1, 0.1))
-#ax2.set_xticklabels(['di','di_p','tri','tri_p','di_sc','di_sc_p','tri_sc','tri_sc_p','all'])
-plt.legend(handles2,labels2,handlelength=2,fontsize=27,markerfirst=False,handletextpad=0.1,
-           loc='upper right',bbox_to_anchor=(1.33, 1))
-fig2.savefig(os.path.join('08_figures','f1_score_master_per_class_pp'),bbox_inches="tight")
+ax2.set_xticklabels(extra_labels)
+plt.legend(handles2,labels2,handlelength=2,fontsize=11,markerfirst=False,handletextpad=0.1,
+           loc='upper right',bbox_to_anchor=(1.4, 1))
+fig2.savefig(os.path.join('08_figures','f1_score_master_per_class_pp.tif'),bbox_inches="tight",dpi=300)
 
 plt.show()
 
@@ -304,9 +333,9 @@ predicted_Y=numpy.sum(yhats_v, axis=0)
 predicted_Y_index = numpy.argmax(predicted_Y, axis=1)
 
 # %%
-pickle.dump(predicted_Y_index, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_index_{}.p".format(stop_time)), "wb" ) )
-pickle.dump(predicted_Y, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_{}.p".format(stop_time)), "wb" ) )
-pickle.dump(test_Y, open( os.path.join('08_figures','CM',"CM_test_Y_{}.p".format(stop_time)), "wb" ) )
+#pickle.dump(predicted_Y_index, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_index_{}.p".format(stop_time)), "wb" ) )
+#pickle.dump(predicted_Y, open( os.path.join('08_figures','CM',"CM_predicted_test_Y_{}.p".format(stop_time)), "wb" ) )
+#pickle.dump(test_Y, open( os.path.join('08_figures','CM',"CM_test_Y_{}.p".format(stop_time)), "wb" ) )
 
 # %%
 #predicted_Y_index=pickle.load(open( os.path.join('08_figures','CM',"CM_predicted_test_Y_index_{}.p".format(stop_time)), "rb" ))
@@ -315,8 +344,8 @@ pickle.dump(test_Y, open( os.path.join('08_figures','CM',"CM_test_Y_{}.p".format
 
 # %%
 from sklearn.metrics import classification_report
-labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
-             "Tail shaft","Collar","Head-Tail joining","Others"]
+#labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+#             "Tail shaft","Collar","Head-Tail joining","Others"]
 print(classification_report(test_Y, predicted_Y_index, target_names=labels_names ))
 
 # %%
@@ -324,9 +353,10 @@ zz=Counter(test_Y)
 sample_w=[zz[i] for i in range(0,11,1)]
 CM=confusion_matrix(test_Y, predicted_Y_index)
 CM_n=CM/numpy.array(sample_w)[:,None]
-scale_up=1.4
+scale_up=1
 
 # %%
+
 plt.viridis()
 #plt.grid(b=None)
 plt.figure(figsize=[6.4*scale_up, 4.8*scale_up])
@@ -335,17 +365,17 @@ plt.imshow(CM_n, interpolation='nearest')
 #plt.colorbar()
 plt.grid(b=None)
 tick_marks = numpy.arange(len(labels_names))
-plt.xticks(tick_marks, labels_names, rotation=90,fontsize='15')
-plt.yticks(tick_marks, labels_names,fontsize='15')
+plt.xticks(tick_marks, labels_names, rotation=90,fontsize='10')
+plt.yticks(tick_marks, labels_names,fontsize='10')
 fmt = '.2f'
 for i, j in itertools.product(range(CM_n.shape[0]), range(CM_n.shape[1])):
-    plt.text(j, i, format(CM_n[i, j], fmt),horizontalalignment="center",verticalalignment='center',
+    plt.text(j, i, format(CM_n[i, j], fmt),horizontalalignment="center",verticalalignment='center',fontsize=10,
     color="white" if CM_n[i, j] < 0.50 else "black")
-plt.ylabel('True Class',fontsize='20')
-plt.xlabel('Predicted Class',fontsize='20')
+plt.ylabel('True Class',fontsize='12')
+plt.xlabel('Predicted Class',fontsize='12')
 plt.clim(0,1)
 #plt.savefig('08_figures/tetra_sc_tri_p_CM.png',bbox_inches="tight")
-plt.savefig(os.path.join('08_figures','CM',stop_time),bbox_inches="tight")
+plt.savefig(os.path.join('08_figures','CM',stop_time+'.tif'),bbox_inches="tight",dpi=300)
 plt.show()
 
 
@@ -547,8 +577,8 @@ ax.set_aspect(10)
 predicted_Y_index[predicted_Y.max(axis = 1) > 5].shape
 
 # %%
-labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
-                "Tail shaft","Collar","Head-Tail joining","Others"]
+#labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+#                "Tail shaft","Collar","Head-Tail joining","Others"]
 #exclude_d = {'precision': [], 'recall': [],'f1-score':[],'accuracy':[],'Portion excluded':[],'threshold':[]}
 exclude_d = {'score_type':[],'value':[],'threshold':[]}
 total_test =test_Y.shape[0]
@@ -592,8 +622,8 @@ ax.set(ylim=(-0.03, 1.03))
 ax.set_aspect(10)
 
 # %%
-labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
-                "Tail shaft","Collar","Head-Tail joining","Others"]
+#labels_names=["Major capsid","Minor capsid","Baseplate","Major tail","Minor tail","Portal","Tail fiber",
+#                "Tail shaft","Collar","Head-Tail joining","Others"]
 #exclude_d = {'precision': [], 'recall': [],'f1-score':[],'accuracy':[],'Portion excluded':[],'threshold':[]}
 exclude_d = {'score_type':[],'value':[],'threshold':[]}
 total_test =test_Y.shape[0]
@@ -617,19 +647,20 @@ for score in [1,2,3,4,5,6,7,8,9,10]:
 
 
 # %%
+##figure7 creo necesita training loss?
 fig, ax = plt.subplots()
 ax.yaxis.grid(True)
 #fig.set_size_inches(18, 15)
-fig.set_size_inches(8, 6)
+fig.set_size_inches(4, 3)
     
-ax.tick_params(axis='y',labelsize=24)
-ax.tick_params(axis='x',labelsize=24)
+ax.tick_params(axis='y',labelsize=10)
+ax.tick_params(axis='x',labelsize=10)
 #ax.set_title('Model metrics : ' + df , fontsize=30,va='bottom')
     #ax.set_title('')
 sns.barplot(ax=ax,y="value", x="threshold", hue="score_type", data=df_exclude2)
 #ax.set_ylabel('')    
-ax.set_xlabel('PhANNs Score',fontsize='20')
-ax.set_ylabel('Sub-set Score',fontsize='20') 
+ax.set_xlabel('PhANNs Score',fontsize='12')
+ax.set_ylabel('Sub-set Score',fontsize='12') 
 l = ax.legend()
 #plt.setp(ax.get_legend().get_texts(), fontsize='18') # for legend text
 #print(dir(l))
@@ -637,10 +668,10 @@ ax.set(ylim=(0, 1))
     
 ax.set_xticklabels(['1','2','3','4','5','6','7','8','9','10'])
 handles3, labels3 = ax.get_legend_handles_labels()
-plt.legend(handles3,labels3,handlelength=2,fontsize=18,markerfirst=False,handletextpad=0.1,
-           loc='upper right',bbox_to_anchor=(1.5, 1))
+plt.legend(handles3,labels3,handlelength=2,fontsize=11,markerfirst=False,handletextpad=0.1,
+           loc='lower left')
 plt.show()
-fig.savefig('08_figures/exclude_by_score.png',bbox_inches="tight")
+fig.savefig('08_figures/exclude_by_score.tif',bbox_inches="tight",dpi=300)
 #fig.savefig(os.path.join('08_figures','avg_score_master',stop_time),bbox_inches="tight")
 
 # %%

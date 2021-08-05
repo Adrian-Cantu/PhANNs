@@ -105,8 +105,8 @@ for model_name in all_models:
 df
 
 # %%
-pickle.dump(df, open( open( os.path.join('09_logistic_models','log_kfold_df.p'),'rb') )
-#df=pickle.load(open( os.path.join('09_logistic_models','log_kfold_df.p'),'rb'))
+#pickle.dump(df, open( open( os.path.join('09_logistic_models','log_kfold_df.p'),'rb') )
+df=pickle.load(open( os.path.join('09_logistic_models','log_kfold_df.p'),'rb'))
 
 # %%
 df_un=pickle.load(open( os.path.join('07_models','all_results_df.p'),'rb'))
@@ -165,6 +165,18 @@ fig3.savefig(os.path.join('09_logistic_models','derep_per_model.png'),bbox_inche
 plt.show()
 
 # %%
+kk1=df_si_f1[df_si_f1['model']=='tetra_sc_tri_p']
+
+
+# %%
+kk1
+
+# %%
+print(kk1[kk1['Model']=='logistic regression']['F1-score'].mean())
+print(kk1[kk1['Model']=='1D-10D ANN ensemble']['F1-score'].mean())
+print(kk1[kk1['Model']=='1d-10d ANN ensemble']['F1-score'].mean())
+
+# %%
 xx='tetra_sc_tri_p'
 ddd = {'class': [],'Model':[],'F1-score':[]}
 df_class_f1 = pd.DataFrame(data=ddd)
@@ -204,3 +216,5 @@ plt.setp(ax4.get_legend().get_title(),fontsize='0',text='')
 plt.setp(ax4.get_legend().get_texts(), fontsize='20')
 fig4.savefig(os.path.join('09_logistic_models','derep_per_class.png'),bbox_inches="tight")
 plt.show()
+
+# %%
