@@ -1,0 +1,14 @@
+[Unit]
+Description=service to run back-end
+After=network.target
+
+[Service]
+User=adrian
+Group=www-data
+WorkingDirectory=/home/adrian/PhANNs/web_server
+Environment="PATH=/home/adrian/anaconda3/envs/tf2_cpu/bin/"
+ExecStart=/home/adrian/anaconda3/envs/tf2_cpu/bin/python run_server.py
+
+[Install]
+WantedBy=multi-user.target PhANNs.target
+

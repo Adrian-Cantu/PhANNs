@@ -1,4 +1,5 @@
 import time
+import logging
 import Phanns_f
 import ann_config
 import os
@@ -10,9 +11,11 @@ for mydir in ['saves','uploads','csv_saves']:
     files=os.listdir(mydir)
     for f in files:
         if not f.startswith('.'):
-            done[f]=True
-            #os.remove(os.path.join(mydir, f))
-print('READY')
+            #done[f]=True
+            os.remove(os.path.join(mydir, f))
+#print('READY')
+logging.info("READY")
+
 
 while True:
     #  Wait for next request from client
