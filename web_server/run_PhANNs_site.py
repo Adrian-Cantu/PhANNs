@@ -61,7 +61,7 @@ def sorttable_filter(s):
 
 
 def prot_check(sequence):
-    return (set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*") and (len(sequence)>0))
+    return (set(sequence.upper()).issubset("ABCDEFGHIJKLMNPQRSTVWXYZ*") and (len(sequence)>3))
 
 
 
@@ -177,6 +177,45 @@ def interpret():
 def change():
     return render_template('change.html', title='Changes' )
 
+@app.route('/clean', methods=['GET', 'POST'])
+def clean_file():
+    if request.method == 'POST':
+            # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+         #   return redirect()
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            #filename = secure_filename(file.filename)
+            filename = randomStringDigits(15) + '.fasta'
+            file.save(os.path.join('temp_clean_saves', filename))
+            print("renamed file: " + file.filename + ' ---> ' + filename)
+            #print( fix_url_for('bar',filename=filename))
+            #print( url_for('bar',filename=filename))
+            total_fasta=0
+            all_fasta=0
+            good_sequences = []
+            for record in SeqIO.parse(os.path.join('temp_clean_saves', filename), "fasta"):
+                all_fasta+=1
+                if prot_check(str(record.seq)):
+                    good_sequences.append(record)
+                    total_fasta+=1
+            if all_fasta==0:
+                return render_template('error.html',error_h="Not a fasta file" ,error_msg=file.filename + ' is not a fasta file')
+            if all_fasta>app.config['FASTA_SIZE_LIMIT']:
+                return render_template('error.html',error_h="Too many sequences" ,error_msg="{} has {:d} sequences while the limit is {:d}".format(file.filename,all_fasta,app.config['FASTA_SIZE_LIMIT']))
+            if total_fasta==0:
+                return render_template('error.html',error_h="Not a fasta file" ,error_msg=file.filename + ' has no valid sequences')
+
+            #os.rename(os.path.join('temp_clean_saves', filename),os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            SeqIO.write(good_sequences, os.path.join(app.config['UPLOAD_FOLDER'], filename) , "fasta")
+            return redirect(url_for('bar',filename=filename)) 
+    return render_template('clean.html')
 
 if __name__ == "__main__":
     #app.run(debug=True, host="0.0.0.0", port=8080)
