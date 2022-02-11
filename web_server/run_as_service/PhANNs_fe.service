@@ -1,0 +1,14 @@
+[Unit]
+Description=service to run front-end
+After=network.target
+
+[Service]
+User=adrian
+Group=www-data
+WorkingDirectory=/home/adrian/PhANNs/web_server
+Environment="PATH=/home/adrian/anaconda3/envs/tf2_cpu/bin/"
+ExecStart=/home/adrian/anaconda3/envs/tf2_cpu/bin/gunicorn --worker-class=gevent --worker-connections=1000 --workers=5 --bind 0.0.0.0:8080 -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target PhANNs.target
+

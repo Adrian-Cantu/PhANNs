@@ -1,18 +1,38 @@
+#server {
+#    listen 80;
+#    server_name edwards.sdsu.edu;
+#    location / {
+#        return 301 https://$host$request_uri;
+#    }
+#}
+
+
+
 server {
     listen 80 default_server;
     server_name edwards.sdsu.edu;
+
+#    ssl_certificate /home/adrian/PhANNs/web_server/edwards_sdsu_edu_cert.cer;
+#    ssl_certificate_key /home/adrian/PhANNs/web_server/edwards.key;
 	
 
     location / {
         include proxy_params;
-    	proxy_pass http://0.0.0.0:8080;
+    	proxy_pass http://10.0.1.191:8080;
 	}
 
-	location /adrian_net/ {
-		proxy_set_header Host $host;
-		include proxy_params;
-		proxy_pass http://0.0.0.0:8080/;
-	}
 
+#    location /socket.io {
+#        include proxy_params;
+#	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#        proxy_set_header Host $host;
+#        proxy_http_version 1.1;
+#        proxy_buffering off;
+#        proxy_set_header Upgrade $http_upgrade;
+#        proxy_set_header Connection "Upgrade";
+
+#	proxy_cache_bypass $http_upgrade;
+#        proxy_pass http://0.0.0.0:5000/myso;
+#    }
 
 }
