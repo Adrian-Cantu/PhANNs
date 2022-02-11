@@ -1,0 +1,24 @@
+# ANN_site
+
+##install conda enviroment
+conda env export | grep -v "^prefix: " > environment.yml
+conda env create -f environment.yml
+
+
+
+#set and run site
+sudo cp PhANNs_be.service /etc/systemd/system/
+sudo systemctl start PhANNs_be.service
+sudo cp PhANNs_fe.service /etc/systemd/system/
+sudo systemctl start PhANNs_fe.service
+
+#set nginx 
+sudo cp nginx_ANN_site /etc/nginx/sites-enabled/ANN_site
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
+
+
+#set firewall rules
+
+sudo ufw allow 'Nginx Full'
+
