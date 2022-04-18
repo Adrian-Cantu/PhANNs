@@ -158,6 +158,12 @@ class ann_result:
             (names,arr)=self.extract_n()
             yhats = [model.predict(arr) for model in load_server.models]
             yhats_v=numpy.array(yhats)
+            #### export the score for each protein for each net ####
+
+            pickle.dump( yhats , open( "thats.p", "wb" ) )
+            pickle.dump( names , open( "thats_names.p", "wb"))
+
+            ###
             predicted_Y=numpy.sum(yhats_v, axis=0)
             #predicted_Y=numpy.sum(yhats_v, axis=0)
             col_names=["Major capsid","Minor capsid","Baseplate",

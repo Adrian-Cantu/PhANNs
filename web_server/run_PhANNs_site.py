@@ -38,7 +38,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["KERAS_BACKEND"]="tensorflow"
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key_4853rfgttr5!'
-app.config['FASTA_SIZE_LIMIT']=5000
+app.config['FASTA_SIZE_LIMIT']=500000000
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['APPLICATION_ROOT']='/adrian_net'
@@ -88,9 +88,11 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             #filename = secure_filename(file.filename)
-            filename = randomStringDigits(15) + '.fasta' 
-            file.save(os.path.join('temp_saves', filename))
-            print("renamed file: " + file.filename + ' ---> ' + filename)
+            #filename = randomStringDigits(15) + '.fasta' 
+            filename = file.filename
+            #file.save(os.path.join('temp_saves', filename))
+            file.save(os.path.join('temp_saves', file.filename))
+            print("NOT renamed file: " + file.filename + ' ---> ' + filename)
             #print( fix_url_for('bar',filename=filename))
             #print( url_for('bar',filename=filename))
             total_fasta=0
