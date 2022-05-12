@@ -11,9 +11,9 @@ dependencies:
   - binutils_linux-64=2.31.1=h6176602_8
   - biopython=1.74=py37h7b6447c_0
   - blas=1.0=mkl
-  - c-ares=1.15.0=h7b6447c_1001
-  - ca-certificates=2019.11.27=0
-  - certifi=2019.11.28=py37_0
+  - c-ares=1.18.1=h7f8727e_0
+  - ca-certificates=2022.3.29=h06a4308_0
+  - certifi=2021.10.8=py37h06a4308_2
   - cffi=1.13.2=py37h2e261b9_0
   - click=7.0=py_0
   - cryptography=2.8=py37h1ba5d50_0
@@ -22,9 +22,10 @@ dependencies:
   - gast=0.2.2=py37_0
   - gcc_impl_linux-64=7.3.0=habb00fd_1
   - gcc_linux-64=7.3.0=h553295d_8
+  - gevent=21.8.0=py37h7f8727e_1
   - google-pasta=0.1.8=py_0
   - grpcio=1.16.1=py37hf8bcb03_1
-  - gunicorn=20.0.0=py37_0
+  - gunicorn=20.1.0=py37h06a4308_0
   - gxx_impl_linux-64=7.3.0=hdf63c60_1
   - gxx_linux-64=7.3.0=h553295d_8
   - h5py=2.9.0=py37h7918eee_0
@@ -38,12 +39,14 @@ dependencies:
   - keras-base=2.2.4=py37_0
   - keras-preprocessing=1.1.0=py_1
   - libedit=3.1.20181209=hc058e9b_0
+  - libev=4.33=h7f8727e_1
   - libffi=3.2.1=hd88cf55_4
   - libgcc-ng=9.1.0=hdf63c60_0
   - libgfortran-ng=7.3.0=hdf63c60_0
   - libgpuarray=0.7.6=h14c3975_0
   - libprotobuf=3.10.1=hd408876_0
   - libstdcxx-ng=9.1.0=hdf63c60_0
+  - libuv=1.40.0=h7b6447c_0
   - mako=1.1.0=py_0
   - markdown=3.1.1=py37_0
   - markupsafe=1.1.1=py37h7b6447c_0
@@ -54,7 +57,7 @@ dependencies:
   - ncurses=6.1=he6710b0_1
   - numpy=1.17.4=py37hc1035e2_0
   - numpy-base=1.17.4=py37hde5b4d6_0
-  - openssl=1.1.1d=h7b6447c_3
+  - openssl=1.1.1n=h7f8727e_0
   - opt_einsum=3.1.0=py_0
   - pandas=0.25.3=py37he6710b0_0
   - pip=19.3.1=py37_0
@@ -88,9 +91,11 @@ dependencies:
   - xz=5.2.4=h14c3975_4
   - yaml=0.1.7=had09818_2
   - zlib=1.2.11=h7b6447c_3
+  - zope=1.0=py37_1
+  - zope.event=4.5.0=py37_0
+  - zope.interface=5.4.0=py37h7f8727e_0
   - pip:
     - dnspython==1.16.0
     - eventlet==0.25.1
     - greenlet==0.4.15
     - monotonic==1.5
-
