@@ -8,8 +8,10 @@ conda env create -f environment.yml
 
 #set and run site
 sudo cp PhANNs_be.service /etc/systemd/system/
-sudo systemctl start PhANNs_be.service
+sudo systemctl enable myservice
+sudo systemctl start PhANNs_fe.service
 sudo cp PhANNs_fe.service /etc/systemd/system/
+sudo systemctl enable PhANNs_fe.service
 sudo systemctl start PhANNs_fe.service
 
 #set nginx 

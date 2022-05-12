@@ -9,16 +9,18 @@
 
 
 server {
+    listen 443 ssl;
     listen 80 default_server;
-    server_name edwards.sdsu.edu;
-
+    server_name phanns.com;
+    ssl_certificate     /etc/letsencrypt/live/phanns.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/phanns.com/privkey.pem;
 #    ssl_certificate /home/adrian/PhANNs/web_server/edwards_sdsu_edu_cert.cer;
 #    ssl_certificate_key /home/adrian/PhANNs/web_server/edwards.key;
 	
 
     location / {
         include proxy_params;
-    	proxy_pass http://10.0.1.191:8080;
+    	proxy_pass http://localhost:8080;
 	}
 
 
