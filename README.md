@@ -4,7 +4,7 @@ PhANNs is a tool to classify any phage ORF as one of 10 structural protein class
 
 ## Quick start
 
-The easiest way to run PhANNs it to use the [Web server.](https://edwards.sdsu.edu/phanns)
+The easiest way to run PhANNs it to use the [Web server.](https://phanns.com/)
 
 ## Repository
 
@@ -13,13 +13,13 @@ The repository is divided in two parts. The ["web\_server"](https://github.com/A
 
 ## Paper
 
-PhANNs paper is under review, a preprint is availble from bioRxiv [here](https://www.biorxiv.org/content/10.1101/2020.04.03.023523v1).
+PhANNs paper is available [here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007845).
 
-[![PhANNs](qr.png)](https://www.biorxiv.org/content/10.1101/2020.04.03.023523v1)
+
 
 ## Cite
 
 Please cite as
 ```
-Cantu, V.A., Salamon, P., Seguritan, V., Redfield, J., Salamon, D., Edwards, R.A., and Segall, A.M. (2020). PhANNs, a fast and accurate tool and web server to classify phage structural proteins. BioRxiv 2020.04.03.023523.
+Cantu, V.A., Salamon, P., Seguritan, V., Redfield, J., Salamon, D., Edwards, R.A., and Segall, A.M. (2020). PhANNs, a fast and accurate tool and web server to classify phage structural proteins. PLOS Computational Biology 16, e1007845. 10.1371/journal.pcbi.1007845.
 ```
